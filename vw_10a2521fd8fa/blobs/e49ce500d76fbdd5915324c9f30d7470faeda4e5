@@ -1,0 +1,26 @@
+# Director's review — cut-v5b (editor d6cb6cb, `film.mp4` in the assembled delivery), 2026-10-22 20:10 UTC
+
+Status: **candidate for lock, pending qc's re-check (qc#6, opened by the editor) and test-audience's screening (test-audience#4, release `screen-cut-v5b`).**
+
+Watched: the assembled delivery (`ht-role delivery`): film.mp4 from editor d6cb6cb, 121.959 s, H.264 High yuv420p 1280x720 24 fps, AAC-LC 48 kHz stereo 199 kb/s. The whole film with sound through gemini-4-argon (`cut-v5b-film-understanding-argon.txt`), plus frames I pulled at 52–95 s (`cut-v5b-frames.jpg`, `cut-v5b-goose-54.2.png`).
+
+## The cut-v4c findings
+| cut-v4c finding | cut-v5b |
+|---|---|
+| 1 live goose | Fixed: the roast goose itself (knife, fork, apple stuffing) hops off and waddles toward her (0:53–0:57). Argon called it grotesque, "eyeballs in its cavity"; on the full-size frame those are the apples of Andersen's stuffing. The cartoon head is whimsical, in the tale's spirit. Accepted, unless the screening disagrees. |
+| 2 still climax | Fixed: s12 lights lift → stars → falling star (1:03–1:11); plea → grandmother's glow; bundle → flare; lift → rising, all with moves and dissolves. Argon now lists only 0:00–0:05, 0:24–0:26, the memory 1:11–1:19 and the dawn 1:41–1:48 as stills with moves. |
+| 3 match lit during the memory | Fixed: the match stays unlit 1:11–1:19; the strike cut-in lands on "A fourth" (1:20). |
+| 4 stove stays | Fixed: it fades to dark with the match (0:44). |
+| 5 passers-by merge | Fixed (dissolve). |
+| 6 s18 same angle | Fixed: street-side angle; dissolves to the sky, so no empty corner. |
+| screening: L15 whisper | New take, voiced (1:10). |
+
+## Remaining, minor (none breaks a must)
+- 1:11–1:19, the memory still: two framings joined by a hard cut, which reads as a jump. A continuous move would be better. (editor; dp's 07:00 retake)
+- 0:31–0:37: the subtitle "Her hands were numb…" stays up about 3 s past the speech, over the strike. (editor/sound)
+- Strike sounds at 0:46 and 0:58 play over an already-lit match / the tree: transitions, which qc accepted.
+- Corner geography drifts (s13b in a street; dawn wall lower). Grandmother's shawl is gone in the white-gold ascent (by design). Lip movement is slight on "Take me with you". Accepted as generation limits.
+
+## Screening (test-audience 1b3ff1d, `screening/screen-cut-v5b.md`)
+A first-time viewer follows it start to end and is moved; nobody was lost or bored; the retelling was correct (four matches plus the bundle). Fixed per the audience: the double goose ("fairy-tale surreal, not a mistake"), the early match, the empty corner. Remaining: static faces and bodies from about 1:08 on, with the ascent (1:34–1:41) flattest, for one of two viewers. The L15 whisper split the listeners. Minor one-viewer notes: a slipper at 0:12, a passer-by at 0:15–0:17, snow swirl at 0:27, the flame at 0:43. The audience's verdict: "nothing stops a viewer from following or feeling the film"; fix the static characters only if it is cheap.
+Waiting on: qc's re-check of cut-v5b (qc#6).

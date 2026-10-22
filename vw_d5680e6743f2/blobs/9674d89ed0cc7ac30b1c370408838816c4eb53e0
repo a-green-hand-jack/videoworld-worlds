@@ -1,0 +1,35 @@
+# Screening of cut-v3 (director release `screen-cut-v3`, `paper-lantern-cut-v3.mp4`)
+
+**How I watched.** Downloaded the asset (21.5 s, 1280x720, H.264 + AAC stereo, ffprobe). I do not play video in real time: I saw a 2 fps contact sheet of the whole film, full frames at 1.5, 5, 7, 8.5, 11, 14.5, 17.5, 18.5, 19.5, 20.5 s, and found the cut points by frame difference. **I could not hear the sound.** My `audio-understanding` requests returned HTTP 429 (Too Many Requests) on four tries in this turn (first try, plus three retries spaced 20 s), so I have no listening report for cut-v3 and do not infer one. The only sound facts below are measurements from ffmpeg ebur128, which say nothing about what the sound is like. Times are ±0.5 s except where a range is given.
+
+## What I understood
+A child in a yellow sweater kneels on stone steps at a river at dusk, sets a glowing paper lantern on the water and lets go. The lantern floats off past the village, the child sits and watches as the sky turns to night, and the last picture is a wide starry river with one small warm light on the horizon. It's about letting something go and watching it become a distant light. I got that with no help.
+
+## Timecoded notes
+- **0–0.6** Fade up from black; the title is already faintly visible in the fade.
+- **0.6–2.8 Title "The Paper Lantern":** clearly legible, cream-gold serif, centred and larger than in cut-v1, with a low sun on the horizon. It reads easily. Held me: it tells place and time at once.
+- **2.8–3.3** Dissolve to the child's shot. Clean; no ghosting I noticed.
+- **3.3–~6.3 Child kneeling, lantern at the water's edge.** Clear. The premise lands here.
+- **~6.3–10.0 Release shot (close, slow push in).** The child is now at the left edge, kneeling, hands drawn back and held together at the chest, with the lantern floating by itself a short way out with ripples around it (frames at 7.0 and 8.5). **Yes, this reads as letting go.** In cut-v1 I couldn't tell; now I can: the hands are away and the lantern is alone. The lantern is a single lantern; no doubling (the doubled-lantern dissolves are gone; the cuts around 6.3 and 10.0 look hard). The child's face is still never seen, but the posture (hands held, watching) carries it. Held me; this is the best stretch.
+- **~10.0–13.3 Lantern small on the river past the village shore.** Easy to find (warm cube mid-frame), reads as drifted away. No doubling. Slight competition from the shore lights but fine.
+- **13.3–13.8 Dissolve** (to the child seated from behind). Smooth; I saw no ghost lantern.
+- **13.8–16.3 Child seated on the steps, watching; lantern a faint distant speck.** The quiet beat. Same mild lull as before (the picture changes little and the lantern is very faint), but short, and it now plays as a pause rather than boredom. Mild only.
+- **16.3–16.8 Dissolve**, dusk to night over the child. Smooth.
+- **16.8–18.7 Final shot, wide starry river, calm.** The sky is full of stars with a Milky Way, mirrored in a dark river; a single small warm light sits right on the horizon, centre-left (at x ≈ 50 %, y ≈ 60 % of frame at 17.5 and 18.5), with a thin glow line. **Yes, this reads as "a small light among the stars"**: the horizon line is where the lantern meets the starfield and its reflection, so it isn't read as another shore light as in cut-v1. I could find it at first glance. It is small, but that's the idea. A viewer who has not seen the earlier shots might read it as a distant house light, but with the story before it, it works.
+- **18.7–19.2 Dissolve** to the end card.
+- **19.2–21.5 End card "The End"** (cream-gold serif on a night village picture; bright and clean), fully legible from about 19.3, held roughly 1.5 s before fading to black from ~20.7. Reads easily, with time to read it. Reasonable closing beat.
+
+## Sound
+**Not heard** (429 on every try; see top). Measured only: integrated loudness -16.1 LUFS, loudness range 2.1 LU, true peak -1.9 dBFS, stereo AAC. No silence of 0.3 s or more below -50 dB found by ffmpeg `silencedetect`. These numbers don't say whether it's river or brook, whether crickets and music are there, or whether the accents at ~7 s and ~18 s are audible or clean; I report none of that. I'm available to listen again if the resource recovers, but I can't do so now.
+
+## Where I was held / confused / pulled out
+- **Held:** title shot; the release (6.3–10.0); the final starry wide shot (16.8–18.7).
+- **Confused:** nothing in the story.
+- **Mild lull:** 13.8–16.3, the child sitting with a barely visible lantern.
+- **Pulled out:** nothing this time. No doubled lanterns, no ghost child, no pops in the picture that I could see in sampled frames; I can't say about sampling gaps between frames.
+
+## Against what I reported on cut-v1
+Doubled lanterns: gone. Release unclear: now reads as letting go. End lantern not among the stars: now reads as a light on the horizon among the stars. Title contrast: better. End card hold: longer. Water as brook: **unknown** for cut-v3 (not heard).
+
+## For lock
+Picture and story, from my sampled viewing: ready. **Sound is unscreened:** I can't speak for it. If you want a heard check, it needs another listener or a retry once the resource stops returning 429.

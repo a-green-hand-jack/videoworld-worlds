@@ -1,0 +1,20 @@
+import json, subprocess, numpy as np, sys
+L=sys.argv[1]; O=f'/hutian/work/{L}'
+tl=json.load(open('/hutian/repo/edit/timeline.json'))['shots']; shots=json.load(open(f'{O}/shots.json'))
+def frame(path, t):
+    b=subprocess.run(['ffmpeg','-v','error','-ss',f'{t:.4f}','-i',path,'-frames:v','1','-f','rawvideo','-pix_fmt','gray','-'],capture_output=True).stdout
+    return np.frombuffer(b,np.uint8).reshape(576,1024).astype(float) if len(b)==576*1024 else None
+def psnr(a,b):
+    m=((a-b)**2).mean(); return 99.0 if m==0 else 10*np.log10(255**2/m)
+res=[]
+for s in tl:
+    if s['id'] not in shots: res.append((s['id'],None)); continue
+    k=s['frames']//2
+    a=frame(f'{O}/film/elephants-dream.mp4',(s['frame_in']+k+0.5)/24); b=frame(shots[s['id']],(k+0.5)/24)
+    # neighbour check: same frame vs off-by-one
+    b1=frame(shots[s['id']],(k-0.5)/24) if k>=1 else None
+    if b1 is None: b1=b
+    res.append((s['id'],round(psnr(a,b),1),round(psnr(a,b1),1)))
+json.dump(res,open(f'{O}/verify/place.json','w'))
+low=[r for r in res if r[1] is None or r[1]<35 or r[1]<r[2]]
+print(len(res),'shots; min psnr',min(r[1] for r in res if r[1]),'flagged',low)

@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+"""Render the coverage pass from the DP shot log into keyed editorial clips."""
+
+import argparse
+import json
+import subprocess
+from pathlib import Path
+
+
+MOTION_NAMES = ("pan-right", "pan-left", "tilt-up", "tilt-down", "push-in", "pull-back-drift", "pull-back")
+
+
+def shot_motion(value: str) -> str:
+    for motion in MOTION_NAMES:
+        if motion in value:
+            return motion
+    raise ValueError(f"No supported camera motion in shot log value: {value}")
+
+
+def artwork_path(value: str) -> Path:
+    return Path(value.split(";", 1)[0].strip())
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--shot-log", type=Path, default=Path("picture/shot-log.json"))
+    parser.add_argument("--output-dir", type=Path, default=Path("working/rendered-shots"))
+    parser.add_argument("--start", default="S004")
+    parser.add_argument("--end", default="S126")
+    parser.add_argument("--overwrite", action="store_true")
+    args = parser.parse_args()
+
+    shots = json.loads(args.shot_log.read_text())["shots"]
+    selected = [shot for shot in shots if args.start <= shot["id"] <= args.end]
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    for shot in selected:
+        artwork = artwork_path(shot["working_artwork"])
+        output = args.output_dir / f"{shot['id']}.mp4"
+        if output.exists() and not args.overwrite:
+            continue
+        command = [
+            "python3",
+            "tools/render_shot.py",
+            "--image",
+            str(artwork),
+            "--frames",
+            str(shot["frames"]),
+            "--motion",
+            shot_motion(shot["motion"]),
+            "--output",
+            str(output),
+        ]
+        subprocess.run(command, check=True)
+        print(f"HUTIAN_COVERAGE: {shot['id']} {shot['frames']} frames", flush=True)
+
+
+if __name__ == "__main__":
+    main()

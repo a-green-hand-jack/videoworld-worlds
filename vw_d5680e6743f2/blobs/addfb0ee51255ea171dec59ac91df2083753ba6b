@@ -1,0 +1,13 @@
+{
+  "commitment_schema": 1,
+  "delivers": [
+    {
+      "what": "Design bible and published reference image release defining the child, paper lantern, riverside village and dusk-to-stars visual style, under design/.",
+      "standard": "One coherent illustrated world; identifiable child and lantern remain consistent in all appearances; the lantern stays a floating river light as it becomes small among reflected stars. References and invariants support every approved shot."
+    },
+    {
+      "what": "Five finished silent picture shots and two text-free card plate clips, source stills, camera-move specification and shot log, under picture/ and a repository release relayed by director to editor.",
+      "standard": "1280x720 at 24 fps, following director script at 27c0bffa94f8ef9e2831305cd991b6e2843706d5, including 0.5-second tail handles. Explicit visible release by the child, passage along the village, final small lantern light among river-reflected stars; visually inspected with documented timecoded checks and stable filenames for editorial assembly. Screening revision: shot02 must clearly show withdrawn hands after release, and shot05 must make the tiny warm light read among surrounding stars at a visually merged river/sky horizon; retain the five unchanged clips."
+    }
+  ]
+}

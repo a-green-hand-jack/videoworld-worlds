@@ -1,0 +1,19 @@
+# Character identity reference — Proog v1
+
+**Approved new-picture design likeness:** DP `working/s002-proog-revised.png` at commit `540244a6d92ed79dc33d7d61976dabb6873a2038`, also attached as a **design reference** in the `design-character-v1` release. This is not a finished shot; DP owns any animations and changes of pose. The approval is in production-designer#5 and applies to Proog’s recognizable face/costume in every later shot. It follows the frozen film S002 at 00:26.5, alongside the source reference S002 in `design-shot-reference-v2` (original film by Orange Open Movie Project / Blender Foundation, CC BY 2.5). Source pixels are study-only, never output picture.
+
+- Head: bald prominent crown, loose sparse greying side wisps, moderately jutting ears; brow heavy and knit over narrow cool grey-blue eyes. Under a change of angle, retain the strongly projecting long hook-nose with thickening tip, deeply folded gaunt cheeks, defined square chin and short grey sideburn patches (not a full beard).
+- Costume: long dark olive coat, **low soft collar**, wine/maroon knitted chest panel, narrow grey-brown trousers and dark shoes when shown wide. Red lamps can redden skin, not change the coat or sweater. The hand silhouette stays long and expressive.
+- S002 framing is an alarmed three-quarter close-up. Another angle may expose a different ear/eye shape, but use consistent bone lengths and features, not a new generated face on every shot. Freeze the design in DP prompts, key frames and QC picture checks. Proog remains taller/older/heavier-coated than the younger dark-haired Emo.
+- This portrait has been visually compared to original S002 midpoint (00:26.5) and source 05:45; it is not a claim that DP’s eventual 35-frame S002 animation, turn or dialogue sync has been seen. Those require review on a released shot/cut.
+
+## Costume continuity lock
+
+This lock resolves the costume drift identified in QC cut-v4 report F5. It applies to every picture shot unless the director explicitly approves a story-motivated change:
+
+- **Emo:** plain fitted washed-out grey-green **round crew-neck** shirt with one subtle dark stitched horizontal chest seam, close grey trousers and dark shoes. This neckline is canonical for **S003–S126 inclusive** wherever Emo is visible, including S075. The seam is decorative; no functional fastening is visible. Do not add a turn-down/polo collar, lapel, buttons, vertical placket, henley, suspenders, shoulder strap or bag strap. Its apparent hue may respond to cyan, red, green or amber scene light, but its cut and grey-green base remain unchanged.
+- **Proog:** long dark olive/sage-green coat with the low soft collar, over the wine/maroon knitted chest panel, narrow grey-brown trousers and dark shoes when visible. Warm light may make the coat read browner or more golden, but the base coat remains olive; no bag or diagonal shoulder strap is part of the costume.
+
+QC and DP should use this sheet to replace the S042–S075 suspender variant, S078–S126 henley variant, and S084-on brown strapped Proog variant with the locked garments. These are costume corrections, not new character designs.
+
+The release comparison card puts the **ORIGINAL SOURCE frame on the left** and **newly rendered approved DP identity on the right**. Both sides are review references only. For Emo's face/costume, use `design/bible.md` and the timecoded stills until a new-picture Emo likeness receives its own explicit approval.

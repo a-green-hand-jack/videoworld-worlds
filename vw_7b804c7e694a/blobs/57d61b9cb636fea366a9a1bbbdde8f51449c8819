@@ -1,0 +1,31 @@
+# Brief — "The Little Match Girl" (director)
+
+## What the input asks (quoted from the `Film objective`, director#1)
+
+> Make a 2-minute (115–125 seconds) English-language short film of Hans Christian Andersen's "The Little Match Girl" (1845); the public-domain English text is in the inputs.
+>
+> Tell the whole story — the freezing New Year's Eve street, the five matches and their visions (the stove, the roast goose, the Christmas tree, her grandmother), and the morning after — so that a first-time viewer follows it and is moved. The visual style is the director's choice.
+>
+> Sound: spoken English narration as the main voice, with a few lines of dialogue where they help, plus music and sound effects. Add English subtitles, burned in or as a sidecar `.srt` file. Characters, places and the visual style must stay consistent from shot to shot.
+>
+> Deliver one playable `film.mp4` (H.264 video, AAC audio, 1080p or 720p) that a web browser plays.
+
+Source text: `/initial-state/inputs/0/the-little-match-girl.txt` (Project Gutenberg #1597, public domain).
+
+## Focus and priorities for this round
+
+1. **The whole story, readable by a first-time viewer, in 115–125 s.** Every beat is on screen and in the narration: the freezing New Year's Eve street (lost slippers, no sales), the corner, five strikes — 1 stove, 2 roast goose (it hops toward her), 3 Christmas tree (its lights become stars; a falling star), 4 grandmother, 5 the whole bundle — the ascent with grandmother, and the cold morning after with the people who find her. Clarity first, then feeling: the film must move.
+2. **Consistency.** One girl, one grandmother, one street corner, one visual style, from first shot to last. Designs are fixed before shots are generated; every shot is made from the approved designs.
+3. **Sound carries the story.** Narration is the main voice (one warm, grave storyteller), four short lines of dialogue (the girl three times, a passer-by once), a score that moves from cold to warm to luminous to hushed, and effects (wind, carriages, the match strike, the flame).
+4. **A file that plays.** One `film.mp4`, H.264 + AAC, 1280×720 at 24 fps, English subtitles burned in, playable in a web browser.
+
+Visual style (director's choice): a painted storybook — soft gouache-and-watercolour illustration in motion, 1840s Copenhagen. The street is cold indigo, slate blue and snow-white; every match and vision is warm amber and gold; the morning after is pale grey-rose. Full direction is in the director's repository: `direction/script.md`, `direction/shot-list.md`, `direction/picture-and-sound.md`, and the delivery specification every cut is judged against, `direction/delivery-spec.md`. The test audience screens as a first-time viewer, so it is deliberately not given the script.
+
+## Budget awareness
+
+The world's model time and turns are shared and limited; video generation allows 80 requests in all. The shot list is 20 shots of 3–10 s plus an end title, leaving room to regenerate only the shots that are wrong.
+
+## What I could not establish
+
+- "Five matches": the text has four single matches (stove, goose, tree, grandmother) and then the whole bundle. I read the bundle as the fifth strike.
+- The text names Copenhagen nowhere; the 1840s Danish town is a style choice, not a requirement.

@@ -1,0 +1,399 @@
+{
+ "cut_edl": "/tmp/edl5.json",
+ "duration_s": 121.959,
+ "cues": [
+  {
+   "type": "music",
+   "file": "music/m1_cold_street.mp3",
+   "from_cue_s": 0,
+   "start_s": 0.0,
+   "end_s": 34.533,
+   "anchors": "s01.in+0.0 .. L8.start+2.15"
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/wind_snow_loop.mp3",
+   "start_s": 0.0,
+   "dur_s": 37.19,
+   "lufs_before_duck": -35
+  },
+  {
+   "type": "speech",
+   "file": "lines/L01.wav",
+   "start_s": 0.3,
+   "end_s": 5.093,
+   "speaker": "NARRATOR",
+   "text": "Bitter cold, almost dark: the last evening of the year."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/snow_footsteps.mp3",
+   "start_s": 6.033,
+   "dur_s": 4.5,
+   "lufs_before_duck": -33
+  },
+  {
+   "type": "speech",
+   "file": "lines/L02.wav",
+   "start_s": 6.133,
+   "end_s": 10.026,
+   "speaker": "NARRATOR",
+   "text": "A poor girl shuffled along in her mother's big slippers."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/carriage_fast.mp3",
+   "start_s": 10.458,
+   "dur_s": 4.5,
+   "lufs_before_duck": -26
+  },
+  {
+   "type": "speech",
+   "file": "lines/L03.wav",
+   "start_s": 10.758,
+   "end_s": 15.068,
+   "speaker": "NARRATOR",
+   "text": "Carriages raced by; she lost them, and went on barefoot."
+  },
+  {
+   "type": "speech",
+   "file": "lines/L04.wav",
+   "start_s": 15.675,
+   "end_s": 18.703,
+   "speaker": "GIRL",
+   "text": "Matches\u2026 who will buy my matches?"
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/snow_footsteps.mp3",
+   "start_s": 18.375,
+   "dur_s": 3.0,
+   "lufs_before_duck": -36
+  },
+  {
+   "type": "speech",
+   "file": "lines/L05.wav",
+   "start_s": 19.003,
+   "end_s": 21.367,
+   "speaker": "NARRATOR",
+   "text": "No one had bought a single match."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/new_year_bells.mp3",
+   "start_s": 21.9,
+   "dur_s": 5.5,
+   "lufs_before_duck": -38
+  },
+  {
+   "type": "speech",
+   "file": "lines/L06.wav",
+   "start_s": 21.967,
+   "end_s": 26.424,
+   "speaker": "NARRATOR",
+   "text": "Candles gleamed in the windows; it smelled of roast goose."
+  },
+  {
+   "type": "speech",
+   "file": "lines/L07.wav",
+   "start_s": 27.3,
+   "end_s": 31.421,
+   "speaker": "NARRATOR",
+   "text": "She huddled in a corner, afraid to go home to her father."
+  },
+  {
+   "type": "speech",
+   "file": "lines/L08.wav",
+   "start_s": 32.383,
+   "end_s": 36.74,
+   "speaker": "NARRATOR",
+   "text": "Her hands were numb. If she dared strike just one\u2026"
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/match_strike.mp3",
+   "start_s": 34.483,
+   "dur_s": null,
+   "lufs_before_duck": -22
+  },
+  {
+   "type": "music",
+   "file": "music/m2_stove_goose.mp3",
+   "from_cue_s": 0,
+   "start_s": 34.533,
+   "end_s": 46.054,
+   "anchors": "L8.start+2.15 .. L10.end+0.3"
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/flame_crackle.mp3",
+   "start_s": 34.533,
+   "dur_s": 11.521,
+   "lufs_before_duck": -33
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/stove_fire.mp3",
+   "start_s": 35.333,
+   "dur_s": 10.721,
+   "lufs_before_duck": -34
+  },
+  {
+   "type": "speech",
+   "file": "lines/L09.wav",
+   "start_s": 38.342,
+   "end_s": 43.831,
+   "speaker": "NARRATOR",
+   "text": "How it blazed! A warm iron stove seemed to stand before her."
+  },
+  {
+   "type": "speech",
+   "file": "lines/L10.wav",
+   "start_s": 44.131,
+   "end_s": 45.754,
+   "speaker": "NARRATOR",
+   "text": "Then it went out."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/flame_out.mp3",
+   "start_s": 44.281,
+   "dur_s": null,
+   "lufs_before_duck": -29
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/match_strike.mp3",
+   "start_s": 46.233,
+   "dur_s": null,
+   "lufs_before_duck": -22
+  },
+  {
+   "type": "music",
+   "file": "music/m2_stove_goose.mp3",
+   "from_cue_s": 22,
+   "start_s": 46.483,
+   "end_s": 56.633,
+   "anchors": "s09.in+0.15 .. s10.in+3.3"
+  },
+  {
+   "type": "speech",
+   "file": "lines/L11.wav",
+   "start_s": 46.633,
+   "end_s": 53.024,
+   "speaker": "NARRATOR",
+   "text": "A second: the wall became a veil, and inside, a roast goose steamed."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/goose_table.mp3",
+   "start_s": 46.933,
+   "dur_s": 9.6,
+   "lufs_before_duck": -34
+  },
+  {
+   "type": "speech",
+   "file": "lines/L12.wav",
+   "start_s": 53.633,
+   "end_s": 57.449,
+   "speaker": "NARRATOR",
+   "text": "It hopped down and waddled toward her \u2014 then darkness."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/flame_out.mp3",
+   "start_s": 56.433,
+   "dur_s": null,
+   "lufs_before_duck": -29
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/match_strike.mp3",
+   "start_s": 58.208,
+   "dur_s": null,
+   "lufs_before_duck": -22
+  },
+  {
+   "type": "music",
+   "file": "music/m3_tree_stars.mp3",
+   "from_cue_s": 0,
+   "start_s": 58.358,
+   "end_s": 72.6,
+   "anchors": "s11.in+0.15 .. s13a.in+0.6"
+  },
+  {
+   "type": "speech",
+   "file": "lines/L13.wav",
+   "start_s": 58.508,
+   "end_s": 63.64,
+   "speaker": "NARRATOR",
+   "text": "A third: she sat beneath a Christmas tree ablaze with candles."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/tree_shimmer.mp3",
+   "start_s": 58.708,
+   "dur_s": 5.0,
+   "lufs_before_duck": -30
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/flame_out.mp3",
+   "start_s": 64.1,
+   "dur_s": null,
+   "lufs_before_duck": -29
+  },
+  {
+   "type": "speech",
+   "file": "lines/L14.wav",
+   "start_s": 64.3,
+   "end_s": 70.024,
+   "speaker": "NARRATOR",
+   "text": "Out it went. The lights rose and became stars. One fell."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/tree_shimmer.mp3",
+   "start_s": 65.1,
+   "dur_s": 3.5,
+   "lufs_before_duck": -31
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/falling_star.mp3",
+   "start_s": 68.724,
+   "dur_s": 3.0,
+   "lufs_before_duck": -26
+  },
+  {
+   "type": "speech",
+   "file": "lines/L15.wav",
+   "start_s": 70.324,
+   "end_s": 72.017,
+   "speaker": "GIRL",
+   "text": "Someone is dying."
+  },
+  {
+   "type": "speech",
+   "file": "lines/L16.wav",
+   "start_s": 72.3,
+   "end_s": 79.861,
+   "speaker": "NARRATOR",
+   "text": "Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God."
+  },
+  {
+   "type": "music",
+   "file": "music/m4_grandmother_ascent.mp3",
+   "from_cue_s": 0,
+   "start_s": 72.5,
+   "end_s": 102.292,
+   "anchors": "s13a.in+0.5 .. s16.out+0.0"
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/match_strike.mp3",
+   "start_s": 80.038,
+   "dur_s": null,
+   "lufs_before_duck": -22
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/flame_crackle.mp3",
+   "start_s": 80.138,
+   "dur_s": 9.837,
+   "lufs_before_duck": -37
+  },
+  {
+   "type": "speech",
+   "file": "lines/L17.wav",
+   "start_s": 80.467,
+   "end_s": 85.325,
+   "speaker": "NARRATOR",
+   "text": "A fourth \u2014 and there stood Grandmother, shining and kind."
+  },
+  {
+   "type": "speech",
+   "file": "lines/L18.wav",
+   "start_s": 85.925,
+   "end_s": 88.539,
+   "speaker": "GIRL",
+   "text": "Grandmother! Take me with you!"
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/bundle_blaze.mp3",
+   "start_s": 89.875,
+   "dur_s": 4.0,
+   "lufs_before_duck": -24
+  },
+  {
+   "type": "speech",
+   "file": "lines/L19.wav",
+   "start_s": 90.175,
+   "end_s": 93.734,
+   "speaker": "NARRATOR",
+   "text": "She struck the whole bundle, to keep her near."
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/ascent_airy.mp3",
+   "start_s": 94.25,
+   "dur_s": 8.0,
+   "lufs_before_duck": -29
+  },
+  {
+   "type": "speech",
+   "file": "lines/L20.wav",
+   "start_s": 94.55,
+   "end_s": 102.011,
+   "speaker": "NARRATOR",
+   "text": "Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear."
+  },
+  {
+   "type": "music",
+   "file": "music/m5_morning_after.mp3",
+   "from_cue_s": 0,
+   "start_s": 102.092,
+   "end_s": 121.959,
+   "anchors": "s17.in-0.2 .. end.out+0.0"
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/morning_town.mp3",
+   "start_s": 102.292,
+   "dur_s": 18.167,
+   "lufs_before_duck": -34
+  },
+  {
+   "type": "sfx",
+   "file": "sfx/wind_snow_loop.mp3",
+   "start_s": 102.292,
+   "dur_s": 17.667,
+   "lufs_before_duck": -37
+  },
+  {
+   "type": "speech",
+   "file": "lines/L21.wav",
+   "start_s": 102.592,
+   "end_s": 109.176,
+   "speaker": "NARRATOR",
+   "text": "At dawn she sat there still, rosy-cheeked and smiling \u2014 frozen to death."
+  },
+  {
+   "type": "speech",
+   "file": "lines/L22.wav",
+   "start_s": 109.758,
+   "end_s": 111.545,
+   "speaker": "PASSERBY",
+   "text": "She wanted to warm herself."
+  },
+  {
+   "type": "speech",
+   "file": "lines/L23.wav",
+   "start_s": 113.758,
+   "end_s": 118.653,
+   "speaker": "NARRATOR",
+   "text": "No one knew the beautiful things she had seen, or the joy she had gone to."
+  }
+ ]
+}

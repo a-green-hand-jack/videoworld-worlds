@@ -1,0 +1,26 @@
+#!/bin/bash
+# Render a cut from edit/timeline.json with every supplied shot in /hutian/work/shots/dp (S###.mp4) and, if present,
+# the mix at /hutian/work/sound/mix.wav; S001 gets the painted title (title_s001.py). Missing shots become slates.
+# usage: render_cut.sh LABEL   -> /hutian/work/LABEL/film/{elephants-dream.mp4,elephants-dream.en.vtt}
+set -euo pipefail
+R=/hutian/repo; L=$1; O=/hutian/work/$L; FX=/hutian/work/shots/fx
+rm -rf $O /hutian/work/build/$L; mkdir -p $O/film $O/check $FX
+if [ -f /hutian/work/shots/dp/S001.mp4 ]; then
+  python3 -u $R/edit/tools/title_s001.py /hutian/work/shots/dp/S001.mp4 $FX/S001.mp4 --debug $O/check
+  for t in 1 2.5 4 8 12 16 17.5 20 23; do ffmpeg -v error -y -ss $t -i $FX/S001.mp4 -frames:v 1 -vf scale=512:-1 $O/check/s001_$t.png; done
+  echo "S001 title rendered"
+fi
+python3 - "$O/shots.json" <<'PY'
+import json, glob, os, sys
+m = {os.path.basename(p)[:-4]: p for p in glob.glob('/hutian/work/shots/dp/S[0-9][0-9][0-9].mp4')}
+if os.path.exists('/hutian/work/shots/fx/S001.mp4') and 'S001' in m: m['S001'] = '/hutian/work/shots/fx/S001.mp4'
+json.dump(m, open(sys.argv[1], 'w'), indent=1); print('shots supplied:', sorted(m))
+PY
+AUD=(); [ -f /hutian/work/sound/mix.wav ] && AUD=(--audio /hutian/work/sound/mix.wav)
+REP=(); [ -f /hutian/work/sound/mix_report.json ] && REP=(/hutian/work/sound/mix_report.json)
+python3 $R/edit/tools/vtt.py $R/edit/timeline.json $O/film/elephants-dream.en.vtt "${REP[@]}"
+python3 -u $R/edit/tools/assemble.py --timeline $R/edit/timeline.json --out $O/film --shots $O/shots.json --credits $R/edit/credits.txt --label $L "${AUD[@]}"
+mv $O/film/film.mp4 $O/film/elephants-dream.mp4
+ffmpeg -v error -i $O/film/elephants-dream.mp4 -f null - 2> $O/decode-errors.txt || true
+ffprobe -v error -show_entries format=duration:stream=codec_name,profile,width,height,r_frame_rate,nb_frames,sample_rate,channels -of json $O/film/elephants-dream.mp4 > $O/probe.json
+echo "HUTIAN_WAKE: $L rendered: $(wc -c < $O/film/elephants-dream.mp4) bytes, decode errors $(wc -c < $O/decode-errors.txt) bytes"

@@ -1,0 +1,36 @@
+# cut-v4 picture (voice-only render, same picture as release cut-v4) watched with film-understanding gemini-4-argon
+
+Shot map: s01 0:00-0:05.8, s02 -0:10.5, s03 -0:15.4, s04 -0:21.7, s05 -0:27.0, s06 -0:32.1, s07 -0:38.0, s08 -0:46.3, s09 -0:53.3, s10 -0:58.2, s11 -1:04.0, s12 -1:13.0, s13a -1:20.2, s13b -1:25.6, s14 -1:29.9, s15 -1:34.3, s16 -1:42.3, s17 -1:49.5, s18 -1:53.5, s19 -1:59.0, title -2:02.0
+
+Here is the strict QC and editorial breakdown of the assembly cut.
+
+### (1) Generation Faults & Artifacts
+*   **00:10–00:11:** The horses pulling the right-hand carriage have morphing, extra, and tangling legs; the carriage wheels warp. The girl’s right foot is already bare while the left slipper flies off, then at **00:12** a single slipper sits in the center of the street for the boy to steal.
+*   **00:15–00:21:** Background pedestrians slide and moonwalk across the snow; faces and hats on the left-hand men morph as they pass one another.
+*   **00:34–00:37:** The match ignites spontaneously in mid-air without being struck against the wall or a box.
+*   **00:53–00:56:** **Severe logic/generation error:** Instead of the roast goose hopping off the platter, a *live, feathered white goose* with a knife and fork sticking out of its back materializes in mid-air and drops onto the snow, while the cooked roast goose remains sitting on the platter behind it.
+*   **01:04–01:12:** **Style break & static placeholder:** Shifts from inked watercolor to a lineless, saturated gouache/digital painting. The "falling star" is a frozen painted comet; nothing actually falls or moves.
+*   **01:14–01:19:** **Framing fault:** As the match ignites at **01:15**, an unpainted white watercolor-paper border/vignette appears around all four edges of the frame, then slowly zooms out. The match again self-ignites in mid-air.
+*   **01:25–01:52:** **Static placeholders (as noted):** **01:26–01:29**, **01:30–01:33**, **01:34–01:41**, **01:42–01:48**, and **01:49–01:52** are completely frozen still images with a digital Ken Burns push-in (even snow, fire, and flying characters are frozen).
+
+### (2) Picture vs. Narration Contradictions
+*   **00:06–00:09 ("...almost dark" / "...shuffled along"):** Following the dark twilight establishing shot (**00:00–00:05**), this shot is bright, shadowless daytime, and her feet are completely static while she "shuffles."
+*   **00:38–00:42 ("How it blazed!"):** In the wide shot (**00:38–00:39**), her hands are empty on her lap—she isn't holding the lit match at all. It only appears in her hand when cutting back at **00:43**.
+*   **00:53–00:56 ("It hopped down and waddled toward her"):** As noted above, the roast goose stays on the platter while a second, live goose appears.
+*   **01:04–01:09 ("Out it went. The lights rose and became stars. One fell."):** The Christmas tree candles are still brightly lit during "Out it went," no lights rise, and the shooting star is already a static streak before "One fell" is spoken.
+*   **01:20–01:25 ("A fourth..."):** We never see her strike a fourth match; the cut at **01:20** opens with the match already burning in her hand and Grandmother already standing there.
+
+### (3) Jarring Cuts & Continuity Errors
+*   **00:05 → 00:06 (Time-of-day & costume jump):** Jumps from dark night/twilight to bright overcast day, then back to dark night at **00:10**. In **00:00–00:05** she wears no apron; at **00:06** she wears a blue plaid apron and a dark fringed shawl.
+*   **00:10 → 00:13 (Costume):** Her dark shawl disappears in the carriage shot, then reappears at **00:15**.
+*   **00:13 → 00:14 (Insert continuity):** In **00:13** her dress hem is neat brown cloth over a blue apron; the close-up at **00:14** shows a jagged, tattered burlap-style hem with patches and no apron visible.
+*   **00:24 → 00:25 (Hard jump cut):** A jarring axial zoom/crop into the same frame, slicing the girl's face in half on the left edge of the screen before panning to the window.
+*   **00:45 → 00:46 (180-degree / geography break):** From **00:27–00:45**, the girl sits on a stone step against a gray plaster wall on the **left** side of an alley, facing **right**. At **00:46**, she is suddenly kneeling on the **left** facing a red brick wall on the **right**.
+*   **00:52 → 00:53 (180-degree flip):** Reverses the camera axis—the girl is now on the **right** facing **left**, and the vision table sits outdoors in the middle of the snowy alley rather than inside a room behind a transparent wall.
+*   **00:57 → 00:58 (Geography break):** The dark alley corner vanishes; a giant Christmas tree sits outdoors in an open town square.
+*   **01:19 → 01:20 (Geography & lighting jump):** Jumps from a dark night close-up against a rock wall to a bright daytime/dawn street scene where she sits on doorstep stairs on the **right** side of the frame facing **left**.
+*   **01:48 → 01:49 (Jump cut):** Same camera angle and background, but the girl's posture shifts from sitting upright to slumped backward as five townspeople pop into existence around her.
+*   **01:52 → 01:53 (Missing body):** Tilts up from the spent matches in the exact same corner at dawn, and the girl's body (and the crowd) has vanished before the narration finishes her epitaph.
+
+### (4) Story Clarity for a First-Time Viewer
+**Yes, the story reads clearly.** The voiceover narration is well-paced, emotionally grounded, and carries the narrative structure cleanly. Even a viewer unfamiliar with Andersen's tale will understand the arc (poverty, fear of home, the four match-visions, the grandmother taking her soul, and her death by freezing). However, the **live goose gag (00:53)** reads as accidental comedy, and the **constant flipping of the alley geography and day/night lighting** undermines the claustrophobic, freezing atmosphere that the story relies on.

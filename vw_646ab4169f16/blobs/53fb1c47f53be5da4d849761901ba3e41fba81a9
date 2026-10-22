@@ -1,0 +1,30 @@
+import json,csv,re,difflib,numpy as np,scipy.io.wavfile as wf
+from faster_whisper import WhisperModel
+M="/hutian/qcwork/hf/models--Systran--faster-whisper-small.en/snapshots/d1d751a5f8271d482d14ca55d9e2deeebbae577f"
+m=WhisperModel(M,device="cpu",compute_type="int8",cpu_threads=4)
+sr,x=wf.read("/hutian/qcwork/cut-v5-16k.wav"); x=x.astype(np.float32)/32768
+def tt(s):return re.findall(r"[a-z']+",s.lower())
+def vt(t):
+    h,mn,s=t.split(':');return int(h)*3600+int(mn)*60+float(s)
+cues={}
+blk=open("/hutian/qcwork/cut-v5.vtt").read().split("\n\n")
+for b in blk:
+    l=b.strip().split("\n")
+    if len(l)>=3 and l[0].startswith("L"):
+        a,e=l[1].split(" --> ");cues[l[0]]=(vt(a),vt(e))
+rows=list(csv.DictReader(open("/hutian/director/direction/script.csv")))
+out=[]
+for r in rows:
+    L=r["line"];s=float(r["start_s"]);e=float(r["end_s"]);cs,ce=cues[L]
+    a=max(0,s-1.5);b=min(len(x)/sr,max(e,ce)+1.5)
+    seg=x[int(a*sr):int(b*sr)].copy();pk=np.abs(seg).max()+1e-6;seg=seg*(0.7/pk)
+    segs,_=m.transcribe(seg,word_timestamps=True,vad_filter=False,condition_on_previous_text=False,language="en")
+    words=[]
+    for sg in segs:
+        for w in sg.words:words.append((w.word.strip(),w.start+a,w.end+a))
+    hyp=" ".join(w[0] for w in words);sc=difflib.SequenceMatcher(None,tt(r["text"]),tt(hyp)).ratio()
+    first=words[0][1] if words else None
+    out.append(dict(line=L,script=r["text"],hyp=hyp,sim=round(sc,2),script_start=s,cue=[cs,ce],first_word=first,words=words))
+    print(L,round(sc,2),r["text"][:40],"|",hyp[:60],"| cue",cs,"w0",first,flush=True)
+json.dump(out,open("/hutian/repo/evidence/cut-v5/asr-isolated.json","w"))
+print("HUTIAN_WAKE: asr done",flush=True)

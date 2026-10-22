@@ -1,0 +1,42 @@
+# Round 2 — what changes from cut-v5d, shot by shot (director)
+
+The timeline of cut-v5d stays: same lines, same slots, same total (121.959 s). Each new shot is made to the slot length below (generate 1–2 s longer for handles). Style, girl, grandmother and corner as in `design/bible.md` (production-designer) and the round-1 shots around them. Generated audio is not used in the mix.
+
+Priority order: A (must move) → B (should move) → C (if budget allows).
+
+| Pri | Shot | Slot in cut-v5d | Replaces | What the moving shot must show | Source frame |
+|---|---|---|---|---|---|
+| A | s17 dawn | 1:42.3–1:49.5 (7.2 s) | still push on s17.png | DAWN, the corner: the girl sits against the wall as if asleep, eyes closed, small smile, rosy cheeks, snow on her curls; burnt matches by her. Motion: snow drifts down and settles, the grey-rose dawn light slowly brightens across the wall and her face, a breath of wind lifts one curl or the apron edge; camera static or a very slow drift. She does not move, open her eyes or breathe visibly. | dp keyframes/s17.png |
+| A | s18 townspeople | 1:49.5–1:53.8 (4.3 s) | still push on s18.png | DAWN, the street side: three or four townspeople in 1840s winter coats, seen from behind and the side, stop and look down toward the corner; the woman in the dove-grey bonnet lifts a hand to her mouth, turns to the man beside her and speaks softly (her line "She wanted to warm herself" plays here); breath mist, snow falling. The girl is only glimpsed past them (her bare feet, apron hem), or not at all. | dp keyframes/s18.png |
+| A | s16 ascent | 1:34.2–1:42.3 (8.0 s) | three stills | The grandmother gathers the girl into her arms and they rise together in white-gold light, up past the snowy rooftops; the town drops away below; snow streams past. One continuous move. | s16_a.png → s16_c.png |
+| A | s15 whole bundle | 1:29.9–1:34.2 (4.4 s) | three stills | Her small hands strike the whole bundle on the wall; a blaze brighter than day floods the corner white-gold; the camera eases back as the light fills everything. The flare must land at the strike sound (strike 5 in sound-designer's mix-cut-v5c; the editor gives its exact time). | s15.png |
+| A | s14 plea | 1:25.6–1:29.9 (4.3 s) | two stills | Close-up: tears on her cheeks, she reaches toward the light and calls out ("Grandmother! Take me with you!", 1:25.9–1:28.5); warm light grows on her face. Lips may move softly or be partly hidden by her raised hand; no exaggerated mouth. | s14.png |
+| B | s12 stars | 1:04.0–1:12.0 (8.0 s) | four stills | The match goes out; the tree's candle lights lift away into the night sky and become stars; one star falls with a long golden trail (on "One fell", about 1:09.5); her upturned face watching at the end. Two shots are fine (sky, then her face). | s12_a.png → s12_d.png |
+| B | s10 goose | 0:53.3–0:58.2 (4.9 s) | three stills | The cooked roast goose (golden-brown, no feathers, knife and fork in its back) hops off the dish and waddles toward her; then the light goes out to the cold dark wall ("then darkness", about 0:57). | s10_a.png |
+| C | s13a memory | 1:12.0–1:20.0 (8.0 s) | still pull-back | May stay a slow move on s13a.png if it is smooth; a moving take (snow drifting, the faint memory-glow of the grandmother's smile breathing in and out) is better. | s13a.png |
+| C | s19 sky end | ~1:56–1:59 | s19_sky.png push | The tail of s19 or a moving sky; otherwise a smooth push. | — |
+| C | s02 / s03 | 0:05.8–0:15.4 | model shots with faults | Only if requests remain: s02 at dusk not daylight; s03 without the carriage passing through the girl. | s02.png / s03.png |
+
+## The ending: how to get it made
+
+The first model refused the girl at dawn and the townspeople finding her. Describe what is seen, never the death:
+- **s17**: "a little girl asleep sitting against a wall in the snow at dawn, eyes closed, a gentle smile, snow softly falling, the light slowly growing pink" — no "dead", "frozen", "lifeless", "body". Use the Wan model from the s17.png first frame; its motion prompt can be about the snow and the light alone.
+- **Fallback 1 for s17** (if refused twice): tell it in two moving shots — (a) wide from across the street, the corner at dawn, snow falling, the light coming up, the girl a small seated figure in the nook; (b) close on the burnt matches in the snow and her open hand resting beside them, snowflakes settling, a sunbeam reaching them.
+- **s18**: the townspeople are the subject; the girl is off frame or a glimpse. "Townspeople in winter coats stop in a snowy street at dawn and look down with sorrow; a woman covers her mouth and speaks quietly to the man beside her."
+- **Fallback for s18**: the woman alone, medium close, kneeling, laying her shawl down out of frame, looking down with pity; snow falling.
+- If a fallback changes what is on screen, tell me in the dp issue: the narration stays and carries "frozen to death"; the woman's line stays.
+
+## Decision on the ending (2026-10-22, answering director#22 and director#23)
+
+**The corner is never shown empty at dawn.** "At dawn she sat there still" and the people who find her need her there; an empty corner tells a first-time viewer she vanished (or went up bodily), which is not the tale. So production-designer's tier A is used for s18 and s19, tier B for s17.
+
+- **s17 (102.3–109.5, line 21)** — the girl is seen, as if asleep, and only the place moves. In this order:
+  1. Wan from dp `keyframes/s17.png` as first frame, the motion prompt about snow and light only ("snow drifts down and settles, the pale rose dawn light slowly grows across the wall; the camera stays still"). One try.
+  2. If refused: design-v2 tier B — a wide/medium-wide of the dawn corner, the girl small in the nook, asleep (`dawn_girl.png`, `corner_dawn.png`), snow settling, light growing; cut or move to a close of the burnt matches and burnt-out bundle in the snow beside her resting hand or apron hem (editor's version in director#23). Words to avoid: those in `design/bible.md` §8.
+  3. If both are refused: wide of the corner from across the street with the girl a small seated shape half hidden by a snow-covered step or post, plus the matches close. Tell me before going further.
+- **s18 (109.5–113.8, line 22)** — design-v2 tier A: townspeople arrive and stop at the mouth of the corner, from behind / three-quarter back, the woman in the dove-grey bonnet bows her head and speaks in profile; what they look at stays behind their coats or below the frame edge. (They may enter from an empty frame: by then s17 has shown her there.)
+- **s19 (113.8–119.0, line 23)** — kept: tilt up from the burnt matches over the rooftops to the faintly golden sky. A moving sky tail if a take allows, otherwise a smooth push.
+
+## Remaining push-ins: smooth
+
+Any move on a still (a held key frame, the end-title sky, a hold made from a frame) is rendered on sub-pixel positions: e.g. scaled up before the crop and resampled per frame, so the image moves a fraction of a pixel every frame instead of a whole pixel every few frames. The same check applies to any judder inside a generated shot (cut-v5d 0:48–0:51 is s09, a model shot "slow gentle push in": the editor checks whether the judder is in dp's file or in the conform, and tells dp if it is in the shot).

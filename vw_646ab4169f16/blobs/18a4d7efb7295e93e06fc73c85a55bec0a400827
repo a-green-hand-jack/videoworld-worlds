@@ -1,0 +1,680 @@
+{
+ "note": "Derived from director's direction/script.csv (copied to dialogue/script.csv); L13 is a vocalised mutter.",
+ "lines": [
+  {
+   "id": "L01",
+   "speaker": "Proog",
+   "start": 15.1,
+   "end": 24.5,
+   "text": "At the left we can see... At the right we can see the... the head-snarlers. Everything is safe. Perfectly safe.",
+   "shot": "S001",
+   "note": "V.O. over the titles; slow, guide-like, proud"
+  },
+  {
+   "id": "L02",
+   "speaker": "Proog",
+   "start": 25.2,
+   "end": 26.8,
+   "text": "Emo? Emo!",
+   "shot": "S001",
+   "note": "alarm rising"
+  },
+  {
+   "id": "L03",
+   "speaker": "Proog",
+   "start": 28.2,
+   "end": 29.3,
+   "text": "Watch out!",
+   "shot": "S003",
+   "note": "shout"
+  },
+  {
+   "id": "L04",
+   "speaker": "Proog",
+   "start": 46.3,
+   "end": 47.6,
+   "text": "Are you hurt?",
+   "shot": "S007",
+   "note": "breathless"
+  },
+  {
+   "id": "L05",
+   "speaker": "Emo",
+   "start": 52.0,
+   "end": 53.8,
+   "text": "I don't think so. You?",
+   "shot": "S008",
+   "note": "dazed"
+  },
+  {
+   "id": "L06",
+   "speaker": "Proog",
+   "start": 55.3,
+   "end": 56.3,
+   "text": "I'm OK.",
+   "shot": "S009",
+   "note": ""
+  },
+  {
+   "id": "L07",
+   "speaker": "Proog",
+   "start": 57.0,
+   "end": 61.1,
+   "text": "Get up. Emo, it's not safe here.",
+   "shot": "S009",
+   "note": "urgent"
+  },
+  {
+   "id": "L08",
+   "speaker": "Proog",
+   "start": 61.8,
+   "end": 62.8,
+   "text": "Let's go.",
+   "shot": "S009",
+   "note": ""
+  },
+  {
+   "id": "L09",
+   "speaker": "Emo",
+   "start": 63.4,
+   "end": 64.2,
+   "text": "What's next?",
+   "shot": "S010",
+   "note": "curious"
+  },
+  {
+   "id": "L10",
+   "speaker": "Proog",
+   "start": 65.6,
+   "end": 68.5,
+   "text": "You'll see. ... You'll see.",
+   "shot": "S010",
+   "note": "teasing, mysterious"
+  },
+  {
+   "id": "L11",
+   "speaker": "Proog",
+   "start": 75.6,
+   "end": 77.8,
+   "text": "Emo, this way.",
+   "shot": "S011",
+   "note": ""
+  },
+  {
+   "id": "L12",
+   "speaker": "Proog",
+   "start": 94.3,
+   "end": 95.3,
+   "text": "Follow me!",
+   "shot": "S013",
+   "note": ""
+  },
+  {
+   "id": "L13",
+   "speaker": "Proog",
+   "start": 95.8,
+   "end": 99.5,
+   "text": "Mm... hup! Hup.",
+   "shot": "S013",
+   "note": "? pass 2 only; keep as a mutter/effort"
+  },
+  {
+   "id": "L14",
+   "speaker": "Proog",
+   "start": 130.8,
+   "end": 131.9,
+   "text": "Hurry, Emo!",
+   "shot": "S021",
+   "note": "? pass 2 only"
+  },
+  {
+   "id": "L15",
+   "speaker": "Proog",
+   "start": 135.8,
+   "end": 137.5,
+   "text": "Listen, listen!",
+   "shot": "S024",
+   "note": "? pass 2 only; hushed"
+  },
+  {
+   "id": "L16",
+   "speaker": "Proog",
+   "start": 139.5,
+   "end": 142.7,
+   "text": "Listen... listen.",
+   "shot": "S025",
+   "note": "? pass 2 only; whisper"
+  },
+  {
+   "id": "L17",
+   "speaker": "Proog",
+   "start": 168.3,
+   "end": 169.8,
+   "text": "You're not paying attention!",
+   "shot": "S031",
+   "note": "stern"
+  },
+  {
+   "id": "L18",
+   "speaker": "Emo",
+   "start": 170.5,
+   "end": 174.6,
+   "text": "I... I just want to answer the phone...",
+   "shot": "S033",
+   "note": "? pass 2 only; sheepish"
+  },
+  {
+   "id": "L19",
+   "speaker": "Proog",
+   "start": 174.6,
+   "end": 177.0,
+   "text": "Emo, look. I mean, listen.",
+   "shot": "S034",
+   "note": ""
+  },
+  {
+   "id": "L20",
+   "speaker": "Proog",
+   "start": 179.5,
+   "end": 181.7,
+   "text": "You have to learn to listen.",
+   "shot": "S035",
+   "note": "lecturing"
+  },
+  {
+   "id": "L21",
+   "speaker": "Proog",
+   "start": 183.2,
+   "end": 184.5,
+   "text": "This is not some game.",
+   "shot": "S036",
+   "note": ""
+  },
+  {
+   "id": "L22",
+   "speaker": "Proog",
+   "start": 185.3,
+   "end": 189.0,
+   "text": "You... I mean, we... we could easily die out here.",
+   "shot": "S036",
+   "note": ""
+  },
+  {
+   "id": "L23",
+   "speaker": "Proog",
+   "start": 189.9,
+   "end": 193.7,
+   "text": "Listen. Listen to the sounds of the machine.",
+   "shot": "S037",
+   "note": "hushed, reverent"
+  },
+  {
+   "id": "L24",
+   "speaker": "Proog",
+   "start": 197.6,
+   "end": 199.3,
+   "text": "Listen to your breathing.",
+   "shot": "S038",
+   "note": "whisper"
+  },
+  {
+   "id": "L25",
+   "speaker": "Emo",
+   "start": 266.5,
+   "end": 269.2,
+   "text": "Well, don't you ever get tired of this?",
+   "shot": "S053",
+   "note": "weary"
+  },
+  {
+   "id": "L26",
+   "speaker": "Proog",
+   "start": 270.0,
+   "end": 270.4,
+   "text": "Tired?",
+   "shot": "S054",
+   "note": "offended"
+  },
+  {
+   "id": "L27",
+   "speaker": "Proog",
+   "start": 271.1,
+   "end": 274.7,
+   "text": "Emo, the machine is like... like clockwork.",
+   "shot": "S054",
+   "note": ""
+  },
+  {
+   "id": "L28",
+   "speaker": "Proog",
+   "start": 275.5,
+   "end": 278.9,
+   "text": "One move out of place... and you're ground to a pulp.",
+   "shot": "S056",
+   "note": "relishing"
+  },
+  {
+   "id": "L29",
+   "speaker": "Proog",
+   "start": 282.3,
+   "end": 286.3,
+   "text": "Pulp, Emo! Is that what you want? Pulp?",
+   "shot": "S059",
+   "note": "manic"
+  },
+  {
+   "id": "L30",
+   "speaker": "Proog",
+   "start": 287.5,
+   "end": 289.6,
+   "text": "Emo, your goal in life...",
+   "shot": "S060",
+   "note": "? 'goal in life' reading uncertain"
+  },
+  {
+   "id": "L31",
+   "speaker": "Proog",
+   "start": 291.0,
+   "end": 291.4,
+   "text": "Pulp!",
+   "shot": "S060",
+   "note": "shout"
+  },
+  {
+   "id": "L32",
+   "speaker": "Proog",
+   "start": 341.5,
+   "end": 343.2,
+   "text": "Emo, close your eyes.",
+   "shot": "S074",
+   "note": "? pass 2 only"
+  },
+  {
+   "id": "L33",
+   "speaker": "Proog",
+   "start": 344.5,
+   "end": 345.4,
+   "text": "Now!",
+   "shot": "S074",
+   "note": "shout, pulls the lever"
+  },
+  {
+   "id": "L34",
+   "speaker": "Proog",
+   "start": 359.3,
+   "end": 361.6,
+   "text": "What do you see at your left side, Emo?",
+   "shot": "S077",
+   "note": "quiz-master"
+  },
+  {
+   "id": "L35",
+   "speaker": "Emo",
+   "start": 362.0,
+   "end": 364.7,
+   "text": "Well... nothing.",
+   "shot": "S077",
+   "note": "flat"
+  },
+  {
+   "id": "L36",
+   "speaker": "Proog",
+   "start": 364.9,
+   "end": 365.2,
+   "text": "Really?",
+   "shot": "S079",
+   "note": ""
+  },
+  {
+   "id": "L37",
+   "speaker": "Emo",
+   "start": 366.2,
+   "end": 367.5,
+   "text": "No, nothing at all.",
+   "shot": "S079",
+   "note": ""
+  },
+  {
+   "id": "L38",
+   "speaker": "Proog",
+   "start": 367.8,
+   "end": 368.1,
+   "text": "Really.",
+   "shot": "S079",
+   "note": ""
+  },
+  {
+   "id": "L39",
+   "speaker": "Proog",
+   "start": 368.4,
+   "end": 369.7,
+   "text": "And at your right?",
+   "shot": "S079",
+   "note": ""
+  },
+  {
+   "id": "L40",
+   "speaker": "Proog",
+   "start": 369.8,
+   "end": 371.7,
+   "text": "What do you see at your right side, Emo?",
+   "shot": "S080",
+   "note": "close, insinuating"
+  },
+  {
+   "id": "L41",
+   "speaker": "Emo",
+   "start": 373.2,
+   "end": 377.4,
+   "text": "The same, Proog. Exactly the same. Nothing!",
+   "shot": "S081",
+   "note": "exasperated"
+  },
+  {
+   "id": "L42",
+   "speaker": "Emo",
+   "start": 400.2,
+   "end": 404.4,
+   "text": "Listen, Proog. Do you hear that? Can we go here?",
+   "shot": "S086",
+   "note": "excited, hushed"
+  },
+  {
+   "id": "L43",
+   "speaker": "Proog",
+   "start": 405.4,
+   "end": 405.9,
+   "text": "There?",
+   "shot": "S087",
+   "note": ""
+  },
+  {
+   "id": "L44",
+   "speaker": "Emo",
+   "start": 406.0,
+   "end": 406.2,
+   "text": "Yeah.",
+   "shot": "S087",
+   "note": ""
+  },
+  {
+   "id": "L45",
+   "speaker": "Proog",
+   "start": 406.6,
+   "end": 407.9,
+   "text": "It isn't safe, Emo.",
+   "shot": "S087",
+   "note": ""
+  },
+  {
+   "id": "L46",
+   "speaker": "Emo",
+   "start": 408.9,
+   "end": 409.8,
+   "text": "But...",
+   "shot": "S088",
+   "note": ""
+  },
+  {
+   "id": "L47",
+   "speaker": "Proog",
+   "start": 410.3,
+   "end": 411.9,
+   "text": "Trust me, it's not.",
+   "shot": "S089",
+   "note": ""
+  },
+  {
+   "id": "L48",
+   "speaker": "Emo",
+   "start": 412.9,
+   "end": 414.6,
+   "text": "Well, maybe I could...",
+   "shot": "S089",
+   "note": ""
+  },
+  {
+   "id": "L49",
+   "speaker": "Proog",
+   "start": 414.6,
+   "end": 414.9,
+   "text": "No.",
+   "shot": "S089",
+   "note": ""
+  },
+  {
+   "id": "L50",
+   "speaker": "Emo",
+   "start": 417.1,
+   "end": 418.0,
+   "text": "But...",
+   "shot": "S091",
+   "note": ""
+  },
+  {
+   "id": "L51",
+   "speaker": "Proog",
+   "start": 418.0,
+   "end": 418.3,
+   "text": "No!",
+   "shot": "S091",
+   "note": "shout, with the totem flare"
+  },
+  {
+   "id": "L52",
+   "speaker": "Proog",
+   "start": 420.7,
+   "end": 423.0,
+   "text": "Any further questions, Emo?",
+   "shot": "S091",
+   "note": "cold"
+  },
+  {
+   "id": "L53",
+   "speaker": "Emo",
+   "start": 424.3,
+   "end": 424.8,
+   "text": "No.",
+   "shot": "S093",
+   "note": "sullen"
+  },
+  {
+   "id": "L54",
+   "speaker": "Proog",
+   "start": 429.5,
+   "end": 430.4,
+   "text": "Emo.",
+   "shot": "S095",
+   "note": "softer"
+  },
+  {
+   "id": "L55",
+   "speaker": "Emo",
+   "start": 430.8,
+   "end": 431.0,
+   "text": "Yeah?",
+   "shot": "S095",
+   "note": ""
+  },
+  {
+   "id": "L56",
+   "speaker": "Proog",
+   "start": 431.8,
+   "end": 438.1,
+   "text": "Emo, why... Emo, why... why can't you see the beauty of this place?",
+   "shot": "S095",
+   "note": "pleading"
+  },
+  {
+   "id": "L57",
+   "speaker": "Proog",
+   "start": 438.7,
+   "end": 443.6,
+   "text": "The way it works... how perfect it is.",
+   "shot": "S095",
+   "note": "rapt"
+  },
+  {
+   "id": "L58",
+   "speaker": "Emo",
+   "start": 444.5,
+   "end": 449.6,
+   "text": "No, Proog, I don't see. I don't see because there's nothing there.",
+   "shot": "S097",
+   "note": "angry"
+  },
+  {
+   "id": "L59",
+   "speaker": "Emo",
+   "start": 449.6,
+   "end": 454.6,
+   "text": "And why should I trust my life to something that isn't there?",
+   "shot": "S097",
+   "note": ""
+  },
+  {
+   "id": "L60",
+   "speaker": "Emo",
+   "start": 455.6,
+   "end": 458.2,
+   "text": "Well, can you tell me that? Proog, answer me!",
+   "shot": "S098",
+   "note": "? words and speaker uncertain (heard as 'What can you tell me then? Emo, answer me'); off-screen over S103"
+  },
+  {
+   "id": "L61",
+   "speaker": "Emo",
+   "start": 464.6,
+   "end": 466.4,
+   "text": "Proog... you're a sick man.",
+   "shot": "S102",
+   "note": "cold"
+  },
+  {
+   "id": "L62",
+   "speaker": "Emo",
+   "start": 467.4,
+   "end": 468.4,
+   "text": "Stay away from me.",
+   "shot": "S103",
+   "note": ""
+  },
+  {
+   "id": "L63",
+   "speaker": "Proog",
+   "start": 472.4,
+   "end": 474.4,
+   "text": "No, Emo, it's a trap!",
+   "shot": "S105",
+   "note": "desperate"
+  },
+  {
+   "id": "L64",
+   "speaker": "Emo",
+   "start": 475.8,
+   "end": 477.0,
+   "text": "It's a trap?",
+   "shot": "S106",
+   "note": "mocking"
+  },
+  {
+   "id": "L65",
+   "speaker": "Emo",
+   "start": 477.0,
+   "end": 481.1,
+   "text": "At the left side you can see... the Hanging Gardens of Babylon!",
+   "shot": "S107",
+   "note": "showman, mimicking Proog's tour-guide voice"
+  },
+  {
+   "id": "L66",
+   "speaker": "Emo",
+   "start": 482.1,
+   "end": 483.3,
+   "text": "How's that for a trap?",
+   "shot": "S108",
+   "note": ""
+  },
+  {
+   "id": "L67",
+   "speaker": "Proog",
+   "start": 485.7,
+   "end": 486.6,
+   "text": "No, Emo.",
+   "shot": "S109",
+   "note": ""
+  },
+  {
+   "id": "L68",
+   "speaker": "Emo",
+   "start": 489.0,
+   "end": 491.2,
+   "text": "On the right side you can see...",
+   "shot": "S110",
+   "note": ""
+  },
+  {
+   "id": "L69",
+   "speaker": "Emo",
+   "start": 491.8,
+   "end": 492.4,
+   "text": "Well, guess what?",
+   "shot": "S110",
+   "note": ""
+  },
+  {
+   "id": "L70",
+   "speaker": "Emo",
+   "start": 493.0,
+   "end": 494.6,
+   "text": "The Colossus of Rhodes!",
+   "shot": "S110",
+   "note": ""
+  },
+  {
+   "id": "L71",
+   "speaker": "Proog",
+   "start": 495.5,
+   "end": 496.1,
+   "text": "No!",
+   "shot": "S111",
+   "note": ""
+  },
+  {
+   "id": "L72",
+   "speaker": "Emo",
+   "start": 496.6,
+   "end": 497.8,
+   "text": "The Colossus of Rhodes!",
+   "shot": "S112",
+   "note": ""
+  },
+  {
+   "id": "L73",
+   "speaker": "Emo",
+   "start": 498.0,
+   "end": 500.0,
+   "text": "And it is here just for you, Proog.",
+   "shot": "S112",
+   "note": ""
+  },
+  {
+   "id": "L74",
+   "speaker": "Emo",
+   "start": 500.2,
+   "end": 501.5,
+   "text": "Just for you.",
+   "shot": "S112",
+   "note": "quiet, cruel"
+  },
+  {
+   "id": "L75",
+   "speaker": "Proog",
+   "start": 530.3,
+   "end": 539.3,
+   "text": "It is there... I'm telling you, Emo... it is... it is...",
+   "shot": "S123",
+   "note": "broken, to himself"
+  }
+ ]
+}

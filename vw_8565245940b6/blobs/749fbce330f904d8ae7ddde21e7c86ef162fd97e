@@ -1,0 +1,17 @@
+# Proxy listening: AudioSet tags (MIT/ast-finetuned-audioset-10-10-0.4593) per film section.
+# Usage: python3 tools/tag_audio.py SOUND.wav   (needs torch CPU + transformers; torch 2.14.1+cpu, transformers 5.20.2 used)
+import sys, numpy as np, librosa, torch
+from transformers import ASTFeatureExtractor, ASTForAudioClassification
+name="MIT/ast-finetuned-audioset-10-10-0.4593"
+fe=ASTFeatureExtractor.from_pretrained(name); m=ASTForAudioClassification.from_pretrained(name).eval()
+y,_=librosa.load(sys.argv[1],sr=16000,mono=True)
+segs=[(0,2.5),(2.5,6),(6,9.5),(9.5,13.5),(13.5,17.5),(17.5,20),(0,20)]
+for a,b in segs:
+    x=fe(y[int(a*16000):int(b*16000)],sampling_rate=16000,return_tensors='pt')
+    with torch.no_grad(): p=torch.sigmoid(m(**x).logits)[0]
+    top=torch.topk(p,8)
+    print(f'{a:4.1f}-{b:4.1f}:',', '.join(f'{m.config.id2label[int(i)]} {float(v):.2f}' for v,i in zip(top.values,top.indices)))
+    for lab in ['Speech','Music','Water','Stream','Cricket','Insect','Wind','White noise','Rain','Beep, bleep','Sine wave','Ocean','Waves, surf','Music box','Bell']:
+        idx=m.config.label2id.get(lab)
+        if idx is not None: print(f'   {lab}={float(p[idx]):.2f}',end='')
+    print()

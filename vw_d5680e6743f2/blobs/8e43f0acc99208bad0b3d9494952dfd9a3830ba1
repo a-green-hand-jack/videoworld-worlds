@@ -1,0 +1,17 @@
+import sys, numpy as np, soundfile as sf, librosa, torch
+from transformers import AutoFeatureExtractor, ASTForAudioClassification
+name = "MIT/ast-finetuned-audioset-10-10-0.4593"
+fe = AutoFeatureExtractor.from_pretrained(name); model = ASTForAudioClassification.from_pretrained(name).eval()
+y, sr = librosa.load(sys.argv[1], sr=16000, mono=True)
+watch = ["Speech","Music","Piano","Bell","Chime","Wind chime","Synthesizer","Stream","Water","Waterfall","Ocean","Rain","Trickle, dribble","Pour","Splash, splatter","Cricket","Insect","Bird","Wind","Rustle","Silence","Static","Hiss","Clicking"]
+id2l = model.config.id2label; l2id = {v:k for k,v in id2l.items()}
+def tag(seg):
+    x = fe(seg, sampling_rate=16000, return_tensors="pt")
+    with torch.no_grad(): p = torch.sigmoid(model(**x).logits)[0].numpy()
+    return p
+for a, b in [(0,len(y)/16000)] + [(s, min(s+4, len(y)/16000)) for s in range(0, 22, 4)]:
+    seg = y[int(a*16000):int(b*16000)]
+    if len(seg) < 8000: continue
+    p = tag(seg); top = np.argsort(p)[::-1][:6]
+    print("%5.1f-%5.1f s top: %s" % (a, b, ", ".join("%s %.2f" % (id2l[i], p[i]) for i in top)))
+    print("            watch: " + ", ".join("%s %.2f" % (w, p[l2id[w]]) for w in watch if w in l2id and p[l2id[w]] > 0.05))

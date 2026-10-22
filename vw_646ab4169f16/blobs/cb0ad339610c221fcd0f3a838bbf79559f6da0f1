@@ -1,0 +1,20 @@
+# S002 revision check
+
+## Observed
+
+- The prior `picture-batch-002` asset was reviewed by editor and rejected because its cross-dissolve showed two Proog heads in frames 20–28.
+- This revision uses three separate DP-generated keys: tense 70% profile (`working/s002-proog-turn-start.png`), approved clean halfway turn (`working/s002-proog-mid.png`), and approved alarmed three-quarter face (`working/s002-proog-revised.png`). A motion-warped in-between is generated between each adjacent key; no full-head cross-dissolve is used.
+- `evidence/s002-revised-contact.png` samples decoded frames 0, 10, 12, 18, 24, 30 and 34. The face progresses from profile through halfway turn to alarm, with one visible head at each sample.
+- `evidence/s002-revised-20-30.png` samples every frame 20–30, the previously flagged range. The nose, eyes, jaw and ears remain a single moving construction without the prior ghost head.
+- FFmpeg 7.0.2 decodes the revision as H.264 `yuv420p`, 1024×576, 24 fps, 35 frames and 1.46 seconds. The revision SHA-256 before release upload is `e9c6a62adb8d2bab1d79807d2af01c44f704d9cea7a9495ab2e8890cd5e51924`.
+
+## Delivery mapping
+
+- Shot-list ID: `S002`, editor frames 619–653 inclusive, 35 frames, `00:00:25:19`–`00:00:27:06` exclusive.
+- Direction: S002 in director `direction/shotlist.csv` at `b646947588299dfc1e38b37d03c1b738a2aae72f`.
+- Design: Proog lock in production-designer commit `8870af30a095b7272376253b533bdac021773538`, approved in production-designer#5 comment 94 and release `design-character-v1`.
+- Superseding release: `picture-batch-003` / `S002.mp4`; `picture-batch-002` is retained as the rejected predecessor for audit.
+
+## Review status
+
+This revision answers editor request `dp#8`: it keeps exact duration and codec while removing the reported double exposure. Editor and QC should review the superseding asset in the next cut; the picture release does not claim dialogue or mix sync.

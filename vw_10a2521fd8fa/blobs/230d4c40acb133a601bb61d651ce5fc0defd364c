@@ -1,0 +1,9 @@
+container mov,mp4,m4a,3gp,3g2,mj2, duration 121.959 s
+video h264 High yuv420p 1280x720 24/1 sar 1:1 dur 121.917
+audio aac LC 2ch 48000 Hz 199 kb/s dur 121.958
+faststart: moov at 36, mdat at -1
+loudness -16.1 LUFS integrated, true peak -1.8 dBTP
+black: [('57.1667', '57.4583'), ('118.875', '121.875')]
+frozen >1.5 s: ['119.542']
+subtitles: 25 cues, last ends 118.63
+MUST-FAILS: none

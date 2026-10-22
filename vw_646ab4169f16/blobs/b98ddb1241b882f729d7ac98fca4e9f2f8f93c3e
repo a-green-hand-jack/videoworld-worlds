@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+"""Generate fresh picture artwork from text, or edit only DP-made artwork."""
+
+import argparse
+import base64
+import json
+import os
+from pathlib import Path
+from urllib.request import Request, urlopen
+
+
+def find_image(value):
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if key in ('b64_json', 'image_base64') and isinstance(item, str):
+                return item
+            found = find_image(item)
+            if found:
+                return found
+    elif isinstance(value, list):
+        for item in value:
+            found = find_image(item)
+            if found:
+                return found
+    return None
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--prompt-file', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--reference', type=Path, help='Only our own artwork; never a source-film frame')
+    parser.add_argument('--quality', choices=('low', 'medium', 'high'), default='medium')
+    args = parser.parse_args()
+    if args.reference and (not args.reference.is_file() or '/initial-state/' in str(args.reference.resolve())):
+        parser.error('the optional reference must be a DP-made image, never frozen-film material')
+    endpoint = 'edits' if args.reference else 'generations'
+    payload = {'model': 'gpt-image-2', 'prompt': args.prompt_file.read_text(),
+               'size': '1536x1024', 'quality': args.quality}
+    if args.reference:
+        image_data = base64.b64encode(args.reference.read_bytes()).decode('ascii')
+        payload['images'] = [{'image_url': f'data:image/png;base64,{image_data}'}]
+    request = Request(os.environ['OPENAI_BASE_URL'].rstrip('/') + '/images/' + endpoint,
+                      data=json.dumps(payload).encode(),
+                      headers={'Authorization': 'Bearer ' + os.environ['OPENAI_API_KEY'],
+                               'Content-Type': 'application/json'}, method='POST')
+    with urlopen(request, timeout=300) as response:
+        raw = response.read()
+        if 'text/event-stream' in response.headers.get('Content-Type', ''):
+            events = [json.loads(line[6:]) for line in raw.decode().splitlines() if line.startswith('data: ')]
+            result = next(event for event in events if event.get('type') == 'image_generation.completed')
+        else:
+            result = json.loads(raw)
+    encoded = find_image(result)
+    if not encoded:
+        raise RuntimeError(f'no image in generation response; response fields: {list(result)}')
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_bytes(base64.b64decode(encoded))
+    print(f'Generated {args.output}, {args.output.stat().st_size} bytes')
+
+
+if __name__ == '__main__':
+    main()

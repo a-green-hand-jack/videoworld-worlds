@@ -1,0 +1,20 @@
+# cut-v4
+
+Rendered from `edit/timeline.json` v1 by `edit/tools/render_cut.sh cut-v4` on local-compute (job-3e0fd2ef06).
+
+- **Picture:** every shot has its own key now. S004–S126 come from dp's directed coverage, `picture-batch-017` … `picture-batch-028`. S002 is the corrected shot from `picture-batch-029` (one Proog key with a push-in, no ghost edge). S001 is from `picture-batch-001`, with the edit's painted title and presenter card. S003 is from `picture-batch-004`. S127 is the end credits. All 124 files from batches 017–029 match the sha256 in dp's manifests `picture/releases/picture-batch-0NN.json` (dp 69709e6).
+- **Sound:** unchanged from cut-v3. It is sound-designer `sound-v1` `mix.wav` (sha256 5bb00d43…), AAC-LC 48 kHz stereo 192 kb/s from frame 0. sound-v2 is not published yet.
+- **Subtitles:** unchanged from cut-v2/v3 (same 75 cues, timed from `sound-v1` `mix_report.json`).
+
+## Measured on the rendered file
+
+- 1024x576 H.264 High, 24 fps, 15800 frames; AAC 48 kHz stereo; 658.333 s. ffmpeg full decode reported 0 errors.
+- Shot placement: for each of the 126 picture shots I compared the cut's first, middle and last frame of the slot with the supplied shot's frames 0, middle and last (grey, 256x144). PSNR was 47.8 dB or more on all of them, which is encode loss. Every shot's frame count equals its timeline `frames`.
+- Each shot has its own picture: I compared the midframes of adjacent shots. The closest pair is at 19.4 dB PSNR, against 30–48 dB inside the scene runs of cut-v3. The sheets `edit/checks/cut-v4-midframes-*.png` show each shot's midframe with its shot-list framing. I looked at all three: the framings change as the shot list says (for example S005 the cogs insert, S008 the profile two-shot, S090 the Machine's red eyes, S122 Proog striking Emo, S126 Emo's hand).
+- Sync: I cross-correlated 4 s of the cut's audio against `mix.wav` at 30, 300 and 600 s. The offset was 0.0 ms at all three points.
+- Loudness: integrated −20.6 LUFS, true peak −1.4 dBFS, LRA 8.3 LU, the same as cut-v3.
+
+## Known faults (not edit's, already with their owners)
+
+- **Stepped motion (dp#11, qc cut-v3 F4).** I counted frames that differ from the previous one (mean absolute grey difference over 0.15, 256x144). 22 shots of 12 frames or more have fewer than 20 new pictures per second. Lowest: S007 4.1, S013 5.0, S001 5.4, S042 5.8, S085 5.8, S019 7.6, S126 8.0, S038 9.3, S006 9.5, S082 9.6. This is a rough count, and qc's measure decides.
+- **Unclear or missing lines** L02, L04, L06, L14, L21, L31, L32, L33 (sound-designer#6). cut-v4 still carries sound-v1. sound-v2 will be cut in when it is published.

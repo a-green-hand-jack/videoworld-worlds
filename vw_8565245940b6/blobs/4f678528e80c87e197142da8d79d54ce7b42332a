@@ -1,0 +1,34 @@
+# Lock record — "The Paper Lantern"
+
+Locked: 2026-10-19, by director.
+
+## What is locked
+`film/paper-lantern.mp4` from `editor` commit 378db12bf46876eefedb64f65be6505988bd2eaf (= editor release `cut-v4`, re-released as `world/director` `screen-cut-v4`), sha256 493be6275c8430fd16c2486f831f71284e2d04e23b4a94b68fb5c02e315eeb46, verified equal to the file in `ht-role delivery` at lock time. Assignment: `assignment.json` (editor provides the film).
+
+## What I watched and measured
+- Picture: every cut v1–v4 at 2 fps contact sheets, 8 fps strips at the S2→S3 change and 3 fps strips over the ending, full-size frames at the title (`qc/cut-v1.md` … `qc/cut-v4.md`). cut-v4's video stream is framemd5-identical to cut-v3.
+- Against `direction/delivery-spec.md`:
+  - D1/D2: MP4, H.264 High yuv420p, 20.000 s video (480 frames) and audio; full decode without error.
+  - P1: 1280x720, 24/1 CFR.
+  - P2: four shots from production-designer's generated stills, each with its own slow move (push, push, drifting pan, wide drift).
+  - P3: title "The Paper Lantern" fully legible 0.6–2.1 s; end card "The End" fully bright ≈17.8–19.3 s.
+  - P4: child at the bank at dusk with the lantern → hands release it on the water → straight cut to it drifting past the lit village → a tiny warm light among sky and water stars → end card.
+  - P5: one painted style; the same child (dark hair, grey-blue coat, red scarf) and the same cream cuboid lantern throughout.
+  - P6: black only in the fade-in (0–0.17 s) and fade-out (19.71–19.96 s), no freeze, no stray text or watermark.
+  - S1: AAC LC stereo 48 kHz.
+  - S2: water bed with bubbling texture, wind, pulsed crickets thinning into night, a water touch at the release, and a soft music-box melody over a pad that lifts over the star shot; no voice.
+  - S3: −16.1 LUFS, −4.5 dBTP, LRA 2.1 LU, no silence gap, faded in and out; mono fold-down −21.7 LUFS, so nothing cancels.
+- Proxy listening (AudioSet AST, `tools/tag_audio.py`, `tools/tag_stems.py`): the stems read as Insect/Cricket (crickets), Rain/Waves/Ocean (water), Music/Marimba/Glockenspiel (music); the full mix reads Frog .20, Music .18, Waves, with no ringtone and no speech. Residual: a low "Vehicle" tag (.10–.19, 0–9.5 s) that no stem produces alone, taken as a classifier artefact.
+
+## What the screenings found
+test-audience `screenings/screen-cut-v1.md`, `screen-cut-v3.md`, `screen-cut-v4.md` (test-audience commit 636ae6d):
+- The story reads without words and the mood is tender and calm.
+- The child and lantern are consistent throughout.
+- The cut-v1 notes are resolved: the two-lantern dissolve, the lantern lost before the end card, and the short end card.
+- On cut-v4: nothing stops a lock; no click, no voice, no clipping; the crickets are pulsed.
+
+## Limits stated plainly
+Nobody has heard the mix by ear. `audio-understanding` answered HTTP 429 (free-tier quota of 20 requests per day) for every position from about 23:15 UTC. The sound judgement therefore rests on measurement, the AudioSet proxy and the sound's source code (`editor` `tools/make_sound.py` @378db12).
+
+## Conclusion
+The assembled delivery is the film the objective asks for: 20 s, 1280x720 at 24 fps, H.264 with AAC stereo, four still-based shots with camera moves, an opening title and an end card, consistent style and characters, and water and evening ambience with a soft musical cue and no dialogue. It plays with picture and sound from start to end. Approved for release.

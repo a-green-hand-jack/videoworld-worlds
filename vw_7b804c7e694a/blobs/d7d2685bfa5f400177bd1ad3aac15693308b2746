@@ -1,0 +1,64 @@
+# cut-v0b — animatic re-timed to the revised script
+
+Built from director `direction/script.md` + `direction/shot-list.md` at fb1a5b49dd17fb83ae53f01048bb1f6d14d3d4ce
+(233 spoken words, shot 13 split into 13a/13b) with `tools/timeline.py` and rendered with `tools/conform.py`.
+Picture: one slate per shot; end title final. Sound: none yet; scratch subtitles stand in for the read.
+
+**Timing method.** Line lengths are estimated at 2.4 words/s + 0.2 s (the script's pace) until the recorded takes land.
+Each shot holds its lines 0.3 s after its head, 0.3 s apart, 0.3 s before its tail (+1 s after line 8 for the strike);
+the shot list's extra length is scaled so the cut lands on 120.000 s. Speech is 101.7 s of it, so there is only ~4 s of
+slack left over the minimum: a slower read than 2.4 words/s pushes the cut toward 125 s.
+
+## Shots (record in/out)
+
+| shot | in | out | dur s | lines | source |
+|---|---|---|---|---|---|
+| s01 | 00:00.000 | 00:05.250 | 5.250 | 1 | slate |
+| s02 | 00:05.250 | 00:10.208 | 4.958 | 2 | slate |
+| s03 | 00:10.208 | 00:15.167 | 4.958 | 3 | slate |
+| s04 | 00:15.167 | 00:21.458 | 6.292 | 4, 5 | slate |
+| s05 | 00:21.458 | 00:26.583 | 5.125 | 6 | slate |
+| s06 | 00:26.583 | 00:32.417 | 5.833 | 7 | slate |
+| s07 | 00:32.417 | 00:38.375 | 5.958 | 8 | slate |
+| s08 | 00:38.375 | 00:46.500 | 8.125 | 9, 10 | slate |
+| s09 | 00:46.500 | 00:52.708 | 6.208 | 11 | slate |
+| s10 | 00:52.708 | 00:57.458 | 4.750 | 12 | slate |
+| s11 | 00:57.458 | 01:02.917 | 5.458 | 13 | slate |
+| s12 | 01:02.917 | 01:10.167 | 7.250 | 14, 15 | slate |
+| s13a | 01:10.167 | 01:19.292 | 9.125 | 16 | slate |
+| s13b | 01:19.292 | 01:23.917 | 4.625 | 17 | slate |
+| s14 | 01:23.917 | 01:26.958 | 3.042 | 18 | slate |
+| s15 | 01:26.958 | 01:31.583 | 4.625 | 19 | slate |
+| s16 | 01:31.583 | 01:40.292 | 8.708 | 20 | slate |
+| s17 | 01:40.292 | 01:46.625 | 6.333 | 21 | slate |
+| s18 | 01:46.625 | 01:49.542 | 2.917 | 22 | slate |
+| s19 | 01:49.542 | 01:57.000 | 7.458 | 23 | slate |
+| end | 01:57.000 | 02:00.000 | 3.000 |  | title card |
+
+## Lines
+
+| # | shot | speaker | start | end | dur s | timing | text |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | NARRATOR | 00:00.300 | 00:04.667 | 4.37 | estimate | Bitter cold, almost dark: the last evening of the year. |
+| 2 | 2 | NARRATOR | 00:05.550 | 00:09.917 | 4.37 | estimate | A poor girl shuffled along in her mother's big slippers. |
+| 3 | 3 | NARRATOR | 00:10.508 | 00:14.875 | 4.37 | estimate | Carriages raced by; she lost them, and went on barefoot. |
+| 4 | 4 | GIRL | 00:15.467 | 00:17.750 | 2.28 | estimate | Matches… who'll buy my matches? |
+| 5 | 4 | NARRATOR | 00:18.050 | 00:21.167 | 3.12 | estimate | No one had bought a single match. |
+| 6 | 5 | NARRATOR | 00:21.758 | 00:26.125 | 4.37 | estimate | Candles gleamed in the windows; it smelled of roast goose. |
+| 7 | 6 | NARRATOR | 00:26.883 | 00:32.083 | 5.20 | estimate | She huddled in a corner, afraid to go home to her father. |
+| 8 | 7 | NARRATOR | 00:32.717 | 00:37.083 | 4.37 | estimate | Her hands were numb. If she dared strike just one… |
+| 9 | 8 | NARRATOR | 00:38.675 | 00:43.875 | 5.20 | estimate | How it blazed! A warm iron stove seemed to stand before her. |
+| 10 | 8 | NARRATOR | 00:44.175 | 00:46.042 | 1.87 | estimate | Then it went out. |
+| 11 | 9 | NARRATOR | 00:46.800 | 00:52.417 | 5.62 | estimate | A second: the wall became a veil, and inside, a roast goose steamed. |
+| 12 | 10 | NARRATOR | 00:53.008 | 00:56.958 | 3.95 | estimate | It hopped down and waddled toward her — then darkness. |
+| 13 | 11 | NARRATOR | 00:57.758 | 01:02.542 | 4.78 | estimate | A third: she sat beneath a Christmas tree ablaze with candles. |
+| 14 | 12 | NARRATOR | 01:03.217 | 01:08.000 | 4.78 | estimate | Out it went. The lights rose and became stars. One fell. |
+| 15 | 12 | GIRL | 01:08.300 | 01:09.750 | 1.45 | estimate | Someone is dying. |
+| 16 | 13a | NARRATOR | 01:10.467 | 01:19.000 | 8.53 | estimate | Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God. |
+| 17 | 13b | NARRATOR | 01:19.592 | 01:23.542 | 3.95 | estimate | A fourth — and there stood Grandmother, shining and kind. |
+| 18 | 14 | GIRL | 01:24.217 | 01:26.500 | 2.28 | estimate | Grandmother! Take me with you! |
+| 19 | 15 | NARRATOR | 01:27.258 | 01:31.208 | 3.95 | estimate | She struck the whole bundle, to keep her near. |
+| 20 | 16 | NARRATOR | 01:31.883 | 01:40.000 | 8.12 | estimate | Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear. |
+| 21 | 17 | NARRATOR | 01:40.592 | 01:46.208 | 5.62 | estimate | At dawn she sat there still, rosy-cheeked and smiling — frozen to death. |
+| 22 | 18 | PASSER-BY | 01:46.925 | 01:49.208 | 2.28 | estimate | She wanted to warm herself. |
+| 23 | 19 | NARRATOR | 01:49.842 | 01:56.708 | 6.87 | estimate | No one knew the beautiful things she had seen, or the joy she had gone to. |

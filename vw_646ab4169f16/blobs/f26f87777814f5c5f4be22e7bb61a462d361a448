@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "visual_method": "Full decoded-frame inspection at start, midpoint and end for each replacement; contact sheet is a diagnostic overview.",
+  "contact_sheet": "evidence/cable-space-correction-v8.jpg",
+  "shots": {
+    "S026": {
+      "asset": "working/rendered-shots-v7/S026.mp4",
+      "frames": 61,
+      "sampled_frames": {
+        "0": {
+          "mean_luma": 42.507,
+          "p95_luma": 189.0,
+          "black_pixel_fraction": 0.25024
+        },
+        "30": {
+          "mean_luma": 42.57,
+          "p95_luma": 189.667,
+          "black_pixel_fraction": 0.21899
+        },
+        "60": {
+          "mean_luma": 42.351,
+          "p95_luma": 190.0,
+          "black_pixel_fraction": 0.22533
+        }
+      }
+    },
+    "S027": {
+      "asset": "working/rendered-shots-v7/S027.mp4",
+      "frames": 104,
+      "sampled_frames": {
+        "0": {
+          "mean_luma": 13.674,
+          "p95_luma": 40.333,
+          "black_pixel_fraction": 0.37485
+        },
+        "52": {
+          "mean_luma": 13.495,
+          "p95_luma": 38.667,
+          "black_pixel_fraction": 0.37086
+        },
+        "103": {
+          "mean_luma": 12.752,
+          "p95_luma": 36.333,
+          "black_pixel_fraction": 0.38739
+        }
+      },
+      "fade_observation": {
+        "start_mean_luma": 13.674,
+        "end_mean_luma": 12.752,
+        "observation": "The deeper wire-space shot darkens toward its final frame; the visible receiver field recedes while the endpoint approaches black."
+      }
+    }
+  },
+  "continuity": {
+    "join": "S026 frame 60 to S027 frame 0",
+    "mean_absolute_rgb_delta": 39.27,
+    "observation": "Both decoded shots remain in the same near-black cable-space palette with taut white receiver wires and grey machine structure; S027 continues the pan-right composition deeper rather than introducing the red room."
+  }
+}

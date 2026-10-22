@@ -1,0 +1,40 @@
+# QC report: cut-v5 (release of world/editor; film = editor@172cecf)
+
+Checked against `direction/delivery-spec.md`, `direction/script.csv`, `edit/timeline.json`, the cut-v4 report.
+Method: downloaded release mp4 (sha256 76fdc366…ad92be880) and vtt; ffmpeg 7.0.2 full decode (prints nothing), `ebur128`, `volumedetect`, `silencedetect`, stream-copy md5 of video and audio; speech recogniser faster-whisper small.en (int8, CPU) on each script line cut from the cut's own audio with ±1.5 s of context (`evidence/cut-v5/asr5.py`, `asr-isolated.json`) and again on the nine requested lines with tight windows, with and without an initial prompt (`tight.py`, `tight.txt`); energy-rise onset per line (`onset.py`, `onset.json`). **I did not listen with ears and did not play the file in a browser**; "intelligible" is judged by a recogniser, which is a proxy, and a prompted recogniser is primed toward the answer, so I weigh the unprompted result.
+
+**Recommendation: FIX. Sound is better and not the decider any more except L31 and L33; the picture is byte-for-byte cut-v4's, so the cut-v4 picture faults F1, F3, F4, F5 all still stand and decide it.** Nothing in D1, D4 numbers or D5 fails.
+
+## Decisive faults
+| # | Spec | Where | Observed | Owner |
+|---|---|---|---|---|
+| F1-F5 (cut-v4) | D3 | unchanged | Video stream stream-copy md5 `8bd5cdb3…2eca7ca` is identical to cut-v4's, as the editor says. So the 17 stepped shots (F1), S026-S027 red room (F3), totem and S107 (F4), costume drift (F5) are all still in this cut. They are with dp (dp#11-#14, editor#14-#17, pd lock `9ba440f`); no new picture is published yet. | dp |
+| F2 residual | D4 intelligibility | L31 "Pulp!" 04:51.0, L33 "Now!" 05:44.5 | Cut-from-the-cut recogniser result is unchanged from cut-v2: L31 "Hope" (plain), L33 "Don't" (plain; "No" / "Don't" even with the prompt). Speech is present at the right time; the word is not recognisable. Needs a human listen; if confirmed, re-voice or lift the consonant. | sound-designer (via editor) |
+
+## The lines the editor asked about (recogniser, tight window ±0.3 and ±0.8 s)
+| line | cut-v2 heard | cut-v5 plain | cut-v5 with prompt | reading |
+|---|---|---|---|---|
+| L02 00:25.2 "Emo? Emo!" | "He ate for the great gold" | "Emote. Emote." | "Emo. Emo." | Fixed as far as the recogniser can tell; it writes "Emote" for Emo throughout this film (L11, L12, L54), so that is its name habit, not a fault. |
+| L04 00:46.3 "Are you hurt?" | "Oh, he's hurt" | "Are you third?" | "Are you hurt?" | Better ("Are you" clear); "hurt" is soft. Needs an ear. |
+| L06 00:55.3 "I'm OK." | "One. Okay." | "I'm L.K." | "I'm OK." | Better; the "O" is weak. Needs an ear. |
+| L14 02:10.8 "Hurry, Emo!" | "Three. Four." | "Curry emote" | "Hurry, Emo!" | Much better; initial consonant of "Hurry" soft. Needs an ear. |
+| L21 "This is not some game." | (unclear) | correct | correct | Pass. |
+| L31 04:51 "Pulp!" | "Hope it." | "Hope" | "Pulp!" / "Pulp." | Unprompted still wrong; the prompted run gets it, so it is on the edge. Needs an ear. |
+| L32 "Emo, close your eyes." | (unclear) | correct | correct | Pass. |
+| L33 05:44.5 "Now!" | "Pretty much." | "Don't." | "No." / "Don't." | Still wrong. |
+| L54 "Emo." | (missing) | "Emote." | "Emo." | Present now, at the right place; passes as far as the recogniser can tell. |
+
+Of all 75 lines in the isolated pass, 48 match the script text at ≥ 0.6 and 29 at ≥ 0.8 (windows contain neighbouring lines, so this under-reads; short lines scoring 0 there, e.g. L26, L36, L43, L49-L50, L55, are mostly neighbour contamination and not a verdict). Other lines were not re-listened to.
+
+## Passes (observed)
+- D1: MP4 H.264 1024x576 24 fps 15800 frames, 10:58.33, AAC stereo 48 kHz; full decode prints nothing; `moov` before `mdat` (faststart present, bytes 36 vs none in first 64 kB). Not tested: browser playback of index.html.
+- D4 mix numbers: integrated -19.8 LUFS, LRA 8.4 LU, true peak -1.6 dBFS, max sample -1.6 dB (ffmpeg), mean -20.9 dB; no silence over 1.5 s at -50 dB. The audio stream is new (stream-copy md5 `9cd658bb…`, cut-v4 `f85adfe1…`). No clipping.
+- D4 music ducking: lines read over the music in the recogniser pass without the music masking them; ducking amount not measured separately (no stems).
+- D5: 75 cues, texts identical to cut-v4's, 0 overlaps, each cue starts after the previous ends. Cue starts vs script `start_s` not compared to ±0.3 s because the editor deliberately re-timed them to the spoken spans (sound-v2).
+- D5 cues on the voice: voice onset by energy rise (300-3400 Hz, 10 ms frames, biggest 50 ms rise within ±0.6 s of the cue start): all 75 lines show a clear rise (≥ 8 dB), median +0.12 s after cue start, 40 within ±0.15 s, 55 within ±0.3 s. 20 lines show the largest rise 0.3-0.56 s away (L03, L06, L08, L18, L21, L25, L37, L39, L44, L45, L47, L52, L59, L64, L68, L69, L70, L72, L74, L75); with this crude detector the biggest rise can be a later syllable, so I cannot call these faults, and the recogniser word onsets point to either side (median -0.24 s, a known early bias). Check by ear/waveform if D5's 0.3 s is a hard requirement.
+
+## Not checked
+Any listening by a person; voice distinctness; music/effects balance by ear; per-shot picture beyond the cut-v4 identity result; browser playback.
+
+## Faults routed
+F2 residual (L31, L33) added to editor#13 for sound-designer#6. F1, F3-F5 stay open on editor#14-#17.

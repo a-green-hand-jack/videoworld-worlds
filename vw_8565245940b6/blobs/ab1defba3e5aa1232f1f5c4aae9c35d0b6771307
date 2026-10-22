@@ -1,0 +1,26 @@
+# Finished picture package review — picture-v1
+
+Re-read the frozen objective before delivery: four to six still-image shots, a child releasing a paper lantern onto a river at dusk, passing the village, then a small light among stars; consistent style and child/lantern; title/end card; 1280×720 at 24 fps. This package supplies four narrative picture clips and two text-free card plates. Editor supplies typography, sound, assembly and final MP4; director judges the finished cut.
+
+## Measured encoded files
+
+`tools/check_shots.py` decoded every frame of each delivered MP4 using ffmpeg, measured adjacent RGB changes, inspected ffprobe stream metadata, and extracted frame evidence from the encoded files. All are single-stream silent H.264 yuv420p, 1280×720, 24/1 fps. No decode errors, missing frames, all-black frames, or identical adjacent frames were measured. S1/S2/S4 are 108 frames (4.5 s) each; S3 is 120 frames (5 s). Exact metadata and pixel statistics are in `evidence/technical-checks.json`. This measurement confirms image change, not a claim of watching a realtime playback.
+
+## Visual observations
+
+Inspected the decoded contact sheet's opening, midpoint and final frame for every clip, and the final frames of S2 and S4 separately at 1280×720.
+
+| Clip/time within clip | Observation |
+| --- | --- |
+| S1 00:00.000, 00:02.250, 00:04.458 | Child, lantern and tray remain fully in frame through the slow push. Blue coat/red scarf and wood/cream lantern match the accepted master. |
+| S2 00:00.000, 00:02.250, 00:04.458 | Both hands stay visibly separated from the lantern; the base sits on rippled water with a warm reflection. Costume cuffs/scarf and lantern construction remain consistent. |
+| S3 00:00.000, 00:02.500, 00:04.958 | Smaller matching lantern is readable against the river, with the same village building vocabulary. The rightward camera pan keeps it safely framed. |
+| S4 00:00.000, 00:02.250, 00:04.458 | Tiny warm lantern stays visible among reflected and real stars; the widening view retains the distant village, indigo palette and warm reflection. |
+
+No visible watermark, stray lettering, border, clipped primary subject or severe compression artifact was observed in these inspected frames. The motion is deliberately restrained still-image camera movement; the child and water are painted stills. Scene progression and the S1/S2 juxtaposition convey letting go, as allowed by the objective's still-image form.
+
+The title and end plates were visually inspected in `design/reference-review.md`. They contain no lettering so the editor can apply exact, consistent titles. Core intervals, handles and source stills are in `shot-log.json` and `README.md`. The alternative editor timing is explained in `handoff-contract.md`; it may consume S4's handles.
+
+## Commitment check
+
+Design bible and reference imagery published in design-v1 and picture-stills-v1; all final source stills and four finished shots are supplied in picture-v1. The complete source package includes prompts, reference observations, motion parameters and verification evidence. No final-cut, sound, typography or lock judgement is claimed here.

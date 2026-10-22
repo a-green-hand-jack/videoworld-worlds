@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""cut-v6b EDL: cut-v6a's timeline, mix (mix-cut-v5c) and subtitles, with dp's Wan 2.7 moving shots (dp 1550f65,
+releases shots-b3..b5, Wan takes re-converted without the 30->24 cadence) in the still slots. In-points put each shot's event on the narration and the mix. Run from this directory."""
+import json, copy
+SH = "/hutian/dp/shots"
+e = json.load(open("../cut-v6a/edl.json"))
+by = {s["id"]: s for s in e["shots"]}
+def slot(i, **kw):
+    s = {k: by[i][k] for k in ("id", "dur", "in", "out")}; s.update(kw); return s
+new = {
+    # the roast goose waddles across the table to her (line 12 at 53.63); the vision dims from 56.68 and is dark
+    # on "then darkness" (goose flame-out 56.83 in the mix), then the cold wall (s10.mp4 tail, as before)
+    # (cut before src 4.3, where the take dissolves to the street with the goose beside her)
+    "s10": slot("s10", xfade=0.35, parts=[
+        {"src": f"{SH}/s10_wan1.mp4", "src_in": 0.7, "dur": 3.55, "fade_out": 0.5, "fade_out_st": 3.1},
+        {"src": f"{SH}/s10.mp4", "src_in": 5.2, "dur": 1.675}]),
+    # the tree's lights rise and become stars; the falling star enters at src 4.4 -> 68.4 and falls through
+    # "One fell" (~69.4); her face from ~70.0 for "Someone is dying"
+    "s12": slot("s12", src=f"{SH}/s12_wan1.mp4", src_in=0.0),
+    # the memory (dp 1550f65 retake): barefoot, the burnt match dark in her fingers, the grandmother's glow fades out
+    "s13a": slot("s13a", src=f"{SH}/s13a_wan2.mp4", src_in=0.0),
+    # the plea (dp 66079b3 retake, grandmother in her costume): she calls "Grandmother!" (85.93, mouth open src 0.5-1.5),
+    # the grandmother steps into the glow src 2.5-3.0 -> 88.1-88.6 on "Take me with you!"
+    "s14": slot("s14", src=f"{SH}/s14b_wan1.mp4", src_in=0.3),
+    # the bundle catches at src 0.9 -> 90.68..90.8 on the strike (90.78), big flare src 1.29 -> 91.07, full by ~91.6
+    "s15": slot("s15", src=f"{SH}/s15_wan2.mp4", src_in=0.1),
+    "s16": slot("s16", src=f"{SH}/s16_wan1.mp4", src_in=0.3),
+    # dawn: her face asleep for "At dawn she sat there still, rosy-cheeked and smiling", then on the pause before
+    # "frozen to death" (L21 4.77-5.65 = 107.36-108.24) the burnt matches by her bare feet (s17b_wan1)
+    "s17": slot("s17", xfade=0.4, parts=[
+        {"src": f"{SH}/s17_wan1.mp4", "src_in": 0.4, "dur": 5.2},
+        {"src": f"{SH}/s17b_wan1.mp4", "src_in": 1.5, "dur": 2.367}]),
+    # townspeople from behind (s18b): the woman lifts her hand to her mouth and speaks, breath in the cold (line 22 at 109.76);
+    # then s19's tilt and its Wan continuation into the morning sky
+    "s18-s19": slot("s18-s19", xfade=0.5, fade_out=1.0, parts=[
+        {"src": f"{SH}/s18b_wan1.mp4", "src_in": 1.2, "dur": 4.3},
+        {"src": f"{SH}/s19.mp4", "src_in": 4.4, "dur": 3.6},
+        {"src": f"{SH}/s19_wan1.mp4", "src_in": 0.0, "dur": 2.6}]),
+}
+# no frame-repeating retimes (qc 652f3e5, spec 17): s03, s05, s07 play at speed 1, and s04 is dp's 8 s retake
+# (shots-b6) at speed 1: passers-by pass her offered match through "who will buy my matches?", then she stands
+# alone and lowers her hand for "No one had bought a single match."
+for i in ("s03", "s05", "s07"):
+    by[i].pop("speed", None)
+new["s04"] = slot("s04", src=f"{SH}/s04_wan2.mp4", src_in=0.0)
+# s09 (the goose vision, 0:46.3-0:53.3): dp's take with its 6 Hz cadence (a ~12% dip every 4th frame) evened by
+# tools/even_motion.py (each frame re-placed on the move's smooth path, sub-pixel warp of the nearest frame)
+by["s09"]["src"] = "/hutian/media/even/s09_even.mp4"
+e["shots"] = [new.get(s["id"], s) for s in e["shots"]]
+e.update(out="cut-v6b.mp4", srt="film.srt", audio="../cut-v5d/mix.wav", tmpdir="/hutian/tmp")
+json.dump(e, open("edl.json", "w"), indent=1)

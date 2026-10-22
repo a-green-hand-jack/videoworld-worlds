@@ -1,0 +1,42 @@
+{
+  "picture/shots/S1.mp4": {
+    "bytes": 2480733,
+    "sha256": "48606e003e0df8168de8187d58335a39ea4afb11b6c9180e8203792c2cb00f38"
+  },
+  "picture/shots/S2.mp4": {
+    "bytes": 1773840,
+    "sha256": "9692562531a86afebcfba5ba4959275b06607fda7bf650196462145a2d439c60"
+  },
+  "picture/shots/S3.mp4": {
+    "bytes": 1638313,
+    "sha256": "52bc6d81215145ae3c0f35e2084f526d03f4765e7d83c4fc046ca3c6e25148ef"
+  },
+  "picture/shots/S4.mp4": {
+    "bytes": 1776829,
+    "sha256": "1650c3973c2be5237d3aaa88e26ed97e2974b06c7d37b5000fd9b3a558b2cad6"
+  },
+  "picture/stills/end-plate.png": {
+    "bytes": 2208770,
+    "sha256": "09f59ccb48edb9a8a8bc818e978354c6d4ac065389d124756505d6f601088f71"
+  },
+  "picture/stills/shot-01.png": {
+    "bytes": 2570807,
+    "sha256": "d106c39b9b1e28f3ea568ae8e8d3aaed4930ce78bd7b3430f8d6d675593d7942"
+  },
+  "picture/stills/shot-02.png": {
+    "bytes": 2272203,
+    "sha256": "a687647ac58a980b3fee1dec14a1568989c2a163a42708e03965091980cb3007"
+  },
+  "picture/stills/shot-03.png": {
+    "bytes": 2529321,
+    "sha256": "9e66e344ad98b61b02c43183ffea3c8f8ff0192c0ce13b41609b68d6ea4feb76"
+  },
+  "picture/stills/shot-04.png": {
+    "bytes": 2333154,
+    "sha256": "3e4514203c17948f31fd60ea80adaea9d8095557c047b3b13aea20171312093b"
+  },
+  "picture/stills/title-plate.png": {
+    "bytes": 2288474,
+    "sha256": "11acbf87c9c27cd2bab6cede549b06dfa38c5b312df489e62e01c89d93fb3863"
+  }
+}

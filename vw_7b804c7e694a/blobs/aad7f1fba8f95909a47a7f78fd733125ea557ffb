@@ -1,0 +1,23 @@
+import base64, json, os, subprocess, sys, urllib.request
+url = subprocess.check_output(["ht-resource","url","music"],text=True).strip()
+tok = os.environ["HT_RESOURCE_TOKEN"]
+def gen(name, prompt):
+    out = f"music/{name}"
+    if os.path.exists(out+".mp3"): return
+    body = json.dumps({"contents":[{"parts":[{"text":prompt}]}]}).encode()
+    req = urllib.request.Request(url+"/v1beta/models/lyria-3.5:generateContent", body, {"x-goog-api-key":tok,"Content-Type":"application/json"})
+    r = json.load(urllib.request.urlopen(req, timeout=300))
+    for p in r["candidates"][0]["content"]["parts"]:
+        if "inlineData" in p:
+            open(out+".mp3","wb").write(base64.b64decode(p["inlineData"]["data"])); print(name, p["inlineData"]["mimeType"])
+        elif "text" in p: print(name, p["text"][:200])
+CUES = {
+ "m1_cold_street": "Instrumental, no vocals, no drums. About 30 seconds. A cold, lonely New Year's Eve in 1840s Copenhagen in falling snow: sparse felt piano and a thin solo cello, a few high music-box notes, slow 60 bpm, minor key, lots of silence and space, sorrowful and tender. Gentle fade out at the end.",
+ "m2_stove_goose": "Instrumental, no vocals. About 25 seconds. Warm, cozy and gently wondrous: a glowing harp and soft nylon guitar with warm strings and a little celesta, a slow waltz-like lilt, major key, the feeling of a hearth fire and a festive table, tender and a little magical. Gentle fade out at the end.",
+ "m3_tree_stars": "Instrumental, no vocals. About 25 seconds. Luminous and rising: celesta, glockenspiel and shimmering harp arpeggios over soft swelling strings, a Christmas tree with thousands of candles turning into stars, awe and wonder, then a single falling star descending in a few notes. Gentle fade out at the end.",
+ "m4_grandmother_ascent": "Instrumental, no vocals. About 35 seconds. Radiant, loving and heavenly: a warm string choir and soft wordless choir pads, slow harp, a tender melody that rises gently upward, reunion with a beloved grandmother and ascending into light, deeply moving, peaceful, builds softly then resolves. Gentle fade out at the end.",
+ "m5_morning_after": "Instrumental, no vocals. About 25 seconds. Hushed, bleak and tender morning after: a single solo cello and soft felt piano, pale cold dawn, a quiet grief, sparse, slow, a faint warm major chord at the very end offering a bittersweet peace. Fade to silence at the end.",
+}
+for k,v in CUES.items():
+    try: gen(k,v)
+    except Exception as e: print(k,"ERR",e)

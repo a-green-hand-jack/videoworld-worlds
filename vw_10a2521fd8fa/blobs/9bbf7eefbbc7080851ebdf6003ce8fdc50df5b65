@@ -1,0 +1,102 @@
+{
+ "s01": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": "take 2 (key frame cropped of paper margin)"
+ },
+ "s02": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ },
+ "s03": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": "ends on bare feet close-up as the list asks"
+ },
+ "s04": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ },
+ "s05": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ },
+ "s06": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ },
+ "s07": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ },
+ "s08": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ },
+ "s09": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ },
+ "s10": {
+  "take": "model",
+  "release": "shots-b2",
+  "note": "take still shows the live white goose; replace with keyframes/s10_a-c (roast goose) until a model take exists"
+ },
+ "s11": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ },
+ "s12": {
+  "take": "still-push",
+  "release": "shots-b2",
+  "note": "interim; video model blocked (daily request cap, resets 07:00 UTC; s17/s18 also refused by the safety filter) | extra frames in keyframes/ (see below)"
+ },
+ "s13a": {
+  "take": "still-push",
+  "release": "shots-b2",
+  "note": "interim memory shot (no strike) from keyframes/s13a.png; the strike take is shots/s13a_strike.mp4"
+ },
+ "s13b": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": "grandmother appears in the corner/street but wall geometry drifts from corner_wide; regenerate if quota allows"
+ },
+ "s14": {
+  "take": "still-push",
+  "release": "shots-b2",
+  "note": "interim; video model blocked (daily request cap, resets 07:00 UTC; s17/s18 also refused by the safety filter) | extra frames in keyframes/ (see below)"
+ },
+ "s15": {
+  "take": "still-push",
+  "release": "shots-b2",
+  "note": "interim; video model blocked (daily request cap, resets 07:00 UTC; s17/s18 also refused by the safety filter) | extra frames in keyframes/ (see below)"
+ },
+ "s16": {
+  "take": "still-push",
+  "release": "shots-b2",
+  "note": "interim; video model blocked (daily request cap, resets 07:00 UTC; s17/s18 also refused by the safety filter) | extra frames in keyframes/ (see below)"
+ },
+ "s17": {
+  "take": "still-push",
+  "release": "shots-b1",
+  "note": "interim; video model blocked (daily request cap, resets 07:00 UTC; s17/s18 also refused by the safety filter)"
+ },
+ "s18": {
+  "take": "still-push",
+  "release": "shots-b2",
+  "note": "interim, street-side angle from keyframes/s18.png"
+ },
+ "s19": {
+  "take": "model",
+  "release": "shots-b1",
+  "note": ""
+ }
+}

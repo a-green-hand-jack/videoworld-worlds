@@ -1,0 +1,20 @@
+# cut-v3
+
+Rendered from `edit/timeline.json` v1 by `edit/tools/render_cut.sh cut-v3` on local-compute (job-a632684519).
+
+- **Picture:** every shot has new picture now, so there are no slates. S001 is from dp `picture-batch-001` (with the edit's painted title and presenter card), S002 from `picture-batch-003`, S003 from `picture-batch-004`, and **S004–S126 from dp's coverage pass `picture-batch-005` … `picture-batch-016`** (dp 01f25db). S127 is the end credits. The director asked for the coverage to be cut in as it stands (dp#9, 08:07).
+- **Sound:** unchanged from cut-v2. It is sound-designer `sound-v1` `mix.wav`, AAC-LC 48 kHz stereo 192 kb/s from frame 0.
+- **Subtitles:** unchanged from cut-v2 (same 75 cues, timed from `sound-v1` `mix_report.json`).
+
+## Measured on the rendered file
+
+- 1024x576 H.264 High, 24 fps, 15800 frames; AAC 48 kHz stereo; 658.333 s. ffmpeg full decode reported 0 errors.
+- Shot placement: for each of the 126 picture shots I compared the cut's first, middle and last frame of the slot with the supplied shot's frames 0, middle and last (grey, 256x144). PSNR was 47.5 dB or more on all of them, which is encode loss. Every shot's frame count equals its timeline `frames`.
+- Sync: I cross-correlated 4 s of the cut's audio against `mix.wav` at 30, 300 and 600 s. The offset was 0.0 ms at all three points.
+- Loudness: integrated −20.6 LUFS, true peak −1.4 dBFS, LRA 8.3 LU, the same as cut-v2.
+
+## Known faults (not edit's, already with their owners)
+
+- **One key image per scene run (D3).** The midframe sheets `edit/checks/cut-v3-midframes-*.png` show it. S004–S010, S011–S025, S026–S041, S042–S060, S061–S075, S076–S081, S082–S091, S092–S106, S107–S124 and S125–S126 each reuse one key with a slow move. The midframes of adjacent shots inside a run differ by only 30–48 dB PSNR. At those cuts the picture jumps back to the same frame, and the shot list's close-ups, reverses and inserts are missing. dp is making one key per shot (director's `revise` on dp#9).
+- S002's ghosted second cheek/nose edge at 26.6–27.05 s: dp#10, still open.
+- Six short lines are not recognisable in the mix (L02, L04, L06, L14, L31, L33): sound-designer#6, still open. cut-v3 still carries sound-v1.

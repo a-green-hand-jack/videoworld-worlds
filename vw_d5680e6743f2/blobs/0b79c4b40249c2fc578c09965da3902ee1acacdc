@@ -1,0 +1,11 @@
+# Screening revision v3
+
+Request: production-designer #4. Objective re-read, along with director brief and cut-v2 QC at f634d710a307bdc0644325c09f0f823080c71ea9. No change in lengths, video specs, sound ownership or five other clips.
+
+Failure evidenced by screening: extended hands looked like reaching; the distant lamp remained below the sky behind a visible river/mountain separation.
+
+Method: generate two replacement still compositions using prior images as exact style/design references. Shot02 changes the child's gesture and framing so hands withdraw to chest, then pans away toward the freed lantern. Shot05 removes the central bank/mountain separation and warm village reflections, blends sky/river at the distant horizon, places the tiny warm point inside a continuous field of cool star points, and pushes toward it.
+
+New prompts: production/prompts/shot02-v3.txt and shot05-v3.txt. Both replacement sources were visually inspected at full size and accepted: shot02 has folded-back elbows and hands at the chest; shot05 opens the central horizon and places the only warm light within the starfield. Stable source PNGs are updated. Only shot02/shot05 will be rerendered.
+
+Render/check outcome: job-1d2c64dbc3 succeeded; both full decodes and media specifications pass. Decoded first/middle/last frames confirm the withdrawn gesture and central warm point in a continuous starfield. All five other clips compare identical by SHA-256 to the prior complete delivery. Detailed evidence is in picture/checks.md and picture/revision-v3-frames/; final viewer interpretation is for the next screening.

@@ -1,0 +1,56 @@
+# Brief — round 1
+
+## What the input asks (quoted)
+
+> 复刻 Elephants Dream（2006）
+
+("Remake / replicate Elephants Dream (2006).")
+
+Frozen material (`/initial-state`, mapped in `director`#1):
+`inputs/0/elephantsdream-1024-h264-st-aac.mov` — the original film: 10:58.32, H.264 1024x576
+(progressive, ~23.4–24 fps), AAC stereo 48 kHz. Elephants Dream (Orange Open Movie Project /
+Blender Foundation, 2006) is released under Creative Commons Attribution 2.5.
+
+## How this round reads it
+
+We make **a remake of Elephants Dream**: the same film — story, characters (Proog, the older
+guide, and Emo, the younger man), places (the Machine's halls, cable rooms, the bird-cage/"telephone"
+room, the elevator/"cogwheel" spaces, the final white room), the order of scenes and shots, the
+dialogue and its timing, and its running time — newly produced by this organization: new picture,
+new voices, new music and effects, newly cut and mixed. The original is our reference for what each
+shot is and when it happens; it is **not** footage or sound for the remake. Delivering the original
+(re-encoded, filtered, traced or with its own soundtrack) is not a remake.
+
+## Focus and priorities this round (in order)
+
+1. **A complete film that plays from start to end with picture and sound** in a web browser, at the
+   original's length (±5 %), every scene of the original present in order. A full-length cut with
+   simpler shots beats a beautiful fragment.
+2. **Fidelity to the original's story and timing**: shot for shot, each remake shot stands in for the
+   original shot at the same timecode (±0.5 s at cuts), showing the same action, framing intent and
+   characters, so a viewer who knows the original recognises every moment.
+3. **Dialogue**: every line of the original spoken again, in English, by two distinct, consistent
+   voices (Proog older/gruff, Emo younger/nervous), placed where the original places it; English
+   subtitles for every line.
+4. **Consistency**: Proog, Emo and the Machine look the same from shot to shot, in one coherent
+   style faithful to the original's dark, industrial, surreal look (the design sheets are the law).
+5. **Motion and craft**: shots move (camera moves at minimum; character/element motion where the
+   tools allow); music and effects carry the mood and the Machine's sounds.
+
+## What I could not establish
+
+- Whether "复刻" means a faithful new production (taken here) or a straight re-issue of the
+  original file; a re-issue would make the production pointless, so it is ruled out above.
+- Which picture tools are open to us: no GPU here; image generation (gpt-image-2) is served only to
+  positions whose worker speaks the OpenAI route. Picture method is `dp`'s and
+  `production-designer`'s choice, within the specification.
+
+## Where things are
+
+- Delivery specification: `direction/delivery-spec.md` in `director` (releases of `director` carry it
+  for positions that cannot read the repository).
+- Script (75 timed lines, speakers, delivery) `direction/script.md|csv`; shot list (127 shots
+  S001–S127 keyed to the editor's timeline IDs, 12 scenes, with the original's in/out times) `direction/shotlist.md|csv`; direction of picture
+  and sound per scene `direction/direction-notes.md`. All are attached to release `direction-v3`, with contact
+  sheets of every original shot.
+- Work assignment: `assignment.json` (`ht-role assignment`).

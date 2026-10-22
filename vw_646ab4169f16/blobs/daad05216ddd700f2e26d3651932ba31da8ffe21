@@ -1,0 +1,100 @@
+# Script — Elephants Dream remake
+
+The remake keeps the original's story and every line, in English, at the original's timing (spec D4: each line starts within ±0.5 s of `start`; D5: one subtitle cue per line).
+Voices: **Proog** (P): an older man, gruff, theatrical, a tour guide's pride that turns to mania. **Emo** (E): a young man, nervous and soft at first, then defiant, mocking and cold.
+Timings come from two transcription passes (faster-whisper small.en, word timestamps) of the original and were checked against the picture.
+Lines marked `?` are uncertain readings; `sound-designer` and `qc` may report a better reading with evidence (timecode in the original), and I will rule on it here. A machine-readable copy is `script.csv`.
+
+## Story by scene
+- **SC01 Titles (00:00–00:25.8).** Out of the dark, the title. Proog's voice, like a tour guide's, presents the wonders of the Machine.
+- **SC02 The cable attack (00:25.8–01:09.7).** In a pale teal hall of sockets, cables lash out and knock Emo down. Proog pulls him clear. Neither is hurt. Proog hurries him on: the Machine is not safe.
+- **SC03 The cable forest (01:09.7–02:23).** Through a door into a black infinity of cables and telegraph poles, where white telephone-receiver 'birds' flutter. Proog leaps ahead along a winding walkway and Emo follows. Proog listens.
+- **SC04 The red telephone room (02:23–03:44).** A dark red room with an old telephone on a pedestal. Emo reaches for it. Proog scolds him and makes him listen to the receiver, which is full of living mechanism: 'Listen to the sounds of the machine.' A lamp descends. A mechanical bird twitches.
+- **SC05 The abyss of pedestals (03:44–04:52.5).** Out over a misty abyss, Proog hops across pedestals on poles with bravado. Emo asks if he ever gets tired. Proog's mania for the clockwork Machine shows: 'Pulp!'
+- **SC06 The elevator (04:52.5–05:52.5).** In a brass elevator cage, Proog presses a red button. A machine arm fires a capsule through a spiral tunnel. 'Now!' Proog pulls a lever, and light floods in.
+- **SC07 The void (05:52.5–06:19.9).** On a small glowing platform in black nothingness, Proog quizzes Emo on what he sees to the left and to the right. Emo sees nothing. They drop through white flashes.
+- **SC08 The forbidden door (06:19.9–07:00.8).** In a golden cathedral of machinery, Emo hears something behind a door. Proog forbids it with a horned totem: 'No!'
+- **SC09 The quarrel (07:00.8–07:57).** In a green tiled room, Proog asks why Emo cannot see the beauty of the Machine. Emo says there is nothing there and calls Proog a sick man. Proog warns him: it's a trap.
+- **SC10 Emo's world (07:57–08:53).** Emo makes his own world bloom out of the tiles: 'the Hanging Gardens of Babylon', 'the Colossus of Rhodes', 'just for you, Proog'. Proog, terrified and cornered, strikes Emo down. The gold drains away.
+- **SC11 Proog alone (08:53–09:26).** Proog kneels over the motionless Emo: 'It is there... I'm telling you, Emo...' Emo's limp hand lies among the tubes, fading to black.
+- **SC12 Credits (09:26–10:58).**
+
+## Dialogue
+
+| line | start | end | shot | who | line | delivery / note |
+|---|---|---|---|---|---|---|
+| L01 | 00:15.10 | 00:24.50 | S001 | Proog | At the left we can see... At the right we can see the... the head-snarlers. Everything is safe. Perfectly safe. | V.O. over the titles; slow, guide-like, proud |
+| L02 | 00:25.20 | 00:26.80 | S001 | Proog | Emo? Emo! | alarm rising |
+| L03 | 00:28.20 | 00:29.30 | S003 | Proog | Watch out! | shout |
+| L04 | 00:46.30 | 00:47.60 | S007 | Proog | Are you hurt? | breathless |
+| L05 | 00:52.00 | 00:53.80 | S008 | Emo | I don't think so. You? | dazed |
+| L06 | 00:55.30 | 00:56.30 | S009 | Proog | I'm OK. |  |
+| L07 | 00:57.00 | 01:01.10 | S009 | Proog | Get up. Emo, it's not safe here. | urgent |
+| L08 | 01:01.80 | 01:02.80 | S009 | Proog | Let's go. |  |
+| L09 | 01:03.40 | 01:04.20 | S010 | Emo | What's next? | curious |
+| L10 | 01:05.60 | 01:08.50 | S010 | Proog | You'll see. ... You'll see. | teasing, mysterious |
+| L11 | 01:15.60 | 01:17.80 | S011 | Proog | Emo, this way. |  |
+| L12 | 01:34.30 | 01:35.30 | S013 | Proog | Follow me! |  |
+| L13 | 01:35.80 | 01:39.50 | S013 | Proog | (indistinct mutter as he leaps on) | ? pass 2 only; keep as a mutter/effort |
+| L14 | 02:10.80 | 02:11.90 | S021 | Proog | Hurry, Emo! | ? pass 2 only |
+| L15 | 02:15.80 | 02:17.50 | S024 | Proog | Listen, listen! | ? pass 2 only; hushed |
+| L16 | 02:19.50 | 02:22.70 | S025 | Proog | Listen... listen. | ? pass 2 only; whisper |
+| L17 | 02:48.30 | 02:49.80 | S031 | Proog | You're not paying attention! | stern |
+| L18 | 02:50.50 | 02:54.60 | S033 | Emo | I... I just want to answer the phone... | ? pass 2 only; sheepish |
+| L19 | 02:54.60 | 02:57.00 | S034 | Proog | Emo, look. I mean, listen. |  |
+| L20 | 02:59.50 | 03:01.70 | S035 | Proog | You have to learn to listen. | lecturing |
+| L21 | 03:03.20 | 03:04.50 | S036 | Proog | This is not some game. |  |
+| L22 | 03:05.30 | 03:09.00 | S036 | Proog | You... I mean, we... we could easily die out here. |  |
+| L23 | 03:09.90 | 03:13.70 | S037 | Proog | Listen. Listen to the sounds of the machine. | hushed, reverent |
+| L24 | 03:17.60 | 03:19.30 | S038 | Proog | Listen to your breathing. | whisper |
+| L25 | 04:26.50 | 04:29.20 | S053 | Emo | Well, don't you ever get tired of this? | weary |
+| L26 | 04:30.00 | 04:30.40 | S054 | Proog | Tired? | offended |
+| L27 | 04:31.10 | 04:34.70 | S054 | Proog | Emo, the machine is like... like clockwork. |  |
+| L28 | 04:35.50 | 04:38.90 | S056 | Proog | One move out of place... and you're ground to a pulp. | relishing |
+| L29 | 04:42.30 | 04:46.30 | S059 | Proog | Pulp, Emo! Is that what you want? Pulp? | manic |
+| L30 | 04:47.50 | 04:49.60 | S060 | Proog | Emo, your goal in life... | ? 'goal in life' reading uncertain |
+| L31 | 04:51.00 | 04:51.40 | S060 | Proog | Pulp! | shout |
+| L32 | 05:41.50 | 05:43.20 | S074 | Proog | Emo, close your eyes. | ? pass 2 only |
+| L33 | 05:44.50 | 05:45.40 | S074 | Proog | Now! | shout, pulls the lever |
+| L34 | 05:59.30 | 06:01.60 | S077 | Proog | What do you see at your left side, Emo? | quiz-master |
+| L35 | 06:02.00 | 06:04.70 | S077 | Emo | Well... nothing. | flat |
+| L36 | 06:04.90 | 06:05.20 | S079 | Proog | Really? |  |
+| L37 | 06:06.20 | 06:07.50 | S079 | Emo | No, nothing at all. |  |
+| L38 | 06:07.80 | 06:08.10 | S079 | Proog | Really. |  |
+| L39 | 06:08.40 | 06:09.70 | S079 | Proog | And at your right? |  |
+| L40 | 06:09.80 | 06:11.70 | S080 | Proog | What do you see at your right side, Emo? | close, insinuating |
+| L41 | 06:13.20 | 06:17.40 | S081 | Emo | The same, Proog. Exactly the same. Nothing! | exasperated |
+| L42 | 06:40.20 | 06:44.40 | S086 | Emo | Listen, Proog. Do you hear that? Can we go here? | excited, hushed |
+| L43 | 06:45.40 | 06:45.90 | S087 | Proog | There? |  |
+| L44 | 06:46.00 | 06:46.20 | S087 | Emo | Yeah. |  |
+| L45 | 06:46.60 | 06:47.90 | S087 | Proog | It isn't safe, Emo. |  |
+| L46 | 06:48.90 | 06:49.80 | S088 | Emo | But... |  |
+| L47 | 06:50.30 | 06:51.90 | S089 | Proog | Trust me, it's not. |  |
+| L48 | 06:52.90 | 06:54.60 | S089 | Emo | Well, maybe I could... |  |
+| L49 | 06:54.60 | 06:54.90 | S089 | Proog | No. |  |
+| L50 | 06:57.10 | 06:58.00 | S091 | Emo | But... |  |
+| L51 | 06:58.00 | 06:58.30 | S091 | Proog | No! | shout, with the totem flare |
+| L52 | 07:00.70 | 07:03.00 | S091 | Proog | Any further questions, Emo? | cold |
+| L53 | 07:04.30 | 07:04.80 | S093 | Emo | No. | sullen |
+| L54 | 07:09.50 | 07:10.40 | S095 | Proog | Emo. | softer |
+| L55 | 07:10.80 | 07:11.00 | S095 | Emo | Yeah? |  |
+| L56 | 07:11.80 | 07:18.10 | S095 | Proog | Emo, why... Emo, why... why can't you see the beauty of this place? | pleading |
+| L57 | 07:18.70 | 07:23.60 | S095 | Proog | The way it works... how perfect it is. | rapt |
+| L58 | 07:24.50 | 07:29.60 | S097 | Emo | No, Proog, I don't see. I don't see because there's nothing there. | angry |
+| L59 | 07:29.60 | 07:34.60 | S097 | Emo | And why should I trust my life to something that isn't there? |  |
+| L60 | 07:35.60 | 07:38.20 | S098 | Emo | Well, can you tell me that? Proog, answer me! | ? words and speaker uncertain (heard as 'What can you tell me then? Emo, answer me'); off-screen over S103 |
+| L61 | 07:44.60 | 07:46.40 | S102 | Emo | Proog... you're a sick man. | cold |
+| L62 | 07:47.40 | 07:48.40 | S103 | Emo | Stay away from me. |  |
+| L63 | 07:52.40 | 07:54.40 | S105 | Proog | No, Emo, it's a trap! | desperate |
+| L64 | 07:55.80 | 07:57.00 | S106 | Emo | It's a trap? | mocking |
+| L65 | 07:57.00 | 08:01.10 | S107 | Emo | At the left side you can see... the Hanging Gardens of Babylon! | showman, mimicking Proog's tour-guide voice |
+| L66 | 08:02.10 | 08:03.30 | S108 | Emo | How's that for a trap? |  |
+| L67 | 08:05.70 | 08:06.60 | S109 | Proog | No, Emo. |  |
+| L68 | 08:09.00 | 08:11.20 | S110 | Emo | On the right side you can see... |  |
+| L69 | 08:11.80 | 08:12.40 | S110 | Emo | Well, guess what? |  |
+| L70 | 08:13.00 | 08:14.60 | S110 | Emo | The Colossus of Rhodes! |  |
+| L71 | 08:15.50 | 08:16.10 | S111 | Proog | No! |  |
+| L72 | 08:16.60 | 08:17.80 | S112 | Emo | The Colossus of Rhodes! |  |
+| L73 | 08:18.00 | 08:20.00 | S112 | Emo | And it is here just for you, Proog. |  |
+| L74 | 08:20.20 | 08:21.50 | S112 | Emo | Just for you. | quiet, cruel |
+| L75 | 08:50.30 | 08:59.30 | S123 | Proog | It is there... I'm telling you, Emo... it is... it is... | broken, to himself |

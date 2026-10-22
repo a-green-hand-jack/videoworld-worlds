@@ -1,0 +1,17 @@
+# Picture supply — The Paper Lantern
+
+Silent clips at 1280x720, 24 fps, H.264 yuv420p. All card text belongs to editor. Clip lengths include the director's 0.5-second tail handles; concatenate/trim/dissolve to the 20.5-second nominal timeline, not the sum of source durations. Source stills are in `stills/`; clip stems match them. Every shot is made from one still with a continuous subpixel camera move.
+
+| Stem | Length / frames | Story content | Move |
+|---|---:|---|---|
+| title_plate | 3.5 s / 84 | Empty dusk sky, river and village; editor adds The Paper Lantern | 2% push |
+| shot01 | 4 s / 96 | Child at stone steps holding the lit lantern above river | 6% push toward child/lantern |
+| shot02 | 4 s / 96 | Hands withdrawn against chest; lantern independently afloat across open water | Rightward pan follows lantern, leaving child behind |
+| shot03 | 4 s / 96 | Lantern downstream beside village windows and reflections | Rightward lateral pan within 8% crop |
+| shot04 | 3.5 s / 84 | Same child from behind; lantern much farther away | 5.5% pull back |
+| shot05 | 3 s / 72 | Tiny amber light at merged river/sky horizon, surrounded by cool stars | 6.5% centered push toward the light |
+| end_plate | 2 s / 48 | Empty deep blue night plate; editor adds The End | Static |
+
+Intended nominal story timing, from director script: title 00:00–00:03; shot01 00:03–00:06.5; shot02 00:06.5–00:10; shot03 00:10–00:13.5; shot04 00:13.5–00:16.5; shot05 00:16.5–00:19; end 00:19–00:20.5. Editorial trims may move cuts by about 0.5 s with total 18–22 s.
+
+The final light is on the river, among reflected stars, consistent with its floating tray. Shot05 should remain visible long enough for this image to register before the end card.

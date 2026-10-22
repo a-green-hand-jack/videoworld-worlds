@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+"""English WebVTT, one cue per script line, from the dialogue placed in edit/timeline.json.
+usage: vtt.py TIMELINE.json OUT.vtt [MIX_REPORT.json]
+With sound-designer's mix_report.json, each cue takes the line's spoken start/end in the mix instead of the script's."""
+import json, sys
+tl = json.load(open(sys.argv[1]))
+spoken = {d['id']: d for d in json.load(open(sys.argv[3]))['dialogue_lines']} if len(sys.argv) > 3 else {}
+def ts(t): return f"{int(t//3600):02d}:{int(t//60%60):02d}:{t%60:06.3f}"
+lines = [dict(d) for s in tl['shots'] for d in s['dialogue']]
+for d in lines:
+    if d['line'] in spoken: d['start_s'], d['end_s'] = spoken[d['line']]['start'], spoken[d['line']]['end']
+lines.sort(key=lambda d: d['start_s'])
+out = ['WEBVTT', '']
+for i, d in enumerate(lines):
+    end = max(d['end_s'], d['start_s'] + 0.8)  # short lines stay up long enough to read...
+    if i + 1 < len(lines): end = min(end, lines[i + 1]['start_s'])  # ...but never past the next line's start
+    who = '' if d['speaker'] in ('',) else f"<v {d['speaker']}>"
+    out += [d['line'], f"{ts(d['start_s'])} --> {ts(end)}", who + d['text'], '']
+open(sys.argv[2], 'w').write('\n'.join(out))
+print(len(lines), 'cues')

@@ -1,0 +1,22 @@
+# cut-v6d — cut-v6c with the better source per Wan shot (121.958 s)
+
+Director's revise in editor#13: try dp's shots-b7 (96aaa99, every Wan take re-converted with a temporal mix) and keep per shot
+the version better on evenness **and** sharpness. Nothing else changes: timing, sound, subtitles, length.
+
+Measured over the range each cut uses (`sources.txt`: alt2, mean Laplacian variance at 640x360, odd/even sharpness), and looked at
+full-size crops of the moving parts:
+| shot | taken | why |
+|---|---|---|
+| s13a memory | **b7** | alt2 0.09 → 0.03; 78% of the sharpness, no trails (slow motion, faces crisp) |
+| s18 townspeople | **b7** (raw take, my rebuild dropped) | alt2 0.12 (rebuild) → 0.03, odd/even 0.92 → 0.99, 90% of the sharpness; the woman's hand at her mouth is clean |
+| s04 street | v6c (b6) | b7 double-exposes the walking passers-by (blend trails at full size) |
+| s10, s12, s15, s16, s19 | v6c (b6) | b7 is about half as sharp (e.g. s16 1698 → 972, s15 1345 → 671); s16's rise shows blend trails on the chimneys and hair |
+| s14 plea | v6c (rebuild from even frames) | b7 is 0.30 as sharp (974 → 291) and its fingers are blended too; the rebuild keeps sharp frames with a softer in-between every other frame |
+| s17, s17b | v6c (b6) | b7 no more even (s17 0.05 → 0.04) or less even (s17b 0.05 → 0.13) |
+The shots-b6 files are kept at /hutian/media/b6 (from dp 21c78b3), since dp's `shots/` now holds b7 under the same names.
+
+Conform: a take seeked between two frames no longer repeats its first frame (`setpts=PTS-STARTPTS` before the fps
+normalisation), which removes the single held frame at the head of the cuts at 5.88, 15.42, 64.04, 80.0, 85.67, 89.92 and
+92.25 s where the seek caused it (5.88, 80.0, 85.67, 89.92). At 15.42 (s04), 64.04 (s12) and 92.25 (s16) the take itself opens
+on a repeated frame; those three start one frame on (src_in +0.04). The cut points do not move.
+Measured: `verify.txt`, `judder.md`, `cadence.txt`.

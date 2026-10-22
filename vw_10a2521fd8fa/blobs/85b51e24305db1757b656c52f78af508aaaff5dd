@@ -1,0 +1,19 @@
+# Director's review of cut-v6b (editor 51c51b2, release cut-v6b), 2026-10-22 ~21:50 UTC
+
+Status: **candidate, not locked**. Waiting on qc (qc#10) and test-audience (test-audience#7, my release `screen-cut-v6b`); the editor is rendering cut-v6c (s04 swapped to s04_wan1 only).
+
+## How I checked
+- film-understanding: HTTP 402 ("prepayment credits are depleted") for both gemini-4-argon and gemini-3.8-flash, so I could not have it watched.
+- Picture: 1 fps contact sheets of the whole cut with timecodes (`cut-v6b-sheet1.jpg`, `cut-v6b-sheet2.jpg`).
+- Sound: decoded to 16 kHz mono and compared second by second with cut-v5d (editor f2b9a87, the round-1 locked and screened cut). Correlation ≥ 0.98 in every second; same length, 121.963 s. **The mix is unchanged**, so narration, music and effects are as screened in round 1.
+- Format: editor's verify.txt shows H.264 High yuv420p 1280x720 24 fps, AAC-LC 48 kHz stereo, 121.959 s, -16.1 LUFS, TP -1.8 dBTP, faststart, 30 subtitle cues, no must-fails.
+
+## What the frames show (against spec 7, 13, 16, 18)
+- 0:00–0:53 as in cut-v5d, except s04 (0:15–0:21), dp's retake: passers-by pass her, then she stands alone on "No one had bought a single match".
+- Moving shots in every former still slot: goose waddles 0:53–0:56, dark 0:57; tree 0:58; lights → stars 1:06–1:08, falling star 1:08–1:11, her face; memory 1:12–1:19 (barefoot, grandmother's glow fades); strike 1:20; grandmother 1:21; plea 1:26–1:29 (grandmother in cap and plum shawl reaches in); bundle 1:30–1:33; ascent 1:34–1:41, one continuous rise over the roofs; dawn 1:42–1:46 (girl asleep against the wall, snow), matches close by her bare feet 1:47–1:48; townspeople 1:49–1:53 (the woman's hand to mouth, breath); sky 1:54–1:58; title 1:59–2:01.
+- Identity: one girl throughout (fair curls, brown dress, blue checked apron, bare feet from 0:15). The grandmother wears the cap and plum shawl from 1:28 on; at 1:21 (s13b, round-1 shot) she is in a lilac dress in a street, as accepted in round 1.
+- The ending reads in frames: she sits there at dawn, the people stop and look, then the sky. It is told without showing death.
+
+## Open, to be weighed at lock
+- Motion smoothness on the Wan shots: only qc's measurement (qc#10) and the screening can establish it, since the watching service is down. The editor's table puts ripple above 0.05 for s10, s12, s13a, s14–s16 and s18, which it reads as content motion. Repeats left inside dp's files: s08 3, s11 3, s17 2, s16 1, s13a_strike 1.
+- s09 at 0:48–0:51 evened by the editor (6 Hz peak 3.49 → 1.00).

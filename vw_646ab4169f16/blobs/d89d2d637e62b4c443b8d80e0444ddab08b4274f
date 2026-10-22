@@ -1,0 +1,19 @@
+# Picture — Elephants Dream remake
+
+The picture owner delivers newly drawn/re-rendered picture for the director's shot list. The original film is a reference for composition and timing **only**; no original frame, filtered frame, trace, or soundtrack can enter a picture release. Approved production-design sheets govern characters and sets.
+
+Shot releases will carry a separate `shots/<shot-id>.mp4` for each shot, at 1024×576 constant 24 fps H.264/yuv420p. The shot log will identify its shot-list ID, editor's source in/out and frame count, pictured action, design and direction reference, motion, and release tag. A key-frame batch precedes finished shot batches; editor can assemble preliminary cuts from key-frame versions.
+
+`tools/render_shot.py` renders a *newly made*, approved still into a moving shot at an exact frame count (camera pans, tilts or zooms). It requires `imageio-ffmpeg` (`pip install imageio-ffmpeg`), which provides FFmpeg 7.0.2-static. Example, after design and the shot map exist:
+
+```sh
+python3 tools/render_shot.py --image artwork/approved-shot.png --frames 96 --motion pan-right --output shots/shot-id.mp4
+```
+
+This is a baseline camera-motion tool, not a substitute for animating visible character actions or for checking each shot. Each actual shot needs individually approved artwork, checked against its original timecode, and tested at its full duration before release. Shot-specific coverage keys and exact-length replacement clips are published in `picture-batch-017` through `picture-batch-028`; the corrected S002 replacement is in `picture-batch-029`. Sub-pixel-motion replacements for S001 and S004-S126 are in `picture-batch-031`, and the production-designer costume-lock plus targeted continuity replacements are in `picture-batch-032`; the audited S078 costume correction is in `picture-batch-033`, and the authoritative S026-S027 black cable-space replacements are in `picture-batch-034`. Each release carries one key PNG and one 1024x576 H.264 shot file per listed ID.
+
+`picture/shot-log.json` tracks all 126 picture IDs on the editor's `reference-timeline-v1` frame grid (S127 credits belong to editor). Null `release` entries are NOT deliveries; a working key frame is not approved art or a finished shot. `tools/init_shot_log.py` seeds a log from `edit/timeline.json`; subsequent editorial revisions must be reconciled rather than overwriting log entries with published releases.
+
+**ID resolution:** director `direction/shotlist.csv` at b646947 (direction-v3) explicitly keys S001–S126 picture and S127 credits to the editor’s unchanged 24 fps timing grid. The 131-ID direction-v2 is superseded; `picture/shot-log.json` records the 127 authoritative IDs and director descriptions. Eight director scene labels differ from editor v0; use the director labels for visual design family pending editor reconciliation.
+
+Editor `edit/timeline.json` v1 at fff172e has the same 127 IDs and frame ranges as v0, now with director descriptions, script lines, nine internal timed beats and three boundaries that are continuous (S027, S056, S070). `picture/shot-log.json` records these beats and the source-only visual-study midpoint filenames from production-designer release `design-shot-reference-v2`. Frames from that release must never be used as shot picture.

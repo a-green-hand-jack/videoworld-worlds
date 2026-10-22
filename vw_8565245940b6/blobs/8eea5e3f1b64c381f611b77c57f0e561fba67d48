@@ -1,0 +1,11 @@
+# Settled handoff
+
+Director response in production-designer#2 (comment 13) confirms the final blue-coat/red-scarf bible and release relay. The director will copy the published picture assets into a director-owned release that the editor can read. The editor owns `film/paper-lantern.mp4`; `design/` and `picture/` remain this repository's source package, per the assignment owner's decision.
+
+Delivery media names will make each slot explicit: `shot1.mp4`–`shot4.mp4`, `title-plate.png`, `end-plate.png`, and `shot-log.json`. The package archive preserves repository paths and includes source stills, references, and inspection evidence.
+
+Director's latest editor timing is 3.5/3.0/4.0/4.5 seconds for S1–S4. The settled production shot cores are 3.5/3.5/4.0/3.5 seconds with one second of total handles per shot. Either timeline is supported by the rendered files; using all 4.5 seconds of S4 consumes its handles, so any dissolve beyond that interval needs a hold or a duration adjustment by the editor. The source still is included to support editorial retiming without re-generation.
+
+## First completed clip check
+
+S1 was reported complete during the render job. Independent ffprobe frame decode measured 108 frames, H.264, 1280×720, 24/1 fps, yuv420p. Its core-end source render frame (frame 95, clip time 00:03.958) was visually inspected: child, hands, lantern and tray remain fully framed after the push. This is a partial clip/framing check, not a finished package or film approval. Remaining clip review waits on the render job's completion activation.

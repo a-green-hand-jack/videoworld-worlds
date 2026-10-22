@@ -1,0 +1,93 @@
+#!/usr/bin/env python3
+"""Draw a new, text-free opening plate for visual-design review."""
+
+from math import cos, pi, sin
+from pathlib import Path
+from random import Random
+
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter
+
+
+WIDTH = 1728
+HEIGHT = 972
+RANDOM = Random(2006)
+
+
+def radial_gear(draw: ImageDraw.ImageDraw, center: tuple[int, int], radius: int) -> None:
+    center_x, center_y = center
+    points = []
+    for index in range(48):
+        angle = 2 * pi * index / 48
+        tooth_radius = radius * (1.12 if index % 4 in (0, 1) else 0.94)
+        points.append((center_x + tooth_radius * cos(angle), center_y + tooth_radius * sin(angle)))
+    draw.polygon(points, fill=(34, 40, 31, 255), outline=(114, 109, 69, 255), width=5)
+    for ring_radius in (radius * .75, radius * .61, radius * .42, radius * .22):
+        box = (center_x - ring_radius, center_y - ring_radius, center_x + ring_radius, center_y + ring_radius)
+        draw.ellipse(box, outline=(90, 92, 69, 255), width=8)
+    for index in range(12):
+        angle = 2 * pi * index / 12
+        bolt_x = center_x + radius * .79 * cos(angle)
+        bolt_y = center_y + radius * .79 * sin(angle)
+        draw.ellipse((bolt_x - 3, bolt_y - 3, bolt_x + 3, bolt_y + 3), fill=(152, 145, 90, 255))
+    draw.ellipse((center_x - radius * .11, center_y - radius * .11,
+                  center_x + radius * .11, center_y + radius * .11), fill=(14, 18, 17, 255))
+
+
+def main() -> None:
+    image = Image.new("RGB", (WIDTH, HEIGHT), (36, 43, 31))
+    draw = ImageDraw.Draw(image)
+    for row in range(7):
+        top = row * 155 - 85
+        column = -185 if row % 2 else -70
+        while column < WIDTH:
+            width = RANDOM.randint(183, 306)
+            offset = RANDOM.randint(-17, 17)
+            left = column + offset
+            right = left + width - 5
+            bottom = top + RANDOM.randint(147, 160)
+            color = (RANDOM.randint(54, 84), RANDOM.randint(61, 85), RANDOM.randint(39, 55))
+            draw.polygon([(left + 7, top + 5), (right - 6, top + 1),
+                          (right, bottom - 11), (left - 5, bottom)],
+                         fill=color, outline=(18, 28, 23), width=5)
+            draw.line([(left + 10, bottom - 13), (right - 14, bottom - 20)], fill=(106, 103, 65), width=2)
+            draw.line([(left + 12, top + 13), (right - 18, top + 9)], fill=(125, 121, 78), width=2)
+            for bolt_x in (left + 21, right - 24):
+                for bolt_y in (top + 21, bottom - 25):
+                    draw.ellipse((bolt_x - 4, bolt_y - 4, bolt_x + 4, bolt_y + 4), fill=(27, 34, 28))
+                    draw.arc((bolt_x - 4, bolt_y - 4, bolt_x + 4, bolt_y + 4), 100, 270,
+                             fill=(160, 146, 85), width=2)
+            column += width
+    machinery = Image.new('RGBA', (WIDTH, HEIGHT))
+    metal = ImageDraw.Draw(machinery)
+    radial_gear(metal, (174, 102), 153)
+    radial_gear(metal, (1531, 786), 196)
+    radial_gear(metal, (1614, 190), 111)
+    for index in range(13):
+        point_x = RANDOM.randint(30, WIDTH - 30)
+        if 370 < point_x < 1250:
+            continue
+        length = RANDOM.randint(210, 680)
+        metal.line([(point_x, -35), (point_x - 20, length // 3),
+                    (point_x + RANDOM.randint(-60, 60), length)],
+                   fill=(13, 20, 18, 255), width=RANDOM.randint(5, 15), joint='curve')
+        metal.line([(point_x - 2, 0), (point_x - 22, length // 3)],
+                   fill=(119, 117, 77, 230), width=2)
+    image = Image.alpha_composite(image.convert('RGBA'), machinery)
+    pixels = np.asarray(image.convert('RGB'), dtype=np.float32).copy()
+    vertical, horizontal = np.mgrid[0:HEIGHT, 0:WIDTH].astype(np.float32)
+    amber = np.exp(-(((horizontal - 810) / 650) ** 2 + ((vertical - 460) / 650) ** 2) * 1.3)
+    teal = np.exp(-(((horizontal - 1430) / 520) ** 2 + ((vertical - 160) / 490) ** 2) * 1.7)
+    vignette = np.clip(1.17 - ((horizontal - WIDTH / 2) / (WIDTH / 2)) ** 2 * .50
+                       - ((vertical - HEIGHT / 2) / (HEIGHT / 2)) ** 2 * .40, .29, 1)
+    grain = np.random.default_rng(2006).normal(0, 2.6, (HEIGHT, WIDTH, 1))
+    light = np.stack((54 * amber + 8 * teal, 43 * amber + 21 * teal,
+                      11 * amber + 24 * teal), axis=2)
+    pixels = np.clip((pixels + light + grain) * vignette[..., None], 0, 255).astype('uint8')
+    destination = Path('working/s001-wall-proposal.png')
+    Image.fromarray(pixels).filter(ImageFilter.GaussianBlur(radius=.23)).save(destination)
+    print(destination)
+
+
+if __name__ == '__main__':
+    main()

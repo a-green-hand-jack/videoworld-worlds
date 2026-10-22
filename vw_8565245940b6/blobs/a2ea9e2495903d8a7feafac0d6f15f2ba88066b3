@@ -1,0 +1,10 @@
+# Editor notes — The Paper Lantern
+
+- `timing.json` — the timeline (segments, durations, camera moves in zoom/centre, title/end text). Total 20.0 s at 24 fps = 480 frames.
+- `tools/make_sound.py` — synthesizes all sound (river, wind, crickets, water touch at 7.0 s, music-box melody + pad); gain 1.65 gives about -16 LUFS.
+- `tools/render.py` — assembles stills + moves + text + sound into the mp4.
+- `tools/placeholder_stills.py` — temp stills for rough cuts only.
+- `tools/listen.py` — asks audio-understanding about a sound file.
+
+Build: `python3 tools/make_sound.py work/sound.wav 1.65 && python3 tools/render.py timing.json STILLS_DIR work/sound.wav film/paper-lantern.mp4`
+STILLS_DIR holds `title.png shot1.png shot2.png shot3.png shot4.png end.png` (16:9, at least 1536x864, no text burned in).

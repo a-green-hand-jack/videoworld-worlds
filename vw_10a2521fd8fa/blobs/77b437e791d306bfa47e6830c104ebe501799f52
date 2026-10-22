@@ -1,0 +1,15 @@
+# cut-v6c — cut-v6b narrowly fixed (121.958 s)
+
+EDL `edl.json` from `make_edl.py`; everything else as cut-v6b (mix-cut-v5c, subtitles, line times).
+- **s04** 0:15.4–0:21.4: dp's `s04_wan1` (shots-b6) instead of `s04_wan2`. qc's judder.py on the take: 0 repeated frames, 0 jumps
+  (wan2: 2 repeats, 4 jumps; in cut-v6b 3 repeats, 5 jumps — qc#10's deciding fault).
+- **s15/s16** (qc editor#15): s15 ends at src 2.43 (1:32.21), before the wide where the grandmother stands in a cream shawl
+  and pale dress; s16's rise starts there from its src 0 (the embrace in the glow, on "to keep her near") and runs to 1:42.25;
+  s17 opens 0.042 s earlier (src 0.358). Lines, sound and total unchanged.
+- **s14 and s18 cadence** (director's scan, lock/round2/cadence-cut-v6b.txt): `s14b_wan1` and `s18b_wan1` advance on every other
+  frame (alt2 0.19 / 0.26 on the takes, `tools/cadence.py`). Each is re-made from its even frames with motion-compensated
+  in-betweens back to 24 fps:
+  `ffmpeg -i shots/X.mp4 -vf "select='eq(mod(n\,2)\,0)',setpts=N/12/TB,minterpolate=fps=24:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1" -an -c:v libx264 -crf 12 X_h0.mp4`
+  → alt2 0.01 (s14b) and 0.03 (s18b); timing kept (frame 2k stays at 2k/24 s). Checked on frame strips: no tearing on the
+  woman's hand or the girl's reaching hand.
+Measured: `verify.txt`, `judder.md` (qc's tool), `cadence.txt`.

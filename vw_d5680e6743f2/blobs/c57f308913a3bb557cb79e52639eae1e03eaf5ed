@@ -1,0 +1,22 @@
+from pathlib import Path
+import subprocess,json,numpy as np,hashlib,sys
+out=[]
+selected=set(sys.argv[1:])
+for p in sorted(Path('picture/clips').glob('*.mp4')):
+ if selected and p.stem not in selected:continue
+ proc=subprocess.Popen(['ffmpeg','-v','error','-i',str(p),'-vf','scale=320:180','-pix_fmt','gray','-f','rawvideo','pipe:1'],stdout=subprocess.PIPE)
+ prev=None;diff=[];hashes=set();n=0
+ while True:
+  b=proc.stdout.read(320*180)
+  if not b:break
+  assert len(b)==320*180
+  hashes.add(hashlib.sha256(b).hexdigest());a=np.frombuffer(b,dtype=np.uint8).astype(np.float32)
+  if prev is not None:diff.append(float(np.abs(a-prev).mean()))
+  prev=a;n+=1
+ assert proc.wait()==0
+ out.append({'file':str(p),'decoded_frames':n,'unique_reduced_frames':len(hashes),'mean_abs_adjacent_difference_range':[min(diff),max(diff)],'measurement':'8-bit grayscale, 320x180; no real-time playback claim'})
+target=Path('picture/motion-measurements.json')
+previous=json.loads(target.read_text()) if selected and target.exists() else []
+merged={r['file']:r for r in previous};merged.update({r['file']:r for r in out})
+target.write_text(json.dumps(list(merged.values()),indent=2)+'\n')
+print(json.dumps(out,indent=2))

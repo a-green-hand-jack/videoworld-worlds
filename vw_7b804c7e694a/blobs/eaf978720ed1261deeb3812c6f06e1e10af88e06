@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+"""Lay the recorded lines on the cut's timeline: a 48 kHz stereo WAV as long as the cut,
+each line at its EDL start. usage: lay_lines.py EDL.json LINES_DIR OUT.wav [GAIN_DB]"""
+import json, sys
+import numpy as np, soundfile as sf
+
+edl = json.load(open(sys.argv[1])); src = sys.argv[2]
+gain = 10 ** (float(sys.argv[4]) / 20) if len(sys.argv) > 4 else 1.0
+total = sum(s["dur"] for s in edl["shots"]); sr = 48000
+out = np.zeros((round(total * sr), 2))
+for l in edl["lines"]:
+    x, r = sf.read(f"{src}/L{int(l['line']):02d}.wav", always_2d=True)
+    assert r == sr, r
+    x = x.mean(axis=1) * gain; i = round(l["start"] * sr)
+    out[i:i + len(x)] += x[: len(out) - i, None]
+sf.write(sys.argv[3], np.clip(out, -1, 1), sr, subtype="PCM_24")
+print(f"wrote {sys.argv[3]} {total:.3f} s, peak {np.abs(out).max():.3f}")

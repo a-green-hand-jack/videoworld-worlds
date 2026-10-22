@@ -1,0 +1,7 @@
+# cut-v1
+
+Rendered from `edit/timeline.json` v1 (editor c8961a4) by `edit/tools/render_cut.sh cut-v1` on local-compute.
+
+- Picture: S001 is dp `picture-batch-001` `S001.mp4` (sha256 e7e247e9…8d8, 619 frames). The title "Elephants Dream" is painted onto it by `edit/tools/title_s001.py`: it fades on from 2.0 s, is fully legible from 3.5 to 16.5 s and has faded out by 18.0 s. The title is tracked to the plate's drift; 604 of 619 frames were tracked, the rest are black fade frames. The presenter card runs 18.6–23.6 s. S002–S126 are slates, because their shots have not been supplied yet. S127 is the end credits.
+- Sound: silent AAC track, because no mix has been supplied yet.
+- Measured: 1024x576 H.264 High at 24 fps with 15800 frames; AAC-LC 48 kHz stereo; duration 658.333 s; ffmpeg full decode reported 0 errors. Stills from the cut (`cut-v1-s001-title.png`) at 2.5, 4, 8, 12, 16 and 17.5 s, plus my own checks at 0.5, 19.5, 21, 23 and 27 s.

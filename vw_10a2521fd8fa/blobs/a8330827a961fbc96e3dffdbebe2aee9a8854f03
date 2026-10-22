@@ -1,0 +1,628 @@
+{
+ "fps": 24,
+ "width": 1280,
+ "height": 720,
+ "srt": "film.srt",
+ "out": "cut-v5.mp4",
+ "lines": [
+  {
+   "line": "1",
+   "shot": "1",
+   "speaker": "NARRATOR",
+   "start": 0.3,
+   "end": 5.093,
+   "dur": 4.793,
+   "measured": true,
+   "text": "Bitter cold, almost dark: the last evening of the year."
+  },
+  {
+   "line": "2",
+   "shot": "2",
+   "speaker": "NARRATOR",
+   "start": 6.133,
+   "end": 10.026,
+   "dur": 3.893,
+   "measured": true,
+   "text": "A poor girl shuffled along in her mother's big slippers."
+  },
+  {
+   "line": "3",
+   "shot": "3",
+   "speaker": "NARRATOR",
+   "start": 10.758,
+   "end": 15.068,
+   "dur": 4.31,
+   "measured": true,
+   "text": "Carriages raced by; she lost them, and went on barefoot."
+  },
+  {
+   "line": "4",
+   "shot": "4",
+   "speaker": "GIRL",
+   "start": 15.675,
+   "end": 18.703,
+   "dur": 3.028,
+   "measured": true,
+   "text": "Matches… who will buy my matches?"
+  },
+  {
+   "line": "5",
+   "shot": "4",
+   "speaker": "NARRATOR",
+   "start": 19.003,
+   "end": 21.367,
+   "dur": 2.364,
+   "measured": true,
+   "text": "No one had bought a single match."
+  },
+  {
+   "line": "6",
+   "shot": "5",
+   "speaker": "NARRATOR",
+   "start": 21.967,
+   "end": 26.424,
+   "dur": 4.457,
+   "measured": true,
+   "text": "Candles gleamed in the windows; it smelled of roast goose."
+  },
+  {
+   "line": "7",
+   "shot": "6",
+   "speaker": "NARRATOR",
+   "start": 27.3,
+   "end": 31.421,
+   "dur": 4.121,
+   "measured": true,
+   "text": "She huddled in a corner, afraid to go home to her father."
+  },
+  {
+   "line": "8",
+   "shot": "7",
+   "speaker": "NARRATOR",
+   "start": 32.383,
+   "end": 36.74,
+   "dur": 4.357,
+   "measured": true,
+   "text": "Her hands were numb. If she dared strike just one…"
+  },
+  {
+   "line": "9",
+   "shot": "8",
+   "speaker": "NARRATOR",
+   "start": 38.342,
+   "end": 43.831,
+   "dur": 5.489,
+   "measured": true,
+   "text": "How it blazed! A warm iron stove seemed to stand before her."
+  },
+  {
+   "line": "10",
+   "shot": "8",
+   "speaker": "NARRATOR",
+   "start": 44.131,
+   "end": 45.754,
+   "dur": 1.623,
+   "measured": true,
+   "text": "Then it went out."
+  },
+  {
+   "line": "11",
+   "shot": "9",
+   "speaker": "NARRATOR",
+   "start": 46.633,
+   "end": 53.024,
+   "dur": 6.391,
+   "measured": true,
+   "text": "A second: the wall became a veil, and inside, a roast goose steamed."
+  },
+  {
+   "line": "12",
+   "shot": "10",
+   "speaker": "NARRATOR",
+   "start": 53.633,
+   "end": 57.449,
+   "dur": 3.816,
+   "measured": true,
+   "text": "It hopped down and waddled toward her — then darkness."
+  },
+  {
+   "line": "13",
+   "shot": "11",
+   "speaker": "NARRATOR",
+   "start": 58.508,
+   "end": 63.64,
+   "dur": 5.132,
+   "measured": true,
+   "text": "A third: she sat beneath a Christmas tree ablaze with candles."
+  },
+  {
+   "line": "14",
+   "shot": "12",
+   "speaker": "NARRATOR",
+   "start": 64.3,
+   "end": 70.024,
+   "dur": 5.724,
+   "measured": true,
+   "text": "Out it went. The lights rose and became stars. One fell."
+  },
+  {
+   "line": "15",
+   "shot": "12",
+   "speaker": "GIRL",
+   "start": 70.324,
+   "end": 71.695,
+   "dur": 1.371,
+   "measured": true,
+   "text": "Someone is dying."
+  },
+  {
+   "line": "16",
+   "shot": "13a",
+   "speaker": "NARRATOR",
+   "start": 72.3,
+   "end": 79.861,
+   "dur": 7.561,
+   "measured": true,
+   "text": "Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God."
+  },
+  {
+   "line": "17",
+   "shot": "13b",
+   "speaker": "NARRATOR",
+   "start": 80.467,
+   "end": 85.325,
+   "dur": 4.858,
+   "measured": true,
+   "text": "A fourth — and there stood Grandmother, shining and kind."
+  },
+  {
+   "line": "18",
+   "shot": "14",
+   "speaker": "GIRL",
+   "start": 85.925,
+   "end": 88.539,
+   "dur": 2.614,
+   "measured": true,
+   "text": "Grandmother! Take me with you!"
+  },
+  {
+   "line": "19",
+   "shot": "15",
+   "speaker": "NARRATOR",
+   "start": 90.175,
+   "end": 93.734,
+   "dur": 3.559,
+   "measured": true,
+   "text": "She struck the whole bundle, to keep her near."
+  },
+  {
+   "line": "20",
+   "shot": "16",
+   "speaker": "NARRATOR",
+   "start": 94.55,
+   "end": 102.011,
+   "dur": 7.461,
+   "measured": true,
+   "text": "Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear."
+  },
+  {
+   "line": "21",
+   "shot": "17",
+   "speaker": "NARRATOR",
+   "start": 102.592,
+   "end": 109.176,
+   "dur": 6.584,
+   "measured": true,
+   "text": "At dawn she sat there still, rosy-cheeked and smiling — frozen to death."
+  },
+  {
+   "line": "22",
+   "shot": "18",
+   "speaker": "PASSER-BY",
+   "start": 109.758,
+   "end": 111.545,
+   "dur": 1.787,
+   "measured": true,
+   "text": "She wanted to warm herself."
+  },
+  {
+   "line": "23",
+   "shot": "19",
+   "speaker": "NARRATOR",
+   "start": 113.758,
+   "end": 118.653,
+   "dur": 4.895,
+   "measured": true,
+   "text": "No one knew the beautiful things she had seen, or the joy she had gone to."
+  }
+ ],
+ "audio": "mix.wav",
+ "shots": [
+  {
+   "id": "s01",
+   "dur": 5.8333,
+   "in": 0.0,
+   "out": 5.833,
+   "lines": [
+    "1"
+   ],
+   "src": "/hutian/dp/shots/s01.mp4",
+   "src_in": 2.1,
+   "src_dur": 8.0,
+   "fade_in": 0.75
+  },
+  {
+   "id": "s02",
+   "dur": 4.625,
+   "in": 5.833,
+   "out": 10.458,
+   "lines": [
+    "2"
+   ],
+   "src": "/hutian/dp/shots/s02.mp4",
+   "src_in": 0.6,
+   "zoom": 1.12,
+   "src_dur": 6.016
+  },
+  {
+   "id": "s03",
+   "dur": 4.9167,
+   "in": 10.458,
+   "out": 15.375,
+   "lines": [
+    "3"
+   ],
+   "src": "/hutian/dp/shots/s03.mp4",
+   "src_in": 0.0,
+   "zoom": 1.08,
+   "speed": 0.98,
+   "src_dur": 8.0
+  },
+  {
+   "id": "s04",
+   "dur": 6.025,
+   "xfade": 0.4,
+   "parts": [
+    {
+     "src": "/hutian/dp/shots/s04.mp4",
+     "src_in": 0.0,
+     "dur": 2.5,
+     "speed": 0.76
+    },
+    {
+     "src": "/hutian/dp/shots/s04.mp4",
+     "src_in": 3.98,
+     "dur": 3.925,
+     "speed": 0.77
+    }
+   ],
+   "in": 15.375,
+   "out": 21.4
+  },
+  {
+   "id": "s05",
+   "dur": 5.6,
+   "in": 21.4,
+   "out": 27.0,
+   "lines": [
+    "6"
+   ],
+   "src": "/hutian/dp/shots/s05.mp4",
+   "src_in": 0.0,
+   "src_dur": 6.016,
+   "speed": 0.96
+  },
+  {
+   "id": "s06",
+   "dur": 5.0833,
+   "in": 27.0,
+   "out": 32.083,
+   "lines": [
+    "7"
+   ],
+   "src": "/hutian/dp/shots/s06.mp4",
+   "src_in": 0.3,
+   "src_dur": 7.019
+  },
+  {
+   "id": "s07",
+   "dur": 5.9583,
+   "in": 32.083,
+   "out": 38.042,
+   "lines": [
+    "8"
+   ],
+   "src": "/hutian/dp/shots/s07.mp4",
+   "src_in": 0.0,
+   "speed": 0.99,
+   "src_dur": 6.016
+  },
+  {
+   "id": "s08",
+   "dur": 8.2917,
+   "in": 38.042,
+   "out": 46.333,
+   "lines": [
+    "9",
+    "10"
+   ],
+   "src": "/hutian/dp/shots/s08.mp4",
+   "src_in": 1.0,
+   "src_dur": 10.027,
+   "fade_out": 1.2,
+   "fade_out_st": 6.2
+  },
+  {
+   "id": "s09",
+   "dur": 7.0,
+   "in": 46.333,
+   "out": 53.333,
+   "lines": [
+    "11"
+   ],
+   "src": "/hutian/dp/shots/s09.mp4",
+   "src_in": 0.0,
+   "src_dur": 7.019,
+   "fade_in": 0.25
+  },
+  {
+   "id": "s10",
+   "dur": 4.875,
+   "xfade": 0.35,
+   "parts": [
+    {
+     "src": "/hutian/dp/keyframes/s10_a.png",
+     "dur": 1.6,
+     "z0": 1.0,
+     "z1": 1.06,
+     "px": -0.04,
+     "flicker": 0.03
+    },
+    {
+     "src": "/hutian/dp/keyframes/s10_b.png",
+     "dur": 1.55,
+     "z0": 1.02,
+     "z1": 1.08,
+     "px": 0.03,
+     "flicker": 0.03
+    },
+    {
+     "src": "/hutian/dp/keyframes/s10_c.png",
+     "dur": 1.6,
+     "z0": 1.0,
+     "z1": 1.07,
+     "flicker": 0.03,
+     "fade_out": 0.6
+    },
+    {
+     "src": "/hutian/dp/shots/s10.mp4",
+     "src_in": 5.6,
+     "dur": 1.175,
+     "speed": 0.9
+    }
+   ],
+   "in": 53.333,
+   "out": 58.208
+  },
+  {
+   "id": "s11",
+   "dur": 5.7917,
+   "in": 58.208,
+   "out": 64.0,
+   "lines": [
+    "13"
+   ],
+   "src": "/hutian/dp/shots/s11.mp4",
+   "src_in": 0.0,
+   "src_dur": 7.019
+  },
+  {
+   "id": "s12",
+   "dur": 8.0,
+   "xfade": 0.4,
+   "parts": [
+    {
+     "src": "/hutian/dp/keyframes/s12_a.png",
+     "dur": 2.2,
+     "z0": 1.0,
+     "z1": 1.05,
+     "glow": -0.06,
+     "snow": 0.25
+    },
+    {
+     "src": "/hutian/dp/keyframes/s12_b.png",
+     "dur": 2.1,
+     "z0": 1.04,
+     "z1": 1.08,
+     "py": -0.08,
+     "snow": 0.25
+    },
+    {
+     "src": "/hutian/dp/keyframes/s12_c.png",
+     "dur": 1.9,
+     "z0": 1.0,
+     "z1": 1.04,
+     "px": 0.05,
+     "snow": 0.25
+    },
+    {
+     "src": "/hutian/dp/keyframes/s12_d.png",
+     "dur": 3.0,
+     "z0": 1.0,
+     "z1": 1.08,
+     "py": 0.04,
+     "snow": 0.25
+    }
+   ],
+   "in": 64.0,
+   "out": 72.0
+  },
+  {
+   "id": "s13a",
+   "dur": 7.958,
+   "src": "/hutian/dp/keyframes/s13a.png",
+   "z0": 1.0,
+   "z1": 1.1,
+   "px": -0.04,
+   "snow": 0.5,
+   "in": 72.0,
+   "out": 79.958
+  },
+  {
+   "id": "s13a_strike",
+   "dur": 1.375,
+   "src": "/hutian/dp/shots/s13a_strike.mp4",
+   "src_in": 1.17,
+   "in": 79.958,
+   "out": 81.333
+  },
+  {
+   "id": "s13b",
+   "dur": 4.292,
+   "in": 81.333,
+   "out": 85.625,
+   "lines": [
+    "17"
+   ],
+   "src": "/hutian/dp/shots/s13b.mp4",
+   "src_in": 0.5,
+   "src_dur": 8.0
+  },
+  {
+   "id": "s14",
+   "dur": 4.25,
+   "xfade": 0.4,
+   "parts": [
+    {
+     "src": "/hutian/dp/keyframes/s14.png",
+     "dur": 2.4,
+     "z0": 1.0,
+     "z1": 1.05,
+     "px": 0.03,
+     "flicker": 0.02
+    },
+    {
+     "src": "/hutian/dp/keyframes/s14_b.png",
+     "dur": 2.25,
+     "z0": 1.02,
+     "z1": 1.07,
+     "glow": 0.06,
+     "flicker": 0.02
+    }
+   ],
+   "in": 85.625,
+   "out": 89.875
+  },
+  {
+   "id": "s15",
+   "dur": 4.375,
+   "xfade": 0.35,
+   "parts": [
+    {
+     "src": "/hutian/dp/keyframes/s15.png",
+     "dur": 1.3,
+     "z0": 1.0,
+     "z1": 1.03
+    },
+    {
+     "src": "/hutian/dp/keyframes/s15_b.png",
+     "dur": 1.45,
+     "z0": 1.0,
+     "z1": 1.05,
+     "flicker": 0.05
+    },
+    {
+     "src": "/hutian/dp/keyframes/s15_c.png",
+     "dur": 2.325,
+     "z0": 1.0,
+     "z1": 1.06,
+     "flicker": 0.04,
+     "glow": 0.08
+    }
+   ],
+   "in": 89.875,
+   "out": 94.25
+  },
+  {
+   "id": "s16",
+   "dur": 8.042,
+   "xfade": 0.4,
+   "parts": [
+    {
+     "src": "/hutian/dp/keyframes/s16_a.png",
+     "dur": 3.0,
+     "z0": 1.0,
+     "z1": 1.06
+    },
+    {
+     "src": "/hutian/dp/keyframes/s16_b.png",
+     "dur": 2.9,
+     "z0": 1.0,
+     "z1": 1.06,
+     "py": -0.12,
+     "snow": 0.3
+    },
+    {
+     "src": "/hutian/dp/keyframes/s16_c.png",
+     "dur": 2.942,
+     "z0": 1.05,
+     "z1": 1.2,
+     "glow": 0.1
+    }
+   ],
+   "in": 94.25,
+   "out": 102.292
+  },
+  {
+   "id": "s17",
+   "dur": 7.167,
+   "src": "/hutian/dp/keyframes/s17.png",
+   "z0": 1.0,
+   "z1": 1.07,
+   "snow": 0.4,
+   "in": 102.292,
+   "out": 109.459
+  },
+  {
+   "id": "s18-s19",
+   "dur": 9.5,
+   "xfade": 0.5,
+   "fade_out": 1.0,
+   "parts": [
+    {
+     "src": "/hutian/dp/keyframes/s18.png",
+     "dur": 4.3,
+     "z0": 1.04,
+     "z1": 1.0,
+     "px": 0.03,
+     "snow": 0.4
+    },
+    {
+     "src": "/hutian/dp/shots/s19.mp4",
+     "src_in": 4.4,
+     "dur": 3.6
+    },
+    {
+     "src": "/hutian/media/fx/s19_sky.png",
+     "dur": 2.6,
+     "z0": 1.0,
+     "z1": 1.04
+    }
+   ],
+   "in": 109.459,
+   "out": 118.959
+  },
+  {
+   "id": "end",
+   "dur": 3.0,
+   "in": 118.959,
+   "out": 121.959,
+   "lines": [],
+   "title": [
+    "The Little Match Girl",
+    "after Hans Christian Andersen"
+   ],
+   "fade_in": 0.75
+  }
+ ]
+}

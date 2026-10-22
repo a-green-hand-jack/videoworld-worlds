@@ -1,0 +1,20 @@
+# cut-v5 — director's editor#9 fixes and dp's shots-b2 frames (121.959 s)
+
+EDL: `edl.json`, built by `make_edl.py` from cut-v4c's timeline (line starts unchanged); rendered with `tools/conform.py`
+(dissolves between parts of a shot, push/pan on stills, snow layer `fx/snow.mp4`, candle flicker, growing light).
+Sound: sound-designer `mix-cut-v5` (73d62e8; L15 new take). Subtitles: its `film.srt`, starts snapped to the voice onsets on
+its dialogue stem and cue 23 rewrapped (`tools/snap_srt.py`).
+
+Changes from cut-v4c:
+- 0:15.4–0:21.4 s04: the passers-by merge (src 1.9–4.0) is dissolved over; s05 starts 0.27 s earlier.
+- 0:44.2–0:46.3 s08: fades to dark on "Then it went out.", so the stove goes with the light; s09 fades up from it.
+- 0:53.3–0:58.2 s10: the roast goose itself (dp s10_a/b/c) lifts off, waddles, comes close; dark; the cold wall.
+- 1:04–1:12 s12: match out, lights lift, stars over the roofs, one falls (dp s12_a–d), on "One fell".
+- 1:12–1:20 s13a: memory on dp's unlit key frame (no match lit); 1:19.96–1:21.33 the strike cut-in, flare at 80.50 s.
+- 1:25.6–1:42.3 s14–s16: plea → grandmother's light; bundle → flare → blaze; lifted → rising → into the light.
+- 1:49.5–1:59 s18–s19: the townspeople (dp's street-side frame) dissolve up into the dawn sky; the empty corner is never shown.
+Measured (`verify.txt`): no must-fails; -16.1 LUFS, TP -1.7 dBTP; black only 45.33–46.38 (match-out) and the end title.
+Watched with film-understanding (gemini-4-argon): `review-film-understanding.md`.
+
+Known, next (cut-v5b): effects re-sync to this picture (strike 4 at 80.50 not 80.04, goose dark 56.9 not 56.43, bundle
+flare 90.83 not 89.88); shorter dip to black at 0:45; memory shot in two framings; s12_a dims harder on "Out it went".

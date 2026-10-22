@@ -1,0 +1,4 @@
+# Sound sources
+- `river_shallow_small_river_stony_riverbed.ogg`: "Shallow small river with stony riverbed" by stephan (PDSounds), Wikimedia Commons, **public domain**.
+  https://commons.wikimedia.org/wiki/File:Shallow_small_river_with_stony_riverbed.ogg  (17.9 s; looped with a 2 s equal-power crossfade, level-matched)
+- Crickets, pad and bell cue are synthesized by `tools/make_sound.py` (no third-party material).

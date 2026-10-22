@@ -1,0 +1,29 @@
+"""Intelligibility check: transcribe each script-line window of a mix with whisper small.en, report word error rate per line. usage: asr_check.py MIX.wav OUT.json"""
+import json, sys, re, numpy as np, soundfile as sf
+from scipy.signal import resample_poly
+from faster_whisper import WhisperModel
+m = WhisperModel("/hutian/.home/.cache/huggingface/hub/models--Systran--faster-whisper-small.en/snapshots/d1d751a5f8271d482d14ca55d9e2deeebbae577f", device="cpu", compute_type="int8", cpu_threads=4)
+x, sr = sf.read(sys.argv[1]); x = x.mean(1); x = resample_poly(x, 1, 3).astype(np.float32)
+L = json.load(open("dialogue/lines.json"))["lines"]
+norm = lambda s: re.findall(r"[a-z']+", s.lower())
+def wer(r, h):
+    d = list(range(len(h) + 1))
+    for i, a in enumerate(r, 1):
+        p, d[0] = d[0], i
+        for j, b in enumerate(h, 1):
+            p, d[j] = d[j], min(d[j] + 1, d[j - 1] + 1, p + (a != b))
+    return d[-1] / max(len(r), 1)
+res = []
+import os
+rp = os.path.join(os.path.dirname(sys.argv[1]), "mix_report.json")
+spoken = {t["id"]: t["end"] for t in json.load(open(rp))["dialogue_lines"]} if os.path.exists(rp) else {}
+for l in L:  # window = the line's own spoken span +-0.3 s, so neighbouring lines do not inflate the error
+    a, b = int(max(l["start"] - 0.3, 0) * 16000), int((spoken.get(l["id"], l["end"]) + 0.3) * 16000)
+    seg, _ = m.transcribe(x[a:b], beam_size=5, condition_on_previous_text=False, language="en")
+    h = " ".join(s.text for s in seg)
+    w = wer(norm(l["text"]), norm(h)) if l["id"] != "L13" else None
+    res.append(dict(id=l["id"], ref=l["text"], asr=h.strip(), wer=w)); print(res[-1], flush=True)
+ws = [r["wer"] for r in res if r["wer"] is not None]
+print("mean WER", round(float(np.mean(ws)), 3), "lines WER>0.34:", [r["id"] for r in res if r["wer"] and r["wer"] > 0.34], flush=True)
+json.dump(res, open(sys.argv[2], "w"), indent=1)
+print("HUTIAN_WAKE: asr done", flush=True)

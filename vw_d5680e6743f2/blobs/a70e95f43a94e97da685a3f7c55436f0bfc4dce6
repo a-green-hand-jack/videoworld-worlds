@@ -1,0 +1,100 @@
+"""Render The Paper Lantern from stills + sound/mix.wav.
+usage: render.py STILLS_DIR OUT.mp4 [--animatic]   (stills: shot01..shot05.png|jpg [, title, endcard])
+Camera moves are sub-pixel crops of the still (bicubic), cross-dissolves between segments."""
+import sys, os, json, subprocess, glob
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+W,H,FPS=1280,720,24
+here=os.path.dirname(os.path.abspath(__file__))
+cfg=json.load(open(os.path.join(here,'timeline.json')))
+stills_dir,out=sys.argv[1],sys.argv[2]; animatic='--animatic' in sys.argv
+def find(name):
+    for e in ('mp4','mov','mkv','png','jpg','jpeg','webp'):
+        p=os.path.join(stills_dir,f'{name}.{e}')
+        if os.path.exists(p): return p
+def load_clip(p):
+    raw=subprocess.run(['ffmpeg','-v','error','-i',p,'-vf',f'fps={FPS},scale={W}:{H}:flags=lanczos,format=rgb24','-f','rawvideo','-'],capture_output=True,check=True).stdout
+    return np.frombuffer(raw,np.uint8).reshape(-1,H,W,3)
+def load(name):
+    p=find(name)
+    if not p: return None
+    if p.rsplit('.',1)[1] in ('mp4','mov','mkv'): return load_clip(p)
+    return Image.open(p).convert('RGB')
+def card(label,i):
+    a=np.linspace(0,1,H)[:,None,None]
+    top=np.array([40+i*10,50,110-i*12]);bot=np.array([200,120+i*10,80])
+    arr=(top*(1-a)+bot*a)*np.ones((H,W,3))
+    im=Image.fromarray(arr.astype('uint8')); d=ImageDraw.Draw(im)
+    d.text((40,40),label,fill='white',font=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',40))
+    return im.resize((W*3//2,H*3//2))
+def darken(im,k): return Image.eval(im,lambda v:int(v*k))
+segs=cfg['segments']
+imgs={}
+for i,s in enumerate(segs):
+    src=s['image']
+    im=None if animatic else load(src)
+    if im is None and not animatic and s.get('fallback'):
+        im=load(s['fallback'])
+        if isinstance(im,Image.Image): im=darken(im.filter(ImageFilter.GaussianBlur(2)),s.get('dim',1))
+        else: im=Image.fromarray(im[0]).filter(ImageFilter.GaussianBlur(2)); im=darken(im,s.get('dim',1))
+    if im is None: im=card(f"{s['id']}  {s['note']}",i)
+    imgs[s['id']]=im
+def font(sz,bold=True):
+    return ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSerif%s.ttf'%('-Bold' if bold else ''),sz)
+def frame_of(s,t):
+    u=min(max((t-s['t0'])/(s['t1']-s['t0']),0),1); u=u*u*(3-2*u)*0.5+u*0.5  # gentle ease
+    m=s['move']; z=m[0]+(m[1]-m[0])*u; cx=m[2]+(m[4]-m[2])*u; cy=m[3]+(m[5]-m[3])*u
+    im=imgs[s['id']]
+    if isinstance(im,np.ndarray):          # finished clip: play it, hold the ends
+        f=Image.fromarray(im[min(max(int((t-s['t0'])*FPS),0),len(im)-1)])
+    else:
+        iw,ih=im.size
+        ch=ih/z; cw=ch*W/H
+        if cw>iw: cw=iw; ch=cw*H/W
+        x0=min(max(cx*iw-cw/2,0),iw-cw); y0=min(max(cy*ih-ch/2,0),ih-ch)
+        f=im.transform((W,H),Image.EXTENT,(x0,y0,x0+cw,y0+ch),Image.BICUBIC)
+    if s.get('text'):
+        d=ImageDraw.Draw(f); a=1.0
+        ta=s.get('text_fade',[0.6,0.6]); tt=t-s['t0']; dur=s['t1']-s['t0']
+        a=min(1,tt/ta[0],(dur-tt)/ta[1]) if ta[0]>0 else 1
+        a=max(0,a)
+        layer=Image.new('RGBA',(W,H),(0,0,0,0)); ld=ImageDraw.Draw(layer)
+        if s.get('backdrop'):   # soft dark band behind the text for contrast
+            bd=Image.new('L',(W,H),0); bdd=ImageDraw.Draw(bd)
+            y0=min(l['y'] for l in s['text'])-40; y1=max(l['y']+l['size'] for l in s['text'])+50
+            bdd.rounded_rectangle((120,y0,W-120,y1),radius=80,fill=int(255*s['backdrop']*a))
+            bd=bd.filter(ImageFilter.GaussianBlur(60))
+            layer.paste((8,6,30,255),(0,0),bd)
+        for line in s['text']:
+            fnt=font(line['size'],line.get('bold',True))
+            w=ld.textlength(line['s'],font=fnt)
+            x=(W-w)/2; y=line['y']
+            ld.text((x+3,y+3),line['s'],font=fnt,fill=(0,0,0,int(200*a)),stroke_width=2,stroke_fill=(20,10,40,int(120*a)))
+            ld.text((x,y),line['s'],font=fnt,fill=tuple(line.get('fill',[255,226,160]))+(int(255*a),))
+        f=Image.alpha_composite(f.convert('RGBA'),layer).convert('RGB')
+    return np.asarray(f,dtype=np.float32)
+D=cfg['duration']; N=int(round(D*FPS))
+def half(k):  # half-length of the dissolve between segment k-1 and k (0 = hard cut)
+    return segs[k].get('dissolve_in',cfg['dissolve'])/2
+fi,fo=cfg['fade_in'],cfg['fade_out']
+cmd=['ffmpeg','-y','-v','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r',str(FPS),'-i','-',
+     '-i',os.path.join(os.path.dirname(here),'sound','mix.wav'),
+     '-c:v','libx264','-preset','slow','-crf','17','-pix_fmt','yuv420p','-profile:v','high','-r',str(FPS),
+     '-c:a','aac','-b:a','192k','-ar','48000','-ac','2','-movflags','+faststart','-t',str(D),out]
+p=subprocess.Popen(cmd,stdin=subprocess.PIPE)
+for n in range(N):
+    t=n/FPS; acc=None
+    for k,s in enumerate(segs):
+        xi=half(k) if k>0 else 0; xo=half(k+1) if k<len(segs)-1 else 0
+        a0=s['t0']-xi; a1=s['t1']+xo
+        if t<a0 or t>=a1: continue
+        w=1.0
+        if xi and t<s['t0']+xi: w=min(w,(t-(s['t0']-xi))/(2*xi))
+        if xo and t>=s['t1']-xo: w=min(w,((s['t1']+xo)-t)/(2*xo))
+        fr=frame_of(s,t)*w
+        acc=fr if acc is None else acc+fr
+    # outgoing-incoming weights sum to 1 in dissolves
+    g=min(1,t/fi,(D-t)/fo) if True else 1
+    acc=acc*max(0,g)
+    p.stdin.write(np.clip(acc,0,255).astype('uint8').tobytes())
+p.stdin.close(); p.wait()

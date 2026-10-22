@@ -1,0 +1,15 @@
+import json,csv,re,numpy as np,scipy.io.wavfile as wf
+from faster_whisper import WhisperModel
+M="/hutian/qcwork/hf/models--Systran--faster-whisper-small.en/snapshots/d1d751a5f8271d482d14ca55d9e2deeebbae577f"
+m=WhisperModel(M,device="cpu",compute_type="int8",cpu_threads=4)
+sr,x=wf.read("/hutian/qcwork/cut-v5-16k.wav");x=x.astype(np.float32)/32768
+rows={r["line"]:r for r in csv.DictReader(open("/hutian/director/direction/script.csv"))}
+cues=json.load(open("evidence/cut-v5/asr-isolated.json"));cues={c["line"]:c["cue"] for c in cues}
+for L in ["L02","L04","L06","L14","L21","L31","L32","L33","L54"]:
+    cs,ce=cues[L]
+    for pad in (0.3,0.8):
+        a=max(0,cs-pad);b=ce+pad
+        seg=x[int(a*sr):int(b*sr)].copy();seg*=0.7/(np.abs(seg).max()+1e-6)
+        for prompt in (None,"Proog and Emo. Emo? Hurry, Emo! Pulp! Now! Are you hurt? I'm OK."):
+            s,_=m.transcribe(seg,language="en",condition_on_previous_text=False,initial_prompt=prompt,vad_filter=False)
+            print(L,repr(rows[L]["text"]),"pad",pad,"prompt" if prompt else "plain","->",repr(" ".join(t.text.strip() for t in s)),flush=True)

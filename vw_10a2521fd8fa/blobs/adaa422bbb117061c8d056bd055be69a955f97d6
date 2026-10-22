@@ -1,0 +1,11 @@
+import json,subprocess,os,time
+L=json.load(open("tools/lines.json"))
+V={"NARRATOR":"Gacrux","GIRL":"Leda","PASSERBY":"Vindemiatrix"}
+S={"L04":"small, hopeful","L15":"soft, knowing","L18":"urgent, tearful","L22":"quiet, sad"}
+for i,sp,t in L:
+    out=f"voice/raw/{i}.wav"
+    if os.path.exists(out): continue
+    for k in range(6):
+        r=subprocess.run(["python3","tools/tts.py",out,V[sp],t]+([S[i]] if i in S else []),capture_output=True,text=True)
+        if r.returncode==0: print(i,"ok"); break
+        print(i,"retry",r.stderr[-200:]); time.sleep(20)

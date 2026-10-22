@@ -1,0 +1,81 @@
+# cut-v4 — first assembly: dp shots + full mix + burned subtitles (121.958 s)
+
+Picture: dp `shots-b1` (693b9700a77b) on the cut-v3 timeline; per-shot in-points, reframes and holds in `sources.json`
+(s01 starts at 2.1 s and s05 ends at 5.33 s, before their paper margins; s02 reframed 1.12x and s03 1.08x past theirs;
+s07/s08/s10 in-points put strike, stove-out and darkness on the narration's words; s12/s13a cut moved to 73.000).
+Interim (dp still push-ins, to be replaced after the 07:00 UTC quota reset): s12, s14, s15, s16, s17, s18.
+Known picture faults, sent to dp (dp#2): s10 live goose instead of the roast goose; s13a strikes during the memory line and
+has a paper vignette at 1:15 (new s13a coming); s12 style; s17→s18 same-angle jump; s02 daylight; s03 horse legs.
+Sound: sound-designer `mix-cut-v4` (b31d77f), effects synced to the picture events measured on this picture.
+Subtitles: the mix's `film.srt` with cues 12 and 18 (0.15 s) repaired to their line ends by `tools/fix_srt.py`; burned in and
+copied to `/film.srt`.
+Measured (`tools/verify.py`): H.264 High yuv420p 1280x720 24 fps, AAC-LC 48 kHz stereo ~199 kb/s, 121.959 s, moov at front,
+-16.1 LUFS, true peak -1.8 dBTP; black only at 57.17–57.46 (goose vision goes dark, intended) and the end title.
+
+## Shots (record in/out)
+
+| shot | in | out | dur s | lines | source |
+|---|---|---|---|---|---|
+| s01 | 00:00.000 | 00:05.833 | 5.833 | 1 | /hutian/dp/shots/s01.mp4 |
+| s02 | 00:05.833 | 00:10.458 | 4.625 | 2 | /hutian/dp/shots/s02.mp4 |
+| s03 | 00:10.458 | 00:15.375 | 4.917 | 3 | /hutian/dp/shots/s03.mp4 |
+| s04 | 00:15.375 | 00:21.667 | 6.292 | 4, 5 | /hutian/dp/shots/s04.mp4 |
+| s05 | 00:21.667 | 00:27.000 | 5.333 | 6 | /hutian/dp/shots/s05.mp4 |
+| s06 | 00:27.000 | 00:32.083 | 5.083 | 7 | /hutian/dp/shots/s06.mp4 |
+| s07 | 00:32.083 | 00:38.042 | 5.958 | 8 | /hutian/dp/shots/s07.mp4 |
+| s08 | 00:38.042 | 00:46.333 | 8.292 | 9, 10 | /hutian/dp/shots/s08.mp4 |
+| s09 | 00:46.333 | 00:53.333 | 7.000 | 11 | /hutian/dp/shots/s09.mp4 |
+| s10 | 00:53.333 | 00:58.208 | 4.875 | 12 | /hutian/dp/shots/s10.mp4 |
+| s11 | 00:58.208 | 01:04.000 | 5.792 | 13 | /hutian/dp/shots/s11.mp4 |
+| s12 | 01:04.000 | 01:13.000 | 9.000 | 14, 15 | /hutian/dp/shots/s12.mp4 |
+| s13a | 01:13.000 | 01:20.167 | 7.167 | 16 | /hutian/dp/shots/s13a.mp4 |
+| s13b | 01:20.167 | 01:25.625 | 5.458 | 17 | /hutian/dp/shots/s13b.mp4 |
+| s14 | 01:25.625 | 01:29.875 | 4.250 | 18 | /hutian/dp/shots/s14.mp4 |
+| s15 | 01:29.875 | 01:34.250 | 4.375 | 19 | /hutian/dp/shots/s15.mp4 |
+| s16 | 01:34.250 | 01:42.292 | 8.042 | 20 | /hutian/dp/shots/s16.mp4 |
+| s17 | 01:42.292 | 01:49.458 | 7.167 | 21 | /hutian/dp/shots/s17.mp4 |
+| s18 | 01:49.458 | 01:53.458 | 4.000 | 22 | /hutian/dp/shots/s18.mp4 |
+| s19 | 01:53.458 | 01:58.958 | 5.500 | 23 | /hutian/dp/shots/s19.mp4 |
+| end | 01:58.958 | 02:01.958 | 3.000 |  | title card |
+
+## Lines
+
+| # | shot | speaker | start | end | dur s | timing | text |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | NARRATOR | 00:00.300 | 00:05.093 | 4.79 | measured | Bitter cold, almost dark: the last evening of the year. |
+| 2 | 2 | NARRATOR | 00:06.133 | 00:10.026 | 3.89 | measured | A poor girl shuffled along in her mother's big slippers. |
+| 3 | 3 | NARRATOR | 00:10.758 | 00:15.068 | 4.31 | measured | Carriages raced by; she lost them, and went on barefoot. |
+| 4 | 4 | GIRL | 00:15.675 | 00:18.703 | 3.03 | measured | Matches… who will buy my matches? |
+| 5 | 4 | NARRATOR | 00:19.003 | 00:21.367 | 2.36 | measured | No one had bought a single match. |
+| 6 | 5 | NARRATOR | 00:21.967 | 00:26.424 | 4.46 | measured | Candles gleamed in the windows; it smelled of roast goose. |
+| 7 | 6 | NARRATOR | 00:27.300 | 00:31.421 | 4.12 | measured | She huddled in a corner, afraid to go home to her father. |
+| 8 | 7 | NARRATOR | 00:32.383 | 00:36.740 | 4.36 | measured | Her hands were numb. If she dared strike just one… |
+| 9 | 8 | NARRATOR | 00:38.342 | 00:43.831 | 5.49 | measured | How it blazed! A warm iron stove seemed to stand before her. |
+| 10 | 8 | NARRATOR | 00:44.131 | 00:45.754 | 1.62 | measured | Then it went out. |
+| 11 | 9 | NARRATOR | 00:46.633 | 00:53.024 | 6.39 | measured | A second: the wall became a veil, and inside, a roast goose steamed. |
+| 12 | 10 | NARRATOR | 00:53.633 | 00:57.449 | 3.82 | measured | It hopped down and waddled toward her — then darkness. |
+| 13 | 11 | NARRATOR | 00:58.508 | 01:03.640 | 5.13 | measured | A third: she sat beneath a Christmas tree ablaze with candles. |
+| 14 | 12 | NARRATOR | 01:04.300 | 01:10.024 | 5.72 | measured | Out it went. The lights rose and became stars. One fell. |
+| 15 | 12 | GIRL | 01:10.324 | 01:11.695 | 1.37 | measured | Someone is dying. |
+| 16 | 13a | NARRATOR | 01:12.300 | 01:19.861 | 7.56 | measured | Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God. |
+| 17 | 13b | NARRATOR | 01:20.467 | 01:25.325 | 4.86 | measured | A fourth — and there stood Grandmother, shining and kind. |
+| 18 | 14 | GIRL | 01:25.925 | 01:28.539 | 2.61 | measured | Grandmother! Take me with you! |
+| 19 | 15 | NARRATOR | 01:30.175 | 01:33.734 | 3.56 | measured | She struck the whole bundle, to keep her near. |
+| 20 | 16 | NARRATOR | 01:34.550 | 01:42.011 | 7.46 | measured | Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear. |
+| 21 | 17 | NARRATOR | 01:42.592 | 01:49.176 | 6.58 | measured | At dawn she sat there still, rosy-cheeked and smiling — frozen to death. |
+| 22 | 18 | PASSER-BY | 01:49.758 | 01:51.545 | 1.79 | measured | She wanted to warm herself. |
+| 23 | 19 | NARRATOR | 01:53.758 | 01:58.653 | 4.89 | measured | No one knew the beautiful things she had seen, or the joy she had gone to. |
+
+## cut-v4b (supersedes cut-v4 at the root)
+Same picture and mix (mix-cut-v4). Subtitles: sound-designer's corrected `film.srt` (mix-cut-v4b) with every cue start snapped
+to the voice onset measured on the mix's dialogue stem (`tools/snap_srt.py`, report `subtitle-onsets-v4b.txt`): all 25 cues
+were within +0.06 s except cue 22 ("where there is no cold…", a mid-line split) at +0.49 s, now on its onset; L07's file has
+0.23 s of lead-in. A faster-whisper word check (`verify.txt`) flagged 7 cues at 0.26–0.83 s; on the stem those are 0.02–0.06 s,
+so they are transcriber timing jitter, not sync faults. `verify-v4b.txt`: no must-fails.
+
+## cut-v4c (supersedes cut-v4b at the root)
+Same mix (mix-cut-v4) and timeline. Changes for qc's editor#6 and #4:
+- s03 now plays src 0.000–4.818 at 0.98 speed and ends before the model's own cut to the 1 s bare-feet close-up, so there is no
+  luminance jump: mean luma 118–126 across 13.5–15.9 s (was 124→193→124). She stands barefoot in s04 from 15.375.
+- cue 23 rewrapped to "At dawn she sat there still, rosy-cheeked / and smiling — frozen to death." (41 + 30 characters).
+`verify-v4c.txt`: no must-fails (121.959 s, -16.1 LUFS, TP -1.8 dBTP).

@@ -1,0 +1,144 @@
+{
+ "fps": 24,
+ "duration": 20.0,
+ "xfade": 0.5,
+ "fade_in": 0.7,
+ "fade_out": 0.7,
+ "segments": [
+  {
+   "name": "title",
+   "image": "title-plate.png",
+   "start": 0,
+   "end": 2.5,
+   "z": [
+    1.0,
+    1.08
+   ],
+   "cx": [
+    0.5,
+    0.5
+   ],
+   "cy": [
+    0.55,
+    0.55
+   ],
+   "text": "The Paper Lantern",
+   "ty": 0.3,
+   "text_in": [
+    0.1,
+    0.6
+   ],
+   "text_out": [
+    2.1,
+    2.55
+   ]
+  },
+  {
+   "name": "shot1",
+   "image": "shot-01.png",
+   "start": 2.5,
+   "end": 6.0,
+   "z": [
+    1.0,
+    1.25
+   ],
+   "cx": [
+    0.5,
+    0.4
+   ],
+   "cy": [
+    0.5,
+    0.52
+   ],
+   "video": "shot1.mp4",
+   "handle": 0.5
+  },
+  {
+   "name": "shot2",
+   "image": "shot-02.png",
+   "start": 6.0,
+   "end": 9.5,
+   "z": [
+    1.0,
+    1.2
+   ],
+   "cx": [
+    0.5,
+    0.52
+   ],
+   "cy": [
+    0.45,
+    0.55
+   ],
+   "video": "shot2.mp4",
+   "handle": 0.5
+  },
+  {
+   "name": "shot3",
+   "image": "shot-03.png",
+   "start": 9.5,
+   "end": 13.5,
+   "z": [
+    1.25,
+    1.25
+   ],
+   "cx": [
+    0.6,
+    0.42
+   ],
+   "cy": [
+    0.5,
+    0.55
+   ],
+   "video": "shot3.mp4",
+   "handle": 0.5,
+   "xfade": 0
+  },
+  {
+   "name": "shot4",
+   "image": "shot-04.png",
+   "start": 13.5,
+   "end": 17.4,
+   "z": [
+    1.3,
+    1.08
+   ],
+   "cx": [
+    0.615,
+    0.55
+   ],
+   "cy": [
+    0.615,
+    0.46
+   ],
+   "video": "shot4.mp4",
+   "handle": 0.5
+  },
+  {
+   "name": "endcard",
+   "image": "end-plate.png",
+   "start": 17.4,
+   "end": 20.0,
+   "z": [
+    1.0,
+    1.05
+   ],
+   "cx": [
+    0.5,
+    0.5
+   ],
+   "cy": [
+    0.5,
+    0.5
+   ],
+   "text": "The End",
+   "ty": 0.42,
+   "text_in": [
+    -0.15,
+    0.4
+   ],
+   "text_out": null,
+   "xfade": 0.5
+  }
+ ]
+}

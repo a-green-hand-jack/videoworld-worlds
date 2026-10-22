@@ -1,0 +1,97 @@
+"""Assemble stills + camera moves + title/end text + sound into the film.
+Usage: render.py TIMING.json STILLS_DIR SOUND.wav OUT.mp4
+A segment may give "video": file instead of "image": a finished shot (its own moves) used as-is, with "handle" s lead-in.
+TIMING.json: {"fps":24,"duration":20.0,"xfade":0.5,"segments":[{"name","image","start","end",
+  "z":[z0,z1],"cx":[a,b],"cy":[a,b],"text":null|"..."}]}   (z = zoom, cx/cy = crop centre as fraction of the still)"""
+import json, subprocess, sys, os
+import numpy as np
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
+
+cfg = json.load(open(sys.argv[1])); stills = sys.argv[2]; wav = sys.argv[3]; out = sys.argv[4]
+FPS = cfg["fps"]; DUR = cfg["duration"]; XF = cfg["xfade"]; W, H = 1280, 720
+NF = int(round(DUR * FPS))
+segs = cfg["segments"]
+def load_video(path):
+    """decode a finished silent shot to 1280x720 24 fps RGB frames"""
+    raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", path, "-vf", f"fps={FPS},scale={W}:{H}:flags=lanczos", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.uint8).reshape(-1, H, W, 3)
+
+for s in segs:
+    if s.get("video"):  # finished shot with its own camera move; "handle" seconds of lead-in before "start"
+        s["frames"] = load_video(os.path.join(stills, s["video"]))
+    else:
+        s["img"] = Image.open(os.path.join(stills, s["image"])).convert("RGB")
+
+FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
+
+def text_layer(txt, size=84, ty=0.40):
+    """soft warm lettering with a dark halo, returned as (rgb, alpha) float arrays"""
+    f = ImageFont.truetype(FONT, size)
+    m = Image.new("L", (W, H), 0)
+    d = ImageDraw.Draw(m)
+    bb = d.textbbox((0, 0), txt, font=f)
+    tw, th = bb[2] - bb[0], bb[3] - bb[1]
+    pos = ((W - tw) // 2 - bb[0], int(H * ty) - bb[1])
+    halo = Image.new("L", (W, H), 0); ImageDraw.Draw(halo).text(pos, txt, font=f, fill=255)
+    halo = halo.filter(ImageFilter.GaussianBlur(14))
+    d.text(pos, txt, font=f, fill=255)
+    glow = np.asarray(halo, float) / 255
+    sharp = np.asarray(m, float) / 255
+    rgb = np.zeros((H, W, 3))
+    rgb[:] = (255, 214, 150)
+    return rgb, sharp, glow
+
+for s in segs:
+    s["tl"] = text_layer(s["text"], ty=s.get("ty", 0.40)) if s.get("text") else None
+
+def smooth(x): x = np.clip(x, 0, 1); return x * x * (3 - 2 * x)
+
+def seg_frame(s, t):
+    if s.get("frames") is not None:
+        i = int(round((t - s["start"] + s.get("handle", 0.5)) * FPS))
+        fr = s["frames"][min(max(i, 0), len(s["frames"]) - 1)].astype(float)
+    else:
+        p = np.clip((t - s["start"]) / (s["end"] - s["start"]), 0, 1)
+        p = smooth(p) if s.get("ease", True) else p
+        z = s["z"][0] + (s["z"][1] - s["z"][0]) * p
+        cx = s["cx"][0] + (s["cx"][1] - s["cx"][0]) * p
+        cy = s["cy"][0] + (s["cy"][1] - s["cy"][0]) * p
+        iw, ih = s["img"].size
+        bw = iw / z; bh = bw * H / W
+        x0 = np.clip(cx * iw - bw / 2, 0, iw - bw); y0 = np.clip(cy * ih - bh / 2, 0, ih - bh)
+        fr = np.asarray(s["img"].resize((W, H), Image.BICUBIC, box=(x0, y0, x0 + bw, y0 + bh)), float)
+    if s["tl"]:
+        rgb, sharp, glow = s["tl"]
+        ti = s.get("text_in", [0.5, 1.4]); to = s.get("text_out", [s["end"] - s["start"] - 0.9, s["end"] - s["start"] - 0.1])
+        a = smooth((t - s["start"] - ti[0]) / (ti[1] - ti[0]))
+        if to: a = a * (1 - smooth((t - s["start"] - to[0]) / (to[1] - to[0])))
+        fr = fr * (1 - 0.55 * glow[..., None] * a) # dark halo for legibility
+        k = (sharp * a)[..., None]
+        fr = fr * (1 - k) + rgb * k
+    return fr
+
+proc = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+                         "-i", wav, "-map", "0:v", "-map", "1:a", "-t", str(DUR),
+                         "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-pix_fmt", "yuv420p", "-r", str(FPS), "-vsync", "cfr", "-movflags", "+faststart",
+                         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", out], stdin=subprocess.PIPE)
+for n in range(NF):
+    t = (n + 0.5) / FPS
+    # current segment = the one whose window contains t; crossfade around each boundary
+    idx = max(i for i, s in enumerate(segs) if s["start"] <= t + 1e-9) if t >= segs[0]["start"] else 0
+    fr = seg_frame(segs[idx], t)
+    # the dissolve into segment k is centred on its start and lasts its "xfade" (default cfg xfade; 0 = straight cut)
+    if idx + 1 < len(segs):
+        nxt = segs[idx + 1]; xf = nxt.get("xfade", XF); b = nxt["start"]
+        if xf > 0 and t > b - xf / 2:
+            k = smooth((t - (b - xf / 2)) / xf)
+            fr = fr * (1 - k) + seg_frame(nxt, t) * k
+    if idx > 0:
+        xf = segs[idx].get("xfade", XF)
+        if xf > 0 and t < segs[idx]["start"] + xf / 2:
+            k = smooth((t - (segs[idx]["start"] - xf / 2)) / xf)
+            fr = seg_frame(segs[idx - 1], t) * (1 - k) + fr * k
+    fade = min(smooth(t / cfg.get("fade_in", 1.0)), smooth((DUR - t) / cfg.get("fade_out", 1.2)))
+    fr = fr * fade
+    proc.stdin.write(np.clip(fr + 0.5, 0, 255).astype(np.uint8).tobytes())
+proc.stdin.close(); proc.wait()

@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+"""Render a cut from an edit decision list (EDL JSON).
+
+EDL: {"fps":24,"width":1280,"height":720,
+      "shots":[{"id":"s01","dur":6.0,"src":"path.mp4|path.png|null","src_in":0.0,
+                "slate":"text shown when src is null","bg":"0x101418",
+                "title":["line 1","line 2"] (title card on black),
+                "zoom":1.0 (centre crop factor),"speed":1.0 (playback rate of src),"fade_in":0,"fade_out":0,
+                "fade_out_st": start of the fade-out (default dur - fade_out),
+                stills: "z0"/"z1" push from/to, "px"/"py" drift, "cx"/"cy" fixed offset; any leaf: "snow" opacity, "flicker", "glow";
+                "parts":[leaf, ...] with "xfade": dissolves between the parts of one shot}],
+      "audio":"mix.wav|null", "srt":"film.srt|null", "out":"film.mp4"}
+Paths are relative to the EDL file. The picture before subtitles and sound is kept as
+<out>.picture.mp4; --reuse-picture skips re-rendering it (sound or subtitles changed only). Images get a slow push-in; video is trimmed
+from src_in; a missing src renders a slate naming the shot (animatic only).
+"""
+import json, os, subprocess, sys, tempfile
+from concurrent.futures import ThreadPoolExecutor
+
+def run(cmd):
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode:
+        sys.exit("FAILED: " + " ".join(cmd) + "\n" + r.stderr[-3000:])
+
+def esc(t):
+    return t.replace("\\", "\\\\").replace(":", "\\:").replace("'", "’").replace("%", "\\%")
+
+def leaf(s, base, W, H, fps, out):
+    """ffmpeg command rendering one shot (or one part of a shot) to `out`."""
+    d = float(s["dur"]); n = round(d * fps)
+    norm = f"scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps={fps}"
+    vf, extra = [], []
+    src = s.get("src")
+    if src:
+        src = os.path.join(base, src)
+        if src.lower().endswith((".png", ".jpg", ".jpeg", ".webp")):
+            inp = ["-loop", "1", "-framerate", str(fps), "-i", src]
+            z0, z1 = s.get("z0", 1.0), s.get("z1", 1.06)
+            px, py = s.get("px", 0.0), s.get("py", 0.0)  # drift of the view centre, fraction of the frame
+            cx, cy = s.get("cx", 0.0), s.get("cy", 0.0)  # fixed offset of the view centre, fraction of the frame
+            vf.append(f"scale={W*3//2}:{H*3//2}:force_original_aspect_ratio=increase,crop={W*3//2}:{H*3//2},"
+                      f"zoompan=z='{z0}+({z1}-{z0})*on/{n}':x='iw/2-(iw/zoom/2)+{cx}*iw+{px}*iw*(on/{n}-0.5)/zoom':"
+                      f"y='ih/2-(ih/zoom/2)+{cy}*ih+{py}*ih*(on/{n}-0.5)/zoom':d=1:s={W}x{H}:fps={fps}")
+        else:
+            inp = ["-ss", str(s.get("src_in", 0)), "-i", src]
+            if s.get("zoom", 1) != 1:  # reframe past a paper margin
+                z = s["zoom"]; vf.append(f"crop=trunc(iw/{z}/2)*2:trunc(ih/{z}/2)*2")
+            if s.get("speed", 1) != 1:  # <1 holds a short take a little longer
+                vf.append(f"setpts=PTS/{s['speed']}")
+            vf.append(norm)
+    elif s.get("title"):
+        inp = ["-f", "lavfi", "-i", f"color=c=black:s={W}x{H}:r={fps}"]
+        serif = "/usr/share/fonts/truetype/liberation/LiberationSerif-"
+        t1, t2 = (s["title"] + [""])[:2]
+        vf.append(f"drawtext=fontfile={serif}Regular.ttf:text='{esc(t1)}':fontcolor=0xF3E6C8:fontsize=60:"
+                  f"x=(w-tw)/2:y=h/2-th-6")
+        if t2:
+            vf.append(f"drawtext=fontfile={serif}Italic.ttf:text='{esc(t2)}':fontcolor=0xF3E6C8:fontsize=32:"
+                      f"x=(w-tw)/2:y=h/2+22")
+    else:
+        inp = ["-f", "lavfi", "-i", f"color=c={s.get('bg', '0x101418')}:s={W}x{H}:r={fps}"]
+        txt = esc(f"{s['id']}  ({d:.1f}s)\n{s.get('slate','')}")
+        vf.append(f"drawtext=fontfile=/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf:"
+                  f"text='{txt}':fontcolor=white:fontsize=28:x=(w-tw)/2:y=(h-th)/2-60:line_spacing=10")
+    if s.get("flicker"):  # warm firelight breathing on a still
+        a = s["flicker"]
+        vf.append(f"eq=brightness='{a}*(0.6*sin(2*PI*t*2.3)+0.4*sin(2*PI*t*5.7+1))':eval=frame")
+    if s.get("glow"):  # light growing over the shot: brightness ramps up to `glow`
+        vf.append(f"eq=brightness='{s['glow']}*t/{d}':eval=frame")
+    fx = s.get("fade_in"), s.get("fade_out"), s.get("fade_out_st")
+    if fx[0]: vf.append(f"fade=t=in:st=0:d={fx[0]}")
+    if fx[1]: vf.append(f"fade=t=out:st={fx[2] if fx[2] is not None else d - fx[1]}:d={fx[1]}")
+    chain = f"[0:v]{','.join(vf) or 'null'}"
+    if s.get("snow"):  # screen-blend a falling-snow layer
+        snow = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "fx", "snow.mp4")
+        snow = s.get("snow_src", os.environ.get("SNOW", snow))
+        extra = ["-stream_loop", "-1", "-i", snow]
+        chain += (f",format=gbrp[b];[1:v]fps={fps},format=gbrp[s];"
+                  f"[b][s]blend=all_mode=screen:all_opacity={s['snow']}")
+    chain += ",format=yuv420p[v]"
+    return ["ffmpeg", "-y", "-v", "error", *inp, *extra, "-filter_complex", chain, "-map", "[v]",
+            "-frames:v", str(n), "-an", "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-threads", "2",
+            "-r", str(fps), out]
+
+def main(edl_path, reuse=False):
+    base = os.path.dirname(os.path.abspath(edl_path))
+    edl = json.load(open(edl_path))
+    fps, W, H = edl.get("fps", 24), edl.get("width", 1280), edl.get("height", 720)
+    tmp = tempfile.mkdtemp(prefix="conform-", dir=edl.get("tmpdir", None))
+    jobs, joins, segs = [], [], []
+    for i, s in enumerate(edl["shots"]):
+        out = os.path.join(tmp, f"{i:03d}.mp4")
+        if s.get("parts"):
+            # parts dissolve into each other (xfade s); the shot's own fades apply to the joined result
+            xf = float(s.get("xfade", 0.5)); outs = []
+            for j, part in enumerate(s["parts"]):
+                po = os.path.join(tmp, f"{i:03d}-{j}.mp4"); outs.append((po, float(part["dur"])))
+                jobs.append(leaf({**part, "id": s["id"]}, base, W, H, fps, po))
+            fc, last, t = [], "[0:v]", outs[0][1]
+            for j in range(1, len(outs)):
+                fc.append(f"{last}[{j}:v]xfade=transition=fade:duration={xf}:offset={t - xf:.4f}[x{j}]")
+                last = f"[x{j}]"; t += outs[j][1] - xf
+            d = float(s["dur"]); post = []
+            if s.get("fade_in"): post.append(f"fade=t=in:st=0:d={s['fade_in']}")
+            if s.get("fade_out"):
+                post.append(f"fade=t=out:st={s.get('fade_out_st', d - s['fade_out'])}:d={s['fade_out']}")
+            fc.append(f"{last}{','.join(post + ['format=yuv420p'])}[v]")
+            joins.append(["ffmpeg", "-y", "-v", "error", *sum((["-i", o] for o, _ in outs), []),
+                          "-filter_complex", ";".join(fc), "-map", "[v]", "-frames:v", str(round(d * fps)),
+                          "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-r", str(fps), out])
+        else:
+            jobs.append(leaf(s, base, W, H, fps, out))
+        segs.append(out)
+    pic = os.path.join(base, os.path.splitext(edl.get("out", "film.mp4"))[0] + ".picture.mp4")
+    if reuse and os.path.exists(pic):
+        print(f"reusing {pic}")
+    else:
+        with ThreadPoolExecutor(max_workers=os.cpu_count() or 4) as ex:
+            list(ex.map(run, jobs))
+            list(ex.map(run, joins))
+        lst = os.path.join(tmp, "list.txt")
+        open(lst, "w").write("".join(f"file '{p}'\n" for p in segs))
+        run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", pic])
+    total = sum(round(float(s["dur"]) * fps) for s in edl["shots"]) / fps
+    out = os.path.join(base, edl.get("out", "film.mp4"))
+    cmd = ["ffmpeg", "-y", "-v", "error", "-i", pic]
+    if edl.get("audio"):
+        cmd += ["-i", os.path.join(base, edl["audio"])]
+    else:
+        cmd += ["-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo"]
+    vf = "null"
+    if edl.get("srt"):
+        srt = os.path.join(base, edl["srt"]).replace(":", "\\:").replace("'", "\\'")
+        vf = (f"subtitles='{srt}':force_style='FontName=Liberation Sans,FontSize=15,PrimaryColour=&H00FFFFFF,"
+              f"OutlineColour=&H00000000,BorderStyle=1,Outline=1.6,Shadow=0.6,MarginV=28'")
+    cmd += ["-map", "0:v", "-map", "1:a", "-vf", vf, "-af", f"apad,atrim=0:{total},aresample=48000",
+            "-t", f"{total}", "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-profile:v", "high",
+            "-pix_fmt", "yuv420p", "-r", str(fps), "-c:a", "aac", "-b:a", "192k", "-ac", "2", "-ar", "48000",
+            "-movflags", "+faststart", out]
+    run(cmd)
+    print(f"wrote {out} ({total:.3f} s, {len(segs)} shots)")
+
+if __name__ == "__main__":
+    main(sys.argv[1], reuse="--reuse-picture" in sys.argv)

@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+"""frames.py name... -> frames/<name>.png: extra still frames (image-generation) for shots whose video the model could not make.
+Each frame: (refs, prompt). A ref is a design ref (REFDIR/<x>.jpg) or a repo image (path with '/')."""
+import sys, os, json, base64, subprocess, urllib.request, io
+from PIL import Image
+sys.path.insert(0, os.path.dirname(__file__))
+from shots import STYLE, GIRL, GRAN, CORNER
+REFDIR = os.environ.get("REFDIR", "/hutian/work/refs")
+INK = "inked gouache-and-watercolour storybook illustration with fine ink linework, painted full-bleed to all edges"
+F = {}
+def f(n, refs, p): F[n] = (refs, p)
+f("s10_a", ["vision_goose", "keyframes/s10.png", "style_frame"], f"Inside the warm candle-lit vision room, the cooked golden-brown roast goose itself, stuffed with apples, a knife and fork stuck in its back, lifts off its blue-and-white porcelain dish on the white tablecloth, mid-hop, tiny roasted legs unfolding; steam rising, candles, warm amber light; whimsical, not grotesque, no live bird, no feathers. {INK}.")
+f("s10_b", ["keyframes/s10.png", "vision_goose", "style_frame"], f"The same roast goose (cooked, brown, knife and fork in its back) has hopped down to the floor and waddles toward the viewer across the corner's snowy cobbles and warm light, the empty dish and the white table behind it, the girl small in the foreground edge looking on; warm amber light fading to blue at the edges. {INK}.")
+f("s10_c", ["keyframes/s10.png", "girl_faces", "corner_wide"], f"The same roast goose waddling right up close to the seated girl at the stone step in the corner, her wondering face lit warm by it, the cold blue night closing in around the edges of the frame; whimsical. {INK}.")
+f("s12_a", ["vision_tree", "girl_faces", "style_frame"], f"{GIRL}, face upturned at the bottom of frame holding a match that has just gone out with a thin curl of smoke; behind her the great dark-green Christmas tree with its thousands of candles glowing dimmer, as if about to go out; deep blue night. {INK}.")
+f("s12_b", ["keyframes/s12_a.png", "vision_tree", "girl_faces"], f"The same scene a moment later, exactly ONE girl (no second girl, no twin): from the great dark-green Christmas tree the small golden candle lights lift off the branches and rise upward into the dark blue night sky like sparks, the tree itself now dim; the girl watching from below with wonder. {INK}.")
+f("s12_c", ["keyframes/s12_b.png", "vision_tree", "ascent"], f"The same scene later: the rising candle lights have become many soft golden stars in the deep blue night sky above the snowy gabled rooftops of the small Danish town; the girl's small figure and the dim tree at the bottom edge. {INK}.")
+f("s12_d", ["keyframes/s12_c.png", "girl_faces", "style_frame"], f"A single seamless painting with no panels, bands or borders: one bright star falls across the night sky with a long trail of golden fire above the snowy rooftops, and below it, large in the lower part of the same picture, the girl's upturned face, lit warm gold, watching it, soft and knowing, in close-up at the bottom of the frame. {INK}.")
+f("s14_b", ["keyframes/s14.png", "grandmother_sheet", "vision_grandmother"], f"Close-up of the tearful girl reaching out her hand; now beyond her outstretched fingers a radiant white-gold glow grows, and the silhouette of the grandmother's kind face and white linen cap begins to appear in the light, warm gold lighting her tears. {INK}.")
+f("s15_b", ["keyframes/s15.png", "corner_over_shoulder", "style_frame"], f"The whole bundle of matches in the girl's small hands has just been struck against the cold wall: a first huge bright flare of white-gold flame bursting from the bundle, the wall lit cream and gold, blue shadows retreating. {INK}.")
+f("s15_c", ["keyframes/s15_b.png", "corner_wide", "vision_grandmother"], f"The great blaze of the bundle now fills the whole corner with brilliant white-gold light brighter than day, the wall, the step and the falling snow glowing cream and gold; the girl's silhouette and the figure of the grandmother radiant in the light. {INK}.")
+f("s16_a", ["keyframes/s15_c.png", "grandmother_sheet", "girl_sheet"], f"In the blazing white-gold corner, {GRAN}, tall and radiant, lifts the girl into her arms, the girl's arms around her neck, both smiling in joy, snow glowing around them. {INK}.")
+f("s16_b", ["keyframes/s16.png", "ascent", "grandmother_sheet"], f"The grandmother carries the girl upward in her arms, rising together above the snowy gabled rooftops and chimneys of the Danish town into a luminous cream-gold sky, the town small below. {INK}.")
+f("s16_c", ["keyframes/s16_b.png", "ascent", "girl_sheet"], f"The grandmother and the girl high above in a vast glowing cream-white and gold sky among soft clouds, small and serene in the light, far above a tiny snowy town far below; peace and joy. {INK}.")
+url = subprocess.check_output(["ht-resource","url","image-generation"]).decode().strip()
+def load(r):
+    path = r if "/" in r else f"{REFDIR}/{r}.jpg"
+    im = Image.open(path).convert("RGB"); im.thumbnail((1280,720)); b = io.BytesIO(); im.save(b, "JPEG", quality=85)
+    return {"inlineData": {"mimeType": "image/jpeg", "data": base64.b64encode(b.getvalue()).decode()}}
+for n in sys.argv[1:]:
+    refs, p = F[n]
+    parts = [{"text": f"Frame, 16:9, full-bleed. Keep characters, places and painting style exactly as in the reference images. {p} Style: {STYLE}."}] + [load(r) for r in refs[:5] if os.path.exists(r if "/" in r else f"{REFDIR}/{r}.jpg")]
+    body = json.dumps({"contents":[{"parts":parts}],"generationConfig":{"responseModalities":["IMAGE"],"imageConfig":{"aspectRatio":"16:9"}}}).encode()
+    req = urllib.request.Request(f"{url}/v1beta/models/gemini-3-pro-image:generateContent", body, {"Content-Type":"application/json","x-goog-api-key":os.environ["HT_RESOURCE_TOKEN"]})
+    for attempt in range(3):
+        try:
+            d = json.load(urllib.request.urlopen(req, timeout=300))
+            for q in d["candidates"][0]["content"]["parts"]:
+                if "inlineData" in q:
+                    im = Image.open(io.BytesIO(base64.b64decode(q["inlineData"]["data"]))).convert("RGB").resize((1280,720), Image.LANCZOS)
+                    os.makedirs("keyframes", exist_ok=True); im.save(f"keyframes/{n}.png"); print("ok", n, flush=True); break
+            else: print("noimage", n, flush=True); continue
+            break
+        except Exception as e: print("fail", n, attempt, e, flush=True)

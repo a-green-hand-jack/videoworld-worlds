@@ -1,0 +1,17 @@
+{
+  "tag": "picture-batch-001",
+  "id": "S001",
+  "asset": "S001.mp4",
+  "sha256": "e7e247e987a2b10a31d52572897330eb51250e2af77f8ab0fafc6badc58935d8",
+  "frames": 619,
+  "frame_in": 0,
+  "frame_out_exclusive": 619,
+  "fps": 24,
+  "size": "1024x576",
+  "source_artwork": "working/s001-wall-close-proposal.png",
+  "designer_approval": "dp#5 comment 50",
+  "direction": "director direction-v3 S001",
+  "timeline": "editor reference-timeline-v1",
+  "sound": "none in this picture clip; editor synchronizes separate mix",
+  "overlay": "editor owns S001 titles at 1\u20139s and 10\u201319s"
+}

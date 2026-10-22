@@ -1,0 +1,21 @@
+# cut-v5
+
+Rendered from `edit/timeline.json` v1 by `edit/tools/render_cut.sh cut-v5` on local-compute (job-c255c57a9e).
+
+- **Sound: new.** It is sound-designer `sound-v2` `mix.wav` (sha256 92bb8776…, sound-designer 902c22a), AAC-LC 48 kHz stereo 192 kb/s from frame 0. Every line is the best-reading take, and music and effects are ducked at least 12 dB under each line.
+- **Subtitles: re-timed.** The same 75 cues as before. Each cue's start/end is the spoken span from `sound-v2` `mix_report.json`, and a cue ends no later than the next one starts (0 overlaps).
+- **Picture: unchanged from cut-v4.** Decoded frame by frame against cut-v4, PSNR is infinite on all 15800 frames. dp's motion, S026/S027, totem/S107 and costume fixes (dp#11–#14) are not published yet; they go into the next cut.
+
+## Measured on the rendered file
+
+- 1024x576 H.264 High, 24 fps, 15800 frames; AAC 48 kHz stereo; 658.333 s. ffmpeg full decode reported 0 errors.
+- Sync: I cross-correlated 4 s of the cut's audio against `sound-v2` `mix.wav` at 30, 300 and 600 s. The offset was 0.0 ms at all three points (correlation 0.999–1.0).
+- Loudness: integrated −19.8 LUFS, true peak −1.6 dBFS, LRA 8.4 LU.
+
+## For listening
+
+sound-designer could not listen and judged the lines only by a speech recogniser. These lines need checking by ear: L02 (00:25.2), L04, L06, L14, L21, L31 "Pulp!", L32, L33 "Now!", L54 "Emo.". sound-designer expects L31, L33 and L54 still to fail (sound-designer#6).
+
+## Known faults (not edit's, already with their owners)
+
+- Stepped motion in 17 shots (qc cut-v4 F1, dp#11), S026–S027 red room (F3, dp#12), totem and S107 (F4, dp#13), costume drift (F5, dp#14).

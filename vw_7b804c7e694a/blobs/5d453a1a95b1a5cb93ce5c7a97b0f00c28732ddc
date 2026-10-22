@@ -1,0 +1,166 @@
+{
+ "lines": [
+  {
+   "id": "L01",
+   "speaker": "NARRATOR",
+   "text": "Bitter cold, almost dark: the last evening of the year.",
+   "file": "lines/L01.wav",
+   "duration_s": 4.793
+  },
+  {
+   "id": "L02",
+   "speaker": "NARRATOR",
+   "text": "A poor girl shuffled along in her mother's big slippers.",
+   "file": "lines/L02.wav",
+   "duration_s": 3.893
+  },
+  {
+   "id": "L03",
+   "speaker": "NARRATOR",
+   "text": "Carriages raced by; she lost them, and went on barefoot.",
+   "file": "lines/L03.wav",
+   "duration_s": 4.31
+  },
+  {
+   "id": "L04",
+   "speaker": "GIRL",
+   "text": "Matches\u2026 who will buy my matches?",
+   "file": "lines/L04.wav",
+   "duration_s": 3.028
+  },
+  {
+   "id": "L05",
+   "speaker": "NARRATOR",
+   "text": "No one had bought a single match.",
+   "file": "lines/L05.wav",
+   "duration_s": 2.364
+  },
+  {
+   "id": "L06",
+   "speaker": "NARRATOR",
+   "text": "Candles gleamed in the windows; it smelled of roast goose.",
+   "file": "lines/L06.wav",
+   "duration_s": 4.457
+  },
+  {
+   "id": "L07",
+   "speaker": "NARRATOR",
+   "text": "She huddled in a corner, afraid to go home to her father.",
+   "file": "lines/L07.wav",
+   "duration_s": 4.121
+  },
+  {
+   "id": "L08",
+   "speaker": "NARRATOR",
+   "text": "Her hands were numb. If she dared strike just one\u2026",
+   "file": "lines/L08.wav",
+   "duration_s": 4.357
+  },
+  {
+   "id": "L09",
+   "speaker": "NARRATOR",
+   "text": "How it blazed! A warm iron stove seemed to stand before her.",
+   "file": "lines/L09.wav",
+   "duration_s": 5.489
+  },
+  {
+   "id": "L10",
+   "speaker": "NARRATOR",
+   "text": "Then it went out.",
+   "file": "lines/L10.wav",
+   "duration_s": 1.623
+  },
+  {
+   "id": "L11",
+   "speaker": "NARRATOR",
+   "text": "A second: the wall became a veil, and inside, a roast goose steamed.",
+   "file": "lines/L11.wav",
+   "duration_s": 6.391
+  },
+  {
+   "id": "L12",
+   "speaker": "NARRATOR",
+   "text": "It hopped down and waddled toward her \u2014 then darkness.",
+   "file": "lines/L12.wav",
+   "duration_s": 3.816
+  },
+  {
+   "id": "L13",
+   "speaker": "NARRATOR",
+   "text": "A third: she sat beneath a Christmas tree ablaze with candles.",
+   "file": "lines/L13.wav",
+   "duration_s": 5.132
+  },
+  {
+   "id": "L14",
+   "speaker": "NARRATOR",
+   "text": "Out it went. The lights rose and became stars. One fell.",
+   "file": "lines/L14.wav",
+   "duration_s": 5.724
+  },
+  {
+   "id": "L15",
+   "speaker": "GIRL",
+   "text": "Someone is dying.",
+   "file": "lines/L15.wav",
+   "duration_s": 1.693
+  },
+  {
+   "id": "L16",
+   "speaker": "NARRATOR",
+   "text": "Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God.",
+   "file": "lines/L16.wav",
+   "duration_s": 7.561
+  },
+  {
+   "id": "L17",
+   "speaker": "NARRATOR",
+   "text": "A fourth \u2014 and there stood Grandmother, shining and kind.",
+   "file": "lines/L17.wav",
+   "duration_s": 4.858
+  },
+  {
+   "id": "L18",
+   "speaker": "GIRL",
+   "text": "Grandmother! Take me with you!",
+   "file": "lines/L18.wav",
+   "duration_s": 2.614
+  },
+  {
+   "id": "L19",
+   "speaker": "NARRATOR",
+   "text": "She struck the whole bundle, to keep her near.",
+   "file": "lines/L19.wav",
+   "duration_s": 3.559
+  },
+  {
+   "id": "L20",
+   "speaker": "NARRATOR",
+   "text": "Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear.",
+   "file": "lines/L20.wav",
+   "duration_s": 7.461
+  },
+  {
+   "id": "L21",
+   "speaker": "NARRATOR",
+   "text": "At dawn she sat there still, rosy-cheeked and smiling \u2014 frozen to death.",
+   "file": "lines/L21.wav",
+   "duration_s": 6.584
+  },
+  {
+   "id": "L22",
+   "speaker": "PASSERBY",
+   "text": "She wanted to warm herself.",
+   "file": "lines/L22.wav",
+   "duration_s": 1.787
+  },
+  {
+   "id": "L23",
+   "speaker": "NARRATOR",
+   "text": "No one knew the beautiful things she had seen, or the joy she had gone to.",
+   "file": "lines/L23.wav",
+   "duration_s": 4.895
+  }
+ ],
+ "total_speech_s": 100.51
+}

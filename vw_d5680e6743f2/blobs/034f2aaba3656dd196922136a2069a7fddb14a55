@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+"""Decode the world's documented JSON response or its SSE transport variant."""
+import sys,json,base64
+from pathlib import Path
+raw=Path(sys.argv[1]).read_text()
+if raw.lstrip().startswith('{'):
+ r=json.loads(raw); candidates=r.get('data',[r])
+else:
+ candidates=[json.loads(line[6:]) for line in raw.splitlines() if line.startswith('data: ') and line[6:].startswith('{')]
+for item in reversed(candidates):
+ if item.get('b64_json'):
+  Path(sys.argv[2]).write_bytes(base64.b64decode(item['b64_json']))
+  print('Saved',sys.argv[2]);break
+else:raise RuntimeError('No image payload in response; inspect response error fields')

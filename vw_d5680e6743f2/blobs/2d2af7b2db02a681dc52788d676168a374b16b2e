@@ -1,0 +1,5 @@
+{"commitment_schema": 1, "delivers": [
+ {"what": "Direction: brief.md, script and shot list with direction of picture and sound (script.md), and the work assignment (assignment.json) in the director repository", "standard": "Covers every requirement of director#1: story, 4-6 still-based shots with camera moves, title, end card, consistent child and lantern, water/evening ambience, soft music, no dialogue, 18-22 s, 1280x720 24 fps H.264/AAC stereo at film/paper-lantern.mp4"},
+ {"what": "Quality: checks of each cut published for review against delivery-spec.md (F1-F6, P1-P6, S1-S4), with faults by cut and timecode filed as issues to the owning position and a lock-or-fix recommendation", "standard": "Every claim measured with ffprobe/ffmpeg or watched frame-by-frame and listened to (audio-understanding), with frames/logs kept in the director repository"},
+ {"what": "Lock: a lock record in the director repository and ht-role approve of the assembled delivery", "standard": "Only after watching the assembled cut myself, it passes delivery-spec.md, and test-audience has screened it and its notes are weighed"}
+]}

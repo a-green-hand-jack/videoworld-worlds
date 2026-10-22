@@ -1,0 +1,34 @@
+# QC report — cut-v6d (editor release `cut-v6d`, `film.mp4` at editor bd72b94) — qc#12, delta from cut-v6c (qc/cut-v6c/report.md)
+
+Checked: release asset `cut-v6d.mp4` is byte-identical to `film.mp4` at bd72b94; `film.srt` identical to cut-v6b/v6c. Methods as before: ffprobe, ebur128, full decode,
+PCM md5, per-frame luma difference to cut-v6c, EDL diff, `tools/judder.py` on every shot (`segments.md`, `frames.csv`), frame sheets, odd/even sharpness, picture-event timing against the mix.
+No film-understanding pass (that resource answered HTTP 402 earlier this round).
+
+## Technical — pass
+H.264 High yuv420p 1280×720 24 fps (video 121.958 s, audio 121.958 s, container 121.959 s), AAC-LC 48 kHz stereo, moov before mdat, decodes clean, -16.1 LUFS / -1.8 dBFS. Audio PCM md5 `e5b45fd7…`
+identical to v5d–v6c. Subtitles identical. 121.958 s is inside 115–125 s.
+
+## Delta as claimed
+EDL diff v6c → v6d: s13a and s18b move to shots-b7 sources; s04, s10, s12, s15, s16, s17, s19 keep the b6 files (now `/hutian/media/b6`); s04, s12, s16 start one frame on; s16 ends 1:42.21 and s17
+opens one frame earlier (1:42.21); no other change. Consequence: the picture is 0.04 s earlier in every shot where the old conform repeated its first frame (luma difference to v6c is 5–12 in the moving shots at 0–13 s, 64–95 s).
+
+## The two asks
+1. **b7 for s13a and s18: pass, with one trade.** s18 (1:49.5–1:53.8): speed ripple 0.182 → 0.085, jump events 1 → 0, odd/even sharpness 0.89 → 0.96, no ghosting or trail on the woman's hand or bonnet
+   on 6 consecutive frames at 1:51.0 (`frames/s18_consec.png`). s13a (1:12–1:20): ripple 0.217 → 0.121, 1 → 0 jumps, no held frame, odd/even sharpness 0.91, and the faces stay crisp; the cost is that the picture is
+   about 55% as sharp as v6c's (Laplacian 253/276 against 467/483 over the frame) and the falling snow is drawn as short streaks rather than round flakes (`frames/s13a.png`, `s13a_cmp.png`: v6c left, v6d right).
+   It reads as soft snowfall; not an artefact on the characters. Director's taste: sharper round flakes (v6c) or evener motion (v6d).
+2. **No repeated head frames: pass.** The first pair after each cut had luma difference 0.00–0.02 (identical frames) at 5.83, 15.38, 64.0, 79.96, 85.63, 89.88, 92.21 in cut-v6c; in v6d it is 11.3, 12.7, 1.4, 0.9, 6.5, 0.5, 2.4 and 0.5
+   (at 102.21): none identical. Frames identical to their predecessor in the whole cut: 72 → 63, the seven heads are among the nine removed; 19 of the remaining 63 are the static end card.
+
+## Timing of picture events (checked because everything moved one frame earlier)
+Strike 5 (s15): sound transient 1:30.75–1:30.80, catch rise at 1:30.6–1:30.7, big flare step at 1:30.92 (v6c 1:30.97) against the sound's second burst at 1:31.00–1:31.05: within 0.1 s. Strike 4 (s13a_strike):
+the flare's biggest luma step is at 1:20.50 (v6c 1:20.54) against the mix's ignition peak at 1:20.46–1:20.50: closer than before. Goose to dark (0:56.94) and the s08 match-out (0:46.53) are unchanged.
+
+## Remaining (unchanged from v6c; owner dp / editor)
+Single held frames inside dp's takes at speed 1 (s08, s11, s16 at 1:38.6 and 1:39.1, s17 at 1:42.5 and 1:43.4, s13a_strike at 1:20.33; the table's "2" for s13a_strike counts a neighbouring low-difference frame in a very slow shot, not a new
+repeat); s14 keeps cut-v6c's interpolated rebuild (odd/even sharpness 0.69, editor#16, the editor's reasoned trade-off against dp's 3.5× softer b7 re-conversion); s16's rise eases to rest in the last second (1:41–1:42.2);
+the embrace precedes "took her in her arms" by 2.4 s; the near-static start of s17; the goose look. None fails a delivery-spec point.
+
+## Recommendation: **LOCK cut-v6d** (cut-v6c remains lockable as the alternative)
+v6d is better than v6c on spec 17 (s18 and s13a even, no held head frame at any cut) and unchanged elsewhere (audio bit-identical, length 121.958 s, subtitles, story); its only price is a softer, streak-snow s13a. If the
+director prefers s13a's crisper flakes, cut-v6c's s13a is the alternative; no re-check would be needed beyond that shot.

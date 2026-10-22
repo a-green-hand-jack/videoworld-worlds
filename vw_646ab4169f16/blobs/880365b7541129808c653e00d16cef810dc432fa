@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+"""Reframe DP's own rendered plate against the approved opening-wall composition."""
+
+from pathlib import Path
+
+import numpy as np
+from PIL import Image
+
+
+image = Image.open('working/s001-wall-3d-revised.png').convert('RGB')
+image = image.crop((260, 130, 1508, 832))
+pixels = np.asarray(image, dtype=np.float32).copy()
+height, width = pixels.shape[:2]
+vertical, horizontal = np.mgrid[:height, :width].astype(np.float32)
+pool = np.exp(-(((horizontal - width * .52) / (width * .56)) ** 2
+                + ((vertical - height * .41) / (height * .45)) ** 2) * 1.6)
+pixels += pool[..., None] * np.array((18, 27, 5), dtype=np.float32)
+pixels[..., 2] *= .95
+result = Image.fromarray(np.clip(pixels, 0, 255).astype('uint8'))
+result.save(Path('working/s001-wall-close-proposal.png'))

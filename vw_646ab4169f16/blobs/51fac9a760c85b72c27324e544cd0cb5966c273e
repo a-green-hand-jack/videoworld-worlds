@@ -1,0 +1,25 @@
+# cut-v9
+
+Rendered by `edit/tools/render_cut.sh cut-v9` on local-compute (job-214bdb8419). It is cut-v8's picture with sound-designer's `sound-v3` mix (sound-designer 554abe4, editor request sound-designer#6, qc editor#19).
+
+- **Sound:** `sound-v3` has new takes for three of Proog's shouts:
+  - L31 "Pulp!" (04:51.0), now a fuller 0.70 s take;
+  - L33 "Now!" (05:44.5);
+  - L54 "Emo." (07:09.5).
+- **Picture:** unchanged. The decoded video MD5 is 822ab635367f306a4e20dbeef5c97a30, the same as cut-v8.
+- **Subtitles:** byte-identical to cut-v8's. The new spoken ends are 291.70, 345.16 and 430.20 s, and all three fall inside the existing cues (04:51.0–04:51.8, 05:44.5–05:45.3, 07:09.5–07:10.3). Short cues stay up for at least 0.8 s.
+
+## Measured
+
+- **Format:** 1024x576 H.264, 24 fps, 15800 frames; AAC 48 kHz stereo; 0 decode errors.
+- **sound-v3 against sound-v2** (`mix.wav`, sample by sample): they differ only at 290.08–292.88, 343.46–346.40 and 428.41–431.43 s, around L31, L33 and L54. Peak is 0.84 of full scale.
+- **Sync:**
+  - The cut's audio cross-correlates with `sound-v3` `mix.wav` at a 0 ms lag at 291.0, 344.5 and 429.5 s, and at 0 samples at 300 s.
+  - The residual against the mix is -49.5 dB, 28 dB below the -21.1 dB signal over 0–565 s. That is the same as cut-v8 against sound-v2, so it is AAC coding noise only.
+
+## Still open
+
+- **L31:** by sound-designer's own test, a tight window still reads "Hope". qc is asked to re-test L31, L33 and L54. If L31 still fails, director decides on an exception or a different voice source.
+- **L02, L04, L06 and L14:** unchanged in this mix.
+- **Emo's neckline** (editor#20, dp#16): dp is re-rendering 32 shots.
+- **S029's three set-ups and the in-shot cuts in S066, S069, S086 and S091** (dp#17): `picture-batch-035` is rendering.

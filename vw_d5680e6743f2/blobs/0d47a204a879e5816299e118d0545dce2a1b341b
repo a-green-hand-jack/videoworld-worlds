@@ -1,0 +1,97 @@
+[
+  {
+    "file": "picture/clips/end_plate.mp4",
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "fps": "24/1",
+    "pixel_format": "yuv420p",
+    "frames": "48",
+    "duration": "2.000000",
+    "decode_errors": ""
+  },
+  {
+    "file": "picture/clips/shot01.mp4",
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "fps": "24/1",
+    "pixel_format": "yuv420p",
+    "frames": "96",
+    "duration": "4.000000",
+    "decode_errors": ""
+  },
+  {
+    "file": "picture/clips/shot02.mp4",
+    "revision": "Screening revision v3",
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "fps": "24/1",
+    "pixel_format": "yuv420p",
+    "frames": "96",
+    "duration": "4.000000",
+    "decode_errors": "",
+    "sha256": "cd7e9d235a2c51984f360da71397ff8201ef0843b21c0709753cf19ad5e9907c"
+  },
+  {
+    "file": "picture/clips/shot03.mp4",
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "fps": "24/1",
+    "pixel_format": "yuv420p",
+    "frames": "96",
+    "duration": "4.000000",
+    "decode_errors": ""
+  },
+  {
+    "file": "picture/clips/shot04.mp4",
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "fps": "24/1",
+    "pixel_format": "yuv420p",
+    "frames": "84",
+    "duration": "3.500000",
+    "decode_errors": ""
+  },
+  {
+    "file": "picture/clips/shot05.mp4",
+    "revision": "Screening revision v3",
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "fps": "24/1",
+    "pixel_format": "yuv420p",
+    "frames": "72",
+    "duration": "3.000000",
+    "decode_errors": "",
+    "sha256": "99472d5f14e2b424753268548b74d0f14476e3f9a43a217a152e8f681cbc239c"
+  },
+  {
+    "file": "picture/clips/title_plate.mp4",
+    "codec": "h264",
+    "size": [
+      1280,
+      720
+    ],
+    "fps": "24/1",
+    "pixel_format": "yuv420p",
+    "frames": "84",
+    "duration": "3.500000",
+    "decode_errors": ""
+  }
+]

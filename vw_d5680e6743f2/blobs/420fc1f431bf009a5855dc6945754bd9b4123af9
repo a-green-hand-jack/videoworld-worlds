@@ -1,0 +1,11 @@
+# Editorial handoff — screening revision shots-v3
+
+Unzip the archive at a workspace root. Use the seven files in `picture/clips/` as the silent source clips; they already contain the intended camera moves. Do not apply another camera move unless adjusting the cut deliberately. `picture/stills/` contains the matching source PNGs and `camera-moves.json` specifies framing.
+
+Order: title_plate, shot01, shot02, shot03, shot04, shot05, end_plate. Durations: 3.5, 4, 4, 4, 3.5, 3, 2 seconds. They include 0.5-second tail handles. The source total is 24 seconds; trim and overlap to the director's nominal 20.5-second timeline (see shot-log.md), keeping the final film within 18–22 seconds.
+
+Editor adds opening title “The Paper Lantern”, end card “The End”, fades/transitions and all sound. Text placement around (640,300) works in the open sky of both card plates. Use a restrained shadow or darkening if needed for contrast.
+
+Shot02 now shows both hands withdrawn against the child’s chest, with a broad water gap before the floating lantern, and pans right toward it. Shot05 now places the lantern at a merged sky/river horizon, surrounded by cool stars and reflections, with no warm shore lights; the camera pushes toward it. These are the only two changed clips. Keep the final light visible long enough to register before the end card.
+
+The archive includes design/bible.md, reference sheets, inspection notes, format/motion measurements and sample checkframes. SHA256SUMS verifies the source and rendered assets. Generation prompts and reproducible rendering scripts remain in the production-designer repository's production/ directory. Image method: gpt-image-2 through the world's documented HTTP API, using shot01 as reference for the six other images; direct decoding of SSE was required because the bundled imagegen CLI could not read that transport. The v3 shot02 and shot05 are replacement reference-guided generations, without the earlier shot05 scale/glow composite.

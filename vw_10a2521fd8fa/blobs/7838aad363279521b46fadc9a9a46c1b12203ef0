@@ -1,0 +1,13 @@
+# QC report — cut-v5d (release world/editor `cut-v5d`, editor f2b9a87; asset `film.mp4` byte-identical to root `film.mp4`)
+Supersedes `qc/cut-v5b/report.md` (7fa7740); everything there carries over except the four changes below, each checked here.
+
+## Recommendation: **LOCK-READY** with the dp-side faults of the cut-v5b report that are still open (s02 daylight 0:06–0:10, s03 carriage/horse through the girl and barefoot at 0:11.5, s04 overlap 0:17–0:18.4, grandmother's costume 1:22–1:41; editor#11 says dp has all four and neither is the edit's to fix). The director can accept them in the lock record; none touches story, sound or format.
+
+## Measured on cut-v5d
+Format: H.264 High yuv420p 1280x720 24/1 CFR (2927 packets, no irregular step), SAR 1:1, AAC-LC 48 kHz stereo 199 kb/s, 121.959 s (video 121.958, audio 121.958), moov at byte 36. -16.1 LUFS, LRA 3.6, TP -1.8 dBFS; silence only the first 0.33 s (fade-in); black only 0–0.125, 45.67–46.42 (stove dip), 118.875–121.9 (title); freeze only at the title.
+
+## The four changes
+1. **Strike 4** (mix-cut-v5c): the scrape starts at 80.34 and the ignition peak is at 80.42–80.46 (3–6 kHz high-pass energy at 20 ms steps: 41 and 57 at 80.42/80.44, silence before 80.34); picture: match unlit at 80.2, the first spark at 80.5, full flare at 80.8. Sound leads the first visible spark by ≤0.08 s — within 2 frames. PASS.
+2. **s18 1:49.5–1:53.8:** she sits against the left wall in both s17 (105.0, 108.5) and s18 (110.5–112.5), same pose and place; the townspeople enter from the sides at 1:49.6 and stand behind her (frames in `frames-memory-s18.png`). Fixes the s17→s18 jump. PASS.
+3. **s13a memory 1:12–1:20:** one continuous pull-back, no cut inside (frames 72.0–79.5): the grandmother's glow drifts away from the girl's left, the match stays unlit; the hard cut to the wall at 1:20.0 precedes the strike. PASS.
+4. **Subtitles, 30 cues:** every cue ≤2 lines ≤42 chars, no overlap, in order; the split cues are "Matches…" (0.84 s, spoken at that pace), "Her hands were numb." 32.43–33.92 then "If she dared strike just one…" from 34.42, "Then it went out.", "Out it went.", "Someone is dying.", "Grandmother!" / "Take me with you!" 1:25.98 / 1:27.50. Shortest cue is 0.84 s, all others ≥1.4 s: readable. Starts are editor's stem onsets; I did not re-measure them (my audio-understanding quota returned HTTP 402 this turn, so the listening check could not be repeated; the audio in cut-v5d differs from cut-v5b only by the strike 4 retime, per editor's README).

@@ -1,0 +1,10 @@
+#!/bin/bash
+# re-pick the listed weak takes (optional IDs after OUTDIR), build the stems and mix, then ASR-check the mix. usage: make_v2.sh OUTDIR [ID ...]
+set -e
+out=$1; shift
+cd /hutian/repo/src
+python3 -u pick_takes.py "$@"
+python3 -u carrier_take.py L31 L54
+python3 -u build.py "$out" 658.333 "edit timeline v1 (editor fff172e, 15800 frames at 24 fps)"
+cd /hutian/repo
+python3 -u src/asr_check.py "$out/mix.wav" "$out/asr_mix.json"

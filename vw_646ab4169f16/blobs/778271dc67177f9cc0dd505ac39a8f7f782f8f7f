@@ -1,0 +1,36 @@
+L02 'Emo? Emo!' pad 0.3 plain -> 'Emote. Emote.'
+L02 'Emo? Emo!' pad 0.3 prompt -> 'Emo. Emo.'
+L02 'Emo? Emo!' pad 0.8 plain -> 'emo emo'
+L02 'Emo? Emo!' pad 0.8 prompt -> 'Emo. Emo.'
+L04 'Are you hurt?' pad 0.3 plain -> 'Are you third?'
+L04 'Are you hurt?' pad 0.3 prompt -> 'Are you hurt?'
+L04 'Are you hurt?' pad 0.8 plain -> 'Are you third?'
+L04 'Are you hurt?' pad 0.8 prompt -> 'Are you hurt?'
+L06 "I'm OK." pad 0.3 plain -> "I'm L.K."
+L06 "I'm OK." pad 0.3 prompt -> "I'm OK."
+L06 "I'm OK." pad 0.8 plain -> "I'm L.K."
+L06 "I'm OK." pad 0.8 prompt -> "I'm OK."
+L14 'Hurry, Emo!' pad 0.3 plain -> 'Curry emote'
+L14 'Hurry, Emo!' pad 0.3 prompt -> 'Hurry, Emo!'
+L14 'Hurry, Emo!' pad 0.8 plain -> 'Curry emote.'
+L14 'Hurry, Emo!' pad 0.8 prompt -> 'Hurry, Emo!'
+L21 'This is not some game.' pad 0.3 plain -> 'This is not some game.'
+L21 'This is not some game.' pad 0.3 prompt -> 'This is not some game.'
+L21 'This is not some game.' pad 0.8 plain -> 'This is not some game.'
+L21 'This is not some game.' pad 0.8 prompt -> 'This is not some game.'
+L31 'Pulp!' pad 0.3 plain -> 'Hope'
+L31 'Pulp!' pad 0.3 prompt -> 'Pulp!'
+L31 'Pulp!' pad 0.8 plain -> 'Hope'
+L31 'Pulp!' pad 0.8 prompt -> 'Pulp.'
+L32 'Emo, close your eyes.' pad 0.3 plain -> 'Emo, close your eyes.'
+L32 'Emo, close your eyes.' pad 0.3 prompt -> 'Emo, close your eyes.'
+L32 'Emo, close your eyes.' pad 0.8 plain -> 'Emo, close your eyes.'
+L32 'Emo, close your eyes.' pad 0.8 prompt -> 'Emo, close your eyes.'
+L33 'Now!' pad 0.3 plain -> "Don't."
+L33 'Now!' pad 0.3 prompt -> 'No.'
+L33 'Now!' pad 0.8 plain -> "Don't."
+L33 'Now!' pad 0.8 prompt -> "Don't."
+L54 'Emo.' pad 0.3 plain -> 'Emote.'
+L54 'Emo.' pad 0.3 prompt -> 'Emo.'
+L54 'Emo.' pad 0.8 plain -> 'emote'
+L54 'Emo.' pad 0.8 prompt -> 'Emo.'

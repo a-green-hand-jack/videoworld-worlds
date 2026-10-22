@@ -1,0 +1,677 @@
+{
+ "L01": {
+  "wer": 0.14,
+  "asr": "At the left we can see, at the right we can see the hessin hours. Everything is safe. Perfectly safe.",
+  "length_scale": 1.4,
+  "tts_text": "At the left we can see... At the right we can see the... the head-snarlers. Everything is safe. Perfectly safe.",
+  "dur": 6.25,
+  "slot": 9.4,
+  "allowed": 9.9
+ },
+ "L02": {
+  "wer": 0.0,
+  "asr": "Emo, emo",
+  "length_scale": 0.9,
+  "tts_text": "Eemo, Eemo!",
+  "dur": 1.34,
+  "slot": 1.6,
+  "allowed": 2.1
+ },
+ "L03": {
+  "wer": 0.0,
+  "asr": "watch out",
+  "length_scale": 0.67,
+  "tts_text": "Watch out!",
+  "dur": 1.06,
+  "slot": 1.1,
+  "allowed": 1.6
+ },
+ "L04": {
+  "wer": 0.0,
+  "asr": "Are you hurt?",
+  "length_scale": 1.79,
+  "tts_text": "Are you hurt?",
+  "dur": 0.99,
+  "slot": 1.3,
+  "allowed": 1.8
+ },
+ "L05": {
+  "wer": 0.2,
+  "asr": "I don't think so.",
+  "length_scale": 1.6,
+  "tts_text": "I don't think so. You?",
+  "dur": 0.97,
+  "slot": 1.8,
+  "allowed": 2.3
+ },
+ "L06": {
+  "wer": 0.0,
+  "asr": "I'm OK.",
+  "length_scale": 0.9,
+  "tts_text": "I'm okay.",
+  "dur": 1.07,
+  "slot": 1.0,
+  "allowed": 1.5
+ },
+ "L07": {
+  "wer": 0.29,
+  "asr": "Pied, ah, emo, it's not safe here",
+  "length_scale": 1.02,
+  "tts_text": "Get up. Emo, it's not safe here.",
+  "dur": 4.15,
+  "slot": 4.1,
+  "allowed": 4.6
+ },
+ "L08": {
+  "wer": 0.0,
+  "asr": "let's go",
+  "length_scale": 1.12,
+  "tts_text": "Let's go.",
+  "dur": 0.78,
+  "slot": 1.0,
+  "allowed": 1.5
+ },
+ "L09": {
+  "wer": 0.0,
+  "asr": "What's next?",
+  "length_scale": 1.0,
+  "tts_text": "What's next?",
+  "dur": 0.59,
+  "slot": 0.8,
+  "allowed": 1.3
+ },
+ "L10": {
+  "wer": 0.0,
+  "asr": "You'll see. You'll see.",
+  "length_scale": 1.79,
+  "tts_text": "You'll see. ... You'll see.",
+  "dur": 2.32,
+  "slot": 2.9,
+  "allowed": 3.4
+ },
+ "L11": {
+  "wer": 0.33,
+  "asr": "Emote this way.",
+  "length_scale": 1.4,
+  "tts_text": "Emo, this way.",
+  "dur": 1.57,
+  "slot": 2.2,
+  "allowed": 2.7
+ },
+ "L12": {
+  "wer": 0.0,
+  "asr": "follow me",
+  "length_scale": 1.12,
+  "tts_text": "Follow me!",
+  "dur": 0.78,
+  "slot": 1.0,
+  "allowed": 1.45
+ },
+ "L13": {
+  "wer": 0.0,
+  "asr": "They're memorable, aren't they?",
+  "length_scale": 1.79,
+  "tts_text": "Mm... hup! Hup.",
+  "dur": 2.9,
+  "slot": 3.7,
+  "allowed": 4.2
+ },
+ "L14": {
+  "wer": 0.0,
+  "asr": "Curry, emo.",
+  "length_scale": 0.77,
+  "tts_text": "Hurry, Eemo!",
+  "dur": 1.15,
+  "slot": 1.1,
+  "allowed": 1.6
+ },
+ "L15": {
+  "wer": 0.0,
+  "asr": "Listen, listen.",
+  "length_scale": 1.12,
+  "tts_text": "Listen, listen!",
+  "dur": 1.26,
+  "slot": 1.7,
+  "allowed": 2.2
+ },
+ "L16": {
+  "wer": 0.0,
+  "asr": "Listen, listen.",
+  "length_scale": 1.79,
+  "tts_text": "Listen... listen.",
+  "dur": 1.45,
+  "slot": 3.2,
+  "allowed": 3.7
+ },
+ "L17": {
+  "wer": 0.0,
+  "asr": "You're not paying attention",
+  "length_scale": 0.9,
+  "tts_text": "You're not paying attention!",
+  "dur": 1.07,
+  "slot": 1.5,
+  "allowed": 2.0
+ },
+ "L18": {
+  "wer": 0.0,
+  "asr": "I I just want to answer the phone",
+  "length_scale": 1.25,
+  "tts_text": "I... I just want to answer the phone...",
+  "dur": 1.52,
+  "slot": 4.1,
+  "allowed": 4.05
+ },
+ "L19": {
+  "wer": 0.0,
+  "asr": "Emo, look, I mean, listen.",
+  "length_scale": 1.01,
+  "tts_text": "Emo, look. I mean, listen.",
+  "dur": 2.81,
+  "slot": 2.4,
+  "allowed": 2.9
+ },
+ "L20": {
+  "wer": 0.0,
+  "asr": "You have to learn to listen.",
+  "length_scale": 1.79,
+  "tts_text": "You have to learn to listen.",
+  "dur": 1.78,
+  "slot": 2.2,
+  "allowed": 2.7
+ },
+ "L21": {
+  "wer": 0.0,
+  "asr": "This is not some game.",
+  "length_scale": 0.9,
+  "tts_text": "This is not some game.",
+  "dur": 1.1,
+  "slot": 1.3,
+  "allowed": 1.8
+ },
+ "L22": {
+  "wer": 0.2,
+  "asr": "Yo, I mean we could easily die out here",
+  "length_scale": 1.12,
+  "tts_text": "You... I mean, we... we could easily die out here.",
+  "dur": 2.81,
+  "slot": 3.7,
+  "allowed": 4.2
+ },
+ "L23": {
+  "wer": 0.0,
+  "asr": "Listen, listen to the sounds of the machine.",
+  "length_scale": 1.4,
+  "tts_text": "Listen. Listen to the sounds of the machine.",
+  "dur": 2.85,
+  "slot": 3.8,
+  "allowed": 4.3
+ },
+ "L24": {
+  "wer": 0.0,
+  "asr": "Listen to your breathing.",
+  "length_scale": 1.12,
+  "tts_text": "Listen to your breathing.",
+  "dur": 1.2,
+  "slot": 1.7,
+  "allowed": 2.2
+ },
+ "L25": {
+  "wer": 0.0,
+  "asr": "Well, don't you ever get tired of this?",
+  "length_scale": 1.25,
+  "tts_text": "Well, don't you ever get tired of this?",
+  "dur": 1.87,
+  "slot": 2.7,
+  "allowed": 3.2
+ },
+ "L26": {
+  "wer": 0.0,
+  "asr": "Tired.",
+  "length_scale": 0.51,
+  "tts_text": "Tired?",
+  "dur": 0.69,
+  "slot": 0.4,
+  "allowed": 0.9
+ },
+ "L27": {
+  "wer": 0.0,
+  "asr": "Emo, the machine is like like clockwork.",
+  "length_scale": 1.12,
+  "tts_text": "Emo, the machine is like... like clockwork.",
+  "dur": 2.64,
+  "slot": 3.6,
+  "allowed": 4.1
+ },
+ "L28": {
+  "wer": 0.0,
+  "asr": "One move out of place and you're ground to a pulp.",
+  "length_scale": 1.4,
+  "tts_text": "One move out of place... and you're ground to a pulp.",
+  "dur": 2.58,
+  "slot": 3.4,
+  "allowed": 3.9
+ },
+ "L29": {
+  "wer": 0.25,
+  "asr": "Paul Evo, is that what you want?",
+  "length_scale": 0.85,
+  "tts_text": "Pulp, Emo! Is that what you want? Pulp?",
+  "dur": 4.38,
+  "slot": 4.0,
+  "allowed": 4.5
+ },
+ "L30": {
+  "wer": 0.0,
+  "asr": "Emo, your goal in life?",
+  "length_scale": 0.9,
+  "tts_text": "Emo, your goal in life...",
+  "dur": 1.6,
+  "slot": 2.1,
+  "allowed": 2.6
+ },
+ "L31": {
+  "wer": 0.0,
+  "asr": "in-mix sweep (src/sweep_shouts.py)",
+  "length_scale": 1.46,
+  "tts_text": "see sweep_shouts.py",
+  "dur": 0.7,
+  "slot": 0.4,
+  "source": "L31_0"
+ },
+ "L32": {
+  "wer": 0.0,
+  "asr": "Emo, close your eyes.",
+  "length_scale": 0.9,
+  "tts_text": "Emo, close your eyes.",
+  "dur": 1.68,
+  "slot": 1.7,
+  "allowed": 2.2
+ },
+ "L33": {
+  "wer": 0.0,
+  "asr": "in-mix sweep (src/sweep_shouts.py)",
+  "length_scale": 1.46,
+  "tts_text": "see sweep_shouts.py",
+  "dur": 0.66,
+  "slot": 0.9,
+  "source": "L33_1"
+ },
+ "L34": {
+  "wer": 0.11,
+  "asr": "What do you see at your left side, emote?",
+  "length_scale": 0.9,
+  "tts_text": "What do you see at your left side, Emo?",
+  "dur": 2.0,
+  "slot": 2.3,
+  "allowed": 2.65
+ },
+ "L35": {
+  "wer": 0.0,
+  "asr": "Well, nothing.",
+  "length_scale": 1.6,
+  "tts_text": "Well... nothing.",
+  "dur": 0.65,
+  "slot": 2.7,
+  "allowed": 2.85
+ },
+ "L36": {
+  "wer": 0.0,
+  "asr": "Really?",
+  "length_scale": 1.0,
+  "tts_text": "Really?",
+  "dur": 0.78,
+  "slot": 0.3,
+  "allowed": 0.8
+ },
+ "L37": {
+  "wer": 0.0,
+  "asr": "No, nothing at all.",
+  "length_scale": 1.0,
+  "tts_text": "No, nothing at all.",
+  "dur": 0.94,
+  "slot": 1.3,
+  "allowed": 1.55
+ },
+ "L38": {
+  "wer": 0.0,
+  "asr": "Really.",
+  "length_scale": 0.82,
+  "tts_text": "Really.",
+  "dur": 0.44,
+  "slot": 0.3,
+  "allowed": 0.55
+ },
+ "L39": {
+  "wer": 0.0,
+  "asr": "And at your right.",
+  "length_scale": 0.9,
+  "tts_text": "And at your right?",
+  "dur": 1.01,
+  "slot": 1.3,
+  "allowed": 1.35
+ },
+ "L40": {
+  "wer": 0.22,
+  "asr": "What do you see at your right side, in mode?",
+  "length_scale": 0.9,
+  "tts_text": "What do you see at your right side, Emo?",
+  "dur": 1.99,
+  "slot": 1.9,
+  "allowed": 2.4
+ },
+ "L41": {
+  "wer": 0.0,
+  "asr": "The same prude, exactly the same.  Nothing?",
+  "length_scale": 0.8,
+  "tts_text": "The same, Proog. Exactly the same. Nothing!",
+  "dur": 1.9,
+  "slot": 4.2,
+  "allowed": 4.7
+ },
+ "L42": {
+  "wer": 0.0,
+  "asr": "Listen, Proog. Do you hear that? Can we go here?",
+  "length_scale": 1.25,
+  "tts_text": "Listen, Proog. Do you hear that? Can we go here?",
+  "dur": 2.41,
+  "slot": 4.2,
+  "allowed": 4.7
+ },
+ "L43": {
+  "wer": 0.0,
+  "asr": "There.",
+  "length_scale": 0.9,
+  "tts_text": "There.",
+  "dur": 0.38,
+  "slot": 0.5,
+  "allowed": 0.55
+ },
+ "L44": {
+  "wer": 0.0,
+  "asr": "Yeah",
+  "length_scale": 0.8,
+  "tts_text": "Yeah.",
+  "dur": 0.16,
+  "slot": 0.2,
+  "allowed": 0.55
+ },
+ "L45": {
+  "wer": 0.0,
+  "asr": "It isn't safe, emo.",
+  "length_scale": 1.04,
+  "tts_text": "It isn't safe, Emo.",
+  "dur": 1.71,
+  "slot": 1.3,
+  "allowed": 1.8
+ },
+ "L46": {
+  "wer": 0.0,
+  "asr": "But",
+  "length_scale": 1.6,
+  "tts_text": "But!",
+  "dur": 0.19,
+  "slot": 0.9,
+  "allowed": 1.35
+ },
+ "L47": {
+  "wer": 0.0,
+  "asr": "Trust me, it's not.",
+  "length_scale": 0.9,
+  "tts_text": "Trust me, it's not.",
+  "dur": 1.28,
+  "slot": 1.6,
+  "allowed": 2.1
+ },
+ "L48": {
+  "wer": 0.0,
+  "asr": "Well, maybe I could.",
+  "length_scale": 1.25,
+  "tts_text": "Well, maybe I could...",
+  "dur": 1.26,
+  "slot": 1.7,
+  "allowed": 1.65
+ },
+ "L49": {
+  "wer": 0.0,
+  "asr": "No.",
+  "length_scale": 0.64,
+  "tts_text": "No!",
+  "dur": 0.79,
+  "slot": 0.3,
+  "allowed": 0.8
+ },
+ "L50": {
+  "wer": 0.0,
+  "asr": "But",
+  "length_scale": 1.6,
+  "tts_text": "But...",
+  "dur": 0.17,
+  "slot": 0.9,
+  "allowed": 0.85
+ },
+ "L51": {
+  "wer": 0.0,
+  "asr": "No.",
+  "length_scale": 0.71,
+  "tts_text": "No!",
+  "dur": 0.63,
+  "slot": 0.3,
+  "allowed": 0.8
+ },
+ "L52": {
+  "wer": 0.0,
+  "asr": "Any further questions, emo.",
+  "length_scale": 0.9,
+  "tts_text": "Any further questions, Emo?",
+  "dur": 1.92,
+  "slot": 2.3,
+  "allowed": 2.8
+ },
+ "L53": {
+  "wer": 0.0,
+  "asr": "No",
+  "length_scale": 1.6,
+  "tts_text": "No.",
+  "dur": 0.22,
+  "slot": 0.5,
+  "allowed": 1.0
+ },
+ "L54": {
+  "wer": 0.0,
+  "asr": "in-mix sweep (src/sweep_shouts.py)",
+  "length_scale": 1.12,
+  "tts_text": "see sweep_shouts.py",
+  "dur": 0.7,
+  "slot": 0.9,
+  "source": "L54_0"
+ },
+ "L55": {
+  "wer": 0.0,
+  "asr": "Yeah",
+  "length_scale": 1.0,
+  "tts_text": "Yeah?",
+  "dur": 0.16,
+  "slot": 0.2,
+  "allowed": 0.7
+ },
+ "L56": {
+  "wer": 0.08,
+  "asr": "Emo? Why Mo? Why why can't you see the beauty of this place?",
+  "length_scale": 1.79,
+  "tts_text": "Emo, why... Emo, why... why can't you see the beauty of this place?",
+  "dur": 5.12,
+  "slot": 6.3,
+  "allowed": 6.8
+ },
+ "L57": {
+  "wer": 0.0,
+  "asr": "The way it works how perfect it is.",
+  "length_scale": 1.79,
+  "tts_text": "The way it works... how perfect it is.",
+  "dur": 2.77,
+  "slot": 4.9,
+  "allowed": 5.4
+ },
+ "L58": {
+  "wer": 0.08,
+  "asr": "No, prueg. I don't see. I don't see because there's nothing there",
+  "length_scale": 1.6,
+  "tts_text": "No, Proog, I don't see. I don't see because there's nothing there.",
+  "dur": 3.98,
+  "slot": 5.1,
+  "allowed": 5.05
+ },
+ "L59": {
+  "wer": 0.0,
+  "asr": "And why should I trust my life to something that isn't there?",
+  "length_scale": 1.6,
+  "tts_text": "And why should I trust my life to something that isn't there?",
+  "dur": 2.7,
+  "slot": 5.0,
+  "allowed": 5.5
+ },
+ "L60": {
+  "wer": 0.0,
+  "asr": "Well, can you tell me that?  Poog, answer me!",
+  "length_scale": 0.8,
+  "tts_text": "Well, can you tell me that? Proog, answer me!",
+  "dur": 1.79,
+  "slot": 2.6,
+  "allowed": 3.1
+ },
+ "L61": {
+  "wer": 0.0,
+  "asr": "Prude you're a sick man.",
+  "length_scale": 1.6,
+  "tts_text": "Proog... you're a sick man.",
+  "dur": 1.42,
+  "slot": 1.8,
+  "allowed": 2.3
+ },
+ "L62": {
+  "wer": 0.0,
+  "asr": "Stay away from me.",
+  "length_scale": 0.8,
+  "tts_text": "Stay away from me.",
+  "dur": 0.78,
+  "slot": 1.0,
+  "allowed": 1.5
+ },
+ "L63": {
+  "wer": 0.2,
+  "asr": "No, Evo, it's a trap.",
+  "length_scale": 0.9,
+  "tts_text": "No, Emo, it's a trap!",
+  "dur": 1.86,
+  "slot": 2.0,
+  "allowed": 2.5
+ },
+ "L64": {
+  "wer": 0.0,
+  "asr": "It's a trap",
+  "length_scale": 1.6,
+  "tts_text": "It's a trap?",
+  "dur": 0.73,
+  "slot": 1.2,
+  "allowed": 1.15
+ },
+ "L65": {
+  "wer": 0.0,
+  "asr": "At the left side you can see the hanging gardens of Babylon",
+  "length_scale": 1.6,
+  "tts_text": "At the left side you can see... the Hanging Gardens of Babylon!",
+  "dur": 3.18,
+  "slot": 4.1,
+  "allowed": 4.6
+ },
+ "L66": {
+  "wer": 0.0,
+  "asr": "How's that for a trap?",
+  "length_scale": 1.0,
+  "tts_text": "How's that for a trap?",
+  "dur": 0.97,
+  "slot": 1.2,
+  "allowed": 1.7
+ },
+ "L67": {
+  "wer": 0.0,
+  "asr": "No.  Emo.",
+  "length_scale": 0.9,
+  "tts_text": "No, Eemo.",
+  "dur": 1.0,
+  "slot": 0.9,
+  "allowed": 1.4
+ },
+ "L68": {
+  "wer": 0.0,
+  "asr": "On the right side you can see",
+  "length_scale": 1.6,
+  "tts_text": "On the right side you can see...",
+  "dur": 1.53,
+  "slot": 2.2,
+  "allowed": 2.7
+ },
+ "L69": {
+  "wer": 0.0,
+  "asr": "Well, guess what?",
+  "length_scale": 0.8,
+  "tts_text": "Well, guess what?",
+  "dur": 0.85,
+  "slot": 0.6,
+  "allowed": 1.1
+ },
+ "L70": {
+  "wer": 0.0,
+  "asr": "The Colossus of Rhodes",
+  "length_scale": 1.0,
+  "tts_text": "The Colossus of Rhodes!",
+  "dur": 1.24,
+  "slot": 1.6,
+  "allowed": 2.1
+ },
+ "L71": {
+  "wer": 0.0,
+  "asr": "No.",
+  "length_scale": 0.85,
+  "tts_text": "No!",
+  "dur": 0.66,
+  "slot": 0.6,
+  "allowed": 1.05
+ },
+ "L72": {
+  "wer": 0.0,
+  "asr": "The Colossus of Rhodes",
+  "length_scale": 0.8,
+  "tts_text": "The Colossus of Rhodes!",
+  "dur": 1.08,
+  "slot": 1.2,
+  "allowed": 1.35
+ },
+ "L73": {
+  "wer": 0.0,
+  "asr": "And it is here just for you, Prude.",
+  "length_scale": 1.25,
+  "tts_text": "And it is here just for you, Proog.",
+  "dur": 1.63,
+  "slot": 2.0,
+  "allowed": 2.15
+ },
+ "L74": {
+  "wer": 0.0,
+  "asr": "Just for you",
+  "length_scale": 1.6,
+  "tts_text": "Just for you.",
+  "dur": 0.67,
+  "slot": 1.3,
+  "allowed": 1.8
+ },
+ "L75": {
+  "wer": 0.18,
+  "asr": "It is there I am telling you, emo it is it is.",
+  "length_scale": 1.79,
+  "tts_text": "It is there... I'm telling you, Emo... it is... it is...",
+  "dur": 4.43,
+  "slot": 9.0,
+  "allowed": 9.5
+ }
+}

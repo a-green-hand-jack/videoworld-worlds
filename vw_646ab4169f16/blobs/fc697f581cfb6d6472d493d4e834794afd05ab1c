@@ -1,0 +1,28 @@
+# QC report: cut-v8 (release of world/editor; film = editor@5327aa8)
+
+Checked against `direction/delivery-spec.md`, `direction/shotlist.csv`, `edit/timeline.json` and my cut-v6 / cut-v7 notes.
+Method: downloaded the release mp4 (sha256 370de96c…) and vtt; ffmpeg full decode (prints nothing); audio md5 of the decoded stream; `ebur128`; all 15800 frames decoded to grey 128x72 for per-frame luma and difference traces; frames at 3590, 3630, 3664, 3680, 3720, 3860, 3868, 3875, 3915, 3925, 13300, 13480 (`evidence/cut-v8/fades-frames.jpg`, frame number in the corner). Not played in a browser, not listened to by a person. The picture outside the three fade shots I did not re-compare with cut-v7 (its file is gone from my sandbox): I rely on the editor's statement and on the per-frame traces below showing no new faults.
+
+**Recommendation: FIX, not yet lockable.** The edit's fades are right; what decides it is picture and sound owned by others: (1) Emo's neckline changes across the film (editor#20 / dp#16); (2) S029's two dips do not change set-up, the original's do (dp#17); (3) L31 "Pulp!" 04:51.0 and L33 "Now!" 05:44.5 not recognisable (editor#19 / sound-designer#6). If director judges the remaining faults acceptable for the original's gist, cut-v8 is the cleanest candidate so far; everything the editor owns that I can measure passes.
+
+## Fixed / passes (observed)
+- **S028 black then fade up (cut-v7 finding):** luma 13.4 at f3595, black (1.9) from f3597 (02:29.9) to f3658; rises 3.9 at f3660, 10.1 f3668, 16.0 f3676, 21.8 f3684, 23.3 from f3692 (fade-up about 1.1 s). Frames: f3590 the black cable bridge, f3630 black, f3664/f3680/f3720 the red room fading up. Matches the shot list.
+- **S029 dips:** black at f3868 (02:41.2) and f3918 (02:43.25), each a 3-4 frame V in luma (27 -> 1.9 -> 27) — as the editor reports.
+- **S126 fade:** luma 35 at f13063, 26.8 f13183, 13.4 f13343, 5.2 f13503, black from f13527; black until f13647, then the credits (S127). Smooth, no steps.
+- **D1:** 1024x576 H.264 High, 24 fps, 15800 frames, 658.33 s, AAC 48 kHz stereo; decode clean.
+- **D4:** -19.8 LUFS, true peak -1.6 dBFS (measured), the same numbers as cut-v6. That the audio is unchanged from cut-v7 is the editor's statement (decoded-audio MD5 568696…); I did not compare it. Not listened to.
+- **D5:** 75 cues, 5191 bytes, as the editor says byte-identical to cut-v7.
+- **Picture continuity:** 130 hard cuts by difference trace; every shot boundary S002-S126 has one (the S028 boundary is the cut to black). Repeated frames outside black: 342 of 15800, all in S127 (credits, 15 % of its frames); no other shot has > 10 %.
+
+## Still open (not new)
+| # | Where | Observed | Owner |
+|---|---|---|---|
+| F5 residue (editor#20 / dp#16) | Emo's top, S003-S125 | still collar / placket / crew-neck mix except S078 (crew-neck since cut-v7); not re-checked shot by shot | dp, production-designer |
+| S029 (dp#17) | 02:39.2-02:45.7, f3868/f3918 | the dips go black and come back on the same overhead set-up (f3860 / f3875 / f3925 all the same view); the original changes set-up at each | dp |
+| F2 residual (editor#19 / sound-designer#6) | 04:51.0, 05:44.5 | audio bit-identical to cut-v5/v6 | sound-designer |
+
+## Smaller (unchanged)
+S090 (06:55.7) faces, S094 (07:08) caricature, S003 cut at f689, S049 f5978-5980 jumps, S009/S023/S048/S055 differ from shot-list rows.
+
+## Not checked
+Voice and music by ear, browser playback, every shot's neckline, the faces and hands of every shot.

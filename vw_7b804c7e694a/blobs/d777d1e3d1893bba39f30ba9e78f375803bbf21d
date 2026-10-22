@@ -1,0 +1,457 @@
+{
+ "fps": 24,
+ "width": 1280,
+ "height": 720,
+ "shots": [
+  {
+   "id": "s01",
+   "dur": 5.5833,
+   "in": 0.0,
+   "out": 5.583,
+   "lines": [
+    "1"
+   ],
+   "src": "/hutian/dp/keyframes/s01.png"
+  },
+  {
+   "id": "s02",
+   "dur": 4.625,
+   "in": 5.583,
+   "out": 10.208,
+   "lines": [
+    "2"
+   ],
+   "src": "/hutian/dp/keyframes/s02.png"
+  },
+  {
+   "id": "s03",
+   "dur": 6.5,
+   "in": 10.208,
+   "out": 16.708,
+   "lines": [
+    "3"
+   ],
+   "src": "/hutian/dp/keyframes/s03.png"
+  },
+  {
+   "id": "s04",
+   "dur": 7.125,
+   "in": 16.708,
+   "out": 23.833,
+   "lines": [
+    "4",
+    "5"
+   ],
+   "src": "/hutian/dp/keyframes/s04.png"
+  },
+  {
+   "id": "s05",
+   "dur": 4.9167,
+   "in": 23.833,
+   "out": 28.75,
+   "lines": [
+    "6"
+   ],
+   "src": "/hutian/dp/keyframes/s05.png"
+  },
+  {
+   "id": "s06",
+   "dur": 5.2917,
+   "in": 28.75,
+   "out": 34.042,
+   "lines": [
+    "7"
+   ],
+   "src": "/hutian/dp/keyframes/s06.png"
+  },
+  {
+   "id": "s07",
+   "dur": 5.8333,
+   "in": 34.042,
+   "out": 39.875,
+   "lines": [
+    "8"
+   ],
+   "src": "/hutian/dp/keyframes/s07.png"
+  },
+  {
+   "id": "s08",
+   "dur": 9.2917,
+   "in": 39.875,
+   "out": 49.167,
+   "lines": [
+    "9",
+    "10"
+   ],
+   "src": "/hutian/dp/keyframes/s08.png"
+  },
+  {
+   "id": "s09",
+   "dur": 6.7083,
+   "in": 49.167,
+   "out": 55.875,
+   "lines": [
+    "11"
+   ],
+   "src": "/hutian/dp/keyframes/s09.png"
+  },
+  {
+   "id": "s10",
+   "dur": 4.625,
+   "in": 55.875,
+   "out": 60.5,
+   "lines": [
+    "12"
+   ],
+   "src": "/hutian/dp/keyframes/s10.png"
+  },
+  {
+   "id": "s11",
+   "dur": 5.3333,
+   "in": 60.5,
+   "out": 65.833,
+   "lines": [
+    "13"
+   ],
+   "src": "/hutian/dp/keyframes/s11.png"
+  },
+  {
+   "id": "s12",
+   "dur": 6.6667,
+   "in": 65.833,
+   "out": 72.5,
+   "lines": [
+    "14",
+    "15"
+   ],
+   "src": "/hutian/dp/keyframes/s12.png"
+  },
+  {
+   "id": "s13a",
+   "dur": 8.7917,
+   "in": 72.5,
+   "out": 81.292,
+   "lines": [
+    "16"
+   ],
+   "src": "/hutian/dp/keyframes/s13a.png"
+  },
+  {
+   "id": "s13b",
+   "dur": 5.375,
+   "in": 81.292,
+   "out": 86.667,
+   "lines": [
+    "17"
+   ],
+   "src": "/hutian/dp/keyframes/s13b.png"
+  },
+  {
+   "id": "s14",
+   "dur": 3.2917,
+   "in": 86.667,
+   "out": 89.958,
+   "lines": [
+    "18"
+   ],
+   "src": "/hutian/dp/keyframes/s14.png"
+  },
+  {
+   "id": "s15",
+   "dur": 3.9583,
+   "in": 89.958,
+   "out": 93.917,
+   "lines": [
+    "19"
+   ],
+   "src": "/hutian/dp/keyframes/s15.png"
+  },
+  {
+   "id": "s16",
+   "dur": 8.0833,
+   "in": 93.917,
+   "out": 102.0,
+   "lines": [
+    "20"
+   ],
+   "src": "/hutian/dp/keyframes/s16.png"
+  },
+  {
+   "id": "s17",
+   "dur": 6.7917,
+   "in": 102.0,
+   "out": 108.792,
+   "lines": [
+    "21"
+   ],
+   "src": "/hutian/dp/keyframes/s17.png"
+  },
+  {
+   "id": "s18",
+   "dur": 2.4583,
+   "in": 108.792,
+   "out": 111.25,
+   "lines": [
+    "22"
+   ],
+   "src": "/hutian/dp/keyframes/s18.png"
+  },
+  {
+   "id": "s19",
+   "dur": 5.7083,
+   "in": 111.25,
+   "out": 116.958,
+   "lines": [
+    "23"
+   ],
+   "src": "/hutian/dp/keyframes/s19.png"
+  },
+  {
+   "id": "end",
+   "dur": 3.0,
+   "in": 116.958,
+   "out": 119.958,
+   "lines": [],
+   "title": [
+    "The Little Match Girl",
+    "after Hans Christian Andersen"
+   ],
+   "fade_in": 0.75
+  }
+ ],
+ "srt": "scratch.srt",
+ "out": "cut-v1.mp4",
+ "lines": [
+  {
+   "line": "1",
+   "shot": "1",
+   "speaker": "NARRATOR",
+   "start": 0.3,
+   "end": 5.099,
+   "dur": 4.799,
+   "measured": true,
+   "text": "Terribly cold it was, and almost dark — the last evening of the year."
+  },
+  {
+   "line": "2",
+   "shot": "2",
+   "speaker": "NARRATOR",
+   "start": 5.883,
+   "end": 9.875,
+   "dur": 3.992,
+   "measured": true,
+   "text": "A poor little girl shuffled along in her mother's big slippers."
+  },
+  {
+   "line": "3",
+   "shot": "3",
+   "speaker": "NARRATOR",
+   "start": 10.508,
+   "end": 16.426,
+   "dur": 5.918,
+   "measured": true,
+   "text": "Two carriages raced by — she lost them, a boy ran off with one, and now she was barefoot."
+  },
+  {
+   "line": "4",
+   "shot": "4",
+   "speaker": "GIRL",
+   "start": 17.008,
+   "end": 20.036,
+   "dur": 3.028,
+   "measured": true,
+   "text": "Matches… who will buy my matches?"
+  },
+  {
+   "line": "5",
+   "shot": "4",
+   "speaker": "NARRATOR",
+   "start": 20.336,
+   "end": 23.553,
+   "dur": 3.217,
+   "measured": true,
+   "text": "All day, no one had bought a single match."
+  },
+  {
+   "line": "6",
+   "shot": "5",
+   "speaker": "NARRATOR",
+   "start": 24.133,
+   "end": 28.303,
+   "dur": 4.17,
+   "measured": true,
+   "text": "Candles gleamed in every window, and it smelled of roast goose."
+  },
+  {
+   "line": "7",
+   "shot": "6",
+   "speaker": "NARRATOR",
+   "start": 29.05,
+   "end": 33.641,
+   "dur": 4.591,
+   "measured": true,
+   "text": "She huddled in a corner, afraid to go home: her father would beat her."
+  },
+  {
+   "line": "8",
+   "shot": "7",
+   "speaker": "NARRATOR",
+   "start": 34.342,
+   "end": 38.534,
+   "dur": 4.192,
+   "measured": true,
+   "text": "Her hands were numb. If only she dared strike one match…"
+  },
+  {
+   "line": "9",
+   "shot": "8",
+   "speaker": "NARRATOR",
+   "start": 40.175,
+   "end": 45.044,
+   "dur": 4.869,
+   "measured": true,
+   "text": "How it blazed! It was like sitting by a great, warm iron stove."
+  },
+  {
+   "line": "10",
+   "shot": "8",
+   "speaker": "NARRATOR",
+   "start": 45.344,
+   "end": 48.874,
+   "dur": 3.53,
+   "measured": true,
+   "text": "Then the flame went out, and the stove was gone."
+  },
+  {
+   "line": "11",
+   "shot": "9",
+   "speaker": "NARRATOR",
+   "start": 49.467,
+   "end": 55.572,
+   "dur": 6.105,
+   "measured": true,
+   "text": "She struck another. The wall turned to a veil; inside, a roast goose steamed."
+  },
+  {
+   "line": "12",
+   "shot": "10",
+   "speaker": "NARRATOR",
+   "start": 56.175,
+   "end": 59.998,
+   "dur": 3.823,
+   "measured": true,
+   "text": "It hopped down and waddled toward her — and the match went out."
+  },
+  {
+   "line": "13",
+   "shot": "11",
+   "speaker": "NARRATOR",
+   "start": 60.8,
+   "end": 65.457,
+   "dur": 4.657,
+   "measured": true,
+   "text": "With the third, she sat beneath a great Christmas tree, ablaze with candles."
+  },
+  {
+   "line": "14",
+   "shot": "12",
+   "speaker": "NARRATOR",
+   "start": 66.133,
+   "end": 70.369,
+   "dur": 4.236,
+   "measured": true,
+   "text": "It went out. The lights rose up and became stars. One fell."
+  },
+  {
+   "line": "15",
+   "shot": "12",
+   "speaker": "GIRL",
+   "start": 70.669,
+   "end": 72.04,
+   "dur": 1.371,
+   "measured": true,
+   "text": "Someone is dying."
+  },
+  {
+   "line": "16",
+   "shot": "13a",
+   "speaker": "NARRATOR",
+   "start": 72.8,
+   "end": 80.974,
+   "dur": 8.174,
+   "measured": true,
+   "text": "Her grandmother, the only one who ever loved her, had told her: when a star falls, a soul goes up to God."
+  },
+  {
+   "line": "17",
+   "shot": "13b",
+   "speaker": "NARRATOR",
+   "start": 81.592,
+   "end": 86.373,
+   "dur": 4.781,
+   "measured": true,
+   "text": "One more match — and there stood Grandmother, shining and kind."
+  },
+  {
+   "line": "18",
+   "shot": "14",
+   "speaker": "GIRL",
+   "start": 86.967,
+   "end": 89.581,
+   "dur": 2.614,
+   "measured": true,
+   "text": "Grandmother! Take me with you!"
+  },
+  {
+   "line": "19",
+   "shot": "15",
+   "speaker": "NARRATOR",
+   "start": 90.258,
+   "end": 93.458,
+   "dur": 3.2,
+   "measured": true,
+   "text": "She struck the whole bundle at once, to keep her near."
+  },
+  {
+   "line": "20",
+   "shot": "16",
+   "speaker": "NARRATOR",
+   "start": 94.217,
+   "end": 101.697,
+   "dur": 7.48,
+   "measured": true,
+   "text": "Grandmother took her in her arms, and they flew up, so high — where there is no cold, no hunger, no fear."
+  },
+  {
+   "line": "21",
+   "shot": "17",
+   "speaker": "NARRATOR",
+   "start": 102.3,
+   "end": 108.458,
+   "dur": 6.158,
+   "measured": true,
+   "text": "In the cold dawn sat the little girl, rosy-cheeked and smiling — frozen to death."
+  },
+  {
+   "line": "22",
+   "shot": "18",
+   "speaker": "PASSER-BY",
+   "start": 109.092,
+   "end": 110.879,
+   "dur": 1.787,
+   "measured": true,
+   "text": "She wanted to warm herself."
+  },
+  {
+   "line": "23",
+   "shot": "19",
+   "speaker": "NARRATOR",
+   "start": 111.55,
+   "end": 116.667,
+   "dur": 5.117,
+   "measured": true,
+   "text": "No one knew the beautiful things she had seen, or the joy she had found with her grandmother."
+  }
+ ],
+ "audio": "voice.wav"
+}

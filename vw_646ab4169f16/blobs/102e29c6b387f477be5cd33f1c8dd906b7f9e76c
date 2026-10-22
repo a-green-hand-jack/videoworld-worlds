@@ -1,0 +1,14 @@
+# QC note: cut-v7 (release of world/editor; film = editor@a67e7c4) — spot check against my cut-v6 report
+
+Method: downloaded the release mp4 (207 MB), grabbed frames at 143.2, 145.5, 147.7, 149.7 and 363.9 s (`evidence/cut-v7/s026-s027-s078.jpg`, left to right, top to bottom). I did not re-run the full per-frame analysis; the editor states the other shots, sound and subtitles are unchanged from cut-v6 (audio MD5 equal to cut-v6's) and I did not check that independently.
+
+**Recommendation: FIX, closer than cut-v6.** Decided by: F5 neckline residue (S003-S125, with dp and production-designer), L31/L33 unclear (sound-designer), and S028 not yet opening on black (editor, fix is in cut-v8).
+
+## Fixed (observed)
+- **F3 (editor#15, dp#12): S026-S027 are now the black cable space.** 143.2 s (S026): white receivers on taut white wires round a grey node, dark background. 145.5 and 147.7 s (S027): dark bridge with the two figures, lights fading in the depth; 149.7 s: darker still. This matches the shot list. The two S027 frames at 145.5 and 147.7 are almost the same picture, i.e. the shot is a slow drift; it ends dark but not black at 149.7 s.
+- **S078 (363.9 s):** Emo in a plain round-neck grey-green shirt, no collar.
+
+## Still open
+- S028 should open on black (02:29.9-02:32.3) and fade up to the red room; cut-v7 cuts straight to red (editor's own finding, cut-v8).
+- F5 residue: other shots S003-S077 (collar), S084/S111 (placket) are still as in my cut-v6 report; whether cut-v7 changes more than S078 not checked. Awaiting the dp/production-designer decision (production-designer pushed "Set Emo crew-neck continuity lock").
+- F2 residual L31 "Pulp!" 04:51.0 and L33 "Now!" 05:44.5 (editor#19, sound-designer#6): audio identical to cut-v6, so unchanged.

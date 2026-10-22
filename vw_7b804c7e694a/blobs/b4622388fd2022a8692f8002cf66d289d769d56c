@@ -1,0 +1,54 @@
+| start | end/dur | type | file | note |
+|---|---|---|---|---|
+| 0.00 | 37.19 | music | music/m1_cold_street.mp3 | s01.in+0.0 .. L8.end+0.45 |
+| 0.00 | 37.19 | sfx | sfx/wind_snow_loop.mp3 |  |
+| 0.30 | 5.093 | speech | lines/L01.wav | Bitter cold, almost dark: the last evening of the year. |
+| 6.03 | 4.5 | sfx | sfx/snow_footsteps.mp3 |  |
+| 6.13 | 10.026 | speech | lines/L02.wav | A poor girl shuffled along in her mother's big slippers. |
+| 10.46 | 4.5 | sfx | sfx/carriage_fast.mp3 |  |
+| 10.76 | 15.068 | speech | lines/L03.wav | Carriages raced by; she lost them, and went on barefoot. |
+| 15.68 | 18.703 | speech | lines/L04.wav | Matches… who will buy my matches? |
+| 18.38 | 3.0 | sfx | sfx/snow_footsteps.mp3 |  |
+| 19.00 | 21.367 | speech | lines/L05.wav | No one had bought a single match. |
+| 21.97 | 26.424 | speech | lines/L06.wav | Candles gleamed in the windows; it smelled of roast goose. |
+| 22.17 | 5.5 | sfx | sfx/new_year_bells.mp3 |  |
+| 27.30 | 31.421 | speech | lines/L07.wav | She huddled in a corner, afraid to go home to her father. |
+| 32.38 | 36.74 | speech | lines/L08.wav | Her hands were numb. If she dared strike just one… |
+| 37.14 | None | sfx | sfx/match_strike.mp3 |  |
+| 37.19 | 46.054 | music | music/m2_stove_goose.mp3 | L8.end+0.45 .. L10.end+0.3 |
+| 37.19 | 8.864 | sfx | sfx/flame_crackle.mp3 |  |
+| 37.99 | 8.064 | sfx | sfx/stove_fire.mp3 |  |
+| 38.34 | 43.831 | speech | lines/L09.wav | How it blazed! A warm iron stove seemed to stand before her. |
+| 44.13 | 45.754 | speech | lines/L10.wav | Then it went out. |
+| 45.75 | None | sfx | sfx/flame_out.mp3 |  |
+| 46.33 | None | sfx | sfx/match_strike.mp3 |  |
+| 46.48 | 58.208 | music | music/m2_stove_goose.mp3 | s09.in+0.15 .. s10.out+0.0 |
+| 46.63 | 53.024 | speech | lines/L11.wav | A second: the wall became a veil, and inside, a roast goose steamed. |
+| 46.93 | 11.275 | sfx | sfx/goose_table.mp3 |  |
+| 53.63 | 57.449 | speech | lines/L12.wav | It hopped down and waddled toward her — then darkness. |
+| 57.81 | None | sfx | sfx/flame_out.mp3 |  |
+| 58.21 | None | sfx | sfx/match_strike.mp3 |  |
+| 58.36 | 72.6 | music | music/m3_tree_stars.mp3 | s11.in+0.15 .. s13a.in+0.6 |
+| 58.51 | 63.64 | speech | lines/L13.wav | A third: she sat beneath a Christmas tree ablaze with candles. |
+| 58.71 | 5.0 | sfx | sfx/tree_shimmer.mp3 |  |
+| 64.10 | None | sfx | sfx/flame_out.mp3 |  |
+| 64.30 | 70.024 | speech | lines/L14.wav | Out it went. The lights rose and became stars. One fell. |
+| 65.10 | 3.5 | sfx | sfx/tree_shimmer.mp3 |  |
+| 68.72 | 3.0 | sfx | sfx/falling_star.mp3 |  |
+| 70.32 | 71.695 | speech | lines/L15.wav | Someone is dying. |
+| 72.30 | 79.861 | speech | lines/L16.wav | Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God. |
+| 72.50 | 102.292 | music | music/m4_grandmother_ascent.mp3 | s13a.in+0.5 .. s16.out+0.0 |
+| 80.17 | None | sfx | sfx/match_strike.mp3 |  |
+| 80.27 | 9.708 | sfx | sfx/flame_crackle.mp3 |  |
+| 80.47 | 85.325 | speech | lines/L17.wav | A fourth — and there stood Grandmother, shining and kind. |
+| 85.92 | 88.539 | speech | lines/L18.wav | Grandmother! Take me with you! |
+| 89.88 | 4.0 | sfx | sfx/bundle_blaze.mp3 |  |
+| 90.17 | 93.734 | speech | lines/L19.wav | She struck the whole bundle, to keep her near. |
+| 94.25 | 8.0 | sfx | sfx/ascent_airy.mp3 |  |
+| 94.55 | 102.011 | speech | lines/L20.wav | Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear. |
+| 102.09 | 121.958 | music | music/m5_morning_after.mp3 | s17.in-0.2 .. end.out+0.0 |
+| 102.29 | 18.166 | sfx | sfx/morning_town.mp3 |  |
+| 102.29 | 17.666 | sfx | sfx/wind_snow_loop.mp3 |  |
+| 102.59 | 109.176 | speech | lines/L21.wav | At dawn she sat there still, rosy-cheeked and smiling — frozen to death. |
+| 109.76 | 111.545 | speech | lines/L22.wav | She wanted to warm herself. |
+| 113.76 | 118.653 | speech | lines/L23.wav | No one knew the beautiful things she had seen, or the joy she had gone to. |

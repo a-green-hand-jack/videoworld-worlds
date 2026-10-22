@@ -1,0 +1,702 @@
+{
+ "note": "Sound events on the 24 fps edit timeline v1 (= the original's timing); each event names the shot it serves. Gains are relative; build.py normalises the mix.",
+ "music_gain": 1.0,
+ "effects_gain": 1.0,
+ "events": [
+  {
+   "t": 25.2,
+   "type": "alarm",
+   "cue": "S001 alarm rising under \"Emo? Emo!\"",
+   "dur": 2.2,
+   "gain": 0.35
+  },
+  {
+   "t": 27.25,
+   "type": "whoosh",
+   "cue": "S003 black cables shoot across frame",
+   "dur": 1.0,
+   "gain": 1.2
+  },
+  {
+   "t": 27.9,
+   "type": "metal",
+   "cue": "S003 cable crack",
+   "f": 900,
+   "dur": 0.7,
+   "gain": 1.0
+  },
+  {
+   "t": 28.9,
+   "type": "crash",
+   "cue": "S003 first impact",
+   "gain": 1.2
+  },
+  {
+   "t": 30.12,
+   "type": "crash",
+   "cue": "S004 Emo pinned by lashing cable",
+   "gain": 1.0
+  },
+  {
+   "t": 30.0,
+   "type": "whoosh",
+   "cue": "S004 cable lash",
+   "dur": 0.6,
+   "gain": 1.0
+  },
+  {
+   "t": 31.12,
+   "type": "click",
+   "cue": "S005 flash insert",
+   "gain": 1.0
+  },
+  {
+   "t": 31.4,
+   "type": "whoosh",
+   "cue": "S006 cables whip and settle",
+   "dur": 2.5,
+   "gain": 0.8
+  },
+  {
+   "t": 37.0,
+   "type": "metal",
+   "cue": "S007 ringing calm after the attack",
+   "f": 1200,
+   "dur": 3.5,
+   "gain": 0.25
+  },
+  {
+   "t": 70.0,
+   "type": "steps",
+   "cue": "S011 walking through the curtained door",
+   "dur": 9,
+   "period": 0.6,
+   "gain": 0.7
+  },
+  {
+   "t": 88.0,
+   "type": "steps",
+   "cue": "S013 on the winding walkway",
+   "dur": 7,
+   "period": 0.5,
+   "gain": 0.7
+  },
+  {
+   "t": 98.2,
+   "type": "boing",
+   "cue": "S014 Proog leaps platform to platform",
+   "f": 260,
+   "gain": 0.8
+  },
+  {
+   "t": 99.4,
+   "type": "boing",
+   "cue": "S014 leap",
+   "f": 330,
+   "gain": 0.8
+  },
+  {
+   "t": 101.2,
+   "type": "birds",
+   "cue": "S015 receiver-birds flutter",
+   "dur": 5,
+   "gain": 0.7
+  },
+  {
+   "t": 105.2,
+   "type": "boing",
+   "cue": "S016 jump onto crossbar",
+   "f": 280,
+   "gain": 0.8
+  },
+  {
+   "t": 113.8,
+   "type": "birds",
+   "cue": "S018 bird flaps past Emo",
+   "dur": 4,
+   "gain": 0.7
+  },
+  {
+   "t": 116.0,
+   "type": "boing",
+   "cue": "S018 Proog leaps across",
+   "f": 300,
+   "gain": 0.8
+  },
+  {
+   "t": 120.5,
+   "type": "steps",
+   "cue": "S019 walking along the walkway",
+   "dur": 14,
+   "period": 0.55,
+   "gain": 0.6
+  },
+  {
+   "t": 134.2,
+   "type": "metal",
+   "cue": "S023 walkway plate tilts",
+   "f": 220,
+   "dur": 1.5,
+   "gain": 0.7
+  },
+  {
+   "t": 139.2,
+   "type": "birds",
+   "cue": "S025 creature overhead",
+   "dur": 3,
+   "gain": 0.5
+  },
+  {
+   "t": 143.0,
+   "type": "birds",
+   "cue": "S026 flight among the telephone-receiver birds",
+   "dur": 7,
+   "gain": 0.9
+  },
+  {
+   "t": 143.0,
+   "type": "whoosh",
+   "cue": "S026 flight through the wires",
+   "dur": 6,
+   "lo": 200,
+   "hi": 2500,
+   "gain": 0.5
+  },
+  {
+   "t": 152.3,
+   "type": "swell",
+   "cue": "S028 fade up to the red room",
+   "dur": 6,
+   "lo": 60,
+   "hi": 500,
+   "gain": 0.7
+  },
+  {
+   "t": 160.0,
+   "type": "phone",
+   "cue": "S029 the telephone rings",
+   "gain": 0.5
+  },
+  {
+   "t": 161.17,
+   "type": "metal",
+   "cue": "S029 dip to black thunk",
+   "f": 90,
+   "dur": 0.6,
+   "gain": 0.8
+  },
+  {
+   "t": 163.25,
+   "type": "metal",
+   "cue": "S029 dip to black thunk",
+   "f": 90,
+   "dur": 0.6,
+   "gain": 0.8
+  },
+  {
+   "t": 166.0,
+   "type": "phone",
+   "cue": "S030 Emo reaches for the phone",
+   "gain": 0.45
+  },
+  {
+   "t": 178.3,
+   "type": "ticks",
+   "cue": "S035 living cogs inside the earpiece",
+   "dur": 4.2,
+   "density": 14,
+   "gain": 0.9
+  },
+  {
+   "t": 184.0,
+   "type": "swell",
+   "cue": "S036 looking down the dark shaft",
+   "dur": 6,
+   "lo": 60,
+   "hi": 400,
+   "gain": 0.6
+  },
+  {
+   "t": 194.4,
+   "type": "swell",
+   "cue": "S038 the lamp descends the cables",
+   "dur": 18,
+   "lo": 80,
+   "hi": 900,
+   "gain": 0.6
+  },
+  {
+   "t": 213.1,
+   "type": "ticks",
+   "cue": "S039 Emo listening",
+   "dur": 3,
+   "density": 5,
+   "gain": 0.5
+  },
+  {
+   "t": 216.6,
+   "type": "ticks",
+   "cue": "S040 twitching mechanical bird",
+   "dur": 4.4,
+   "density": 10,
+   "gain": 0.8
+  },
+  {
+   "t": 221.2,
+   "type": "steps",
+   "cue": "S041 Proog walks past the stand",
+   "dur": 3,
+   "period": 0.55,
+   "gain": 0.6
+  },
+  {
+   "t": 224.0,
+   "type": "metal",
+   "cue": "S042 brass valve",
+   "f": 400,
+   "dur": 3,
+   "gain": 0.5
+  },
+  {
+   "t": 233.2,
+   "type": "swell",
+   "cue": "S043 bright doorway onto the abyss",
+   "dur": 5,
+   "lo": 100,
+   "hi": 1500,
+   "gain": 0.5
+  },
+  {
+   "t": 238.9,
+   "type": "swell",
+   "cue": "S044 platform over the misty abyss",
+   "dur": 4,
+   "lo": 80,
+   "hi": 700,
+   "gain": 0.5
+  },
+  {
+   "t": 244.5,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 250,
+   "gain": 0.9
+  },
+  {
+   "t": 246.0,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 300,
+   "gain": 0.9
+  },
+  {
+   "t": 247.3,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 340,
+   "gain": 0.9
+  },
+  {
+   "t": 250.0,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 280,
+   "gain": 0.9
+  },
+  {
+   "t": 251.4,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 250,
+   "gain": 0.9
+  },
+  {
+   "t": 253.0,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 300,
+   "gain": 0.9
+  },
+  {
+   "t": 254.8,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 340,
+   "gain": 0.9
+  },
+  {
+   "t": 257.9,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 280,
+   "gain": 0.9
+  },
+  {
+   "t": 259.5,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 250,
+   "gain": 0.9
+  },
+  {
+   "t": 261.0,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 300,
+   "gain": 0.9
+  },
+  {
+   "t": 262.6,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 340,
+   "gain": 0.9
+  },
+  {
+   "t": 266.5,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 280,
+   "gain": 0.9
+  },
+  {
+   "t": 271.5,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 250,
+   "gain": 0.9
+  },
+  {
+   "t": 274.0,
+   "type": "boing",
+   "cue": "S046-S056 pedestal hop",
+   "f": 300,
+   "gain": 0.9
+  },
+  {
+   "t": 249.04,
+   "type": "click",
+   "cue": "S049 flash of circuit machinery",
+   "gain": 1.0
+  },
+  {
+   "t": 277.1,
+   "type": "swell",
+   "cue": "S057 spinning ball-machine",
+   "dur": 3.5,
+   "lo": 500,
+   "hi": 4000,
+   "gain": 0.6
+  },
+  {
+   "t": 280.12,
+   "type": "crash",
+   "cue": "S058 explosion beside Emo",
+   "gain": 1.5
+  },
+  {
+   "t": 280.12,
+   "type": "boom",
+   "cue": "S058 explosion",
+   "dur": 4,
+   "gain": 1.2
+  },
+  {
+   "t": 292.5,
+   "type": "metal",
+   "cue": "S061 elevator cage clatter",
+   "f": 170,
+   "dur": 3,
+   "gain": 0.8
+  },
+  {
+   "t": 298.0,
+   "type": "ticks",
+   "cue": "S061 elevator machinery",
+   "dur": 7,
+   "density": 6,
+   "gain": 0.6
+  },
+  {
+   "t": 305.75,
+   "type": "click",
+   "cue": "S062 red button press",
+   "gain": 1.0
+  },
+  {
+   "t": 305.9,
+   "type": "metal",
+   "cue": "S062 button chime",
+   "f": 1100,
+   "dur": 1.5,
+   "gain": 0.4
+  },
+  {
+   "t": 307.6,
+   "type": "swell",
+   "cue": "S063 servo whine",
+   "dur": 3,
+   "lo": 600,
+   "hi": 3500,
+   "gain": 0.7
+  },
+  {
+   "t": 309.9,
+   "type": "swell",
+   "cue": "S065 rush into the iris tunnel",
+   "dur": 5,
+   "lo": 200,
+   "hi": 4000,
+   "gain": 1.0
+  },
+  {
+   "t": 315.12,
+   "type": "crash",
+   "cue": "S066 bursting through cables",
+   "gain": 1.2
+  },
+  {
+   "t": 317.79,
+   "type": "click",
+   "cue": "S066 capsule flash",
+   "gain": 1.0
+  },
+  {
+   "t": 320.0,
+   "type": "metal",
+   "cue": "S068 robot arm picks up the capsule",
+   "f": 200,
+   "dur": 2.5,
+   "gain": 0.7
+  },
+  {
+   "t": 327.08,
+   "type": "whoosh",
+   "cue": "S069 hard cut to Proog swinging by",
+   "dur": 0.8,
+   "gain": 1.0
+  },
+  {
+   "t": 329.6,
+   "type": "metal",
+   "cue": "S071 arm loads the capsule",
+   "f": 140,
+   "dur": 2.5,
+   "gain": 0.8
+  },
+  {
+   "t": 333.75,
+   "type": "whoosh",
+   "cue": "S072 capsule shoots away",
+   "dur": 2.5,
+   "lo": 300,
+   "hi": 6000,
+   "gain": 1.2
+  },
+  {
+   "t": 335.7,
+   "type": "swell",
+   "cue": "S073 tumbling through the streaked blur",
+   "dur": 6,
+   "lo": 200,
+   "hi": 5000,
+   "gain": 0.9
+  },
+  {
+   "t": 341.25,
+   "type": "metal",
+   "cue": "S074 Proog lunges at the lever",
+   "f": 110,
+   "dur": 1.5,
+   "gain": 1.0
+  },
+  {
+   "t": 344.9,
+   "type": "boom",
+   "cue": "S074/75 \"Now!\"",
+   "gain": 1.2
+  },
+  {
+   "t": 346.3,
+   "type": "swell",
+   "cue": "S075 light floods white",
+   "dur": 6,
+   "lo": 300,
+   "hi": 6000,
+   "gain": 1.1
+  },
+  {
+   "t": 353.5,
+   "type": "tone",
+   "cue": "S076 faint high tone in the void",
+   "dur": 24,
+   "f": 6200,
+   "gain": 1.0
+  },
+  {
+   "t": 377.4,
+   "type": "swell",
+   "cue": "S081 white light floods up as the platform drops",
+   "dur": 4,
+   "lo": 200,
+   "hi": 5000,
+   "gain": 1.2
+  },
+  {
+   "t": 385.21,
+   "type": "crash",
+   "cue": "S083 flash of pure white",
+   "gain": 0.9
+  },
+  {
+   "t": 387.3,
+   "type": "metal",
+   "cue": "S085 golden cathedral of brass drums",
+   "f": 130,
+   "dur": 4,
+   "gain": 0.5
+  },
+  {
+   "t": 399.5,
+   "type": "musicbox",
+   "cue": "S086 the faint beautiful sound behind the door",
+   "dur": 17,
+   "gain": 1.2
+  },
+  {
+   "t": 399.46,
+   "type": "boom",
+   "cue": "S086 hard cut to the amber room",
+   "dur": 3,
+   "gain": 0.5
+  },
+  {
+   "t": 416.5,
+   "type": "boom",
+   "cue": "S091 \"No!\" totem flare",
+   "dur": 3,
+   "gain": 1.0
+  },
+  {
+   "t": 418.0,
+   "type": "metal",
+   "cue": "S091 hard sting",
+   "f": 500,
+   "dur": 2,
+   "gain": 1.0
+  },
+  {
+   "t": 419.21,
+   "type": "crash",
+   "cue": "S091 the door slams",
+   "gain": 1.5
+  },
+  {
+   "t": 420.8,
+   "type": "fan",
+   "cue": "S092-S104 the big fan drones in the green tiled room",
+   "dur": 46,
+   "gain": 0.8
+  },
+  {
+   "t": 460.33,
+   "type": "whoosh",
+   "cue": "S100 Proog's arm swings",
+   "dur": 0.5,
+   "gain": 0.8
+  },
+  {
+   "t": 467.0,
+   "type": "steps",
+   "cue": "S103-S104 Emo walks off",
+   "dur": 4,
+   "period": 0.6,
+   "gain": 0.6
+  },
+  {
+   "t": 477.0,
+   "type": "swell",
+   "cue": "S107 red tubes sprout from the walls",
+   "dur": 5,
+   "lo": 60,
+   "hi": 700,
+   "gain": 1.1
+  },
+  {
+   "t": 481.25,
+   "type": "swell",
+   "cue": "S108 tubes writhe",
+   "dur": 4,
+   "lo": 80,
+   "hi": 900,
+   "gain": 0.9
+  },
+  {
+   "t": 487.0,
+   "type": "swell",
+   "cue": "S110 golden world, falling light",
+   "dur": 8,
+   "lo": 2000,
+   "hi": 9000,
+   "gain": 0.5
+  },
+  {
+   "t": 501.7,
+   "type": "boom",
+   "cue": "S113 giant tube-figure looms",
+   "dur": 4,
+   "gain": 0.9
+  },
+  {
+   "t": 510.83,
+   "type": "whoosh",
+   "cue": "S115 tube-creature lunges",
+   "dur": 0.9,
+   "gain": 1.0
+  },
+  {
+   "t": 520.0,
+   "type": "whoosh",
+   "cue": "S119 Proog whips the tube",
+   "dur": 0.7,
+   "gain": 1.2
+  },
+  {
+   "t": 521.5,
+   "type": "whoosh",
+   "cue": "S121 Proog rushes at Emo",
+   "dur": 0.6,
+   "gain": 1.0
+  },
+  {
+   "t": 521.92,
+   "type": "crash",
+   "cue": "S122 the blow",
+   "gain": 1.6
+  },
+  {
+   "t": 522.0,
+   "type": "boom",
+   "cue": "S122 the blow",
+   "dur": 3,
+   "gain": 1.4
+  },
+  {
+   "t": 524.4,
+   "type": "swell",
+   "cue": "S123 the gold drains to dark green",
+   "dur": 7,
+   "lo": 50,
+   "hi": 400,
+   "gain": 1.0
+  },
+  {
+   "t": 530.5,
+   "type": "tone",
+   "cue": "S124-S126 faint tone over silence",
+   "dur": 36,
+   "f": 190,
+   "gain": 1.0
+  }
+ ]
+}

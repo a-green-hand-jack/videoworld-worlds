@@ -1,0 +1,60 @@
+# cut-v0 — animatic
+
+Built from director `direction/script.md` + `direction/shot-list.md` at director 587111f400ddcc15509533592d99ca62beaed7ea
+with `tools/animatic.py` (EDL `edl.json`, scratch subtitles `scratch.srt`) and rendered with `tools/conform.py`.
+Picture: one slate per shot (framing, palette, what must be seen); end title is final. Sound: none (silent AAC track) — the scratch subtitles stand in for the read.
+
+**Timing method.** Each line is laid at the narrator pace the script asks for (160 wpm, +0.2 s), starting at its target time or 0.35 s after the previous line ends, whichever is later; each shot moves with its first line. At that pace lines 3, 16–17 and 20–23 overrun their slots, so the cut runs **123.67 s** (window 115–125). The real read replaces this estimate: once sound-designer publishes the line WAVs, cut-v1 is timed to them.
+
+## Shots (record in/out)
+
+| shot | target | in | out | dur s | lines |
+|---|---|---|---|---|---|
+| s01 | 00:00–00:07 | 00:00.000 | 00:07.000 | 7.000 | 1 |
+| s02 | 00:07–00:12 | 00:07.000 | 00:12.000 | 5.000 | 2 |
+| s03 | 00:12–00:17 | 00:12.000 | 00:19.292 | 7.292 | 3 |
+| s04 | 00:17–00:23 | 00:19.292 | 00:25.667 | 6.375 | 4–5 |
+| s05 | 00:23–00:29 | 00:25.667 | 00:30.333 | 4.667 | 6 |
+| s06 | 00:29–00:35 | 00:30.333 | 00:36.125 | 5.792 | 7 |
+| s07 | 00:35–00:41 | 00:36.125 | 00:41.000 | 4.875 | 8 + strike |
+| s08 | 00:41–00:50 | 00:41.000 | 00:50.708 | 9.708 | 9–10 |
+| s09 | 00:50–00:56 | 00:50.708 | 00:56.542 | 5.833 | 11 |
+| s10 | 00:56–01:02 | 00:56.542 | 01:02.000 | 5.458 | 12 |
+| s11 | 01:02–01:08 | 01:02.000 | 01:08.000 | 6.000 | 13 |
+| s12 | 01:08–01:16 | 01:08.000 | 01:16.000 | 8.000 | 14–15 |
+| s13 | 01:16–01:26 | 01:16.000 | 01:29.083 | 13.083 | 16–17 |
+| s14 | 01:26–01:30 | 01:29.083 | 01:31.542 | 2.458 | 18 |
+| s15 | 01:30–01:35 | 01:31.542 | 01:36.208 | 4.667 | 19 |
+| s16 | 01:35–01:42 | 01:36.208 | 01:44.625 | 8.417 | 20 |
+| s17 | 01:42–01:49 | 01:44.625 | 01:50.792 | 6.167 | 21 |
+| s18 | 01:49–01:52 | 01:50.792 | 01:53.208 | 2.417 | 22 |
+| s19 | 01:52–01:57 | 01:53.208 | 02:00.667 | 7.458 | 23 |
+| end | 01:57–02:00 | 02:00.667 | 02:03.667 | 3.000 | — |
+
+## Lines (scheduled)
+
+| # | speaker | start | end | text |
+|---|---|---|---|---|
+| 1 | NARRATOR | 00:01.000 | 00:06.075 | Terribly cold it was, and almost dark — the last evening of the year. |
+| 2 | NARRATOR | 00:07.000 | 00:11.325 | A poor little girl shuffled along in her mother's big slippers. |
+| 3 | NARRATOR | 00:12.000 | 00:18.950 | Two carriages raced by — she lost them, a boy ran off with one, and now she was barefoot. |
+| 4 | GIRL | 00:19.300 | 00:21.375 | Matches… who'll buy my matches? |
+| 5 | NARRATOR | 00:21.725 | 00:25.300 | All day, no one had bought a single match. |
+| 6 | NARRATOR | 00:25.650 | 00:29.975 | Candles gleamed in every window, and it smelled of roast goose. |
+| 7 | NARRATOR | 00:30.325 | 00:35.775 | She huddled in a corner, afraid to go home: her father would beat her. |
+| 8 | NARRATOR | 00:36.125 | 00:40.450 | Her hands were numb. If only she dared strike one match… |
+| 9 | NARRATOR | 00:41.000 | 00:46.075 | How it blazed! It was like sitting by a great, warm iron stove. |
+| 10 | NARRATOR | 00:46.425 | 00:50.375 | Then the flame went out, and the stove was gone. |
+| 11 | NARRATOR | 00:50.725 | 00:56.175 | She struck another. The wall turned to a veil; inside, a roast goose steamed. |
+| 12 | NARRATOR | 00:56.525 | 01:01.225 | It hopped down and waddled toward her — and the match went out. |
+| 13 | NARRATOR | 01:02.000 | 01:07.075 | With the third, she sat beneath a great Christmas tree, ablaze with candles. |
+| 14 | NARRATOR | 01:08.000 | 01:12.700 | It went out. The lights rose up and became stars. One fell. |
+| 15 | GIRL | 01:13.050 | 01:14.375 | Someone is dying. |
+| 16 | NARRATOR | 01:16.000 | 01:24.450 | Her grandmother, the only one who ever loved her, had told her: when a star falls, a soul goes up to God. |
+| 17 | NARRATOR | 01:24.800 | 01:28.750 | One more match — and there stood Grandmother, shining and kind. |
+| 18 | GIRL | 01:29.100 | 01:31.175 | Grandmother! Take me with you! |
+| 19 | NARRATOR | 01:31.525 | 01:35.850 | She struck the whole bundle at once, to keep her near. |
+| 20 | NARRATOR | 01:36.200 | 01:44.275 | Grandmother took her in her arms, and they flew up, so high — where there is no cold, no hunger, no fear. |
+| 21 | NARRATOR | 01:44.625 | 01:50.450 | In the cold dawn sat the little girl, rosy-cheeked and smiling — frozen to death. |
+| 22 | PASSER-BY | 01:50.800 | 01:52.875 | She wanted to warm herself. |
+| 23 | NARRATOR | 01:53.225 | 02:00.175 | No one knew the beautiful things she had seen, or the joy she had found with her grandmother. |

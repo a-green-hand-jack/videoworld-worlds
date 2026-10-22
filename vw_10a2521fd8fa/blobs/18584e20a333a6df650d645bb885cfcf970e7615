@@ -1,0 +1,24 @@
+# qc tools
+
+`judder.py` — frame-to-frame motion measurement for every move in a cut (delivery spec 16–17, qc#8).
+
+    python3 tools/judder.py film.mp4 --edl edit/cut-vN/edl.json --csv frames.csv --md segments.md
+    python3 tools/judder.py film.mp4 --edl edl.json --csv frames.csv --md segments.md --reuse   # re-analyse a saved csv
+
+Needs `opencv-python-headless`, numpy, scipy, ffmpeg. About 80 s for 2 minutes of 720p.
+Luma rows 0–575 only (burned subtitles excluded); sub-pixel phase correlation on 3×4 tiles, fitted to translation + zoom;
+`M` = largest displacement of the fitted motion at the image corners, px/frame. `frames.csv` has one row per frame pair
+(row `frame` = motion from frame−1 to frame; timecode = frame/24).
+
+Columns of `segments.md`
+- **speed ripple**: median of |M − rolling median(13 frames)| / rolling median. Smooth moves read ≤ 0.03 (cut-v5d's clean
+  model shots: 0.007–0.021). Whole-pixel pushes read ≥ 0.1 (cut-v5d s17 0.19, s18 0.22). Below ~0.3 px/f the estimate is
+  itself noisy (measurement-limited, ripple inflated).
+- **share >10% / >30% off**: share of frames whose speed is that far from the rolling median.
+- **repeated frames / longest run**: frames whose luma difference to the previous frame is < 40% of the local median
+  (near-identical to the one before: held frame). A held frame inside a move is the "zero-motion frame".
+- **jump events**: a held/near-zero frame followed by a frame at > 1.8× the local speed (the 1-pixel jump).
+- **content res med/p90**: residual luma after warping frame t by the fitted global motion onto frame t+1. A still being moved
+  leaves only resampling/snow noise (median ~0.5–1); it is an indicator, not proof — confirm a "moves" claim on frames.
+Segments come from the EDL (`parts` of a dissolve shot are separate rows; 3 frames at each end are excluded). `src` is the EDL
+source type (`.png` = still).

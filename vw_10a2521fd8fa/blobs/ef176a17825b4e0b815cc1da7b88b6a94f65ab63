@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""Build the animatic EDL and scratch subtitles from the director's script and shot list.
+
+usage: animatic.py DIRECTOR_CHECKOUT OUT_DIR
+Writes OUT_DIR/edl.json and OUT_DIR/scratch.srt (script lines at their target timecodes)
+and prints a pacing table (words per slot at ~160 wpm).
+"""
+import json, os, re, sys, textwrap
+
+WPM = 160
+BG = {"STREET": "0x1b2240", "VISION": "0x4a3010", "DAWN": "0x5a5464", "brilliant": "0x6e6030",
+      "black": "0x000000"}
+
+def table(md):
+    rows = []
+    for line in md.splitlines():
+        if line.startswith("|") and not re.match(r"^\|[-| ]+\|$", line):
+            rows.append([c.strip() for c in line.strip().strip("|").split("|")])
+    return rows[1:]
+
+def tc(t):
+    m, s = t.split(":"); return int(m) * 60 + float(s)
+
+def srt_tc(x):
+    ms = round(x * 1000); return f"{ms//3600000:02d}:{ms//60000%60:02d}:{ms//1000%60:02d},{ms%1000:03d}"
+
+def wrap2(text, width=42):
+    return "\n".join(textwrap.wrap(text, width))
+
+def split_cue(a, b, text, limit=84):
+    """Split a cue longer than two 42-character lines at the clause break nearest its middle,
+    sharing the time by length."""
+    if len(text) <= limit and len(textwrap.wrap(text, 42)) <= 2:
+        return [(a, b, text)]
+    cuts = [m.end() for m in re.finditer(r"[,:;—…]\s|\.\s", text)]
+    k = min(cuts, key=lambda c: abs(c - len(text) / 2)) if cuts else text.rfind(" ", 0, len(text) // 2) + 1
+    head, tail = text[:k].strip(), text[k:].strip()
+    m = a + (b - a) * len(head) / (len(head) + len(tail))
+    return split_cue(a, m, head, limit) + split_cue(m, b, tail, limit)
+
+def main(src, out):
+    os.makedirs(out, exist_ok=True)
+    shots, edl = table(open(f"{src}/direction/shot-list.md").read()), []
+    for sid, time, dur, lines, framing, seen, pal in shots:
+        sid = "end" if sid == "end" else f"s{int(sid):02d}"
+        shot = {"id": sid, "dur": float(dur.split()[0]), "tc": time, "lines": lines}
+        if sid == "end":
+            shot.update(title=["The Little Match Girl", "after Hans Christian Andersen"], fade_in=0.75)
+        else:
+            bg = next((v for k, v in BG.items() if k in pal), "0x101418")
+            shot.update(src=None, bg=bg, slate=f"{framing}  [{pal}]\n\n" + textwrap.fill(seen, 70))
+        edl.append(shot)
+    cues, rows = [], table(open(f"{src}/direction/script.md").read())
+    print(f"{'#':>3} {'slot':>11} {'s':>5} {'words':>5} {'need@160wpm':>11}")
+    for n, time, shot, who, line in rows:
+        if not n.isdigit(): continue
+        a, b = (tc(x) for x in time.split("–"))
+        words = len(re.findall(r"[A-Za-z']+", line)); need = words / 160 * 60
+        print(f"{n:>3} {time:>11} {b-a:5.1f} {words:5d} {need:11.1f}{'  TIGHT' if need > b - a + 0.5 else ''}")
+        text = line if who == "NARRATOR" else f"{line}"
+        cues.append((a, b, n, who, text))
+    # Schedule the lines at the narrator's pace: a line starts at its target or 0.35 s after the
+    # previous line ends, whichever is later; each shot moves with the shift of its first line.
+    prev, shift = 0.0, {}
+    for i, (a, b, n, who, text) in enumerate(cues):
+        need = len(re.findall(r"[A-Za-z']+", text)) / WPM * 60 + 0.2
+        start = max(a, prev + 0.35); prev = start + need
+        shift[n] = start - a; cues[i] = (start, prev, n, who, text)
+    t = 0.0
+    for k, shot in enumerate(edl):
+        first = shot["lines"].split("–")[0].split()[0] if shot["lines"][:1].isdigit() else None
+        start = tc(shot["tc"].split("–")[0]) + (shift.get(first, 0.0) if first else 0.0)
+        start = max(start, t)
+        start = round(start * 24) / 24
+        if k:
+            edl[k - 1]["dur"] = round(start - t, 4)
+        shot["start"] = t = start
+    last_line_end = cues[-1][1]
+    edl[-2]["dur"] = max(edl[-2]["dur"], round(round((last_line_end + 0.5 - edl[-2]["start"]) * 24) / 24, 4))
+    for shot in edl:
+        shot.pop("start", None)
+    print(f"total {sum(s['dur'] for s in edl):.2f} s")
+    with open(f"{out}/scratch.srt", "w") as f:
+        i = 0
+        for a, b, n, who, text in cues:
+            for pa, pb, part in split_cue(a, b, text):
+                i += 1
+                f.write(f"{i}\n{srt_tc(pa)} --> {srt_tc(pb)}\n{wrap2(part)}\n\n")
+    json.dump({"fps": 24, "width": 1280, "height": 720, "shots": edl, "srt": "scratch.srt",
+               "out": "cut-v0.mp4", "lines": [{"line": n, "speaker": w, "start": a, "end": b, "text": t}
+                                              for a, b, n, w, t in cues]},
+              open(f"{out}/edl.json", "w"), indent=1, ensure_ascii=False)
+
+if __name__ == "__main__":
+    main(sys.argv[1], sys.argv[2])

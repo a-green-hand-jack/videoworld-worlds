@@ -1,0 +1,31 @@
+# QC report: cut-v1 (editor release `cut-v1`, = editor main 2a7d7a5 `film/paper-lantern.mp4`, md5 a6142f7b84be54292f808098ede8d17b)
+
+Checked by director 2026-10-19 against `delivery-spec.md`.
+
+## How
+- ffprobe streams/format; `ffmpeg -v error -f null` full decode; moov position; ebur128 (true peak); silencedetect (-50 dB, 0.3 s); blackdetect; scene-change scan.
+- 14 frames viewed (`qc/cut-v1-contact.jpg`, at 0.3 1.5 2.9 4.5 6.4 8.2 10.0 11.8 14.8 16.5 17.8 18.9 19.6 20.3 s).
+- Soundtrack heard via audio-understanding (gemini-3.8-flash): `qc/cut-v1-listen.txt`, `qc/cut-v1-listen-water.txt`.
+
+## Results
+| Item | Result | Evidence |
+|---|---|---|
+| F1 path | pass | editor main 2a7d7a5 |
+| F2 MP4, browser | pass | H.264 High yuv420p, moov before mdat |
+| F3 1280x720 24 fps CFR | pass | 492 frames, r/avg 24/1 |
+| F4 AAC stereo | pass | AAC LC, 48 kHz, 2 ch |
+| F5 duration | pass | 20.500 s, both streams 20.500 s |
+| F6 decode | pass | no errors |
+| P1 4–6 still-based shots with moves | pass | 5 shots + title/end plates |
+| P2 title | pass | "The Paper Lantern" legible 0.6–2.9 s |
+| P3 end card | pass | "The End" 19.0–20.5 s, fade to black |
+| P4 story reads | pass (shot05 light faint in v1 clip; revised clip relayed as director `shots-v2`) | 17.8 s frame |
+| P5 consistency | pass | child and lantern match across shots 1–4 |
+| P6 artefacts | **fault** | dissolves 1→2 (~06:3–06:7) and 2→3 (~09:8–10:2) show two lanterns at once (small lantern by the child + big close-up lantern; big lantern + small drifting lantern) — reads as a doubled lantern |
+| S1 water + evening ambience | **fault** | the listener hears no water at any point; evening layer heard as birdsong + breeze/hiss, no crickets |
+| S2 soft music | pass | soft piano + pad enters ~00:05, gentle, ends sustained |
+| S3 no voice | pass | none heard |
+| S4 loudness/peaks | pass | −16.0 LUFS, TP −3.9 dBFS, LRA 5.9 LU, no silence/clicks found |
+
+## Recommendation
+Fix, not lock: cut-v2 with shots-v2 (shot05), a clearly recognisable river-water layer under the whole film (and crickets for evening), and no doubled lantern at the 1→2 and 2→3 transitions.

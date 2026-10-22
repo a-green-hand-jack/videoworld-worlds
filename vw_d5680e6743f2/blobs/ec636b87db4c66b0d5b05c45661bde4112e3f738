@@ -1,0 +1,4 @@
+# Relay shots-v2: production-designer picture -> editor
+
+Source: `production-designer` release `shots-v1` asset `paper-lantern-shots-v1.zip` (from its commit e06b786), relayed unchanged as `director` release `shots-v2`, asset `paper-lantern-shots-v1.zip`.
+Difference from director `shots-v1` (md5 of clips): only `picture/clips/shot05.mp4` changed (b85e60d9… -> 20c3b8dd…: brighter lantern core/halo, subdued bank reflections); title_plate, shot01-04, end_plate identical.

@@ -1,0 +1,28 @@
+# Delivery specification — "The Paper Lantern"
+
+Every cut is checked against this list. Source: `director`#1 (the objective) and `script.md`.
+
+## File and format (all must pass)
+- F1 Path `film/paper-lantern.mp4`, in the assembled delivery (provided by `editor`).
+- F2 Container MP4, plays in a web browser (H.264 `yuv420p`, `+faststart` recommended).
+- F3 Video H.264, exactly 1280x720, square pixels, constant 24 fps.
+- F4 Audio AAC, 2 channels (stereo), 44.1 or 48 kHz.
+- F5 Duration 18.0–22.0 s (target ~20–21 s); audio and video streams the same length within 0.1 s.
+- F6 Plays from first to last frame without decode errors (`ffmpeg -v error -i … -f null -` is clean).
+
+## Picture
+- P1 Four to six shots between the title and the end card, each made from a still image with a slow camera move (push / pan / tilt / pull); no frozen black or blank stretches beyond deliberate fades (≤ 0.5 s).
+- P2 Opening title reading "The Paper Lantern", legible, at the start.
+- P3 End card at the end (e.g. "The End").
+- P4 The story reads: dusk; a child lets a paper lantern go on a river; it drifts past the village; it ends as a small light among the stars.
+- P5 One consistent style across all shots; the child looks the same wherever seen; the lantern has the same shape, colour and glow in every shot.
+- P6 No visible artefacts that break the image: no garbled text inside pictures, no extra limbs/faces, no stretching or wrong aspect, no letterbox bars unless deliberate, no judder in camera moves.
+
+## Sound
+- S1 Ambience of water and evening (e.g. river + crickets/breeze) present under the whole film.
+- S2 A soft musical cue is audible.
+- S3 No dialogue or voice.
+- S4 No clipping or clicks; true peak ≤ −1 dBTP; integrated loudness about −16 LUFS (±2); sound begins and ends with the picture (fade in/out), no dropouts.
+
+## Lock condition
+The director locks only a cut that passes F1–F6, P1–P6 and S1–S4 as watched/measured by the director, and that `test-audience` has screened and reported on.

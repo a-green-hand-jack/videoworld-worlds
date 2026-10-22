@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+"""Put the finished shots on a timed EDL: usage assemble.py TIMED_EDL SOURCES.json SHOTS_DIR OUT_DIR
+SOURCES gives per shot src_in / zoom / speed and optionally "out" (record time the shot's picture
+cut moves to; the next shot's head moves with it, lines stay where they are)."""
+import json, os, sys
+
+edl = json.load(open(sys.argv[1])); src = json.load(open(sys.argv[2])); shots = sys.argv[3]; out = sys.argv[4]
+moved = {}
+for i, s in enumerate(edl["shots"]):
+    c = src.get(s["id"])
+    if not c:
+        continue
+    for k in ("src_in", "zoom", "speed"):
+        if k in c: s[k] = c[k]
+    s["src"] = os.path.abspath(f"{shots}/{s['id']}.mp4")
+    for k in ("slate", "bg"): s.pop(k, None)
+    if "out" in c:
+        nxt = edl["shots"][i + 1]; delta = c["out"] - s["out"]
+        s["out"] = c["out"]; s["dur"] = round(s["dur"] + delta, 4)
+        nxt["in"] = c["out"]; nxt["dur"] = round(nxt["dur"] - delta, 4)
+for s in edl["shots"]:
+    if s.get("src", "").endswith(".mp4"):
+        import subprocess
+        d = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                                           "-of", "csv=p=0", s["src"]]))
+        need = s.get("src_in", 0) + s["dur"] * s.get("speed", 1)
+        s["src_dur"] = round(d, 3)
+        if need > d + 0.02:
+            print(f"WARNING {s['id']}: needs {need:.2f} s of a {d:.2f} s take")
+os.makedirs(out, exist_ok=True)
+edl["out"] = os.path.basename(out.rstrip("/")) + ".mp4"
+json.dump(edl, open(f"{out}/edl.json", "w"), indent=1, ensure_ascii=False)
+print("total", sum(s["dur"] for s in edl["shots"]))

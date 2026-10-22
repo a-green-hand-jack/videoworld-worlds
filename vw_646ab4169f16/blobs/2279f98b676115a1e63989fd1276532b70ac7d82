@@ -1,0 +1,15 @@
+# cut-v2
+
+Rendered from `edit/timeline.json` v1 by `edit/tools/render_cut.sh cut-v2` on local-compute (job-080734f5a2).
+
+- **Sound:** sound-designer `sound-v1` `mix.wav` (made to timeline v1, 658.333 s, 48 kHz stereo) as the film's soundtrack, encoded AAC-LC 48 kHz stereo at 192 kb/s from frame 0. This is the first cut with sound.
+- **Picture:** S001 from dp `picture-batch-001` (with the edit's painted title and presenter card, as in cut-v1). S002 from `picture-batch-003` (sha256 e9c6a62a…1924, the single-head turn, not batch-002), at frames 619–653. S003 from `picture-batch-004` (sha256 cb22f0c5…d840), at frames 654–722. S004–S126 are still slates because dp has not supplied them yet. S127 is the end credits.
+- **Subtitles:** each of the 75 cues now starts and ends where its line is spoken in the mix (`mix_report.json` of `sound-v1`), not at the script's slot times. A cue stays up for at least 0.8 s and never past the next line's start.
+
+## Measured on the rendered file
+
+- 1024x576 H.264 High at 24 fps with 15800 frames; AAC-LC 48 kHz stereo at 194.6 kb/s; duration 658.333 s. ffmpeg full decode reported 0 errors.
+- Loudness after the encode: integrated −20.6 LUFS, true peak −1.4 dBFS, LRA 8.3 LU. sound-designer reported −20.61 LUFS and −1.5 dBTP before the encode.
+- Sync: I cross-correlated 4 s of the cut's audio against `mix.wav` at 30, 300 and 600 s. The offset was 0.0 ms at all three points.
+- Shot placement: cut frames 619/653 match S002 frames 0/34, and 654/722 match S003 frames 0/68 (PSNR 42–47 dB, which is encode loss). Cut frame 653 against S003 frame 0 gives 9.9 dB, so the boundary is frame-exact.
+- Subtitles against the voice: on the dialogue stem (energy above −45 dBFS, 10 ms hops), every line's onset is within 0.09 s of its cue start.

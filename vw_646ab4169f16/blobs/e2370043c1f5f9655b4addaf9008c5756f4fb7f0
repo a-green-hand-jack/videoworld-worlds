@@ -1,0 +1,66 @@
+"""Pick the most intelligible synthetic take of each script line. usage: pick_takes.py [ID ...]
+Renders several takes per line (pace x wording variants), transcribes each clean with whisper small.en,
+keeps the lowest word-error take that fits its time slot, writes dialogue/takes/<ID>.flac + dialogue/takes.json."""
+import json, os, re, sys, difflib, numpy as np, soundfile as sf
+from scipy.signal import resample_poly
+import dialogue
+from common import *
+from faster_whisper import WhisperModel
+m = WhisperModel("/hutian/.home/.cache/huggingface/hub/models--Systran--faster-whisper-small.en/snapshots/d1d751a5f8271d482d14ca55d9e2deeebbae577f", device="cpu", compute_type="int8", cpu_threads=4)
+lines = json.load(open(f"{ROOT}/dialogue/lines.json"))["lines"]
+variants = json.load(open(f"{ROOT}/dialogue/tts_variants.json"))
+os.makedirs(f"{ROOT}/dialogue/takes", exist_ok=True)
+info_p = f"{ROOT}/dialogue/takes.json"
+info = json.load(open(info_p)) if os.path.exists(info_p) else {}
+ALIAS = {"emo": {"eemo", "amo", "imo", "emmo", "aimo", "emoh", "ima", "emma"}, "proog": {"prog", "prooge", "proogh", "prug", "prude"}}
+def norm(s): return re.findall(r"[a-z']+", s.lower())
+def same(a, b):
+    if a == b or b in ALIAS.get(a, ()): return True
+    return len(a) >= 4 and difflib.SequenceMatcher(None, a, b).ratio() >= 0.75
+def wer(r, h):
+    d = [[0] * (len(h) + 1) for _ in range(len(r) + 1)]
+    for i in range(len(r) + 1): d[i][0] = i
+    for j in range(len(h) + 1): d[0][j] = j
+    for i in range(1, len(r) + 1):
+        for j in range(1, len(h) + 1):
+            d[i][j] = min(d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + (not same(r[i-1], h[j-1])))
+    return d[-1][-1] / max(len(r), 1)
+def asr(x):
+    pad = np.zeros(int(0.4 * SR)); y = np.concatenate([pad, x, pad])
+    y = resample_poly(y, 1, 3).astype(np.float32)
+    seg, _ = m.transcribe(y, beam_size=5, condition_on_previous_text=False, language="en")
+    return " ".join(s.text for s in seg).strip()
+def post(x, sp):
+    x = hp(x, 70); x = x / (np.abs(x).max() + 1e-9) * 0.7 * dialogue.VOICES[sp]["gain"]
+    n = int(.01 * SR); x[:n] *= np.linspace(0, 1, n); x[-n:] *= np.linspace(1, 0, n)
+    return x
+want = sys.argv[1:]
+for i, L in enumerate(lines):
+    if L["id"] in info and not want or (want and L["id"] not in want): continue
+    sp = L["speaker"]; slot = L["end"] - L["start"]
+    nxt = lines[i + 1]["start"] if i + 1 < len(lines) else 1e9
+    allowed = min(slot + 0.5, nxt - L["start"] - 0.05)
+    allowed = max(allowed, slot * 0.8)
+    base = dialogue.VOICES[sp]["ls"]
+    texts = [L["text"]] + variants.get(L["id"], [])
+    ref = norm(L["text"]); best = None
+    for t in texts:
+        for mult, ns in [(m_, n_) for m_ in (0.8, 1.0, 1.25, 1.6) for n_ in ((0.75, 0.5, 1.0) if want else (0.75,))]:
+            for _ in range(2):
+                ls = base * mult
+                x = dialogue.trim(dialogue.say(sp, t, ls, ns)); d = len(x) / SR
+                if d > allowed:
+                    ls = max(0.5, ls * allowed / d * 0.93); x = dialogue.trim(dialogue.say(sp, t, ls, ns)); d = len(x) / SR
+                x = post(x, sp); h = asr(x)
+                w = wer(ref, norm(h)) if L["id"] != "L13" else 0.0
+                over = max(d - allowed, 0)
+                lo = d < min(0.5 * slot, 0.35)
+                score = (w, over + (0.3 if lo else 0), abs(d - 0.75 * slot) * 0.1)
+                if best is None or score < best[0]: best = (score, x, h, round(ls, 2), t, d)
+    score, x, h, ls, t, d = best
+    sf.write(f"{ROOT}/dialogue/takes/{L['id']}.flac", x, SR, subtype="PCM_16")
+    info[L["id"]] = dict(wer=round(score[0], 2), asr=h, length_scale=ls, tts_text=t, dur=round(d, 2), slot=round(slot, 2), allowed=round(allowed, 2))
+    print(L["id"], info[L["id"]], flush=True)
+    json.dump(info, open(info_p, "w"), indent=1)
+print("mean WER", round(float(np.mean([v["wer"] for k, v in info.items() if k != "L13"])), 3), flush=True)
+print("takes picked", flush=True)

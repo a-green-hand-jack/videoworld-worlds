@@ -1,0 +1,25 @@
+# QC — `editor` release `cut-v1` (editor commit 7bb397b), checked 2026-10-19
+
+File: `paper-lantern-cut-v1.mp4`, sha256 f2f8691d…328c8, re-released for screening as `world/director` release `screen-cut-v1`.
+Pictures: production-designer stills `picture-stills-v1` with the editor's own moves (finished PD shots not yet in).
+
+| Check | Result | How |
+|---|---|---|
+| D1 MP4, H.264 High yuv420p | pass | ffprobe |
+| D2 18–22 s, streams aligned | pass: video 20.000 s (480 frames), audio 20.000 s | ffprobe |
+| P1 1280x720, 24/1 CFR | pass | ffprobe |
+| P2 4–6 still-based shots with moves | pass: 4 shots; S1 push, S2 push/tilt, S3 pan with the lantern, S4 pull-out; no freeze ≥1 s (freezedetect) | frame sheet at 2 fps (`cut-v1-sheet.png`), freezedetect |
+| P3 title and end card | pass, with a note: "The Paper Lantern" fully opaque only ≈1.0–1.8 s (half-faded at 0.8 s, fading by 2.1 s); "The End" fully up ≈17.9–19.2 s. Legible but the title hold is short | frames at 0.5/0.8/1.2/2.1/18.2 s (`cut-v1-detail.png`) |
+| P4 story beats | pass: child kneels with lantern 2.5–6 s; hands release on rippling water 6–9.5 s; lantern drifts before the village 9.5–13.5 s; tiny warm point among sky and water stars 13.5–17 s; dissolves into the star end plate | frame sheet |
+| P5 consistency | pass: one painted style; lantern identical S1–S3, warm point in S4; child's coat/scarf consistent S1–S2 | frame sheet |
+| P6 technical | pass: black only at the fade-in (0–0.21 s) and fade-out (19.46–19.96 s); no stretch, no watermark, no stray text | blackdetect, frames |
+| S1 AAC LC stereo 48 kHz | pass | ffprobe |
+| S3 level | pass: −16.1 LUFS, true peak −3.7 dBFS, LRA 2.0 LU; no silence gap; fade in 1.5 s, out 2.0 s | ebur128, silencedetect, band energies |
+| S2/S4 content | **not verified by ear.** From the source (`editor` tools/make_sound.py at 7bb397b): filtered-noise river + wind, three synthetic cricket voices fading out by 14 s, water "plip" at 7.0 s, D-major music-box melody over a pad that swells over S4 and settles in the end card; no voice. Band energies show activity across 20 Hz–16 kHz throughout, no step >0.09 (no clicks). L/R correlation 0.006 (decorrelated ambience) | code reading, librosa analysis |
+
+Blocker on listening: `audio-understanding` answers HTTP 429 "Rate limit exceeded for model gemini-3.8-flash (limit: 20 requests per day on Free Tier). Please retry in 7h41m9s" (checked 2026-10-19 ~23:20 UTC; world total 20 requests used). Whether the synthetic river reads as water rather than hiss, and whether the music is soft and pleasant, is open until a listen is possible; the screening is asked to report it.
+
+Recommendation: candidate. Before lock: (1) hold the title fully legible longer (fully up by ~0.6 s, held to ~2.1 s); (2) screening by test-audience; (3) cut-v2 with PD's finished shots if they are better, otherwise this picture is acceptable; (4) listening check when the quota allows.
+
+## Follow-up: `cut-v1.1` (editor commit 1a0d276)
+Title finding resolved: frames at 0.4/0.6/1.2/2.1/2.4 s (`cut-v1.1-title.png`) show the title fading in at 0.4, fully opaque 0.6–2.1, dissolving under S1 at 2.4. Duration 20.000 s. Nothing else changed, per the editor. Remaining before lock: cut-v2 with PD's finished shots, screening, listening.

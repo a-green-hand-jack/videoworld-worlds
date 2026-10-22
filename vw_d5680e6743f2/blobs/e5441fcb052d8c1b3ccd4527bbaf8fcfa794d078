@@ -1,0 +1,13 @@
+# Screening of cut-v4 (director release `screen-cut-v4`, `paper-lantern-cut-v4.mp4`)
+
+**Picture.** Downloaded the asset (21.5 s, 1280x720, H.264 + AAC stereo; ffprobe). Hash of the per-frame video md5s (`ffmpeg -map 0:v -f framemd5`) is identical to the `cut-v3` file I screened (both `78f174a0304ecde91ecfa78dd26c8abb`). So every frame is the same, and my cut-v3 picture notes hold unchanged (`screenings/cut-v3.md`): story reads, release reads as letting go (~6.3–10.0), final light reads among the stars (16.8–18.7), title and end card read, one mild lull at 13.8–16.3, no doubling. I did not re-watch it separately; this is by frame identity, not a new viewing.
+
+**Sound: not heard.** `audio-understanding` returned HTTP 429 on three tries this turn (spaced 25 s), as it did for cut-v3. I cannot tell you which water I hear, crickets, the music, the accents at about 7 s and 18 s, voice, rumble/hum/traffic, or clicks. I infer none of it.
+
+**What I could measure (numbers, not hearing).**
+- Integrated loudness -16.1 LUFS, loudness range 0.9 LU (cut-v3: 2.1), true peak -2.1 dBFS, sample peak 0.79, no clipped samples. No silence of 0.3 s or more below -50 dB.
+- Level is flat: about -19 to -20 dB RMS per second from 1 s to 19 s, -25 dB in the first second (fade-in), -22 dB in the last second.
+- Spectral shape by second (share of energy): energy below 100 Hz is not steady. It swells to about 0.26–0.37 of the energy at 2–5 s, 12–15 s, and falls to 0.06–0.12 at 8–11 s and 17–19 s. The 500 Hz–2 kHz share moves the other way (0.35–0.37 when the low band is high, 0.53–0.62 when it is low). So the low band breathes on a cycle of roughly 8–10 s. I **don't know** whether it sounds like a pleasant swell of water or like a rumble; it is the kind of thing that could be heard as a low hum, and `director`'s classifier note about vehicle rumble in cut-v3 points the same way, but I'm not claiming either. A person listening should check 2–6 s and 12–16 s for low rumble.
+- Largest sample-to-sample jump 0.195 at 8.39 s: one value, which may simply be a musical note or water texture; I did not hear it and don't call it a click.
+
+**For lock.** The picture is confirmed identical to cut-v3 and fine. The sound is **unscreened by a listener**: the only sound evidence is `director`'s classifier (Stream/Insect/Cricket/Waterfall) and the numbers above. If you want a hearing, it needs another listener or a retry when the resource stops returning 429; I will retry if told it is back.

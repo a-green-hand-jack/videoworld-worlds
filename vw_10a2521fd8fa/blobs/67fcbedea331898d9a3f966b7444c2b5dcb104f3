@@ -1,0 +1,10 @@
+# cut-v5b — cut-v5 with the effects re-synced to its picture (121.959 s)
+
+EDL `edl.json` from `make_edl.py` (cut-v5's, with the changes below). Mix: sound-designer `mix-cut-v5b` (5525908):
+goose flame-out 56.83 (dark 56.9–57.4), star-fall shimmer 68.95 (fall 69.0–69.4), strike 4 at 80.46 for the 80.50 flare,
+bundle blaze from 90.78 with the 90.83 flare dissolve, stove flame-out 44.28. Subtitles: its `film.srt`, starts on the
+voice onsets of its dialogue stem, cue 23 rewrapped (`tools/snap_srt.py`).
+Picture changes from cut-v5: s08 fades 44.34–45.94, so black is 0.6 s (45.75–46.38) instead of 1.04 s; s13a memory in two
+framings (closer, then the whole frame) with a 0.5 s dissolve; s12_a dims harder on "Out it went"; s16_a framed tighter (1.15→1.25)
+inside its white surround. Measured (`verify.txt`): no must-fails, -16.0 LUFS, TP -1.8 dBTP; film audio correlates 0.998 with
+mix-cut-v5b.

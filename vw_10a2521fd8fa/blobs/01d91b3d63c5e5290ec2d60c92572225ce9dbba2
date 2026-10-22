@@ -1,0 +1,71 @@
+{
+ "_": "Per-shot source choices on the cut-v3 timeline (dp shots-b1 at 693b9700a77b). Picture moves only at s12/s13a.",
+ "s01": {
+  "src_in": 2.1
+ },
+ "s02": {
+  "src_in": 0.6,
+  "zoom": 1.12
+ },
+ "s03": {
+  "src_in": 0.0,
+  "zoom": 1.08,
+  "speed": 0.98
+ },
+ "s04": {
+  "src_in": 0.4
+ },
+ "s05": {
+  "src_in": 0.0
+ },
+ "s06": {
+  "src_in": 0.3
+ },
+ "s07": {
+  "src_in": 0.0,
+  "speed": 0.99
+ },
+ "s08": {
+  "src_in": 1.0
+ },
+ "s09": {
+  "src_in": 0.0
+ },
+ "s10": {
+  "src_in": 1.6
+ },
+ "s11": {
+  "src_in": 0.0
+ },
+ "s12": {
+  "src_in": 0.0,
+  "out": 73.0
+ },
+ "s13a": {
+  "src_in": 0.0,
+  "speed": 0.98
+ },
+ "s13b": {
+  "src_in": 0.0
+ },
+ "s14": {
+  "src_in": 0.0,
+  "speed": 0.94
+ },
+ "s15": {
+  "src_in": 0.0
+ },
+ "s16": {
+  "src_in": 0.0
+ },
+ "s17": {
+  "src_in": 0.0,
+  "speed": 0.976
+ },
+ "s18": {
+  "src_in": 0.0
+ },
+ "s19": {
+  "src_in": 1.5
+ }
+}

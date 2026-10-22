@@ -1,0 +1,26 @@
+# Lock record — round 2 (director#21): cut-v6d is locked, 2026-10-22 ~22:55 UTC
+
+**Locked:** `film.mp4` from editor bd72b94 (release `cut-v6d`; my screening release `screen-cut-v6d`), 66,801,225 bytes, sha256 dd738de7b41b3e75d6c3707555527a6252b6cbf30f40c7c3e0d387cfe2864b2c, with sidecar `film.srt`.
+H.264 High yuv420p 1280x720 24 fps + AAC-LC 48 kHz stereo, 121.958 s both streams, moov first, full decode without error, -16.1 LUFS, -1.8 dBTP, English subtitles burned in (30 cues) and as a sidecar.
+Revisions at lock: editor bd72b94, dp 96aaa99, sound-designer 3216af2, production-designer 7f5be01, qc bba0bd5, test-audience 03f09dd, director (this record).
+
+## What round 2 asked, and what the cut does
+- **Replace the remaining still shots with moving shots:** every still of cut-v5d (s10, s12, s13a, s14, s15, s16, s17, s18, the s19 sky) is now a Wan 2.7 moving shot from dp (shots-b3 to b7). Checked on 1 fps sheets of the whole cut, by qc's frames and by two full model watches; no still with a push remains (qc).
+- **Tell the ending so the video models will make it:** described as seen, never as death (`direction/round-2.md`, decision of director#22/#23). The girl asleep at dawn in the corner, then the burnt matches by her bare feet on "frozen to death"; the townspeople from behind, the woman's hand to her mouth on her line; then the morning sky. Wan accepted every ending shot. Both full watches: the ending reads (a peaceful death, the townsfolk find her) and moves ("genuinely sad and touching… hits hard").
+- **Make any push-in that remains move smoothly:** none remains on a still. The named spots: 1:50 (cut-v5d held a frame every 3–9 frames, then a whole-pixel jump) is now a moving take, even (alt2 0.03, no 12 Hz peak); 0:48–0:51 (s09's 6 Hz dip) is evened by the editor (alt2 0.01; qc: 6 Hz component halved, under 1% of the speed). No take is retimed. Every moving shot measures even (alt2 ≤ 0.12). No repeated frame anywhere in the cut, including at the cut heads (my scan; qc; test-audience).
+- **Keep what works:** sound correlation ≥ 0.98 with cut-v5d in every second (qc: PCM bit-identical); same narration, music, effects and subtitles; same length 121.96 s; same story order; same painted style and the same girl.
+
+## Checks and screenings weighed
+- qc: cut-v6b FIX narrowly (s04) → cut-v6c LOCK → **cut-v6d LOCK** (qc/cut-v6d/report.md at bba0bd5): better than v6c on spec 17, unchanged elsewhere; the only price is a softer, streak-snow s13a.
+- test-audience: screen-cut-v6b (frames only, models out of credit), screen-cut-v6c (full watch with sound), **screen-cut-v6d** (full watch with sound, 71dc3c5 / 03f09dd): nothing new or worse than v6c; the film reads and moves; memory and townspeople now even; no cut opens on a repeated frame.
+- My own: cut-v6d watched whole with sound (gemini-4-argon, `cut-v6d-film-understanding-argon.txt`), measured (`cut-v6d-review.md`).
+
+## Accepted, not fixed (each weighed)
+- The grandmother's dark plum/burgundy shawl-cape in s14–s16 (1:28–1:41) against the paler shawl in s13b (1:21–1:25), a round-1 shot; s14–s16 agree with each other and the design's plum shawl. Changing it means regenerating s13b or three Wan shots and re-checking the climax; the screening says it does not break the story.
+- A faint trailing duplicate of her hand at 1:28.5 (the editor's in-between in s14); the alternative re-conversion is 3.5x softer with blended fingers.
+- The climax 1:29–1:35 is brisk (two cuts now instead of four); the townspeople at 1:50 are quiet figures (breath, head turns, the woman's hand, a slow push).
+- Round-1 faults accepted then: s02/s03 slipper and horse legs (0:08–0:13), the window hitch at 0:24, the flame popping to smoke at 0:44, the goose's duck head (whimsical, as directed).
+- The narrator's polished tone and the reverberant "Someone is dying": the sound is kept from round 1, as the objective asks.
+
+## Conclusion
+cut-v6d meets every must of `direction/delivery-spec.md` (1–18) and what director#21 asks. It has been watched whole with sound by me and by test-audience, and checked by qc with a lock recommendation. **Locked.**

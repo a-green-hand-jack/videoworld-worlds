@@ -1,0 +1,69 @@
+"""Shot definitions: id -> (generation seconds, refs for key frame, key-frame prompt, motion prompt).
+Refs are design-v1 images (production-designer), converted to JPEG in /hutian/work/refs."""
+STYLE = ("soft gouache and watercolour storybook illustration, 19th-century Danish fairy-tale picture book, visible paper grain, "
+         "painterly, not photoreal, not 3D, not anime, no text or lettering anywhere")
+GIRL = ("the same 8-year-old thin pale girl as the reference sheet: bareheaded with long tangled fair curls, red-cold cheeks, large dark eyes, "
+        "patched brown-grey wool dress, faded blue checked apron knotted up at the corners holding matches, thin dark-grey shawl on her shoulders only")
+GRAN = "the same small old grandmother as the reference: kind lined face, white linen cap, lilac-grey dress, dark plum shawl, glowing soft white-gold"
+CORNER = ("the same snowy nook as the reference where two 1840s Danish house fronts meet, left ochre house standing further out, "
+          "right rust-grey house set back, rough cracked wet-stone grey plaster back wall, a stone step")
+S = {}
+def add(i, dur, refs, kf, motion): S[i] = dict(dur=dur, refs=refs, kf=kf, motion=motion)
+
+add("s01", 8, ["street_dusk","girl_sheet"],
+ "Wide high-angle view down a snowy 1840s Danish town street at dusk, gabled houses, candle-lit small-paned windows, snow falling, snow-covered cobbles, nearly dark. A tiny figure of the girl (bareheaded, fair curls, blue apron) far down the street. Cold indigo and slate blue, small warm window accents.",
+ "Slow push-in down the snowy street at dusk; snow drifts down, candle flames in the windows flicker; the tiny girl far down the street trudges slowly away along the wall. Quiet, cold, no cuts.")
+add("s02", 6, ["girl_sheet","props_sheet","street_dusk"],
+ 'Medium-wide side view, the same 8-year-old thin girl as the reference sheet, bareheaded with long fair curls, shuffling along a snowy cobbled street at DUSK in far-too-big worn brown cracked slippers over bare feet, holding a small bundle of matches. Dark indigo dusk sky, cold blue light, candle-lit windows, deep blue shadows: the same dusk as the first shot of the street, not daylight.',
+ "Camera tracks alongside the girl as she shuffles slowly along the snowy street in her too-big slippers, shoulders hunched, snow falling and settling in her curls, breath misting. Cuts none.")
+add("s03", 8, ["street_dusk", "cast_boy_passers", "props_sheet", "girl_sheet"],
+ 'Wide view of the snowy dusk street, full-bleed: the thin girl in blue apron stands in the street still wearing her far-too-big worn brown slippers on her bare feet, startled, looking toward two dark horse-drawn carriages with lit lanterns and dark horses bearing down on her from the far end of the street; a ragged boy in an oversized dark cap waits at the right edge. Cold indigo dusk palette.',
+ "One continuous shot, no cuts, no flashes. Two dark carriages with two horses each thunder past through the snow along the street, horses' legs clean and correct; the girl leaps back in fright, her too-big slippers fly off her feet, a ragged boy in a dark cap snatches one and runs off laughing. The girl stays in frame standing shivering in the snow; in the last second the camera gently tilts down to her bare red-blue feet in the snow.")
+add("s04", 7, ["girl_faces","cast_boy_passers","street_dusk"],
+ f"Medium shot at low eye level, {GIRL}, barefoot in the snow, holding out a bundle of matches to hurrying well-wrapped 1840s passers-by in long dark coats and top hats who do not look at her, faces turned away. Cold indigo palette, snow falling.",
+ 'The barefoot girl in the foreground holds out her matches and mouths a hopeful plea; only two or three tall passers-by in long dark coats and top hats stride past, clearly separate from one another, not looking at her; the background is calm and empty with falling snow. She lowers her hand a little, disappointed.')
+add("s05", 6, ["girl_faces","street_dusk","style_frame"],
+ f"Close-up on the face of {GIRL}: snowflakes in her curls, looking up with longing; reflected warm candle-gold from a window on her cheek. Cold indigo with a small warm amber accent.",
+ "Close-up of the girl's face, snowflakes landing in her hair, her eyes lifting up with longing toward a warm candle-lit window out of frame; the amber glow flickers softly on her cheek. Then a slow shift to her point of view: a warm window with a family table and a roast goose just glimpsed.")
+add("s06", 7, ["corner_wide","girl_sheet","style_frame"],
+ f"Wide-to-medium static view of {CORNER}; {GIRL}, barefoot, sitting on the stone step drawing her bare feet up under her dress and hugging herself. Cold indigo palette, snow falling.",
+ "Static camera on the corner nook. The girl sits down on the stone step, draws her bare feet up under her dress, and hugs herself against the cold; wind blows snow in swirls across the nook. Cold blue light.")
+add("s07", 7, ["corner_over_shoulder","girl_faces","style_frame"],
+ 'Extreme close-up of numb red small hands of the same girl holding one unlit thin match with a reddish-brown head against the rough cold wet-stone plaster wall, bundle of matches in the other hand, cold blue light, no flame yet.',
+ 'Extreme close-up of numb red hands holding one thin match against the rough wall. For the first 4.5 seconds the match stays UNLIT: the trembling fingers hesitate, the hand lifts, lowers, shivers in the cold blue light, snow drifts past. At about 4.8 seconds she scratches the match on the wall and a bright flame flares and blooms, warm amber light spreading across her fingers and the wall, pushing back the blue.')
+add("s08", 9, ["vision_stove","style_frame","girl_faces","corner_wide"],
+ f"Medium shot: {GIRL} sits on the step in the corner in match-light; before her stands a big black cast-iron rounded stove with shining polished brass claw feet and a brass ornament lid, glowing orange through its door; she stretches out her bare feet to it. Warm amber vision palette.",
+ 'Medium shot, the girl on the step before the glowing black iron stove with brass feet; for the first 6 seconds the stove glows warm orange, she stretches her bare feet toward it, comforted. From 6 to 7.7 seconds the match flame dies, the stove fades away into the cold dark wall and the warm light drains to cold blue, leaving her hugging herself with a burnt match in her fingers; the last second is cold and still.')
+add("s09", 7, ["vision_goose","corner_over_shoulder","girl_faces"],
+ f"Over-the-shoulder view of {GIRL} toward the cold wall, where the wall has turned transparent like a veil: through it a warm candle-lit room with a snow-white tablecloth, fine blue-and-white porcelain and a steaming roast goose stuffed with apples and prunes. Warm amber palette.",
+ "Over her shoulder: a match flares and the wall where its light falls becomes a glowing transparent veil; through it a room appears, candles flickering, steam rising from the roast goose on the white tablecloth. Slow gentle push in.")
+add("s10", 6, ["vision_goose", "girl_faces", "style_frame"],
+ 'Low angle inside the warm candle-lit vision room: the cooked, golden-brown roast goose itself, stuffed with apples, with a knife and fork stuck in its back, has hopped off its dish and waddles on its own little roasted legs across the white tablecloth toward the viewer; the empty platter behind it. Whimsical, storybook charm, not grotesque; no live feathered goose. Warm amber light, inked gouache-and-watercolour style.',
+ 'Inside the warm vision room: the cooked golden-brown roast goose itself (not a live bird, no feathers), a knife and fork stuck in its back, hops off its dish and waddles comically toward the camera across the white tablecloth on its small roasted legs, for the first 3 seconds. At about 3.3 seconds the warm light goes out; by 4.1 seconds it is dark: only the cold damp stone wall of the corner in blue night with falling snow remains until the end.')
+add("s11", 7, ["vision_tree","girl_sheet","corner_wide"],
+ f"Wide low-angle view from behind {GIRL} sitting small in the foreground beneath an enormous dark-green Christmas fir with thousands of small candles and hanging coloured paper pictures and ornaments in red, blue and gold; she reaches up toward it. Warm amber-gold palette.",
+ "Slow upward drift: thousands of candles on the great Christmas tree flicker, coloured ornaments gleam; the small girl in the foreground reaches up toward the branches with wonder.")
+add("s12", 9, ["vision_tree", "girl_faces", "style_frame"],
+ 'Tilt-up view from the upturned face of the same girl at the bottom of the frame to the night sky above the great dark-green fir tree whose candle lights are now rising as small golden sparks into a deep-blue night sky; the candles on the tree are going out. Painted in the same inked gouache-and-watercolour storybook style with visible fine ink linework as the style frame, softer and less saturated.',
+ "Camera tilts up from the girl's upturned face. At the start the match goes out; from 0.3 to 4 seconds the candle lights of the great tree rise higher and higher into the dark sky and become twinkling stars; at about 4.5 to 6 seconds one bright star falls across the sky with a long trail of golden fire; from 6.3 seconds the camera is back on her face, lit warm, watching, soft and knowing.")
+add("s13a", 9, ["girl_faces","corner_over_shoulder","grandmother_sheet"],
+ f"Medium close-up in the dark cold corner at night: the face of {GIRL}, eyes wet and distant, remembering; one burnt black match in her fingers, no flame; behind her the night sky with a single faint star; and faintly, almost transparent in the dark air beside her, a translucent memory-glow of her grandmother's gentle smiling face in soft white-gold. Cold indigo with a faint warm glow.",
+ "Gentle still shot, no match is struck and there is no fire: the girl's face in the dark, eyes wet and distant, remembering; a burnt black match in her fingers; snowflakes drifting; behind her the night sky with one faint star; slowly a faint translucent memory-glow of her grandmother's smiling face fades in beside her and softly fades out again.")
+add("s13b", 6, ["corner_wide", "style_frame", "grandmother_sheet"],
+ 'Medium shot of the same girl sitting on the stone step in the cold dark blue corner, bare feet drawn up, about to strike a match against the rough cracked wet-stone wall; no flame yet, no other person, snow falling, cold indigo light. Same corner as the reference: left ochre house further out, right rust-grey house set back.',
+ 'Static medium shot of the girl on the step in the cold blue corner. At the very start she strikes a match against the wall and it flares at about 0.5 seconds; then from 1 to 3 seconds the grandmother appears in the glow before the wall, a small old woman radiant in white-gold light, smiling lovingly, opening her arms; light warms the whole corner.')
+add("s14", 5, ["girl_faces","grandmother_sheet"],
+ f"Close-up of the tearful face of {GIRL}, tears on her cheeks, reaching out a hand toward something glowing off-frame, warm white-gold light on her face.",
+ "Close-up of the girl, tears shining on her cheeks, reaching out her hand toward her grandmother, calling out; warm white-gold light on her face.")
+add("s15", 6, ["corner_over_shoulder", "girl_faces", "style_frame"],
+ 'Close-up of small cold hands of the same girl holding a whole bundle of thin matches against the rough wet-stone wall, about to strike, not lit yet, cold blue light, snow falling.',
+ 'Close-up of small hands holding the whole bundle of matches against the wall, still dark and cold; at about 0.5 seconds the bundle is struck and a great blaze erupts, brilliant white-gold light flooding the corner, brighter than day; the camera pulls back to medium as the light fills everything.')
+add("s16", 9, ["ascent","grandmother_sheet","girl_sheet"],
+ f"Wide view rising above the snowy rooftops and chimneys of an 1840s Danish town into a glowing cream-gold sky: {GRAN} carries {GIRL} in her arms, both bathed in light, flying upward, joy in their faces.",
+ "The grandmother lifts the girl in her arms and they rise together, up past snowy gabled rooftops and chimneys into a glowing cream-gold sky; the town shrinks below, snow drifting, serene joy. Camera rises with them.")
+add("s17", 8, ["dawn_girl","corner_dawn","girl_faces"],
+ f"Medium view at dawn of {CORNER}, in pale grey-blue light with a faint rose sky: {GIRL} sits leaning against the wall with eyes closed, rosy cheeks, a small peaceful smile, snow on her hair and shoulders, burnt matches in the snow beside her. Still and peaceful, not graphic, no blue lips.",
+ "Very slow push in on the little girl resting peacefully against the wall at dawn, eyes gently closed, a small contented smile, a light dusting of snow on her curls and shoulders, as if sleeping; a few snowflakes drift down; spent matches in the snow beside her. Calm, tender, pale grey-rose light.")
+add("s18", 5, ["keyframes/s17.png", "corner_dawn", "cast_boy_passers"],
+ 'Dawn, medium-wide view from the street side toward the same corner as the reference frame: the little girl rests seated against the LEFT wall exactly where she sits in the reference, eyes closed; in the foreground the backs of a few townspeople in dark winter coats, bonnets and a top hat; a woman in a dove-grey bonnet and dark-green coat turns her head. Pale grey-rose light, snow, muted faces. Inked gouache-and-watercolour storybook style.',
+ "Slow tilt up from the burnt matches lying in the snow, over the wall and the snowy rooftops of the town, to the morning sky as it turns faintly golden; snow drifts; a hushed, peaceful moment.")

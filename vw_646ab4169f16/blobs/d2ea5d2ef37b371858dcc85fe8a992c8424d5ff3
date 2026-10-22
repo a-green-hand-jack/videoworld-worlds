@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+"""Generate one DP key image per director shot-list row."""
+
+import argparse
+import csv
+import json
+import subprocess
+from pathlib import Path
+
+
+FAMILY_REFERENCE = {
+    "cyan-cable-attack": "working/coverage-keys/cyan-cable-attack.png",
+    "monochrome-cable-forest": "working/coverage-keys/monochrome-cable-forest.png",
+    "red-telephone-room": "working/coverage-keys/red-telephone-room.png",
+    "olive-pedestal-abyss": "working/coverage-keys/olive-pedestal-abyss.png",
+    "sepia-cage-steel-elevator": "working/coverage-keys/sepia-cage-steel-elevator.png",
+    "black-white-void": "working/coverage-keys/black-white-void.png",
+    "amber-forbidden-door": "working/coverage-keys/amber-forbidden-door.png",
+    "olive-tiled-fan-room": "working/coverage-keys/olive-tiled-fan-room.png",
+    "organic-golden-tube-world": "working/coverage-keys/organic-golden-tube-world.png",
+    "dark-green-dead-tubes": "working/coverage-keys/dark-green-dead-tubes.png",
+}
+
+
+def prompt_for(row: dict, family: str) -> str:
+    return f"""Create a brand-new 16:9 stylized dimensional 3D animated film key frame for shot {row['shot']} of an original remake, using the attached DP artwork only as a design, character, material, and color reference. Never copy or trace any original film frame. Do not reproduce the reference image's framing: make this shot's composition distinct and obey the shot-list row below.
+
+Shot-list scene: {row['scene']}
+Shot-list framing: {row['framing']}
+Shot-list camera intent: {row['camera']}
+Shot-list picture content: {row['content']}
+
+Use the established {family} Machine look. Proog must remain the same older gaunt bald guide with grey side hair and stubble, a long hooked nose, olive-green coat over dark red diamond-pattern sweater, and fingerless gloves. Emo must remain the same very thin young pale man with cropped dark hair, long neck, pale grey-green buttoned shirt, and grey trousers. Show the named speaker in frame when the row contains dialogue. Make the named action and spatial relationships immediately readable at the requested scale. Preserve tactile worn metal, dramatic wide-angle dimensional lighting, and the scene's color world. No subtitles, captions, logos, readable text, extra people, duplicated heads, extra limbs, malformed hands, or natural landscape. Keep the image clean enough to hold for a full editorial shot.
+"""
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--shotlist", type=Path, default=Path("/hutian/director/direction/shotlist.csv"))
+    parser.add_argument("--shot-log", type=Path, default=Path("picture/shot-log.json"))
+    parser.add_argument("--output-dir", type=Path, default=Path("working/shot-keys-v2"))
+    parser.add_argument("--prompt-dir", type=Path, default=Path("working/shot-key-prompts-v2"))
+    parser.add_argument("--start", required=True)
+    parser.add_argument("--end", required=True)
+    parser.add_argument("--quality", choices=("low", "medium", "high"), default="medium")
+    parser.add_argument("--overwrite", action="store_true")
+    args = parser.parse_args()
+
+    log = {s["id"]: s for s in json.loads(args.shot_log.read_text())["shots"]}
+    with args.shotlist.open(newline="") as handle:
+        rows = [row for row in csv.DictReader(handle) if args.start <= row["shot"] <= args.end]
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    args.prompt_dir.mkdir(parents=True, exist_ok=True)
+    for row in rows:
+        shot_id = row["shot"]
+        family = log[shot_id]["design_family"]
+        reference = FAMILY_REFERENCE[family]
+        prompt_path = args.prompt_dir / f"{shot_id}.txt"
+        output_path = args.output_dir / f"{shot_id}.png"
+        prompt_path.write_text(prompt_for(row, family))
+        if output_path.exists() and not args.overwrite:
+            continue
+        command = [
+            "python3", "tools/generate_picture.py",
+            "--prompt-file", str(prompt_path),
+            "--reference", reference,
+            "--quality", args.quality,
+            "--output", str(output_path),
+        ]
+        subprocess.run(command, check=True)
+        print(f"HUTIAN_KEY: {shot_id}", flush=True)
+
+
+if __name__ == "__main__":
+    main()

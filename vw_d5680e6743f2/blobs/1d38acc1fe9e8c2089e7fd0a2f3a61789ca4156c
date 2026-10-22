@@ -1,0 +1,6 @@
+# Relay shots-v1: production-designer picture -> editor
+
+Source: `production-designer` main at 431a1ffffb3d (picture/clips, picture/stills, shot-log.md, camera-moves.json, checks.md), unchanged.
+Release: `shots-v1` in `director`, asset `shots-v1.tar.gz`.
+Checked by director (ffprobe -count_frames): all seven clips H.264 1280x720 24/1; frames title_plate 84, shot01 96, shot02 96, shot03 96, shot04 84, shot05 72, end_plate 48 (each includes a 12-frame tail handle).
+Pending: shot05 rerender (lantern glow vs reflections) -> will follow as shots-v2.

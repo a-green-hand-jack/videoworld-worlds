@@ -1,0 +1,6 @@
+#!/bin/bash
+# run_batch.sh "ids" : two workers, a pause between requests (the account has a spend-based rate limit)
+for k in 0 1; do
+ a=$(echo $1 | tr ' ' '\n' | awk -v k=$k 'NR%2==k' | tr '\n' ' ')
+ (for s in $a; do python3 tools/gen_video.py $s; sleep 25; done) &
+done; wait

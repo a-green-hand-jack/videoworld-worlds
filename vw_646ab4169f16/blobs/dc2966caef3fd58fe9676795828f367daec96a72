@@ -1,0 +1,13 @@
+import json,numpy as np,scipy.io.wavfile as wf
+from faster_whisper import WhisperModel
+M="/hutian/qcwork/hf/models--Systran--faster-whisper-small.en/snapshots/d1d751a5f8271d482d14ca55d9e2deeebbae577f"
+m=WhisperModel(M,device="cpu",compute_type="int8",cpu_threads=4)
+sr,x=wf.read("/hutian/qcwork/cut-v9-16k.wav");x=x.astype(np.float32)/32768
+cues={c["line"]:c["cue"] for c in json.load(open("evidence/cut-v5/asr-isolated.json"))}
+for L in ["L31","L33","L54"]:
+    cs,ce=cues[L]
+    for pad in (1.0,1.5,2.5):
+        a=max(0,cs-pad);b=ce+pad
+        seg=x[int(a*sr):int(b*sr)].copy();seg*=0.7/(np.abs(seg).max()+1e-6)
+        s,_=m.transcribe(seg,language="en",condition_on_previous_text=False,word_timestamps=True)
+        print(L,cs,pad,[(w.word.strip(),round(w.start+a,2),round(w.end+a,2)) for t in s for w in t.words],flush=True)

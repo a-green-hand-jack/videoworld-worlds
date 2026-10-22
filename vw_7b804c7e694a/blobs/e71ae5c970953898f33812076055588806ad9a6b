@@ -1,0 +1,19 @@
+"""usage: tts.py OUT.wav VOICE "text" ["style prefix"]  (style, if given, is prepended as '(style) ')"""
+import base64, json, os, subprocess, sys, urllib.request, wave
+out, voice, text = sys.argv[1:4]
+style = sys.argv[4] if len(sys.argv) > 4 else ""
+url = subprocess.check_output(["ht-resource","url","speech"],text=True).strip()
+tok = os.environ["HT_RESOURCE_TOKEN"]
+t = f"({style}) {text}" if style else text
+body = {"contents":[{"parts":[{"text":t}]}],
+        "generationConfig":{"responseModalities":["AUDIO"],"speechConfig":{"voiceConfig":{"prebuiltVoiceConfig":{"voiceName":voice}}}}}
+req = urllib.request.Request(url+"/v1beta/models/gemini-3.8-flash-tts:generateContent", json.dumps(body).encode(), {"x-goog-api-key":tok,"Content-Type":"application/json"})
+r = json.load(urllib.request.urlopen(req, timeout=300))
+for p in r["candidates"][0]["content"]["parts"]:
+    if "inlineData" in p:
+        d = base64.b64decode(p["inlineData"]["data"])
+        os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+        if d[:4]==b"RIFF": open(out,"wb").write(d)
+        else:
+            w = wave.open(out,"wb"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(d); w.close()
+        print(out)

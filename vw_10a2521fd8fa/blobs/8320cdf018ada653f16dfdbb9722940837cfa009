@@ -1,0 +1,21 @@
+"""raw TTS -> trimmed, tempo-adjusted, 48 kHz mono, level-matched line WAVs + cue_sheet.json (line durations)."""
+import json, subprocess, re, sys
+TEMPO = {"NARRATOR": 1.0, "GIRL": 1.0, "PASSERBY": 1.0}
+TARGET = {"NARRATOR": -19.0, "GIRL": -19.0, "PASSERBY": -20.0}   # LUFS integrated per line
+def sh(*a): return subprocess.run(a, capture_output=True, text=True)
+def lufs(p):
+    r = sh("ffmpeg","-nostats","-i",p,"-af","ebur128=peak=true","-f","null","-")
+    return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
+out = []
+for i, sp, t in json.load(open("tools/lines.json")):
+    raw = f"voice/raw/{i}.wav"; tmp = f"/tmp/{i}.wav"; dst = f"lines/{i}.wav"
+    af = f"silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.04,areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.12,areverse"
+    if TEMPO[sp] != 1.0: af += f",atempo={TEMPO[sp]}"
+    sh("ffmpeg","-y","-i",raw,"-af",af,"-ar","48000","-ac","1",tmp)
+    g = TARGET[sp] - lufs(tmp)
+    sh("ffmpeg","-y","-i",tmp,"-af",f"volume={g}dB,alimiter=limit=0.89:level=disabled,apad=pad_dur=0.0","-c:a","pcm_s24le","-ar","48000","-ac","1",dst)
+    d = float(sh("ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",dst).stdout)
+    out.append({"id": i, "speaker": sp, "text": t, "file": dst, "duration_s": round(d, 3)})
+    print(i, round(d, 2), round(lufs(dst), 1))
+json.dump({"lines": out, "total_speech_s": round(sum(o["duration_s"] for o in out), 2)}, open("lines/cue_sheet.json", "w"), indent=1)
+print(sum(o["duration_s"] for o in out))

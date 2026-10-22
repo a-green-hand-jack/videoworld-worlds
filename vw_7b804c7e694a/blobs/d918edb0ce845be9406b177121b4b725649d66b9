@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+"""Time the cut from the director's script and shot list, and the line lengths.
+
+usage: timeline.py DIRECTOR_CHECKOUT OUT_DIR [--lines LINES.json] [--wps 2.4] [--target 120]
+LINES.json: {"<line no>": seconds, ...} measured from the recorded takes; lines missing
+from it are estimated at --wps words per second (+0.2 s).
+Each shot holds its lines in order from LEAD after its head, GAP apart, and TAIL after the last;
+it is never shorter than that, and its slack over that minimum (from the shot-list duration)
+is scaled so the whole cut lands on --target seconds when it can.
+Writes OUT_DIR/edl.json (shots with record in/out, lines with start/end) and OUT_DIR/scratch.srt.
+"""
+import argparse, json, os, re, textwrap
+
+LEAD, GAP, TAIL, MIN_SHOT, FPS = 0.3, 0.3, 0.3, 2.0, 24
+BG = {"STREET": "0x1b2240", "VISION": "0x4a3010", "DAWN": "0x5a5464", "brilliant": "0x6e6030",
+      "night": "0x101830"}
+
+def table(md):
+    rows = []
+    for line in md.splitlines():
+        if line.startswith("|") and not re.match(r"^\|[-| ]+\|$", line):
+            rows.append([c.strip() for c in line.strip().strip("|").split("|")])
+    return rows[1:]
+
+def fr(x):
+    return round(x * FPS) / FPS
+
+def srt_tc(x):
+    ms = round(x * 1000); return f"{ms//3600000:02d}:{ms//60000%60:02d}:{ms//1000%60:02d},{ms%1000:03d}"
+
+def split_cue(a, b, text, limit=84):
+    """Split a cue longer than two 42-character lines at the clause break nearest its middle."""
+    if len(text) <= limit and len(textwrap.wrap(text, 42)) <= 2:
+        return [(a, b, text)]
+    cuts = [m.end() for m in re.finditer(r"[,:;—…]\s|\.\s", text)]
+    k = min(cuts, key=lambda c: abs(c - len(text) / 2)) if cuts else text.rfind(" ", 0, len(text) // 2) + 1
+    head, tail = text[:k].strip(), text[k:].strip()
+    m = a + (b - a) * len(head) / (len(head) + len(tail))
+    return split_cue(a, m, head, limit) + split_cue(m, b, tail, limit)
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("director"); ap.add_argument("out")
+    ap.add_argument("--lines"); ap.add_argument("--wps", type=float, default=2.4)
+    ap.add_argument("--target", type=float, default=120.0)
+    ap.add_argument("--srcs", help="JSON {shot id: {src, src_in}} for shots that exist")
+    ap.add_argument("--cues", help="sound-designer cue_sheet.json: measured durations and the spoken text")
+    ap.add_argument("--min", default="", help="shot minimums, e.g. s14=4.2,s18=4.0 (beats that need to land)")
+    ap.add_argument("--keyframes", help="directory of <shot id>.png used where no shot exists")
+    a = ap.parse_args()
+    measured = json.load(open(a.lines)) if a.lines else {}
+    srcs = json.load(open(a.srcs)) if a.srcs else {}
+    spoken = {}
+    if a.cues:
+        for c in json.load(open(a.cues))["lines"]:
+            n = str(int(c["id"].lstrip("L"))); measured[n] = c["duration_s"]; spoken[n] = c["text"]
+    lines = []
+    for n, shot, who, text in table(open(f"{a.director}/direction/script.md").read()):
+        if not n.isdigit(): continue
+        est = len(re.findall(r"[A-Za-z']+", text)) / a.wps + 0.2
+        lines.append({"line": n, "shot": shot, "speaker": who.split(" (")[0], "text": spoken.get(n, text),
+                      "dur": float(measured.get(n, est)), "measured": n in measured})
+    mins = {k: float(v) for k, v in (x.split("=") for x in a.min.split(",") if x)}
+    shots = []
+    for sid, time, dur, ln, framing, seen, pal in table(open(f"{a.director}/direction/shot-list.md").read()):
+        own = [l for l in lines if l["shot"] == sid]
+        need = LEAD + sum(l["dur"] for l in own) + GAP * max(len(own) - 1, 0) + TAIL if own else (
+            float(dur.split()[0]) if sid == "end" else MIN_SHOT)
+        if "strike" in ln: need += 1.0  # the strike lands after the line
+        sid2 = sid if sid == "end" else f"s{sid.zfill(2) if sid.isdigit() else sid.zfill(3)}"
+        need = max(need, mins.get(sid2, 0.0))
+        shots.append({"id": sid2,
+                      "shot": sid, "target": float(dur.split()[0]), "need": need, "own": own,
+                      "pal": pal, "framing": framing, "seen": seen})
+    fixed = sum(s["need"] for s in shots)
+    slack = sum(max(s["target"] - s["need"], 0) for s in shots)
+    k = min(1.0, max(0.0, (a.target - fixed) / slack)) if slack else 0.0
+    t, edl, cues = 0.0, [], []
+    for s in shots:
+        d = s["need"] + k * max(s["target"] - s["need"], 0)
+        start, end = fr(t), fr(t + d)
+        x = start + LEAD
+        for l in s["own"]:
+            l["start"], l["end"] = round(x, 3), round(x + l["dur"], 3); x += l["dur"] + GAP
+            cues.append(l)
+        e = {"id": s["id"], "dur": round(end - start, 4), "in": round(start, 3), "out": round(end, 3),
+             "lines": [l["line"] for l in s["own"]]}
+        if s["shot"] == "end":
+            e.update(title=["The Little Match Girl", "after Hans Christian Andersen"], fade_in=0.75)
+        elif s["id"] in srcs:
+            e.update(srcs[s["id"]])
+        elif a.keyframes and os.path.exists(f"{a.keyframes}/{s['id']}.png"):
+            e.update(src=os.path.abspath(f"{a.keyframes}/{s['id']}.png"))
+        else:
+            bg = next((v for kk, v in BG.items() if kk in s["pal"]), "0x101418")
+            e.update(src=None, bg=bg, slate=f"{s['framing']}  [{s['pal']}]\n\n" + textwrap.fill(s["seen"], 70))
+        edl.append(e); t = end
+    os.makedirs(a.out, exist_ok=True)
+    with open(f"{a.out}/scratch.srt", "w") as f:
+        i = 0
+        for l in cues:
+            for pa, pb, part in split_cue(l["start"], l["end"], l["text"]):
+                i += 1; f.write(f"{i}\n{srt_tc(pa)} --> {srt_tc(pb)}\n" + "\n".join(textwrap.wrap(part, 42)) + "\n\n")
+    json.dump({"fps": FPS, "width": 1280, "height": 720, "shots": edl, "srt": "scratch.srt",
+               "out": os.path.basename(a.out.rstrip("/")) + ".mp4",
+               "lines": [{k2: l[k2] for k2 in ("line", "shot", "speaker", "start", "end", "dur", "measured", "text")}
+                         for l in cues]}, open(f"{a.out}/edl.json", "w"), indent=1, ensure_ascii=False)
+    print(f"total {t:.3f} s; speech {sum(l['dur'] for l in lines):.1f} s; slack scale {k:.2f}")
+    for e in edl:
+        print(f"{e['id']:>4} {e['in']:8.3f} {e['out']:8.3f} {e['dur']:6.3f}  lines {','.join(e['lines'])}")
+
+if __name__ == "__main__":
+    main()

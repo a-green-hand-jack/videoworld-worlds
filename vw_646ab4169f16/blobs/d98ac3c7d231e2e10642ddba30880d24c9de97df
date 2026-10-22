@@ -1,0 +1,15 @@
+# Builds script.md / script.csv from script_src.py (dialogue) and shots_src.py (shot of each line).
+import sys, os, csv
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from script_src import L
+from shots_src import S
+os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+def tc(t): return f"{int(t//60):02d}:{t%60:05.2f}"
+def shot(t): return next(s[0] for s in S if s[1]<=t<s[2])
+hdr = open("tools/script_header.md").read()
+rows=[f"| {l[0]} | {tc(l[1])} | {tc(l[2])} | {shot(l[1])} | {'Proog' if l[3]=='P' else 'Emo'} | {l[4]} | {l[5]} |" for l in L]
+open("script.md","w").write(hdr+"\n".join(rows)+"\n")
+with open("script.csv","w",newline="") as f:
+    w=csv.writer(f); w.writerow(["line","start_s","end_s","shot","speaker","text","note"])
+    for l in L: w.writerow([l[0],f"{l[1]:.1f}",f"{l[2]:.1f}",shot(l[1]),'Proog' if l[3]=='P' else 'Emo',l[4],l[5]])
+print(len(L), "lines")

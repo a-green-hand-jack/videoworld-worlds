@@ -1,0 +1,43 @@
+{
+  "tag": "picture-batch-033",
+  "pass": "S078-costume-continuity-correction",
+  "ids": [
+    "S078"
+  ],
+  "shots": [
+    {
+      "id": "S078",
+      "key_frame_asset": "S078-key.png",
+      "key_frame_sha256": "5f1c92aff503180eb3d355261ae0399fc81ab8d9aefdb54566bd61e17c2b7e26",
+      "asset": "S078.mp4",
+      "sha256": "7fd11008b07728e3fbc942b5270a9218967cc68eb99bbbbfdeb0ef7369133151",
+      "frames": 40,
+      "frame_in": 8714,
+      "frame_out_exclusive": 8754,
+      "fps": 24,
+      "size": "1024x576",
+      "codec": "h264",
+      "pix_fmt": "yuv420p",
+      "motion": "Sub-pixel camera motion; Coverage pass: push-in camera motion across the corrected S078 key; action animation and shot-specific composition pending refinement.",
+      "design_family": "black-white-void",
+      "content": "Shot-specific coverage key: Emo's face, eyes lowered, glowing green-white. Emo: '...nothing.'",
+      "framing": "CU",
+      "camera_intent": "static",
+      "working_artwork": "working/shot-keys-v6/S078.png",
+      "direction": "director/direction/shotlist.csv at b646947588299dfc1e38b37d03c1b738a2aae72f S078",
+      "design": "production-designer/design/bible.md at 806630ddc7c2b6186e5cbc52a35431f125bbc0c4; release design-shot-reference-v2 is source-only visual study",
+      "costume_standard": "production-designer/design/characters.md section Costume continuity lock at 9ba440ff60225d40165f6100b94fdc9f64dd0cb4",
+      "costume_correction": "Plain fitted washed-out grey-green crew-neck shirt with subtle dark stitched horizontal chest seam; no collar, buttons, vertical placket, henley, suspenders, shoulder strap, or bag.",
+      "refinement_status": "action-animation-and-mouth-sync-refinement-pending",
+      "enters_by": "cut"
+    }
+  ],
+  "supersedes": "picture-batch-032 S078 asset",
+  "timeline": "editor edit/timeline.json v1 at fff172e6b3f16a1fe7ac1b4fe2f0f9a165ae2522",
+  "direction": "director direction-v3 at b646947588299dfc1e38b37d03c1b738a2aae72f",
+  "design": "production-designer design/bible.md at 806630ddc7c2b6186e5cbc52a35431f125bbc0c4; costume lock at 9ba440ff60225d40165f6100b94fdc9f64dd0cb4",
+  "source_policy": "Every key and shot is newly generated from DP artwork; no original-film pixels, filtered frames, traces or upscales are used.",
+  "standard": "S078 is corrected to the production-designer costume continuity lock, retains the exact 40-frame timeline duration and 1024x576 constant-24-fps H.264 picture, and has measured sub-pixel camera motion.",
+  "motion_evidence": "evidence/s078-motion-v7.json",
+  "correction_evidence": "evidence/costume-audit-v7.json"
+}

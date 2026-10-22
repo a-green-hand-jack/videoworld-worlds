@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+"""cut-v6c EDL: cut-v6b with s15 ending before the grandmother's off-costume wide, and s04 on dp's other retake, s04_wan1 (shots-b6). qc's judder.py measures it clean (no repeated
+frame, no jump; s04_wan2 has 2 repeats and 4 jumps). Passers-by pass her through "who will buy my matches?", then she
+stands alone and lowers her hand for "No one had bought a single match." Run from this directory."""
+import json
+e = json.load(open("../cut-v6b/edl.json"))
+for s in e["shots"]:
+    if s["id"] == "s04":
+        s["src"] = "/hutian/dp/shots/s04_wan1.mp4"; s["src_in"] = 0.0
+# s15 ends at src 2.43 (92.208), before the wide where the grandmother stands in a cream shawl and pale dress
+# (qc editor#15: costume against s14/s16); s16's rise starts there from its src 0 (the embrace in the glow, on
+# "to keep her near"), and s17 opens 0.042 s earlier to keep the slots joined
+B = {s["id"]: s for s in e["shots"]}
+B["s15"].update(dur=2.333, out=92.208)
+B["s16"].update(src_in=0.0, dur=10.042, **{"in": 92.208})
+B["s17"].update(dur=7.209, **{"in": 102.25})
+B["s17"]["parts"][0].update(src_in=0.358, dur=5.242)
+# s14b and s18b advance on every other frame (director's cadence scan f8080a5: alt2 0.19 / 0.34): each is re-made from
+# its even frames (12 per second) with motion-compensated in-betweens back to 24 fps (minterpolate mci), alt2 -> 0.01 / 0.03
+EV = "/hutian/media/even"
+B["s14"]["src"] = f"{EV}/s14b_wan1_h0.mp4"
+B["s18-s19"]["parts"][0]["src"] = f"{EV}/s18b_wan1_h0.mp4"
+e.update(out="cut-v6c.mp4", srt="film.srt")
+json.dump(e, open("edl.json", "w"), indent=1)

@@ -1,0 +1,21 @@
+{
+  "tag": "picture-batch-004",
+  "id": "S003",
+  "asset": "S003.mp4",
+  "sha256": "cb22f0c53a05b1bf7bb30f25f046e07b50345e44807bf7751972da93b8bcd840",
+  "frames": 69,
+  "frame_in": 654,
+  "frame_out_exclusive": 723,
+  "fps": 24,
+  "size": "1024x576",
+  "source_artwork": [
+    "working/s003-cable-attack-start.png",
+    "working/s003-cable-attack-impact.png"
+  ],
+  "designer_reference": "production-designer design/bible.md at 8870af30a095b7272376253b533bdac021773538; cyan-cable-attack family; source study design-shot-reference-v2",
+  "direction": "director direction-v3 S003",
+  "timeline": "editor edit/timeline.json v1 at 6f06f4960d0688431c88d3c8c6d45b2c1ba4f22c",
+  "sound": "none in this picture clip; editor synchronizes separate mix",
+  "action": "Newly generated running and cable-impact keys joined by a one-frame whip-wipe; fast rightward camera pan holds motion through the shot.",
+  "source_policy": "No original-film pixels used; source midpoint was reference-only for composition and timing."
+}

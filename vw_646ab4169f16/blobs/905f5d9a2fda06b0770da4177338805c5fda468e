@@ -1,0 +1,27 @@
+# Coverage pass S004–S126
+
+## Measured delivery
+
+- Validated 123 separate MP4 assets against the v1 timeline: every file decoded fully with FFmpeg 7.0.2 as 1024×576 H.264 `yuv420p`, constant 24 fps, and its exact logged frame count.
+- `evidence/coverage-midpoints-s004-s126.jpg` shows one decoded midpoint per ID in timeline order.
+- Coverage keys are newly generated DP artwork grouped by production-design family; no original-film pixels are used.
+- Coverage plates provide camera motion and are explicitly marked `coverage-released-refinement-pending`; action, speaker mouth motion and shot-specific composition remain refinement work.
+
+## Release batches
+
+- `picture-batch-005`: S004–S013 (10 shots), manifest `picture/releases/picture-batch-005.json`.
+- `picture-batch-006`: S014–S023 (10 shots), manifest `picture/releases/picture-batch-006.json`.
+- `picture-batch-007`: S024–S033 (10 shots), manifest `picture/releases/picture-batch-007.json`.
+- `picture-batch-008`: S034–S043 (10 shots), manifest `picture/releases/picture-batch-008.json`.
+- `picture-batch-009`: S044–S053 (10 shots), manifest `picture/releases/picture-batch-009.json`.
+- `picture-batch-010`: S054–S063 (10 shots), manifest `picture/releases/picture-batch-010.json`.
+- `picture-batch-011`: S064–S073 (10 shots), manifest `picture/releases/picture-batch-011.json`.
+- `picture-batch-012`: S074–S083 (10 shots), manifest `picture/releases/picture-batch-012.json`.
+- `picture-batch-013`: S084–S093 (10 shots), manifest `picture/releases/picture-batch-013.json`.
+- `picture-batch-014`: S094–S103 (10 shots), manifest `picture/releases/picture-batch-014.json`.
+- `picture-batch-015`: S104–S113 (10 shots), manifest `picture/releases/picture-batch-015.json`.
+- `picture-batch-016`: S114–S126 (13 shots), manifest `picture/releases/picture-batch-016.json`.
+
+## Editor handoff
+
+- Each release carries a separate `<shot-id>.mp4` asset keyed to the editor timeline. Sound is not present in picture clips; editor and sound-designer own assembly and mix.

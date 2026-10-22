@@ -1,0 +1,72 @@
+# Design bible — "The Little Match Girl"
+
+Owner: production-designer. Reference images: see `design/refs.md` and the release it names. Every shot is made from these; if a shot cannot hold a rule, ask in an issue in this repository.
+
+## 1. Style (one look for every shot)
+Soft gouache-and-watercolour storybook illustration, 19th-century Danish fairy-tale picture book. Visible paper grain and dry-brush texture, slightly soft edges, painted (not photographic, not 3D, not anime, no hard digital outlines, no lens flare, no HDR gloss). Subtle 2.5D motion only: snow, flame flicker, slow camera moves. 16:9.
+
+**Light as story / palette logic**
+| Mode | Used in | Palette |
+|---|---|---|
+| STREET | shots 1–6 and every return to the cold wall | indigo `#1E2A4A`, slate blue `#4A5E80`, snow white `#E8EEF5`, wet-stone wall `#5B6478`; warm window light only as small accents (`#E8A547`) |
+| VISION | match visions 7–15 | amber `#F2A33A`, gold `#E8B84A`, candle orange `#E8742A`, deep warm brown shadow `#3A2214`; each vision warmer than the last |
+| WHITE-GOLD | grandmother, bundle, ascent (13–16) | cream-white `#FFF6DC`, gold `#F6D777`, brighter than day |
+| DAWN | 17–19 | pale grey-blue `#B9C3CF`, faint rose `#D9A9A5`, last shot rising to faint gold `#EBCB8B` |
+
+No electric or gas lighting anywhere: candles, oil lamps, firelight only.
+
+## 2. The girl (identity — never change)
+- About 8 years old, thin, small. Oval pale face, large dark-brown eyes, small straight nose and cheeks red with cold, chapped lips.
+- **Hair:** long fair/straw-blond loose curls to mid-back, tangled, **bareheaded in every shot — nothing on her head, ever.** Snow in her hair in the street shots.
+- **Dress:** thin, patched, long-sleeved wool dress, brown-grey (`#6E6259`), calf length, visible lighter-brown square patch on the left elbow and on the right hip.
+- **Apron:** old faded blue apron (`#5F7FA6`, small white check pattern), its two lower corners knotted up at the hip to form a pouch holding matches.
+- **Shawl:** a thin dark-grey (`#4A4A52`) shawl over her **shoulders only** (never over her head); present in street and corner shots, still on in visions.
+- **Matches:** a small bundle of thin matches with reddish-brown heads in her right hand; more in the apron pouch.
+- **Feet:** bare, red and blue with cold, from shot 3 on. **Shot 2 only:** far-too-big worn brown adult slippers (hers are lost in shot 3: they fly off, a boy snatches one).
+- Same clothes in the visions and the ascent (bathed in light, still recognisably her). Dawn variant (17–19): same clothes, snow on her, eyes closed, rosy cheeks, small peaceful smile, matches burnt beside her. Not graphic: no blue lips, no distress.
+
+## 3. The grandmother
+Small, old, kind. White hair under a plain white linen cap, soft lined face with a gentle smile, warm grey-blue eyes. Plain dress in soft lilac-grey (`#8F8AA5`), white collar, a dark plum shawl (`#5A3F55`) over her shoulders. Glows white-gold in the visions; taller, more radiant when the bundle burns (shots 15–16). Always the same face as the sheet.
+
+## 4. Supporting cast
+- **The boy:** ~10, ragged, oversized dark cap, patched brown jacket, laughing; takes one slipper and runs.
+- **Passers-by:** 1840s winter dress — long dark wool coats, top hats, bonnets, fur muffs, scarves; faces muted and turned away; never lit warmer than the girl.
+- **Morning townspeople (18):** same coats, a woman in a dove-grey bonnet and dark-green coat (the speaker, gentle face), a man in a top hat, a young apprentice; pale dawn light, muted faces.
+
+## 5. Places
+- **The street (1–5):** narrow cobbled Danish town street, 1840s, dusk, snow falling and lying on cobbles; tall narrow gabled houses in ochre, rust and grey stucco with small-paned windows lit by candles; moonless dark-indigo sky; a lit window with a family table in one house (shot 5).
+- **The CORNER (6–17, 19):** a nook where two house fronts meet; the **left house stands further out** (ochre stucco, closed shuttered door), the **right house is set back** (rust-grey stucco). The back wall of the nook is rough, cold, plastered wet-stone grey with cracks and a few scrape marks (where she strikes matches), one darker stained patch at about her head height. A stone step at the foot. Snow drifted in the angle. A closed window above, dark. This wall is where every match is struck and where every vision appears or returns. Dawn variant: same geometry, pale rose-grey light, deeper snow, burnt matches scattered in the snow at her feet.
+- **Stove vision (8):** a tall rounded black cast-iron stove (see `vision_stove.png`) with polished brass claw feet and a brass ornament/knob lid, glowing orange through its door, standing in front of the corner wall to the right of her.
+- **Goose room (9–10):** seen through the transparent wall as through a veil: white tablecloth, fine blue-and-white porcelain, candles, steaming roast goose stuffed with apples and prunes; it hops off the dish with a knife and fork in its back. Whimsical, not grotesque.
+- **Christmas tree (11–12):** an enormous dark-green fir filling the frame, thousands of small candles, hanging coloured paper pictures and ornaments (red, blue, gold); the candles rise into a night sky of stars; one star falls with a long fire trail.
+- **Ascent (16):** rooftops of the same gabled town, snow-covered chimneys, far below; luminous cream-gold sky. Grandmother carries the girl.
+- **Props:** matches (thin wooden sticks, red-brown heads, flame small and warm amber), burnt black matches, a small bundle tied with twine, the knotted apron, the slippers (brown, cracked, three sizes too big), two black horse-drawn carriages with lit lanterns and dark horses.
+
+## 6. Do-not-change list
+1. Girl bareheaded, fair curls, blue checked apron, brown-grey patched dress, dark shawl on shoulders only.
+2. Barefoot from shot 3; slippers only in shot 2.
+3. Corner: left house stands further out; one cracked stone-grey wall; same step.
+4. Grandmother: white cap, lilac-grey dress, plum shawl.
+5. Painted gouache look in every shot; warm = match/vision, cold = street, pale rose = dawn.
+6. No text, signage, logos or watermark in any image.
+
+## 7. Prompt snippets for dp (paste into video/key-frame prompts)
+- STYLE: "soft gouache and watercolour storybook illustration, 19th-century Danish fairy-tale picture book, visible paper grain, painterly, not photoreal, not 3D, not anime"
+- GIRL: "an 8-year-old thin pale girl, bareheaded with long tangled fair curls, red-cold cheeks, large dark eyes, patched brown-grey wool dress, faded blue checked apron knotted up at the corners holding matches, thin dark-grey shawl on her shoulders, bare red-blue feet"
+- GRANDMOTHER: "a small old woman with kind lined face, white linen cap, lilac-grey dress, dark plum shawl, glowing white-gold"
+- CORNER: "a snowy nook where two 1840s Danish house fronts meet, the left ochre house standing further out, the right rust-grey house set back, a rough cracked wet-stone grey plaster back wall, a stone step"
+
+## 8. Round 2 — the ending the video models will make (shots 17–19)
+Round 1: the video model's safety filter refused the child at dawn (shot 17) and the townspeople finding her (shot 18). Narration lines 21–23 already say what happened ("frozen to death", "She wanted to warm herself", "the joy she had gone to"), so the picture does not have to show the child's body. The design rule: **the ending is told by place, objects, light and the people who come — never by a close view of the girl's body.** Two tiers; dp tries tier A first (empty-corner first frames cannot trip an input filter), keeps tier B for a shot that A cannot carry.
+
+**Tier A — the corner without the child (use first).**
+- 17: first frame `corner_dawn.png` (empty corner, burnt matches in snow, pale rose-grey). Prompt the model for motion in the place: snow settles, a thin breath of warm gold slowly rises on the cracked wall where she struck her matches and fades, snow drifts down onto the burnt matches. Camera: real model push-in toward the step, or first frame `corner_dawn.png` → last frame `ending/end_step_matches_crop.png` (the same painting 1.8× closer) with the model interpolating; this makes smooth motion without a still-image push. Alternate view: `ending/end_wall_scrapes_crop.png` (the scrape marks where every match was struck).
+- 18: the townspeople arrive: first frame `corner_dawn.png` (empty), people enter from the street side in long dark coats, top hat, bonnets, the woman in the dove-grey bonnet and dark-green coat (`cast_boy_passers.png`), and stop at the mouth of the corner looking down toward the foot of the wall — framed from behind / three-quarter back, **no face shown, the thing they look at stays behind their coats or below the frame edge**. The woman turns her head in profile and speaks the line. Do not prompt "dead", "body", "frozen", "corpse", "lying"; prompt "stop and look down quietly", "one gently bows her head".
+- 19: tilt up from the burnt matches in the snow over the rooftops to the morning sky, faint gold (as in the shot list); no figure needed.
+- Light and colour: DAWN palette of §1 only; no warm light except the faint gold in 17 and the last sky of 19.
+
+**Tier B — the girl at distance, if the story needs her seen.** `dawn_girl.png` is the reference for the girl at dawn (eyes closed, rosy cheeks, small smile, snow on curls, shawl, blue checked apron, bare feet; sleeping posture, not lying flat). Only in a wide or medium-wide frame, small in the picture, partly behind the townspeople, never in close-up, never alone-in-frame with a slow push on her face. Prompt "asleep", "resting", "peaceful"; avoid the words in the list above.
+
+**Do-not-change for the ending:** same corner geometry (left ochre house further out, right rust house set back, cracked grey wall, same step); burnt matches only in the snow near the step; no new characters besides the §4 townspeople; girl bareheaded with fair curls when she appears; no text.
+
+**Pending.** New painted plates for tier A/B (the folded shawl and burnt bundle on the step; the townspeople seen from behind; boots and long shadows at dawn; the dawn sky over the rooftops with the last stars) are scripted in `tools/ending.sh` but image-generation answered HTTP 402 ("prepayment credits are depleted") on 2026-10-22. Until it is available again the only new plates are the two crops of `corner_dawn.png` in `refs/ending/`.

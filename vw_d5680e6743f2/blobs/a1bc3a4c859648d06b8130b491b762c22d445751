@@ -1,0 +1,149 @@
+[
+  {
+    "file": "picture/clips/title_plate.mp4",
+    "still": "picture/stills/title_plate.png",
+    "frames": 84,
+    "fps": 24,
+    "seconds": 3.5,
+    "zoom": [
+      1.0,
+      1.02
+    ],
+    "anchor": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ]
+  },
+  {
+    "file": "picture/clips/shot01.mp4",
+    "still": "picture/stills/shot01.png",
+    "frames": 96,
+    "fps": 24,
+    "seconds": 4.0,
+    "zoom": [
+      1.0,
+      1.06
+    ],
+    "anchor": [
+      [
+        0.35,
+        0.68
+      ],
+      [
+        0.35,
+        0.68
+      ]
+    ]
+  },
+  {
+    "file": "picture/clips/shot02.mp4",
+    "still": "picture/stills/shot02.png",
+    "frames": 96,
+    "fps": 24,
+    "seconds": 4.0,
+    "zoom": [
+      1.12,
+      1.12
+    ],
+    "anchor": [
+      [
+        0.05,
+        0.55
+      ],
+      [
+        0.95,
+        0.55
+      ]
+    ]
+  },
+  {
+    "file": "picture/clips/shot03.mp4",
+    "still": "picture/stills/shot03.png",
+    "frames": 96,
+    "fps": 24,
+    "seconds": 4.0,
+    "zoom": [
+      1.08,
+      1.08
+    ],
+    "anchor": [
+      [
+        0.25,
+        0.55
+      ],
+      [
+        0.75,
+        0.55
+      ]
+    ]
+  },
+  {
+    "file": "picture/clips/shot04.mp4",
+    "still": "picture/stills/shot04.png",
+    "frames": 84,
+    "fps": 24,
+    "seconds": 3.5,
+    "zoom": [
+      1.055,
+      1.0
+    ],
+    "anchor": [
+      [
+        0.4,
+        0.58
+      ],
+      [
+        0.4,
+        0.58
+      ]
+    ]
+  },
+  {
+    "file": "picture/clips/shot05.mp4",
+    "still": "picture/stills/shot05.png",
+    "frames": 72,
+    "fps": 24,
+    "seconds": 3.0,
+    "zoom": [
+      1.0,
+      1.065
+    ],
+    "anchor": [
+      [
+        0.52,
+        0.51
+      ],
+      [
+        0.52,
+        0.51
+      ]
+    ]
+  },
+  {
+    "file": "picture/clips/end_plate.mp4",
+    "still": "picture/stills/end_plate.png",
+    "frames": 48,
+    "fps": 24,
+    "seconds": 2.0,
+    "zoom": [
+      1.0,
+      1.0
+    ],
+    "anchor": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ]
+  }
+]

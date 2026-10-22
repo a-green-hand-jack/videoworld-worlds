@@ -1,0 +1,87 @@
+#!/usr/bin/env python3
+"""Build reference-only source snapshots for the director's shot list."""
+
+import argparse
+import csv
+from pathlib import Path
+import subprocess
+import zipfile
+
+import imageio_ffmpeg
+from PIL import Image, ImageDraw
+
+
+SCENE_DESIGNS = {
+    "SC01": "ochre-title-wall",
+    "SC02": "cyan-cable-attack",
+    "SC03": "monochrome-cable-forest",
+    "SC04": "red-telephone-room",
+    "SC05": "olive-pedestal-abyss",
+    "SC06": "sepia-cage-steel-elevator",
+    "SC07": "black-white-void",
+    "SC08": "amber-forbidden-door",
+    "SC09": "olive-tiled-fan-room",
+    "SC10": "organic-golden-tube-world",
+    "SC11": "dark-green-dead-tubes",
+    "SC12": "black-credits-field",
+}
+
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--shotlist", type=Path, required=True)
+    parser.add_argument("--source", type=Path, required=True)
+    parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--manifest", type=Path, required=True)
+    args = parser.parse_args()
+    shots = list(csv.DictReader(args.shotlist.open()))
+    if not shots:
+        raise ValueError("Empty shot list")
+    args.out.mkdir(parents=True, exist_ok=True)
+    ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+    records = []
+    for index, shot in enumerate(shots):
+        shot_id = shot["shot"]
+        start = float(shot["in_s"])
+        end = float(shot["out_s"])
+        if end <= start or (index and abs(start - float(shots[index - 1]["out_s"])) > 0.011):
+            raise ValueError(f"Invalid or noncontiguous shot {shot_id}")
+        midpoint = (start + end) / 2
+        region = SCENE_DESIGNS[shot["scene"]]
+        guide = "design/opening-wall.md" if shot["scene"] == "SC01" else "design/bible.md"
+        filename = f"{shot_id}-source-midpoint.png"
+        subprocess.run([ffmpeg, "-hide_banner", "-loglevel", "error", "-ss", f"{midpoint:.6f}",
+                        "-i", str(args.source), "-frames:v", "1", "-y", str(args.out / filename)], check=True)
+        records.append([shot_id, shot["scene"], shot["in_s"], shot["out_s"], f"{midpoint:.6f}",
+                        filename, region, guide, shot["framing"], shot["camera"], shot["content"]])
+        if index % 20 == 0:
+            print(f"HUTIAN_WAKE: Extracted director-list reference stills through {shot_id}", flush=True)
+    args.manifest.parent.mkdir(parents=True, exist_ok=True)
+    with args.manifest.open("w", newline="") as stream:
+        writer = csv.writer(stream)
+        writer.writerow(["director_shot_id", "scene", "source_in_s", "source_out_s", "source_midpoint_s",
+                         "still_in_design_shot_reference_v2", "scene_design_family", "design_file",
+                         "director_framing", "director_camera", "director_content_reference_only"])
+        writer.writerows(records)
+    columns = 5
+    rows = 5
+    for first in range(0, len(records), columns * rows):
+        board = Image.new("RGB", (columns * 325, rows * 209), "#101010")
+        draw = ImageDraw.Draw(board)
+        for position, record in enumerate(records[first:first + columns * rows]):
+            x = (position % columns) * 325
+            y = (position // columns) * 209
+            still = Image.open(args.out / record[5])
+            still.thumbnail((320, 180))
+            board.paste(still, (x, y))
+            draw.text((x + 4, y + 182), f"{record[0]} source {float(record[4]):06.2f}s REF ONLY", fill="white")
+        board.save(args.out / f"sheet-{first // (columns * rows) + 1:02d}.jpg", quality=83)
+    with zipfile.ZipFile(args.out / "source-shot-midpoint-studies.zip", "w", compression=zipfile.ZIP_DEFLATED, compresslevel=3) as archive:
+        for record in records:
+            archive.write(args.out / record[5], record[5])
+    print(f"Mapped {len(records)} director shots through {records[-1][3]}s; scene families follow director direction notes", flush=True)
+
+
+if __name__ == "__main__":
+    main()

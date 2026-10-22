@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+"""Check a cut against the delivery spec's measurable points (1-6, 11, 12).
+usage: verify.py FILM.mp4 FILM.srt [--whisper]  -> prints a report; exit 1 on a must-fail."""
+import json, re, subprocess, sys
+
+def sh(*a):
+    return subprocess.run(a, capture_output=True, text=True)
+
+film, srt = sys.argv[1], sys.argv[2]
+fails, rep = [], []
+p = json.loads(sh("ffprobe", "-v", "error", "-show_format", "-show_streams", "-of", "json", film).stdout)
+v = [s for s in p["streams"] if s["codec_type"] == "video"]; a = [s for s in p["streams"] if s["codec_type"] == "audio"]
+dur = float(p["format"]["duration"])
+rep.append(f"container {p['format']['format_name']}, duration {dur:.3f} s")
+if not 115 <= dur <= 125: fails.append(f"duration {dur:.3f}")
+if len(v) != 1 or len(a) != 1: fails.append(f"streams v{len(v)} a{len(a)}")
+v, a = v[0], a[0]
+rep.append(f"video {v['codec_name']} {v.get('profile')} {v['pix_fmt']} {v['width']}x{v['height']} {v['r_frame_rate']} "
+           f"sar {v.get('sample_aspect_ratio','1:1')} dur {float(v['duration']):.3f}")
+rep.append(f"audio {a['codec_name']} {a.get('profile')} {a['channels']}ch {a['sample_rate']} Hz "
+           f"{int(a.get('bit_rate', 0))//1000} kb/s dur {float(a['duration']):.3f}")
+if v["codec_name"] != "h264" or v["pix_fmt"] != "yuv420p" or (v["width"], v["height"]) not in ((1280, 720), (1920, 1080)) \
+        or v["r_frame_rate"] != "24/1": fails.append("video format")
+if a["codec_name"] != "aac" or a["channels"] != 2 or a["sample_rate"] not in ("48000", "44100"): fails.append("audio format")
+if abs(float(v["duration"]) - float(a["duration"])) > 0.1: fails.append("stream lengths differ")
+head = open(film, "rb").read(1 << 16)
+moov, mdat = head.find(b"moov"), head.find(b"mdat")
+rep.append(f"faststart: moov at {moov}, mdat at {mdat}")
+if moov < 0 or (0 <= mdat < moov): fails.append("moov not at front")
+e = sh("ffmpeg", "-hide_banner", "-nostats", "-i", film, "-af", "ebur128=peak=true", "-f", "null", "-").stderr
+I = float(re.findall(r"I:\s+(-?[\d.]+) LUFS", e)[-1]); tp = float(re.findall(r"Peak:\s+(-?[\d.]+) dBFS", e)[-1])
+rep.append(f"loudness {I} LUFS integrated, true peak {tp} dBTP")
+if not -18 <= I <= -14: fails.append(f"loudness {I}")
+if tp > -1.0: fails.append(f"true peak {tp}")
+bd = sh("ffmpeg", "-hide_banner", "-nostats", "-i", film, "-vf", "blackdetect=d=0.25:pix_th=0.06", "-an", "-f", "null", "-").stderr
+rep.append("black: " + "; ".join(re.findall(r"black_start:([\d.]+) black_end:([\d.]+)", bd).__repr__() for _ in [0]))
+fr = sh("ffmpeg", "-hide_banner", "-nostats", "-i", film, "-vf", "freezedetect=n=0.001:d=1.5", "-an", "-f", "null", "-").stderr
+rep.append("frozen >1.5 s: " + repr(re.findall(r"freeze_start: ([\d.]+)", fr)))
+cues = []
+for blk in open(srt, encoding="utf-8").read().strip().split("\n\n"):
+    ls = blk.splitlines()
+    t = [sum(float(x) * m for x, m in zip(re.split("[:,]", s.strip())[:3], (3600, 60, 1))) + int(s.strip()[-3:]) / 1000
+         for s in ls[1].split("-->")]
+    cues.append((t[0], t[1], " ".join(ls[2:])))
+    if len(ls[2:]) > 2 or max(len(x) for x in ls[2:]) > 43: fails.append(f"cue {ls[0]} layout")
+    if t[1] - t[0] < 0.7: fails.append(f"cue {ls[0]} only {t[1]-t[0]:.2f} s")
+rep.append(f"subtitles: {len(cues)} cues, last ends {cues[-1][1]:.2f}")
+if "--whisper" in sys.argv:
+    from faster_whisper import WhisperModel
+    m = WhisperModel("small.en", device="cpu", compute_type="int8")
+    segs, _ = m.transcribe(film, word_timestamps=True, vad_filter=False)
+    words = [(w.start, w.end, re.sub(r"\W", "", w.word.lower())) for s in segs for w in s.words]
+    worst = 0
+    for a0, b0, text in cues:
+        first = re.sub(r"\W", "", text.split()[0].lower())
+        cand = [w for w in words if w[2] == first and abs(w[0] - a0) < 2.0]
+        if not cand:
+            rep.append(f"  cue @{a0:7.2f} '{text[:30]}': first word not heard within 2 s"); continue
+        d = min((w[0] - a0 for w in cand), key=abs); worst = max(worst, abs(d))
+        rep.append(f"  cue @{a0:7.2f} speech {d:+.2f} s  '{text[:40]}'")
+        if abs(d) > 0.25: fails.append(f"cue @{a0:.2f} off {d:+.2f} s")
+    rep.append(f"worst subtitle/speech start offset {worst:.2f} s")
+print("\n".join(rep)); print("MUST-FAILS: " + ("; ".join(fails) if fails else "none"))
+sys.exit(1 if fails else 0)

@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+"""gen_video.py shot_id [take]  -> shots/<id>[_tN].mp4 from key frame + refs via video-generation; prompt saved beside it."""
+import sys, os, json, base64, subprocess, urllib.request, io
+sys.path.insert(0, os.path.dirname(__file__))
+from shots import S, STYLE
+from PIL import Image
+sid = sys.argv[1]; take = sys.argv[2] if len(sys.argv) > 2 else "1"
+extra = os.environ.get("EXTRA", "")
+s = S[sid]; REFDIR = os.environ.get("REFDIR", "/hutian/work/refs")
+url = subprocess.check_output(["ht-resource","url","video-generation"]).decode().strip()
+def b64jpg(path):
+    im = Image.open(path).convert("RGB"); im.thumbnail((1280,720)); b = io.BytesIO(); im.save(b, "JPEG", quality=85)
+    return {"type":"image","mime_type":"image/jpeg","data":base64.b64encode(b.getvalue()).decode()}
+prompt = (f"{s['dur']}-second shot, 1280x720. The first image is the opening frame; keep its characters, place and painted gouache look throughout. "
+          f"{s['motion']} Style: {STYLE}; gentle subtle animation only, painterly texture stays, no text, no subtitles, no logos, full-bleed to the edges with no border or frame. "
+          f"Sound: soft ambient only (wind, snow, flame), no speech, no music. {extra}")
+inp = [{"type":"text","text":prompt}, b64jpg(f"keyframes/{sid}.png")]
+for r in s["refs"][:3]: inp.append(b64jpg(f"{REFDIR}/{r}.jpg"))
+req = urllib.request.Request(f"{url}/v1beta/interactions", json.dumps({"model":"gemini-omni-1.1-flash","input":inp}).encode(),
+    {"Content-Type":"application/json","x-goog-api-key":os.environ["HT_RESOURCE_TOKEN"]})
+os.makedirs("shots", exist_ok=True)
+out = f"shots/{sid}.mp4" if take == "1" else f"shots/{sid}_t{take}.mp4"
+try:
+    d = json.load(urllib.request.urlopen(req, timeout=900))
+    for st in d.get("steps", []):
+        if st.get("type") == "model_output":
+            for c in st["content"]:
+                if c.get("type") == "video":
+                    open(out, "wb").write(base64.b64decode(c["data"])); open(out[:-4]+".prompt.txt","w").write(prompt)
+                    print("ok", out, flush=True); sys.exit(0)
+    print("novideo", sid, json.dumps(d)[:400], flush=True)
+except Exception as e:
+    print("fail", sid, e, getattr(e, "read", lambda: b"")()[:300], flush=True)

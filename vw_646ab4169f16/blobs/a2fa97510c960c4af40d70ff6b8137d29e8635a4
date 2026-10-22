@@ -1,0 +1,28 @@
+# QC report: cut-v9 (release of world/editor; film = editor@a424f83)
+
+Request qc#12: re-test L31 "Pulp!" 04:51.0, L33 "Now!" 05:44.5, L54 "Emo." 07:09.5 with the method of cut-v5 (editor#19), and a lock-or-fix recommendation.
+Method: downloaded the release mp4 (sha256 00ca047b…); full ffmpeg decode (clean); video stream-copy md5 `cedbf3ab…`, identical to cut-v8's; `ebur128`; audio decoded to 16 kHz mono and compared second by second with cut-v5's (sound-v2); faster-whisper small.en (int8, CPU) on each line cut from the cut's own audio: tight windows ±0.3 / ±0.8 s, plain and with an initial prompt (`evidence/cut-v9/tight.py`, `tight.txt`), and context windows ±1 / 1.5 / 2.5 s with word times (`ctx.py`, `ctx.txt`). **Not listened to by a person, not played in a browser.** A recogniser is a proxy; I weigh the plain result over the prompted one.
+
+**Recommendation: FIX, but the sound is no longer what decides it.** Of the three lines, L33 and L54 now pass and L31 is better but borderline; the cut-v8 picture faults (Emo's neckline, editor#20 / dp#16; S029 and the in-shot cuts, dp#17) still decide. When dp's batches land, the next cut should be close to lockable. If director wants L31 closed now, an ear check is the next step; the recogniser cannot settle it.
+
+## The three lines (observed, cut-v9)
+| Line | cut-v5 plain tight | cut-v9 tight ±0.3 / ±0.8 plain | cut-v9 prompted | cut-v9 context ±1.5 s | Verdict |
+|---|---|---|---|---|---|
+| L31 "Pulp!" 04:51.0 | "Hope it." / "Hope" | "Hope" / "Oh" | "Pulp." / "Pulp." | "Paul." (ends 291.38) | Better, not clear: the initial /p/ now reads ("Paul", not "Hope"), the final "-lp" does not. Borderline; needs an ear. |
+| L33 "Now!" 05:44.5 | "Pretty much." / "Don't." | "Now." / "now" | "Now." / "Now!" | "Now." (343.0-344.9) | Fixed as far as the recogniser can tell. |
+| L54 "Emo." 07:09.5 | "Emote." | "emo" / "emo" | "Emo!" / "Emo!" | "Emo" | Passes (in this film the recogniser writes "emote" for Emo at times; here the plain result is already "emo"). |
+
+Spot check of neighbours, same method, tight ±0.3 / ±0.8: L21 and L32 correct plain; L30 "emo, your goal in life" plain; L02, L04, L06, L14, L34 as in cut-v5 (plain wrong or "Emote", prompted right); L53 "No?"; L55 "Yeah?" plain "Yeah" / "Yup. Even though..." (picks up neighbouring speech at ±0.8 s). No regression seen.
+
+## Sound / technical
+- **What changed in the audio:** second-by-second residual against cut-v5's audio: median -78 dB; the seconds at 291, 344-345, 429-430 s differ by 0 to -11 dB (the replaced takes). Other seconds with residual around -20 to -25 dB (e.g. 311, 334-335, 348-350, 378-380) I take to be AAC re-encoding noise in loud passages; I did not isolate this further. The editor's sample-exact diff of the mix files (only 290.08-292.88, 343.46-346.40, 428.41-431.43 s change) is not contradicted.
+- **D4:** -19.8 LUFS, true peak -1.6 dBFS, same as cut-v8.
+- **D1:** 15800 frames, 658.33 s, decode clean; picture bit-identical to cut-v8.
+- **D5:** vtt per the editor byte-identical to cut-v8 (not re-diffed by me); the new takes end at 291.4, 344.9 and about 430.3 s per the word times, inside the existing cues 04:51.0-04:51.8, 05:44.5-05:45.3 and 07:09.5-07:10.3.
+- **Sync of the new takes:** the recogniser word windows sit on the cue starts (L31 from 290.7, L33 from 344.0, L54 from 428-430 depending on window), consistent with the editor's 0 ms lag; not measured against the lips.
+
+## Still open with their owners (unchanged since cut-v8)
+Emo's neckline S003-S125 (editor#20 / dp#16, dp re-rendering); S029's dips on a single set-up and the in-shot cuts S066/S069/S086/S091 (dp#17, picture-batch-035 rendering); L02/L04/L06/L14 recogniser reads (plain wrong but prompted right, as in cut-v5); smaller picture notes (S090, S094, S003 f689, S049 jumps).
+
+## Not checked
+Voice and music by ear; browser playback; every shot's neckline.

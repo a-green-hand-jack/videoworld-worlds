@@ -1,0 +1,13 @@
+OPENAI_API_KEY is set.
+Calling Image API (generation). This can take up to a couple of minutes.
+Generation completed in 34.1s.
+Traceback (most recent call last):
+  File "/hutian/.home/.codex/skills/.system/imagegen/scripts/image_gen.py", line 1030, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/hutian/.home/.codex/skills/.system/imagegen/scripts/image_gen.py", line 1025, in main
+    args.func(args)
+  File "/hutian/.home/.codex/skills/.system/imagegen/scripts/image_gen.py", line 782, in _generate
+    images = [item.b64_json for item in result.data]
+                                        ^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'data'

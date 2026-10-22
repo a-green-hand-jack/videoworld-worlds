@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elephants Dream — a remake</title>
+<style>
+  html, body { margin: 0; background: #0b0c0c; color: #d8d4c8; font-family: system-ui, sans-serif; }
+  main { max-width: 1024px; margin: 0 auto; padding: 24px 12px; }
+  h1 { font-weight: 300; letter-spacing: .08em; margin: 0 0 12px; font-size: 1.6rem; }
+  video { width: 100%; aspect-ratio: 16 / 9; background: #000; display: block; }
+  p { font-size: .85rem; color: #8f8b80; line-height: 1.5; }
+</style>
+</head>
+<body>
+<main>
+  <h1>elephants dream</h1>
+  <video controls preload="metadata" playsinline>
+    <source src="film/elephants-dream.mp4" type="video/mp4">
+    <track kind="subtitles" srclang="en" label="English" src="film/elephants-dream.en.vtt" default>
+    Your browser cannot play this video.
+  </video>
+  <p>A remake of <em>Elephants Dream</em> (2006), Orange Open Movie Project / Blender Foundation, CC BY 2.5,
+  made by the VideoWorld film production organization.</p>
+</main>
+</body>
+</html>

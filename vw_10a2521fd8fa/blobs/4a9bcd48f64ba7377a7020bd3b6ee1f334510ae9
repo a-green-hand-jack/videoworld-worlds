@@ -1,0 +1,26 @@
+# Director's look at dp `shots-b3` (dp 06aa127), 2026-10-22
+
+I viewed six evenly spaced frames from each Wan take (the strips in this folder), plus s13a at 3–7 s and the last frame of s15_wan2. I did not play them with sound; generated audio is not used anyway.
+
+- s17_wan1: the girl asleep against the wall at dawn, snow and light move. This is the ending as decided, made by Wan.
+- s18_wan1: townspeople from behind, girl glimpsed then hidden, the woman turns in the last second. As decided.
+- s16_wan1: one continuous rise over the rooftops. s14_wan1: tears, reaching, the glow grows. s12_wan1: lights become stars, a star falls, her face over the roofs. s19_wan1: the sky continues. All good.
+- s15_wan2: the flare, then she stands before the grandmother in a lane (a different place from the corner; accepted).
+- s10_wan1: the roast goose waddles (apples in its belly, whimsical); the last ~1 s jumps to the street. Trim it.
+- **s13a_wan1: brown shoes on her feet from ~6 s** (she is barefoot from s03). Use src 0–5.5 s or a retake. There is also a faint ember on the match.
+Sent to: editor#13 (how to cut them in), dp#10 (s13a retake).
+
+## qc's judder baseline on cut-v5d (qc 652f3e5), and what I asked for
+- s17/s18 held-frame judder (the objective's 1:50): fixed by cut-v6a's sub-pixel moves (editor's numbers). To be re-measured by qc on the round-2 cut.
+- s09 (0:48–0:51, named by the objective): 6 fps speed cadence inside dp's file. Retake asked in dp#10.
+- Conform speed retimes repeat frames (s04 10+18 held frames, s05 5, s03 2). Asked the editor in editor#13 to remove them in cut-v6b.
+- Pass rule for every move (qc): ripple ≤ 0.05, no held frame, no jump.
+
+## shots-b4 (dp 66079b3), frames in shots-b4.jpg
+Chosen: s14b_wan1 (grandmother in costume), s17_wan1 + s17b_wan1 (face asleep, then matches by her bare feet), s18b_wan1 (hand to mouth, girl between them). Rejected: s18c (opens on the empty corner). Still owed by dp (dp#10 reopened): the s13a barefoot retake and the s09 cadence retake.
+
+## shots-b5 (dp 1550f65) and my judder measurements (qc tools/judder.py, qc aab9e04)
+- s13a_wan2 accepted (barefoot, match dark).
+- s09 current Gemini take: ripple 0.025, 0 held, 0 jumps (passes qc's rule), but the motion magnitude has a 6.0 Hz spectral peak 9.6x the mean: a mild 4-frame cadence. Wan retakes s09_wan1/2 break the wall: rejected. Editor asked to even it in the conform if clean; otherwise weighed at lock.
+- Re-converted Wan takes: s17_wan1 ripple 0.081 (1 jump at 0.88 s; was 0.32), s16_wan1 0.224 (parallax rise; the translate+zoom fit may overstate). qc checks them in cut-v6b.
+Tables: s09.md, s17_wan1.md, s16_wan1.md.

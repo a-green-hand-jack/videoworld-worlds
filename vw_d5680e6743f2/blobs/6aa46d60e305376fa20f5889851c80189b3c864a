@@ -1,0 +1,14 @@
+river-src corr v2: 0.970 at 2.00 s
+river-src corr v1: 0.027 at 7.02 s
+v1 1.5-7kHz dBFS/0.5s: -45 -37 -33 -31 -29 -30 -29 -29 -29 -29 -29 -29 -29 -29 -29 -30 -29 -29 -29 -29 -29 -29 -29 -29 -29 -29 -29 -30 -30 -30 -30 -32 -33 -30 -33 -34 -35 -33 -36 -40 -51
+v2 1.5-7kHz dBFS/0.5s: -39 -30 -27 -27 -27 -27 -28 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -27 -28 -28 -27 -27 -29 -35 -49
+ 0- 2 s  river share of energy ~76%  other (music+crickets) ~24%
+ 2- 4 s  river share of energy ~94%  other (music+crickets) ~6%
+ 4- 6 s  river share of energy ~94%  other (music+crickets) ~6%
+ 6- 8 s  river share of energy ~87%  other (music+crickets) ~13%
+ 8-10 s  river share of energy ~83%  other (music+crickets) ~17%
+10-12 s  river share of energy ~78%  other (music+crickets) ~22%
+12-14 s  river share of energy ~73%  other (music+crickets) ~27%
+14-16 s  river share of energy ~76%  other (music+crickets) ~24%
+16-18 s  river share of energy ~29%  other (music+crickets) ~71%
+18-20 s  river share of energy ~71%  other (music+crickets) ~29%

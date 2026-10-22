@@ -1,0 +1,42 @@
+# Lock record — "The Paper Lantern"
+
+**Locked cut:** `cut-v5`, i.e. `film/paper-lantern.mp4` at editor main 8a18b8fb47f34a3045730e779944cac818cb2849 (md5 f97a4ff365c2a74c2ab62f34f6276b61; same file as editor release `cut-v5`). I assembled it with `ht-role delivery` and the file there is identical; no assembly errors, nothing undelivered.
+Picture material: production-designer c09e3ed96414f66661930e7902d0c99f06d8c2d9 (release `shots-v3`, relayed as director `shots-v3`).
+
+## What I watched and measured (on the assembled file)
+- **Format (F1–F6):** H.264 High yuv420p 1280x720, 24/1 CFR, 516 frames; AAC LC 48 kHz stereo; 21.500 s on both streams; clean decode; moov first, so it plays progressively in a browser.
+- **Loudness (S4):** −16.1 LUFS integrated, true peak −2.2 dBFS, LRA 0.7 LU. No silence ≥0.3 s; energy below 40 Hz is 0.0 % (it was 22 % in cut-v4).
+- **Picture:** a 1 fps sheet of the delivered file (`qc/lock-delivery-1fps.jpg`), plus 16-frame sheets on cut-v3, which has the same frames: the video framemd5 4d192b98… is identical for cut-v3, v4 and v5.
+  - Title "The Paper Lantern" (0.6–2.8 s).
+  - The child at the dusk river with the lit lantern.
+  - The hands drawn back and the lantern floating free (6.5–10).
+  - The lantern drifting past the lit village (10–13.5).
+  - The child watching from the steps as night falls.
+  - The lantern as a tiny warm light on the horizon among the stars (16.8–18.7).
+  - "The End" (19.3–20.7), then a fade to black.
+  - Five shots between title and end card, all from stills with slow moves; one style; the child and the lantern consistent throughout; one lantern at every join.
+- **Sound (S1–S3):** not heard by a model; audio-understanding has returned HTTP 429 on every request since cut-v2, for the screener too. Evidence:
+  - The water is a real, public-domain river recording under the whole film (correlation 0.97 on cut-v2; same layer since).
+  - AudioSet classifier on the locked file, whole film: Insect 0.26, Stream 0.23, Cricket 0.20, Frog 0.13, Waterfall 0.10 (`qc/cut-v5-audioset-tags.txt`).
+  - Music is tonal from ~5.5 s, with accents at 7.0 and 18.0 s and a resolving bell at ~20 s.
+  - A model last heard the soundtrack on cut-v1 (soft piano + pad, no voice). The voice-free sources are unchanged since (editor `sound/source/SOURCES.md`: one river recording; crickets, pad and bell synthesised).
+  - Residual weak labels: Vehicle 0.17 at 16–20 s, which coincides with the sustained music swell and has no sub-bass behind it; Speech ≤0.07, the same as in the raw river file. I judge both as classifier noise, not faults.
+
+## Checks and screenings weighed
+- Director QC: `qc/cut-v1.md` … `qc/cut-v5` (this record). Faults found and fixed along the way:
+  - no audible water (v1);
+  - doubled lantern in dissolves (v1);
+  - an unclear release and an end light not among the stars (v2, from the screening; shots-v3);
+  - water that read as rumble (v3);
+  - sub-40 Hz rumble (v4).
+- test-audience:
+  - `screenings/cut-v1.md` (6a8f40e): the story read; it found the faults above.
+  - `screenings/cut-v3.md` (fb5c442): the release reads as letting go, the end reads as "a small light among the stars", title and end card read, nothing pulls out; mild lull at 13.8–16.3 s, accepted as the film's quiet beat.
+  - `screenings/cut-v4.md` (4435e3f): picture frame-identical; it flagged the low-band swell, which is now removed.
+  - cut-v5 changes only a high-pass on the sound, so the screened picture is the locked picture.
+
+## Open, not blocking
+- The sound has not been heard by a model or a person since cut-v1, because of the 429s. I accept the measured and classifier evidence above for this lock.
+
+## Conclusion
+cut-v5 is the film director#1 asks for: a ~21.5 s (18–22) "The Paper Lantern", 1280x720 24 fps H.264 + AAC stereo at `film/paper-lantern.mp4`. Five consistent still-based shots with camera moves, an opening title and an end card, water and evening ambience with a soft musical cue, and no dialogue. It plays with picture and sound from start to end. **Locked.**

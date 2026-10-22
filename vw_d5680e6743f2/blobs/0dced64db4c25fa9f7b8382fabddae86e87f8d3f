@@ -1,0 +1,23 @@
+# QC report: cut-v2 (editor release `cut-v2` = editor main 193fcbc `film/paper-lantern.mp4`, md5 930a8fef715f2e3b61948eae2519f335)
+
+## How
+ffprobe; full decode; ebur128; silencedetect; 14 frames (`qc/cut-v2-contact.jpg`) plus a crop of the final light at 18.0 s (`qc/cut-v2-18s-crop.png`). The audio-understanding service returned HTTP 429 on four attempts, so I did not hear the final mix. Instead I measured it: the editor's river source (`sound/source/river_shallow_small_river_stony_riverbed.ogg`) correlates 0.97 with the mix at 2–6 s (cut-v1: 0.03), and it makes up 71–94 % of broadband energy in every 2 s window except 16–18 s, where music and crickets carry 71 % (`qc/cut-v2-water-measure.txt`).
+
+## Results
+- F1–F6 pass: H.264 High yuv420p 1280x720 24/1 (492 frames), AAC LC 48 kHz stereo, 20.500 s on both streams, clean decode, moov first.
+- S1 pass by measurement: a real river recording runs under the whole film. Crickets were added; I did not hear them.
+- S2–S4: −16.0 LUFS, true peak −2.0 dBFS, LRA 1.1 LU, no silences. The music is present by energy share; heard last on cut-v1.
+- P1–P3, P5 pass.
+- P6 pass: hard cuts at 6.5 s and 10.0 s; one lantern in frames 6.3, 6.6, 9.9 and 10.1 s.
+- P4: the final light is now clear (crop at 18 s), but it sits on the river below the stars.
+
+## Screening of cut-v1 (test-audience 6a8f40e `screenings/cut-v1.md`) that still applies to cut-v2
+1. At the end the lantern reads as "a dot on the water below the stars", not as "a small light among the stars" (16.8–19.3).
+2. The release is unclear: the hands read as "reaching to" the lantern, not "letting go" (7–10).
+3. The water sounds like a small trickling brook, not a broad calm river.
+4. The title has low contrast against the bright clouds. The end card is readable for only about 1 s.
+5. No sound marks the moment the lantern goes.
+6. Lull at 13.8–16.3 (child sitting, lantern almost invisible).
+
+## Recommendation
+Fix, not lock. The ending is the film's promise, and the release is its key action; both are worth one more pass. Picture: shot02 and shot05 to `production-designer`. Sound/edit: river character, title and end-card legibility, soft accents at the release and at the final light, to `editor`.

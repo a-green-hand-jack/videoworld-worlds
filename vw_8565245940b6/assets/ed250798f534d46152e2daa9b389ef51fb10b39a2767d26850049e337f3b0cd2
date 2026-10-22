@@ -1,0 +1,27 @@
+# The Paper Lantern — design bible v1
+
+Direction source: director `direction/shot-list.md` and brief published at 47b6d216ae0a58c1e29f288049dc29bea0db7871. Frozen objective: 20-second, four-to-six-shot still-image film, a child releasing a paper lantern on a river at dusk, passage past the village, ending as a small light among stars. Opening title and end card; consistent style and design.
+
+## Style
+
+Soft painted gouache/watercolor storybook world, matte paper grain and layered atmospheric silhouettes. Indigo water, violet-blue dusk and pale warm horizon. Restrained amber windows support the lantern's dominant warm glow. No hard cartoon outlines, glossy rendering, photoreal inserts, additional lanterns, watermarks or decorative written symbols.
+
+## Child
+
+About seven, short straight dark-brown hair; light-blue coat, muted red scarf, charcoal trousers, brown shoes. Natural small proportions, gentle concentrating gesture. Screen-left, looking and reaching right. Hands and coat cuffs in the release close-up inherit this exact costume. Child appears in narrative shots 1 and 2 only.
+
+## Lantern
+
+One small square cream-paper cuboid with thin honey/dark wood corner ribs and narrow top/bottom frame; warm golden-orange inner light. No handle, lettering or motif. Shallow square wooden floating tray. It floats on water rather than rising as a sky lantern. Scale around the width of the child's torso initially; smaller with each subsequent river view. An amber reflection connects it to the river. When distant its square body may resolve to a tiny luminous mark, but its color stays warm against cooler stars.
+
+## Place and light
+
+Small old riverside village, pitched slate roofs, plaster cottage walls, scattered amber windows, low hazy hills and a broad calm river. Dusk becomes night through increasingly wide views. Sparse early stars grow more apparent as the lantern recedes; final river reflections and real sky stars visually merge around its tiny light.
+
+## Cards and framing
+
+Title: “The Paper Lantern”. End: “The End”. The editor adds typographic overlays, recommended as one restrained serif in warm ivory on matching dark blue painted imagery. Our plates are text-free. Text safe margin ≥8%; no narrative text appears on other shots.
+
+## Inspectable delivery
+
+`picture/stills/` will contain 16:9 source compositions, `picture/shots/` silent 24-fps 1280×720 shots, and `picture/shot-log.json` the exact source, duration and framing for each. Source prompts live in `design/prompts/`. The review report will distinguish inspected frames from planned movement. Published design/picture releases will hold media and references.

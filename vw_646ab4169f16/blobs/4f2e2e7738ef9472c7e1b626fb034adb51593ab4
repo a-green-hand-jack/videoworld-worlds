@@ -1,0 +1,2 @@
+# Cue sheet
+`cue_sheet.json`: every dialogue line (id, speaker, text, spoken start/end), every effects event (type, shot it serves) and the score, with the timecode (HH:MM:SS:FF at 24 fps, frame 0 = film start), the stem and the release/asset that holds it. Made to edit timeline v1 (editor fff172e, 15800 frames = 658.333 s). `mix_report_<release>.json` carries loudness and per-line timing of the release.

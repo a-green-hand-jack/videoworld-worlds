@@ -1,0 +1,43 @@
+# QC report — cut-v6c (editor release `cut-v6c`, `film.mp4` at editor ac3d94f) — qc#11, delta from cut-v6b (qc/cut-v6b/report.md)
+
+Checked: release asset `cut-v6c.mp4` is byte-identical to `film.mp4` at ac3d94f; `film.srt` identical to cut-v6b. Methods as for cut-v6b: ffprobe,
+ebur128, full decode, PCM md5, per-frame luma difference against cut-v6b, EDL diff, `tools/judder.py` on every shot (`segments.md`, `frames.csv`),
+frame sheets I looked at (`frames/`), sharpness by frame parity for the interpolated shots. No film-understanding pass (HTTP 402 earlier this round).
+
+## Technical — pass (unchanged from cut-v6b)
+H.264 High yuv420p 1280×720 24 fps, AAC-LC 48 kHz stereo, 121.959 s, moov before mdat, decodes clean, -16.1 LUFS / -1.8 dBFS. Audio PCM md5 `e5b45fd7…` identical to
+v5d, v6a, v6b. Subtitles identical to v6b.
+
+## Delta really is the delta
+EDL diff v6b → v6c: s04 source (`s04_wan1`), s14 and s18b sources (the even-frame re-makes), s15 out 1:32.21, s16 in 1:32.21 with src 0 and dur 10.04 s, s17 in 0.04 s earlier.
+Nothing else: luma difference to v6b is 0.00 in 0–13 s, 22–83 s and at 1:59–2:02; the ramps at 13.5–15 and 83.7–90 are the dissolve into the new s04 and encoder
+settling after the changed shots (≤ 1.4 luma outside the changed shots).
+
+## The three asks
+1. **s04 (0:15.4–0:21.4), `s04_wan1`: pass.** 1 held frame and 1 jump event in the whole shot (cut-v6b: 3 and 5); speed 0.22 px/f (below my ~0.3 noise limit). On frames the girl keeps her
+   match-offering pose through "who will buy my matches?", passers-by walk past in depth (a woman in front, a man behind, no merging), and she stands alone for "No one had bought a single match." (`frames/s04.png`, `s04_merge.png`).
+2. **s15/s16 (my editor#15): pass.** s15 now ends at 1:32.21 on the blaze; the cream-costume wide is gone; the grandmother is first seen in s16 in the lavender-grey dress and maroon shawl as in s14 and
+   the rest of s16. The strike sync (s15 1:30.58–1:31.4) is untouched. Two notes: (a) the embrace now starts at 1:32.21, 2.4 s before the narration says "Grandmother took her in her arms" (cue at 1:34.59); the cut
+   is blaze → white wash, so it reads as the grandmother answering the strike, but the picture leads the words; (b) because s16 is now 10.04 s long its take runs to its end: the rise eases to rest in the last
+   ~1.3 s (frame-to-frame difference 5 → 1 → 0.2–0.5 luma from 1:39 to 1:42.2; speed 0.15 px/f at 1:40, 0.01 at 1:41; only the snow moves), where cut-v6b kept 1 px/f. No repeated-frame fault
+   (4 isolated single repeats in s16, none in the last second; the near-still last second is snow only).
+3. **s14 and s18 cadence: improved, with a cost.** s14: ripple 0.333 → 0.090, jump events 2 → 0, no held frame; s18: ripple 0.441 → 0.182, 5 → 1 jump. The motion-compensated in-betweens are
+   visibly softer than the kept frames: the sharpness (Laplacian variance) of the reaching hand in s14 is 393 on even frames and 253 on odd frames (odd/even 0.64; cut-v6b 1.03), with a ghosted double edge on the
+   fingers on the odd frames (`frames/s14_consec.png`: tiles 2, 4, 6); s18 odd/even 0.86; in s18 I saw no tearing on the woman's hand or the bonnet (`frames/s18_consec.png`). This is a 12 Hz soft/sharp alternation
+   on a moving hand: not a tear, and less distracting than the old every-other-frame stepping in my judgement, but it is an artefact the director should see at full size.
+
+## Remaining (not changed since cut-v6b, owners dp)
+Isolated single held frames in dp's takes (s08, s11, s16, s17.1, s13a_strike, s07), jump events with content motion (s07, s13a); the goose's look in s10 (director's pick); s17 nearly static for 4.5 s.
+
+## Faults and notes for the lock record
+| # | Cut / time | Note | Owner | Weight |
+|---|---|---|---|---|
+| 1 | v6c 1:25.8–1:29.8 (s14), at the hand | odd interpolated frames soft/ghosted (sharpness 0.64 of the even frames) | editor (conform) | should-fix / director's judgement; not decisive |
+| 2 | v6c 1:40.5–1:42.25 (s16 end) | the rise eases to rest (snow only) for ~1.3 s | editor (take stretched to 10.04 s) / dp | note |
+| 3 | v6c 1:32.2–1:34.6 | embrace on screen 2.4 s before "took her in her arms" | editor (placement) / director | note |
+| 4 | dp's takes | single held frames, s17 near-static, goose look | dp / director | notes (as in cut-v6b) |
+
+## Recommendation: **LOCK cut-v6c**
+Cut-v6b's deciding fault (s04 held frames and jumps) is gone; the costume fault is gone; spec 16 (moving ending and climax), spec 17 (no still push, nothing retimed, s09 evened, s14 and s18 evened) and spec 18
+(audio, shots, length, subtitles kept) hold. What is left (faults 1–4) are notes the director can record; none is a requirement of the delivery specification that fails. If the director wants s14's hand sharper, the fix is the
+editor's (a different interpolation or the original frames on the hand), and would need a re-check of s14 only.

@@ -1,0 +1,36 @@
+# QC report — cut-v5b (release world/editor `cut-v5b`, editor d6cb6cb; asset `film.mp4` byte-identical to root `film.mp4`) against `direction/delivery-spec.md`
+
+Methods: ffprobe/ffmpeg (format, CFR, ebur128, silence/black/freeze detect, frame-difference per second); frames pulled at the
+changed events (`frames-A..D.png`, timecodes on each tile); whole-film viewing by gemini-4-argon (`film-understanding-gemini-4-argon.txt`) and
+listening by gemini-3.8-flash (`audio-understanding.txt`). The viewing model answered "NOT FIXED" to all five earlier faults without
+looking; I discarded that and judged every item on my own frames. Subtitle starts: not re-measured by me — I rely on editor's stem measurement
+(`edit/cut-v5b/verify.txt`), which proved better than my whisper estimate on cut-v4; a whisper re-run only shows the transcript is complete.
+
+## Recommendation: **LOCK-READY once the director accepts the four faults below in the lock record** (or fix them in one more cut if dp's batch lands).
+Every fault that decided FIX on cut-v4 is fixed on frames: roast goose (0:53.8–0:56.8), memory without a lit match (1:12–1:20 unlit until the strike at 1:20.5),
+stove goes dark with the match (0:44.3–0:45.7), the climax animated (0:85–1:41), no empty-corner cut (1:52 dissolves to the sky).
+No must-fail among points 1–6, 9–12, 15. Faults that remain, for the director to accept or send on (all dp-side, none touches story or sound):
+1. 0:05.8–0:10.5 (s02) daylight/overcast shot in a night film (spec 13, palette logic) — known, dp.
+2. 0:10.5–0:13.5 (s03): the carriage and horse pass through the girl at 0:11.5 and she is already barefoot at 0:11.5 before the slipper flies at 0:12.5 (spec 14) — known, dp.
+3. 0:16.4–0:19.0 (s04): the dissolve leaves a ghost of the left walker at 0:16.5 and the two left figures still overlap at 0:17.8–0:18.4 (spec 14, minor).
+4. 1:20–1:42: the grandmother's clothes change shot to shot — brown shawl and grey dress (1:22–1:25), maroon shawl and rose dress (1:34–1:38), white dress and cream shawl (1:39–1:41), white cape (1:28–1:29) (spec 13, minor).
+Notes (not faults): s17 dawn (1:43–1:49) is a still with a slow push-in (frame difference 0.8 per frame, no freezedetect hit) — fits her stillness, an animated frame would be better; the dissolve of the townspeople into the sky (1:52–1:54) shows a 1.5 s double exposure, intended.
+
+## Point by point
+| # | Spec point | Result | Evidence |
+|---|---|---|---|
+| 1 | one `film.mp4` | PASS | at editor root, same bytes as release asset |
+| 2 | MP4, moov first, plays in a browser | PASS | moov at byte 36, no mdat before it; H.264 High yuv420p + AAC-LC |
+| 3 | H.264 High/Main yuv420p 1280x720 24 fps CFR square px | PASS | ffprobe; every packet step 41.67 ms; 2926 frames; SAR 1:1 |
+| 4 | AAC-LC stereo 48 kHz ~160–192 kb/s, one track | PASS | 1 track, 48 kHz stereo, 199 kb/s ("about") |
+| 5 | 115–125 s, streams within 0.1 s | PASS | 121.959 s; video 121.958, audio 121.958 |
+| 6 | burned subtitles, lower third, ≤2 lines, ≤42 chars | PASS | 25 cues; longest line ≤42 (awk); white with dark outline; no face covered in frames A–D |
+| 7 | every beat in order | PASS | stove vanishes with the match; roast goose hops and waddles to her; tree → stars → falling star; grandmother after an unlit match; bundle; ascent; dawn; people; last line |
+| 8 | follows, moved | not mine | for test-audience and director |
+| 9 | narration intelligible, dialogue present | PASS | audio listening: ducking clean; "Someone is dying" is a child's voice, passer-by is a different voice |
+| 10 | music and SFX support, every strike heard | PASS | strikes at ≈0:34.5, 0:46.3, 0:57.8, 1:20.5, 1:30.8; snuffs 0:44.2, 0:56.6, 1:04.2; goose steps/honk 0:53.6–0:55.8; star shimmer 1:08.8; hooves 0:09.5–0:14.2 |
+| 11 | sync | PASS on checked events | strike 4 at 1:20.5 vs flare at 1:20.5 (frame 80.7 shows the flare; 80.2 unlit); bundle strike 90.5 → blaze 91.2 against SFX 1:30.8; goose flame-out 0:56.6 vs darkness 0:56.8–57.3; stove snuff 0:44.2 vs the dim 44.3–45.3; star shimmer 1:08.8 vs fall 1:09.0–1:09.4. Strike 2 at 0:46.3 sits at the end of the 0.75 s black (46.42 picture lit): heard within 0.1 s of the shot's first frame, acceptable. Strike 3 (0:57.8) lands in darkness before the tree: acceptable as a transition. |
+| 12 | −16 ±2 LUFS, TP ≤ −1, no clipping/silence/jumps | PASS | −16.0 LUFS, LRA 3.5, TP −1.8 dBFS; silencedetect −50 dB: only the first 0.33 s (fade-in); no clicks/jumps heard |
+| 13 | consistency | PASS with faults 1, 4 | one girl/one corner/one style across s01–s19; see above |
+| 14 | no visible generation faults | PASS with faults 2, 3 | black only 0–0.125 (fade-in), 45.67–46.42 (stove dip), 118.875–121.9 (title); freezedetect hits only at the title; no flash in luminance scan except cuts |
+| 15 | tone | PASS | peaceful dawn, no violence |

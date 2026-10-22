@@ -1,0 +1,35 @@
+container mov,mp4,m4a,3gp,3g2,mj2, duration 121.959 s
+video h264 High yuv420p 1280x720 24/1 sar 1:1 dur 121.917
+audio aac LC 2ch 48000 Hz 199 kb/s dur 121.958
+faststart: moov at 36, mdat at -1
+loudness -16.1 LUFS integrated, true peak -1.8 dBTP
+black: [('57.1667', '57.4583'), ('118.875', '121.875')]
+frozen >1.5 s: ['119.542']
+subtitles: 25 cues, last ends 118.63
+  cue @   0.30 speech -0.30 s  'Bitter cold, almost dark: the last eveni'
+  cue @   6.13 speech +0.13 s  'A poor girl shuffled along in her mother'
+  cue @  10.76 speech +0.18 s  'Carriages raced by; she lost them, and w'
+  cue @  15.68 speech +0.14 s  'Matches… who will buy my matches?'
+  cue @  19.00 speech +0.10 s  'No one had bought a single match.'
+  cue @  21.97 speech +0.31 s  'Candles gleamed in the windows; it smell'
+  cue @  27.30 speech -0.28 s  'She huddled in a corner, afraid to go ho'
+  cue @  32.38 speech +0.10 s  'Her hands were numb. If she dared strike'
+  cue @  38.34 speech -0.04 s  'How it blazed! A warm iron stove seemed '
+  cue @  44.13 speech -0.01 s  'Then it went out.'
+  cue @  46.63 speech -0.03 s  'A second: the wall became a veil, and in'
+  cue @  53.63 speech -0.83 s  'It hopped down and waddled toward her — '
+  cue @  58.51 speech +0.17 s  'A third: she sat beneath a Christmas tre'
+  cue @  64.30 speech -0.02 s  'Out it went. The lights rose and became '
+  cue @  70.32 speech +0.42 s  'Someone is dying.'
+  cue @  72.30 speech +0.08 s  'Her grandmother, the only one who had lo'
+  cue @  75.46 speech +0.02 s  'had said: a falling star is a soul going'
+  cue @  80.47 speech -0.77 s  'A fourth — and there stood Grandmother, '
+  cue @  85.92 speech +0.26 s  'Grandmother! Take me with you!'
+  cue @  90.17 speech -0.23 s  'She struck the whole bundle, to keep her'
+  cue @  94.55 speech +0.21 s  'Grandmother took her in her arms, and th'
+  cue @  97.83 speech +0.07 s  'where there is no cold, no hunger, no fe'
+  cue @ 102.59 speech +0.07 s  'At dawn she sat there still, rosy-cheeke'
+  cue @ 109.76 speech +0.20 s  'She wanted to warm herself.'
+  cue @ 113.76 speech -0.06 s  'No one knew the beautiful things she had'
+worst subtitle/speech start offset 0.83 s
+MUST-FAILS: cue @0.30 off -0.30 s; cue @21.97 off +0.31 s; cue @27.30 off -0.28 s; cue @53.63 off -0.83 s; cue @70.32 off +0.42 s; cue @80.47 off -0.77 s; cue @85.92 off +0.26 s
