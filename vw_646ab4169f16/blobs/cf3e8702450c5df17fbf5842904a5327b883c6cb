@@ -1,0 +1,128 @@
+shot,scene,in_s,out_s,dur_s,in_tc,out_tc,framing,camera,content,obs
+S001,SC01,0.00,25.79,25.79,00:00.00,00:25.79,wide,slow push/drift through a dark space,"Fade up from black: the title 'elephants dream' carved/painted into a weathered ochre-green tiled wall or ceiling, warm green light; camera drifts on, light dims to greenish dark. Proog V.O. (off): 'At the left we can see... at the right we can see the... head-snarlers. Everything is safe. Perfectly safe.'",S001
+S002,SC02,25.79,27.25,1.46,00:25.79,00:27.25,CU,Proog swings round into camera,"Proog (bald, big nose, grey side-hair/stubble, olive-brown coat, dark red vest) turns sharply toward camera, alarmed, warm dark background: 'Emo? Emo!'",S002
+S003,SC02,27.25,30.12,2.87,00:27.25,00:30.12,wide,fast pan/whip across,Pale teal machine wall of riveted panels and glowing sockets; black cables shoot across frame; reveal of the walkway with Proog running and Emo being knocked down. Proog: 'Watch out!',S003
+S004,SC02,30.12,31.12,1.00,00:30.12,00:31.12,MCU low angle,"handheld, fast","Emo (thin, pale, dark hair, grey-teal shirt) is swept and pinned by a lashing cable; Proog lunges in, grabbing.",S004
+S005,SC02,31.12,31.38,0.26,00:31.12,00:31.38,CU insert,static,Flash insert: machine panel with cogs and a glowing white hexagonal nut.,S005
+S006,SC02,31.38,36.75,5.37,00:31.38,00:36.75,CU,slow drift,"Machine panel: cogs, glowing hex nut; black cables whip and settle in front of it, mist.",S006
+S007,SC02,36.75,50.00,13.25,00:36.75,00:50.00,wide,"locked off, slight drift","Dissolve to wide: pale teal hall, wall of sockets, web of thin cables, bright white light behind; Emo lies on the walkway at left, Proog stands at right by the wall and turns to him. Proog: 'Are you hurt?'",S007
+S008,SC02,50.00,55.04,5.04,00:50.00,00:55.04,MCU profile,static,"Emo in profile facing right, against riveted teal wall, dazed, looks down. Emo: 'I don't think so. You?'",S008
+S009,SC02,55.04,63.25,8.21,00:55.04,01:03.25,MCU profile,static,"Proog in profile facing left, bright white backlight, web of cables behind. Proog: 'I'm OK. Get up. Emo, it's not safe here. ... Let's go.'",S009
+S010,SC02,63.25,69.71,6.46,01:03.25,01:09.71,extreme wide,static,Tall teal shaft/wall rising out of a white abyss; a small walkway-machine sticking out with the two tiny figures. Emo: 'What's next?' Proog: 'You'll see. ... You'll see.',S010
+S011,SC03,69.71,80.54,10.83,01:09.71,01:20.54,wide to MCU,"static, figures walk into camera","Dark curtained doorway with white light beyond; Proog and Emo come through, Proog walks forward into a close, leaning, looking around. Proog: 'This way.'",S011
+S012,SC03,80.54,87.62,7.08,01:20.54,01:27.62,extreme wide low,slow tilt,"Black-and-white cable hall: a vast dark space of hanging black cables, vertical light poles, a lit platform/walkway high up.",S012
+S013,SC03,87.62,98.12,10.50,01:27.62,01:38.12,extreme wide high,slow drift,High view over a winding segmented metal walkway through a forest of cables and telegraph-pole racks; Proog and Emo walk in from bottom and on. Proog: 'Follow me!',S013
+S014,SC03,98.12,101.12,3.00,01:38.12,01:41.12,wide low angle,tracking,"Proog leaps from platform to platform among cables and poles, Emo following behind.",S014
+S015,SC03,101.12,105.17,4.05,01:41.12,01:45.17,extreme wide,slow pan,Wide over the winding walkway: white flying cable-creatures (telephone-receiver 'birds') flutter around the cables.,S015
+S016,SC03,105.17,110.96,5.79,01:45.17,01:50.96,wide,static,"Proog jumps up onto a telegraph pole crossbar, flying creatures pass; Emo waits on the walkway.",S016
+S017,SC03,110.96,113.79,2.83,01:50.96,01:53.79,extreme wide,pan,Pan across telegraph poles and taut cables; tiny figure crossing.,S017
+S018,SC03,113.79,120.54,6.75,01:53.79,02:00.54,wide,follows action,Emo on a metal platform; a white bird-creature flaps past him; Proog leaps across onto a metal tube; then both walk toward camera.,S018
+S019,SC03,120.54,127.25,6.71,02:00.54,02:07.25,extreme wide high,slow drift,High view: the winding walkway with the two walking along it among pylons and receivers.,S019
+S020,SC03,127.25,130.67,3.42,02:07.25,02:10.67,MS,static,"Proog in front, facing camera, looking about; Emo behind him on the walkway.",S020
+S021,SC03,130.67,132.54,1.87,02:10.67,02:12.54,high angle,tracking,Looking down at the walkway: Emo and Proog walking forward.,S021
+S022,SC03,132.54,134.12,1.58,02:12.54,02:14.12,MS,static,"Proog strides toward camera, swinging his arms, Emo behind.",S022
+S023,SC03,134.12,135.17,1.05,02:14.12,02:15.17,CU insert,fast move,Metal walkway segment/plate tilting among cables and receiver racks.,S023
+S024,SC03,135.17,139.21,4.04,02:15.17,02:19.21,wide,static,Proog and Emo stop on a walkway plate in the black cable void; Proog listening.,S024
+S025,SC03,139.21,143.00,3.79,02:19.21,02:23.00,MS low angle,static,"Proog and Emo under a telegraph pole; a white creature flutters overhead; Proog crouches, holding Emo back.",S025
+S026,SC04,143.00,145.54,2.54,02:23.00,02:25.54,extreme wide,fly-through,Flight through the black cable space: white telephone receivers/birds hang and swarm among taut white wires; a large grey machine node.,S026
+S027,SC04,145.54,149.88,4.34,02:25.54,02:29.88,extreme wide,fly-through,"Continuous with S026, no cut in the original (enters continuous): the flight goes on deeper into the dark wire space, fewer receivers, fading toward black.",S026
+S028,SC04,149.88,159.17,9.29,02:29.88,02:39.17,black / extreme wide,- / static,"[149.88–152.30] Fade to black (about 3 s). [152.30–159.17] Fade up: dark red-brown room, walls of hanging cables and machinery, a red carpet square lit from above with an old candlestick telephone on a pedestal at its centre; a tiny figure at the right.","S027,S028"
+S029,SC04,159.17,165.67,6.50,02:39.17,02:45.67,high angle / MS,static,"[159.25–161.25] Overhead: the telephone on its round pedestal on the red carpet. [161.25–163.25] Proog, red-lit, looking down at the phone. [163.25–165.67] Emo, red-lit, against a cage of cables.","S029,S030,S031"
+S030,SC04,165.67,167.67,2.00,02:45.67,02:47.67,MS low angle,static,"The candlestick telephone on its pedestal, Emo's hand reaching toward it.",S032
+S031,SC04,167.67,168.46,0.79,02:47.67,02:48.46,top shot,static,From above: Proog and Emo by the round lamp and the phone on the red carpet.,S033
+S032,SC04,168.46,170.08,1.62,02:48.46,02:50.08,CU,static,"Proog close, leaning in, stern. Proog: 'You're not paying attention.'",S034
+S033,SC04,170.08,174.33,4.25,02:50.08,02:54.33,MS,static,"Emo beside the candlestick phone, reaching for its receiver.",S035
+S034,SC04,174.33,178.29,3.96,02:54.33,02:58.29,OTS MCU,push in,"Over Emo's shoulder: Proog leans in, takes the receiver and holds it out. Proog: 'Emo, look. I mean, listen.'",S036
+S035,SC04,178.29,182.46,4.17,02:58.29,03:02.46,ECU,push in,Inside the receiver's earpiece: a red-orange organic mechanism of tiny cogs and tendrils. Proog: 'You have to learn to listen.',S037
+S036,SC04,182.46,189.75,7.29,03:02.46,03:09.75,high angle,static,"Looking down a dark shaft onto the red carpet and the phone far below. Proog: 'This is not some game. You, I mean we, we could easily die out here.'",S038
+S037,SC04,189.75,194.42,4.67,03:09.75,03:14.42,CU,static,"Emo, wide-eyed, as Proog's hand holds the receiver to his ear. Proog: 'Listen. Listen to the sounds of the machine.'",S039
+S038,SC04,194.42,213.08,18.66,03:14.42,03:33.08,extreme wide,long crane down,"Up the red cage of cables to a ceiling machine; a lamp descends slowly down the cables (Proog's head passing at left), revealing the telephone pedestal below. Proog: 'Listen to your breathing.'",S040
+S039,SC04,213.08,216.58,3.50,03:33.08,03:36.58,CU,static,"Emo, red-lit, looks up, then down, hand at his mouth, listening.",S041
+S040,SC04,216.58,221.17,4.59,03:36.58,03:41.17,MS,static,"A spindly mechanical bird/insect contraption with a glowing eye perched on a stand by the curved wall, twitching.",S042
+S041,SC04,221.17,224.00,2.83,03:41.17,03:44.00,low CU,static,Legs: Proog's feet walk past a three-pronged stand on the red carpet.,S043
+S042,SC05,224.00,233.17,9.17,03:44.00,03:53.17,CU to wide,pan along,Green-lit metal pipes and a brass horn/valve; the pan finds a green tiled platform and a doorway beyond.,S044
+S043,SC05,233.17,238.88,5.71,03:53.17,03:58.88,MCU,static,"Proog and Emo in a bright doorway, Proog in front, peering out into the dark.",S045
+S044,SC05,238.88,242.88,4.00,03:58.88,04:02.88,extreme wide,static,A small platform of pipes jutting into a huge dark misty abyss; the two tiny figures on it; shafts of light.,S046
+S045,SC05,242.88,244.50,1.62,04:02.88,04:04.50,wide,static,"Emo and Proog step onto a green-lit platform edge, Proog leading.",S047
+S046,SC05,244.50,246.50,2.00,04:04.50,04:06.50,MS,static,On the platform edge: Proog lifts a leg and hops; Emo behind him by a bright door.,S048
+S047,SC05,246.50,247.04,0.54,04:06.50,04:07.04,MCU low,static,"Proog with arm flung out, balancing.",S049
+S048,SC05,247.04,249.04,2.00,04:07.04,04:09.04,CU,follows,A small round pedestal on a pole (dial-like top) rises out of the dark mist.,S050
+S049,SC05,249.04,249.21,0.17,04:09.04,04:09.21,CU insert,fast,Flash: green circuit-board machinery with hanging wires (0.17 s).,S050
+S050,SC05,249.21,249.79,0.58,04:09.21,04:09.79,CU,follows,The green machinery with a brass valve wheel and a pipe reaching out into the dark.,S050
+S051,SC05,249.79,257.92,8.13,04:09.79,04:17.92,wide,static to follow,Proog hops from the platform onto a pedestal on a pole and leaps on through the light shafts; Emo watches from the edge.,S051
+S052,SC05,257.92,262.67,4.75,04:17.92,04:22.67,wide,follows,Proog leaping pedestal to pedestal in the dark.,S052
+S053,SC05,262.67,269.33,6.66,04:22.67,04:29.33,MS to wide,static,Proog's arm swings past; Emo stands on a pedestal in the light shafts. Emo: 'Don't you ever get tired of this?',S053
+S054,SC05,269.33,273.33,4.00,04:29.33,04:33.33,wide,static,"Proog balances on two pedestals in god-rays. Proog: 'Tired? Emo, the machine is like... like...'",S054
+S055,SC05,273.33,273.92,0.59,04:33.33,04:33.92,extreme wide,static,"Dark hall of shafts of light: Proog stands on a pedestal on a pole, arms out; small objects on poles around him.",S055
+S056,SC05,273.92,277.08,3.16,04:33.92,04:37.08,extreme wide,static,"Continuous with S055, no cut in the original (a light flares in the same shot): Emo hops across pedestals behind Proog; a small round bomb-like object on a pole. Proog: '...clockwork. One move out of place...'",S055
+S057,SC05,277.08,280.12,3.04,04:37.08,04:40.12,MS,static,"A round metal ball-machine with a little lamp, spinning on its own, then gone. Proog: '...and you're ground to a pulp.'",S056
+S058,SC05,280.12,282.12,2.00,04:40.12,04:42.12,MCU profile,static,"Emo in profile, a fiery explosion blooms behind/beside him.",S057
+S059,SC05,282.12,287.12,5.00,04:42.12,04:47.12,MS,static,"Proog, back to us in god-rays, turns, leaning forward, wild-eyed. Proog: 'Pulp, Emo! Is that what you want? Pulp?'",S058
+S060,SC05,287.12,292.46,5.34,04:47.12,04:52.46,extreme wide,static,"Tiny figures crossing to a far platform in a smoky, light-shafted abyss. Proog: 'Emo, your goal in life... Pulp!'",S059
+S061,SC06,292.46,305.75,13.29,04:52.46,05:05.75,wide to MS,static,"Inside a tall elevator cage of brass, glass and machinery in sepia light; Proog walks in and turns, Emo follows; then the vertical doors close to black.",S060
+S062,SC06,305.75,307.62,1.87,05:05.75,05:07.62,CU,static,Wall panel: Proog's gloved hand presses a glowing red button.,S061
+S063,SC06,307.62,308.42,0.80,05:07.62,05:08.42,wide,static,"Dark machine interior: a mechanical arm swings, a lit capsule.",S062
+S064,SC06,308.42,309.88,1.46,05:08.42,05:09.88,MS,static,"Proog and Emo in the elevator, Proog pleased; quick cut to the machine arm.",S063
+S065,SC06,309.88,312.38,2.50,05:09.88,05:12.38,wide,fast move,A mechanical arm passes a capsule toward a huge iris-like tunnel; the camera rushes into it.,S064
+S066,SC06,312.38,318.12,5.74,05:12.38,05:18.12,POV / CU,rush through / fast,[312.38–315.12] Racing down a spiralling tunnel of cables and rings toward white light. [315.12–317.79] Bursting through cables toward light; a metal cylinder capsule tumbles. [317.79–318.12] Flash: the cylinder capsule hurtles past.,"S065,S066,S067"
+S067,SC06,318.12,320.00,1.88,05:18.12,05:20.00,MS,static,"In the elevator: Emo and Proog side by side, Proog smug.",S068
+S068,SC06,320.00,326.38,6.38,05:20.00,05:26.38,wide,slow push,Dark machine room: a robot arm on a glowing rail picks up a capsule.,S069
+S069,SC06,326.38,327.54,1.16,05:26.38,05:27.54,CU,fast,"[326.38–327.08] Machine arm and iris ring with lights. HARD CUT at 327.08 (frame 7850) to [327.08–327.54] Brown-orange machine shaft: Proog's body swings close past the lens, his green coat wiping across the frame.","S070,S071"
+S070,SC06,327.54,329.58,2.04,05:27.54,05:29.58,MS,static,"Continuous with the end of S069 (no cut; the coat wipe carries across): brown-orange machine shaft, Emo, lower left, watches; Proog's body swings by and he peers round into camera.",S071
+S071,SC06,329.58,333.75,4.17,05:29.58,05:33.75,wide,push in,The arm loads the capsule; the iris tunnel opens to a dark spiral hole.,S072
+S072,SC06,333.75,335.71,1.96,05:33.75,05:35.71,POV,static,Down the barrel of the iris tunnel: the capsule shoots away into the swirl.,S073
+S073,SC06,335.71,340.75,5.04,05:35.71,05:40.75,CU,fast,"The metal capsule flies, tumbling, through grey streaked blur.",S074
+S074,SC06,340.75,345.42,4.67,05:40.75,05:45.42,MS,static,"Grey-white blurred surroundings: Emo, and Proog reaching out a hand, then lunging at a lever beside Emo and pulling it. Proog: 'Now!'","S074,S075"
+S075,SC06,345.42,352.54,7.12,05:45.42,05:52.54,CU,static,"[345.42–346.29] Proog's face, intense. [346.29–352.54] Proog's face, eyes widening; light floods white.","S076,S077"
+S076,SC07,352.54,358.54,6.00,05:52.54,05:58.54,extreme wide,static,Black void: a vast curved rocky machine structure and gantries glowing faintly.,S078
+S077,SC07,358.54,363.08,4.54,05:58.54,06:03.08,wide,static,"Emo and Proog stand on a small glowing square platform floating in black. Proog: 'What is at your left side, Emo?' Emo: 'Well...'",S079
+S078,SC07,363.08,364.75,1.67,06:03.08,06:04.75,CU,static,"Emo's face, eyes lowered, glowing green-white. Emo: '...nothing.'",S080
+S079,SC07,364.75,369.79,5.04,06:04.75,06:09.79,MS,static,"Both on the platform; Emo gestures, Proog leans out. Proog: 'Really?' Emo: 'No, nothing at all.' Proog: 'Really. And at your right?'",S081
+S080,SC07,369.79,372.71,2.92,06:09.79,06:12.71,CU two-shot,static,"Emo and Proog cheek to cheek, Proog's face close. Proog: 'What do you see at your right side, Emo?'",S082
+S081,SC07,372.71,379.92,7.21,06:12.71,06:19.92,wide,static to descend / descend,"[372.71–377.42] The two on the small platform in the void. Emo: 'The same, Proog. Exactly the same. Nothing.' [377.42–379.92] The platform drops through flashing white light; streaks of grey blur rush by.","S083,S084"
+S082,SC08,379.92,385.21,5.29,06:19.92,06:25.21,wide,pan,A brilliant white glowing machine of filaments and rings; Proog crouches beside a tall white contraption.,S085
+S083,SC08,385.21,385.67,0.46,06:25.21,06:25.67,white,-,Flash of pure white.,S086
+S084,SC08,385.67,387.29,1.62,06:25.67,06:27.29,MS,static,"Emo reaching up with his hand through glowing dust, in a sepia haze.",S087
+S085,SC08,387.29,396.42,9.13,06:27.29,06:36.42,extreme wide,slow pan,Golden-lit cathedral of machinery: rows of brass drums and webs of cables under shafts of light.,S088
+S086,SC08,396.42,405.08,8.66,06:36.42,06:45.08,MS / wide,follows / static,"[396.42–399.46] Emo, bent forward, walks toward a glowing door in the gloom. [399.46–405.08] Warm amber room: Emo walks to a white door; Proog behind a big wired sphere. Emo: 'Do you hear that? Can we go here?'","S089,S090"
+S087,SC08,405.08,408.21,3.13,06:45.08,06:48.21,MS,static,"Emo beside a pale door with a handle; Proog leans in, stern. Proog: 'There?' Emo: 'Yeah.' Proog: 'It isn't safe, Emo.'",S091
+S088,SC08,408.21,409.71,1.50,06:48.21,06:49.71,CU insert,static,Proog's gloved hand holds up a small dark carved totem/key with a horned head and a red light. Emo: 'But...',S092
+S089,SC08,409.71,415.17,5.46,06:49.71,06:55.17,MS,static,"Proog holds the totem in front of Emo by the door. Proog: 'Trust me, it's not.' Emo: 'Well, maybe I could...' Proog: 'No.'",S093
+S090,SC08,415.17,416.21,1.04,06:55.17,06:56.21,CU insert,static,"The horned totem turned, its red eye lights.",S094
+S091,SC08,416.21,420.79,4.58,06:56.21,07:00.79,MS,push / whip,[416.21–419.21] Proog thrusts the totem toward Emo; light flares. Proog: 'NO!' [419.21–420.79] The door slams; a pale green tiled room with a big fan; Proog bent over Emo.,"S095,S096"
+S092,SC09,420.79,423.29,2.50,07:00.79,07:03.29,CU wide-lens,static,"Proog close, sneering, in a green tiled room with a big fan. Proog: 'Any further questions, Emo?'",S097
+S093,SC09,423.29,426.58,3.29,07:03.29,07:06.58,MCU,static,"Emo against green tiles, sullen. Emo: 'No.'",S098
+S094,SC09,426.58,428.17,1.59,07:06.58,07:08.17,CU,static,A round lit porthole/lamp seen through a square opening in the pale green tiled wall.,S099
+S095,SC09,428.17,440.67,12.50,07:08.17,07:20.67,wide,pan/pull back,"Wide of the green tiled room (fan, pipes): Emo stands apart, Proog walks to him. Proog: 'Emo.' Emo: 'Yeah?' Proog: 'Emo, why... Emo, why... why can't you see the beauty of this place? The way it works...'",S099
+S096,SC09,440.67,443.96,3.29,07:20.67,07:23.96,CU wide-lens,static,"Proog, arms wide, ecstatic. Proog: '...how perfect it is.'",S100
+S097,SC09,443.96,451.17,7.21,07:23.96,07:31.17,wide,static,"The tiled room: Emo throws up his arm, Proog backs away. Emo: 'No, Proog, I don't see. I don't see because there's nothing there.'",S101
+S098,SC09,451.17,456.62,5.45,07:31.17,07:36.62,CU,static,"Emo, intense. Emo: 'And why should I trust my life to something that isn't there? Well, can you tell me that?'",S102
+S099,SC09,456.62,460.33,3.71,07:36.62,07:40.33,CU wide-lens,static,"Proog, hands spread, then raises a hand. Proog: 'Emo... answer me.' (speaker to confirm)",S103
+S100,SC09,460.33,460.67,0.34,07:40.33,07:40.67,CU,fast,Proog's arm swings across frame.,S104
+S101,SC09,460.67,461.50,0.83,07:40.67,07:41.50,wide,static,High angle: Proog lunges toward Emo.,S105
+S102,SC09,461.50,466.88,5.38,07:41.50,07:46.88,CU,static,"Emo leans back, staring at Proog. Emo: 'Proog... you're a sick man.'",S106
+S103,SC09,466.88,468.96,2.08,07:46.88,07:48.96,wide,static,Emo shoves past Proog by the fan. Emo: 'Stay away from me.',S107
+S104,SC09,468.96,472.21,3.25,07:48.96,07:52.21,MS,static,"Emo walks down a tiled corridor, glancing back.",S108
+S105,SC09,472.21,474.88,2.67,07:52.21,07:54.88,wide,static,"Proog in the long tiled room, pleading. Proog: 'No, Emo, it's a trap.'",S109
+S106,SC09,474.88,477.00,2.12,07:54.88,07:57.00,CU profile,static,"Emo turns, smiling. Emo: 'It's a trap?'",S110
+S107,SC10,477.00,481.25,4.25,07:57.00,08:01.25,wide,static,Empty green tiled room; Emo spreads his arms and red organic cables/vines sprout from the walls. Emo: 'At the left side you can see... the Hanging Gardens of Babylon!',S111
+S108,SC10,481.25,484.50,3.25,08:01.25,08:04.50,MS,circles,"Emo, arms out, amid a mass of writhing red-brown tubes. Emo: 'How's that for a trap?'",S112
+S109,SC10,484.50,486.96,2.46,08:04.50,08:06.96,CU wide-lens,static,"Proog, appalled, under the ceiling. Proog: 'No, Emo.'",S113
+S110,SC10,486.96,495.21,8.25,08:06.96,08:15.21,wide,static,"Emo walks into a golden-amber world of tubes and rain-like light streaks. Emo: 'On the right side you can see... well, guess what... the Colossus of Rhodes!'",S114
+S111,SC10,495.21,496.42,1.21,08:15.21,08:16.42,MS,static,"Proog, hands raised against the tubes. Proog: 'No!'",S115
+S112,SC10,496.42,501.71,5.29,08:16.42,08:21.71,MS,static,"Emo amid tubes, pointing, triumphant. Emo: 'The Colossus of Rhodes! And it is here just for you, Proog. ... Just for you.'",S116
+S113,SC10,501.71,508.12,6.41,08:21.71,08:28.12,wide,static,"Proog stumbles through the golden tube-forest, hands to his head; a giant organic tube-figure looms.",S117
+S114,SC10,508.12,510.83,2.71,08:28.12,08:30.83,extreme wide,static,Proog alone in a vast golden hall of tube-machines.,S118
+S115,SC10,510.83,512.00,1.17,08:30.83,08:32.00,MS,fast,A tube-creature lunges low across the golden floor; Proog ducks.,S119
+S116,SC10,512.00,515.92,3.92,08:32.00,08:35.92,wide,static,Golden hall: tiny Emo far off; Proog bends forward in the foreground.,S120
+S117,SC10,515.92,518.75,2.83,08:35.92,08:38.75,CU,static,"Proog's face, cold and resolved.",S121
+S118,SC10,518.75,520.00,1.25,08:38.75,08:40.00,CU insert,fast,Golden tiled floor and tubes; Proog's hand grabs a tube.,S122
+S119,SC10,520.00,520.71,0.71,08:40.00,08:40.71,CU,fast,Proog's hand swings a tube like a whip.,S123
+S120,SC10,520.71,521.54,0.83,08:40.71,08:41.54,MCU,static,"Emo, braced, flinching.",S124
+S121,SC10,521.54,521.92,0.38,08:41.54,08:41.92,wide,fast,Proog rushes at Emo along the tube-lined wall.,S125
+S122,SC10,521.92,524.21,2.29,08:41.92,08:44.21,CU low,static,"Emo's face from below, struck, eyes rolling.",S126
+S123,SC10,524.21,531.46,7.25,08:44.21,08:51.46,wide,static,Emo falls among the tubes beside a tube-giant; Proog stands alone as the gold drains to dark green.,S127
+S124,SC10,531.46,533.04,1.58,08:51.46,08:53.04,CU,static,"Proog looking up, mouth open, dark green light.",S128
+S125,SC11,533.04,544.29,11.25,08:53.04,09:04.29,wide,static,"Proog on the dark tiled floor among dead tubes, Emo lying still; Proog kneels over him. Proog: 'I'm telling you, Emo... it is. It is...'",S129
+S126,SC11,544.29,565.75,21.46,09:04.29,09:25.75,CU,slow pull back,Emo's limp hand among tangled metal tubes on a tiled floor; slow fade to black.,S130
+S127,SC12,565.75,658.32,92.57,09:25.75,10:58.32,credits,static / roll,"Black, end credits with small white animated cable-creatures scampering; this remake's credits and the CC BY 2.5 attribution to the original.","S130,S131"

@@ -1,0 +1,13 @@
+{
+  "assignment_schema": 1,
+  "items": [
+    {
+      "owner": "director",
+      "work": "synthetic test probes and lock review"
+    },
+    {
+      "owner": "editor",
+      "work": "media probes and probe-1 release"
+    }
+  ]
+}

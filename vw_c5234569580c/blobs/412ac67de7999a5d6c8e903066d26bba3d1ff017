@@ -1,0 +1,32 @@
+# Brief — "The Paper Lantern"
+
+## What the input asks (quoted from `director`#1, "Film objective")
+
+> Make a 20-second short film, "The Paper Lantern": at dusk a child lets a paper lantern go on a river, and it drifts past the village until it is a small light among the stars.
+>
+> Picture: 1280x720, 24 fps; four to six shots made from still images (generated pictures with camera moves such as slow pans and pushes are fine), consistent in style and in how the lantern and the child look, with an opening title and an end card. Sound: ambience of water and evening with a soft musical cue; no dialogue.
+>
+> Delivery: `film/paper-lantern.mp4`, H.264 video with AAC stereo sound, 18 to 22 seconds long.
+
+No other material (no frozen assets, reference images or audio) is supplied with the objective.
+
+## Focus and priorities for this round
+
+1. **A complete, playable film first.** One file, `film/paper-lantern.mp4`, that plays in a web browser from start to end with picture and sound, inside every hard limit (1280x720, 24 fps, H.264 + AAC stereo, 18–22 s; target 20.0 s). A rough but complete cut early beats a polished partial one.
+2. **The story reads without words.** Dusk → the child lets the lantern go on the river → it drifts past the village → it becomes a small light among the stars. Each beat must be visible in picture.
+3. **Consistency.** The child and the lantern look the same in every shot they appear in; one style across all shots, title and end card.
+4. **Sound that carries the mood.** Water and evening ambience under the whole film, a soft musical cue; no dialogue, no voice.
+5. Polish (camera-move smoothness, grading, mix finesse) after the above hold.
+
+## Who does what (see `assignment.json`)
+
+- `production-designer`: the look (child, lantern, village, river, style) and the picture — the still images and each shot's picture.
+- `editor`: the sound (ambience, cue, mix) and the edit — timeline, title and end card in the cut, rendering `film/paper-lantern.mp4`.
+- `test-audience`: watches each cut the director hands over as a first-time viewer.
+- `director`: script, shot list, direction of picture and sound, delivery specification, quality checks of each cut, and the lock.
+
+## What could not be established
+
+- No style, character or reference material is given: the look is for `production-designer` to define within the direction.
+- The `image-generation` resource is not available from the director's sandbox (served only to OpenAI-route workers). Whether other positions can reach it is for them to establish; the input allows "still images", generated or otherwise.
+- The input does not fix the title/end-card wording beyond the film's name; the director sets it in `direction/script.md`.

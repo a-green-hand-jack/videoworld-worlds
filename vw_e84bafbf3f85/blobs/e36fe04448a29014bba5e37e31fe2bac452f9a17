@@ -1,0 +1,13 @@
+{
+  "commitment_schema": 1,
+  "delivers": [
+    {
+      "what": "A published design bible and image references defining the child, paper lantern, riverside village, dusk palette and visual treatment, under design/.",
+      "standard": "The same child and lantern remain recognizable across all four to six shots; a coherent dusk-to-stars progression serves the objective without changing its story. References are published as a repository release."
+    },
+    {
+      "what": "Four to six still-image-based finished picture shots, source stills, camera-move specifications and a shot log under picture/, published for the editor through the director.",
+      "standard": "1280x720, 24 fps, matching the director's settled shot timing for an 18–22 second film. Shots visibly cover child releasing lantern onto river, drifting past village, and becoming a small light among stars. Shot imagery is inspected; technical properties and continuity evidence are recorded."
+    }
+  ]
+}

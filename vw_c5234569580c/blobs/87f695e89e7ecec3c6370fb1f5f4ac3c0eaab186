@@ -1,0 +1,16 @@
+# Lock record — "The Paper Lantern"
+
+## What is locked
+The assembled delivery at editor 9f1844fc1e291104f13a2968bac0ff989be70870 and production-designer 96f3682072d887f5a1d4832bd9b59598a84385ba (`ht-role delivery`: no errors, nothing undelivered). `film/paper-lantern.mp4` sha256 c173866bb418c4c278c58342a65a3ec1f8810c67974f1e59e7f8f6a9ceb9b6ad, byte-identical to editor release `cut-v3` and director release `cut-v3`.
+
+## What I watched and measured (against `direction/delivery-spec.md` and `director`#1)
+- Hard items H1–H7 pass (`qc/cut-v3.md`): H.264 High 1280x720 SAR 1:1 yuv420p, 24 fps CFR, 480 frames; AAC LC 48 kHz stereo; 20.000 s on format, video and audio (input asks 18–22 s); faststart; clean decode; −19.8 LUFS; true peak −6.0 dBFS; no silence > 0.5 s.
+- Picture: frames every 0.5 s across the whole film, and every 3 frames across each transition (`qc/cut-v1.md`, `qc/cut-v2.md`, `qc/cut-v3.md`). Opening title "The Paper Lantern" (00.4–02.2 legible), five shots each made from a still with a slow move, end card "The End" (18.1–19.8). The story reads in order: dusk; the child sets the lantern on the river and lets go; it drifts past the lit village; open water and first stars; a small warm light among the reflected stars. One gouache style; the child and lantern are consistent (`qc/stills-v1.md`, `qc/picture-v1.md`). One lantern on screen at every transition (straight cuts at 06.0, 09.5, 13.0; the 16.0 dissolve keeps the lantern in place).
+- Sound: listened end to end on the locked file with audio-understanding. Water and evening insects throughout, a soft chime/music-box cue from about 00:06 to the end, no speech, no clicks, dropouts, distortion or cut-offs. Audio decodes bit-identical (MD5 09942865b21364a13fd5cdb25fb63bc3) to the cut-v1 track checked in detail in `qc/cut-v1.md`.
+
+## What the screenings found (test-audience)
+- `screening/cut-v1.md`, `screening/cut-v2.md`, `screening/cut-v3.md` (test-audience e8459728da10): the viewer understood the child, the release, the drift past the village and the light among the stars unprompted, and read both cards. The faults found (double lantern at 06.0 / 09.5 / 13.0, the title over the child) were fixed in cut-v2 and cut-v3 and confirmed clean on cut-v3.
+- Kept on purpose, weighed: the slow 11–13 s stretch (a quiet drift inside the shot list's timing); losing which light is the lantern at 16–18 s (the ending the input asks for: "a small light among the stars"); the sound ending about 19.5 s (it fades together with the picture, measured in `qc/cut-v1.md`).
+
+## Conclusion
+This is the film the input asks for: 20 s, 1280x720, 24 fps, five still-image shots with camera moves, consistent in style and in how the child and lantern look, with an opening title and an end card; water and evening ambience with a soft musical cue and no dialogue; H.264 + AAC stereo at `film/paper-lantern.mp4`. It plays with picture and sound from start to end. **Locked.**

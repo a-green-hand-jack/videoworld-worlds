@@ -1,0 +1,31 @@
+# Brief — "The Little Match Girl", round 2 (director)
+
+## What the input asks (quoted from the `Film objective`, director#21)
+
+> Second round of the same film: improve the locked cut-v5d of "The Little Match Girl" (2-minute English short film, 115–125 seconds) into a new locked cut.
+>
+> What the first round left: several shots are still images with a slow push-in instead of motion, including the ending; the video model hit its daily request cap, and its safety filter refused the ending shots of the girl at dawn and the townspeople finding her. A slow push-in rendered on whole pixels judders (one-pixel steps every few frames), as at about 0:48–0:51 and 1:50 of cut-v5d.
+>
+> This round there is a second video model (video-generation-wan) beside the first, whose daily cap resets at 07:00 UTC. Replace the remaining still shots with moving shots where it serves the film, find a way to tell the ending that the video models will make, and make any push-in that remains move smoothly. Keep what already works: the story, the style, the narration, the music and the length.
+>
+> Deliver one playable `film.mp4` (H.264 video, AAC audio, 1080p or 720p) with English subtitles, burned in or as a sidecar `.srt`.
+
+Source text: `/initial-state/inputs/0/the-little-match-girl.txt` (Project Gutenberg #1597, public domain). The first round's brief (director#1, `brief.md` before 2026-10-22 21:00) still holds for the story and style: the whole tale (street, lost slippers, no sales, windows, the corner, five strikes — stove, goose, tree/stars/falling star, grandmother, whole bundle — ascent, the morning after), a painted-storybook gouache style, one warm narrator, three lines of the girl and one of a woman, burned-in English subtitles.
+
+## Starting point
+
+cut-v5d, editor `f2b9a87`, `film.mp4`, 121.959 s, released at the end of round 1. Its still-image shots (key frame + push-in, no motion):
+s10 goose 0:53–0:58, s12 stars and falling star 1:04–1:12, s13a memory 1:12–1:20, s14 plea 1:26–1:30, s15 whole bundle 1:30–1:34, s16 ascent 1:34–1:42, s17 dawn 1:42–1:49, s18 the townspeople 1:49–1:54, and the sky end of s19.
+
+## Focus and priorities for this round
+
+1. **The ending moves and is told in a way the video models will make** (s17, s18): no longer "a dead child" in the prompt, but what the viewer sees — a girl asleep in the snow at dawn, light growing, snow settling; townspeople seen from behind and from the side, their faces and the woman's gesture carrying the finding. The narration ("frozen to death", "She wanted to warm herself") tells what the picture only implies. Plan and fallbacks: `direction/round-2.md`.
+2. **The climax moves** (s14, s15, s16): the first-round screening's main weakness was static characters from 1:08. Then s12 (stars rise, a star falls) and s10 (the goose hops). s13a may stay a slow move on her face if smooth.
+3. **No judder.** Every push, pan or zoom that remains moves on sub-pixel positions, evenly, frame by frame (0:48–0:51 and 1:50 of cut-v5d are the named examples).
+4. **Keep what works.** Story, style, narration, music, subtitles and the length (115–125 s, about 122 s) stay; each new shot fills the slot of the shot it replaces, so the mix and subtitles need at most small re-syncs. Characters and style must match the first-round shots around them.
+5. **A file that plays**: `film.mp4`, H.264 + AAC, 1280×720 24 fps, burned-in English subtitles (sidecar `film.srt` too).
+
+## What I could not establish
+
+- How many of the 80 video-generation requests the first round used; dp holds that count. The Gemini model's cap resets 07:00 UTC; until then the Wan model (first frame → shot, max 40) is the path.
+- Whether the Wan model's filter accepts the dawn shot; `direction/round-2.md` gives fallbacks in order.

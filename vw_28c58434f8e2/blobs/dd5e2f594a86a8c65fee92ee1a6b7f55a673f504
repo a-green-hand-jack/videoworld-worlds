@@ -1,0 +1,7 @@
+# wan2.7-i2v probe
+- first frame: ffmpeg testsrc 640x360 PNG ok
+- submit: HTTP 200, task 2ef048cf-62e3-4b8d-a390-52813a75ef79 (3 s, 720P)
+- poll: HTTP 200; RUNNING then SUCCEEDED (about 20 s)
+- download: HTTP 200
+- ffprobe: h264,1280,720,30/1,3.000000 + aac,3.018005
+- result: video downloaded and valid

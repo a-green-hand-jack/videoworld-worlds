@@ -1,0 +1,19 @@
+import numpy as np,json
+t=json.load(open('/hutian/editor/edit/timeline.json'))
+W,H=256,144
+out={}
+for name in ('cut4','cut6'):
+    c=np.fromfile(f'/hutian/qcwork/{name}_g256.raw',np.uint8).reshape(-1,H,W).astype(np.float32)
+    for s in t['shots']:
+        a,b=s['frame_in'],min(s['frame_out'],len(c))
+        if b-a<25:continue
+        d=np.abs(np.diff(c[a:b],axis=0)).mean(axis=(1,2))
+        # fraction of frames with no change vs median change; stepped = many ~0 and others large
+        z=float((d<0.03).mean()); med=float(np.median(d))
+        out.setdefault(s['id'],{})[name]=dict(zero=round(z,2),med=round(med,3),cv=round(float(d.std()/(d.mean()+1e-6)),2))
+json.dump(out,open('/hutian/repo/evidence/cut-v6/dups.json','w'))
+sel="S001 S006 S007 S011 S013 S015 S019 S027 S038 S042 S061 S082 S085 S091 S095 S125 S126 S028".split()
+for s in sel:print(s,out[s])
+for n in('cut4','cut6'):
+    bad=[(k,v[n]['zero']) for k,v in out.items() if n in v and v[n]['zero']>0.3]
+    print(n,"shots >1s with >30% repeated frames:",len(bad),bad[:30])

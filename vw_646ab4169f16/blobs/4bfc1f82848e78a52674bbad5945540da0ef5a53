@@ -1,0 +1,36 @@
+# QC report: cut-v6 (release of world/editor; film = editor@8a26127)
+
+Checked against `direction/delivery-spec.md`, `direction/shotlist.csv`, `edit/timeline.json`, `design/characters.md` costume lock (production-designer 9ba440f), and my cut-v4 / cut-v5 reports.
+Method: downloaded the release mp4 (sha256 3e9c45ac…4d70b542) and vtt; ffmpeg 7.0.2 full decode (prints nothing); stream-copy md5 of audio and video; `ebur128`; all 15800 frames decoded to grey 256x144 and 128x72 for per-frame difference analysis (`evidence/cut-v6/analyse.py`, `dups.py`, `per-shot-measures.json`, `dups.json`); the mid-frame of every one of the 127 shots (`evidence/cut-v6/midframes-0..10.jpg`, labelled shot / frame / length); full-size frames S075, S078, S084, S098, S109, S111, S112, S119 (`costume-frames.jpg`). Not played in a browser, not listened to by a person.
+
+**Recommendation: FIX, but close. The motion problem (cut-v4 F1) and the totem/S107 problem (F4) are fixed, and suspenders and the bag strap are gone. What still decides it: F3 (S026-S027 still the red room), the open sound lines L31 and L33, and a smaller residue of F5 (Emo's neckline still changes shirt style across the film).**
+
+## Fixed since cut-v5 (observed)
+- **F1 stepped motion, fixed.** Share of consecutive frames that are identical (difference < 0.03 on 256x144 grey) in shots longer than 1 s: cut-v4 had 12 shots with > 30 % repeated frames (S001 65 %, S007 82 %, S013 78 %, S042 76 %, S085 76 % ...); cut-v6 has 0 (every one of the 17 listed shots is 0 %). The old "new pictures per second" count (0.3 luma threshold) is now 22.5-23.9 in 14 of the 17; the ones below it (S038 0.6, S126 9.6, S028 12.4) are slow smooth drifts, not steps: their per-frame change is non-zero and even (S038 mean 0.20, first-to-last frame difference 13; S126 0.43 / 22), no repeated frames. S038 (18.7 s) is a very slow drift; judge by eye.
+- **F4 totem, fixed.** Mid-frames: S088 (f9815, 06:49), S089 (f9898), S090 (f9976), S091 (f10044) all show the same horned totem with a red eye. S107 (f11499, 07:59.1) is now the empty green tiled room with red cables sprouting from the walls, as the shot list asks; S108 is the red-tube world. The reveal now has something to reveal.
+- **F5 costume, mostly fixed.** No suspenders and no bag/diagonal strap in any of the 127 mid-frames; Proog is in the long olive coat over the maroon knit in all of S043-S126, no strap. Emo is plain grey-green throughout.
+- The 127 shots each have their own picture; each shot boundary shows a hard cut in the difference trace (0 missing; the old "no cut" joins S027/S056/S070 now also cut). No original pixels: mid-frame correlation against all original frames, max 0.66 (same as cut-v4).
+
+## Decisive faults
+| # | Spec | Where | Observed | Owner |
+|---|---|---|---|---|
+| F3 (still open, editor#15, dp#12) | D3 matches shot list | S026 (00:23.0-00:25.5) and S027 (00:25.5-00:29.9), f3462 and f3545 | Both are still the red room (red tower with white receivers on white wires, red walkway with two tiny figures). Shot list: the black cable space, S027 fading to black, so that S028's red room reveal works. The red now starts 6 s early, and S028 (f3708) is red with no fade from black. Editor says dp's release still has it. | dp |
+| F2 residual (editor#19, sound-designer#6) | D4 | L31 "Pulp!" 04:51.0, L33 "Now!" 05:44.5 | Audio stream is bit-identical to cut-v5's (md5 `9cd658bb…`), so my cut-v5 result stands: unprompted recogniser hears "Hope" and "Don't". | sound-designer |
+| F5 residue (new editor issue) | D3 "match the design sheets" | Emo's neckline | The lock says plain fitted shirt, no henley/placket. Cut-v6 shows three different tops: a collared shirt S003-S078 (S078 06:03 clearly polo collar), a button-placket henley in S084 (f9294), S111 (f11899) and probably S075 (collar band), and a plain crew-neck top S087-S125 (S098, S109, S112, S119). The colour and fit are constant, the neckline is not. Editor noted the S078/S080 difference too. Lower weight than F3: it needs a close look, not a story fix. | dp, production-designer |
+
+## Smaller notes (not decisive)
+- S090 (f9976, 06:55.7): Emo looks like a boy and Proog has pointed ears; both depart from their faces elsewhere. S094 (f10257): both heads are caricatured, Emo's hair wild.
+- S003 hard cut inside the shot at frame 689 and S049's fast jumps at f5978-5980, unchanged.
+- S009, S023, S048, S055 differ from the shot-list rows as in cut-v4.
+
+## Passes (observed)
+- D1: 15800 frames, 658.33 s, decode clean; video stream md5 `4984f712…` (new picture), audio md5 `9cd658bb…` = cut-v5's.
+- D4 numbers carry over from cut-v5: -19.8 LUFS, true peak -1.6 dBFS (ebur128 run on cut-v6 begins the same; not re-listed in full), same sound-v2 mix.
+- D5: vtt byte-identical to cut-v5's (75 cues, 0 overlaps).
+- D3 content: from the 127 mid-frames, the pictures match the shot-list rows for who, where and framing apart from F3 and the notes above. S002 (f636) one clean face. Credits S127 present.
+
+## Not checked
+Voice and music by ear; each shot's action beyond its mid-frame; full-size inspection of every shot's hands and faces; every shot's neckline (only the mid-frame of each was seen); browser playback.
+
+## Faults routed
+F5 residue as a new issue in `editor` for dp and production-designer. F3 stays on editor#15 / dp#12. F2 residual stays on editor#19. Editor#14, #16, #17 are answered: close them.

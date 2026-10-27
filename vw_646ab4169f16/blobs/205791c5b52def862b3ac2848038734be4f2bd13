@@ -1,0 +1,79 @@
+import numpy as np
+from common import *
+
+HZ = lambda m: 440 * 2 ** ((m - 69) / 12)
+# Dm - Bb - Gm - A  (one chord per 16 s), pad voicings as midi
+CHORDS = [[50, 57, 62, 65], [46, 53, 62, 65], [43, 50, 58, 62], [45, 52, 61, 64]]
+
+def saw_stack(f, n, rng, voices=3, det=0.004):
+    t = np.arange(n) / SR
+    y = np.zeros(n)
+    for v in range(voices):
+        ff = f * (1 + det * (v - (voices - 1) / 2) * 2)
+        ph = rng.random()
+        y += 2 * ((ff * t + ph) % 1) - 1
+    return y / voices
+
+def make_music(dur, seed=7):
+    rng = np.random.default_rng(seed)
+    n = int(dur * SR)
+    I = intensity(dur)
+    t = np.arange(n) / SR
+    L = np.zeros((2, n))
+    # drone: D1 + A1 sines with slow beating
+    d = 0.5 * np.sin(2 * np.pi * 36.7 * t) + 0.25 * np.sin(2 * np.pi * 73.4 * t * 1.001) + 0.2 * np.sin(2 * np.pi * 55.0 * t)
+    d *= (0.5 + 0.5 * np.sin(2 * np.pi * t / 23))* 0.5 + 0.5
+    L += pan(d * (0.25 + 0.35 * I), 0)
+    # pad: chord every 16 s, crossfaded, cutoff follows intensity
+    seg = 16.0
+    pad = np.zeros((2, n))
+    for k in range(int(dur / seg) + 2):
+        ch = CHORDS[k % 4]
+        t0 = k * seg - 2.0
+        ln = int((seg + 4) * SR)
+        env = np.minimum(1, np.minimum(np.arange(ln) / (3 * SR), (ln - np.arange(ln)) / (3 * SR))) ** 2
+        for j, m in enumerate(ch):
+            y = saw_stack(HZ(m), ln, rng) * env
+            pad_seg = pan(y, -0.7 + 0.47 * j)
+            add(pad, pad_seg, t0)
+    # intensity-dependent brightness: blend dark and bright versions
+    dark = lp(pad, 500); bright = lp(pad, 2200)
+    mix = I[None, :]
+    pad = dark * (1 - mix) + bright * mix
+    L += pad * (0.07 + 0.16 * I)
+    # pulse ostinato (D minor arpeggio, 8ths @ 96bpm) when I > 0.35
+    step = 60 / 96 / 2
+    notes = [50, 57, 62, 65, 62, 57, 53, 57]
+    pl = np.zeros((2, n))
+    for k in range(int(dur / step)):
+        tt = k * step
+        iv = I[min(int(tt * SR), n - 1)]
+        if iv < 0.35: continue
+        m = notes[k % 8] + 12 * ((k // 32) % 2)
+        ln = int(0.5 * SR); tl = np.arange(ln) / SR
+        y = (np.sin(2 * np.pi * HZ(m) * tl) + 0.5 * np.sin(4 * np.pi * HZ(m) * tl)) * np.exp(-tl * 7)
+        add(pl, pan(y * (iv - 0.3) * 0.35, np.sin(k * 0.7) * 0.6), tt)
+    L += pl
+    # tension shimmer on peaks: high sines with tremolo
+    sh = np.zeros(n)
+    for m in (86, 87, 91, 93):
+        sh += np.sin(2 * np.pi * HZ(m) * t + 2 * np.sin(2 * np.pi * 0.2 * t)) / 4
+    sh *= np.clip((I - 0.65) * 3, 0, 1) * (0.6 + 0.4 * np.sin(2 * np.pi * 5.5 * t))
+    L += pan(sh * 0.06, 0.3)
+    # low hits on strong sections: every 4 bars at 96 bpm
+    bar = 60 / 96 * 4
+    for k in range(int(dur / bar)):
+        tt = k * bar
+        iv = I[min(int(tt * SR), n - 1)]
+        if iv < 0.55: continue
+        ln = int(1.8 * SR); tl = np.arange(ln) / SR
+        f = 45 + 40 * np.exp(-tl * 14)
+        y = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tl * 2.2)
+        y += lp(rng.standard_normal(ln), 300) * np.exp(-tl * 9) * 0.6
+        add(L, pan(y * 0.45 * iv, 0), tt)
+    L = reverb(L, 3.2, 0.28, seed=3)
+    # fade in/out
+    f = int(3 * SR)
+    L[:, :f] *= np.linspace(0, 1, f) ** 2
+    L[:, -f:] *= np.linspace(1, 0, f) ** 2
+    return L

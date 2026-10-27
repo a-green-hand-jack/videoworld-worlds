@@ -1,0 +1,6 @@
+# Delivery specification (lock)
+- File `film/first-light.mp4`; H.264 video, AAC stereo audio; 1280x720, 24 fps; duration 4.5-5.5 s.
+- Black background; white text "First Light" fades in over first second, then stays to end.
+- Soft 440 Hz tone under it, fading out over last second. Audio present start to end.
+- Made by code/ffmpeg; no generated images.
+Checks: ffprobe streams/duration; frames at 0, 0.5, 1, 4.9 s; FFT peak of audio ~440 Hz; RMS drops in last second.

@@ -1,0 +1,24 @@
+# Brief — "The Paper Lantern"
+
+## What the input asks (quoted from `director`#1)
+
+> Make a 20-second short film, "The Paper Lantern": at dusk a child lets a paper lantern go on a river, and it drifts past the village until it is a small light among the stars.
+>
+> Picture: 1280x720, 24 fps; four to six shots made from still images (generated pictures with camera moves such as slow pans and pushes are fine), consistent in style and in how the lantern and the child look, with an opening title and an end card. Sound: ambience of water and evening with a soft musical cue; no dialogue.
+>
+> Delivery: `film/paper-lantern.mp4`, H.264 video with AAC stereo sound, 18 to 22 seconds long.
+
+## Focus and priorities for this round
+
+1. **A complete, playable film first.** One file, `film/paper-lantern.mp4`, 18–22 s (aim for 20 s), 1280x720, 24 fps, H.264 + AAC stereo, picture and sound from first to last frame. A complete simple film beats an unfinished ambitious one.
+2. **Continuity of the lantern and the child.** Same child (look, clothing, colours) and same lantern (shape, paper colour, warm glow) in every shot where they appear; one consistent painterly style and dusk-to-night palette across all shots, the title and the end card.
+3. **The story reads without words.** Release at the riverbank → drifting past the village lights → a small light among the stars. Each shot moves the lantern further away.
+4. **Gentle sound.** Water and evening ambience (soft river, crickets/evening air) under a soft musical cue; no dialogue, no voice; no clipping, no abrupt cuts in the sound.
+
+The script, shot list and delivery specification are in the `director` repository under `direction/` (the shot list is quoted to positions that need it in their issues). The edit owner assembles the film; the production designer makes the stills and shots; the director checks each cut and locks.
+
+## What I could not establish
+
+- The input does not fix the visual style beyond "consistent"; the direction chooses a soft painterly/storybook look at dusk (see `direction/shot-list.md`).
+- `image-generation` (gpt-image-2) does not answer from the director's sandbox (anthropic route); whether it works for other positions is for them to check. If no generator is available, stills may be made another way (an open model through `film-network`, or painted/procedural imagery) as long as they meet the shot list and stay consistent.
+- The text of the end card is not given; the direction proposes "The Paper Lantern" title and an end card reading "The End".

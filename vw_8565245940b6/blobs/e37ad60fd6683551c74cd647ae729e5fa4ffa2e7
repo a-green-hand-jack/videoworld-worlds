@@ -1,0 +1,23 @@
+{
+  "type": "image_generation.completed",
+  "sequence_number": 0,
+  "created_at": 1792451466,
+  "generation_id": "070e1ca3-b7a2-4150-a583-951f9225c11b",
+  "background": "opaque",
+  "quality": "medium",
+  "size": "1672x941",
+  "output_format": "png",
+  "usage": {
+    "input_tokens": 459,
+    "input_tokens_details": {
+      "image_tokens": 0,
+      "text_tokens": 459
+    },
+    "output_tokens": 1158,
+    "output_tokens_details": {
+      "image_tokens": 1158,
+      "text_tokens": 0
+    },
+    "total_tokens": 1617
+  }
+}

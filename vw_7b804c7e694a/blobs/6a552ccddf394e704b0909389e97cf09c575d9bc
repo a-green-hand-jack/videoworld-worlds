@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""cut-v5 EDL (dp shots-b2 frames at a434ee0): cut-v4c's timeline and line starts, with the director's editor#9 fixes and dp's new key frames
+(dp 403e395 / 26e5d1b) animated in the edit. Run from this directory; writes edl.json."""
+import json, copy
+SH, KF = "/hutian/dp/shots", "/hutian/dp/keyframes"
+v4 = json.load(open("../cut-v4/edl.json"))
+by = {s["id"]: s for s in v4["shots"]}
+def keep(i, **kw):
+    s = copy.deepcopy(by[i]); s.update(kw); return s
+def still(name, dur, **kw):
+    return {"src": f"{KF}/{name}.png", "dur": dur, **kw}
+shots = [
+    keep("s01"), keep("s02"), keep("s03"),
+    # s04: skip the passers-by merge (src 1.9-4.0) with a dissolve; the hours pass without a sale
+    {"id": "s04", "dur": 6.025, "xfade": 0.4, "parts": [
+        {"src": f"{SH}/s04.mp4", "src_in": 0.0, "dur": 2.5, "speed": 0.76},
+        {"src": f"{SH}/s04.mp4", "src_in": 3.98, "dur": 3.925, "speed": 0.77}]},
+    keep("s05", dur=5.6, src_in=0.0, speed=0.96),
+    keep("s06"), keep("s07"),
+    # s08: the stove goes with the light: fade to dark from "Then it went out." (44.13 s)
+    keep("s08", fade_out=1.6, fade_out_st=6.3),
+    keep("s09", fade_in=0.25),
+    # s10: the roast goose itself hops off and waddles to her (dp shots-b2 frames), then darkness and the cold wall
+    {"id": "s10", "dur": 4.875, "xfade": 0.35, "parts": [
+        still("s10_a", 1.6, z0=1.0, z1=1.06, px=-0.04, flicker=0.03),
+        still("s10_b", 1.55, z0=1.02, z1=1.08, px=0.03, flicker=0.03),
+        still("s10_c", 1.6, z0=1.0, z1=1.07, flicker=0.03, fade_out=0.6),
+        {"src": f"{SH}/s10.mp4", "src_in": 5.6, "dur": 1.175, "speed": 0.9}]},
+    keep("s11"),
+    # s12: match out, the candle lights lift, become stars over the roofs, one falls; "One fell" ~69.4 s
+    {"id": "s12", "dur": 8.0, "xfade": 0.4, "parts": [
+        still("s12_a", 2.2, z0=1.0, z1=1.05, glow=-0.18, snow=0.25),
+        still("s12_b", 2.1, z0=1.04, z1=1.08, py=-0.08, snow=0.25),
+        still("s12_c", 1.9, z0=1.0, z1=1.04, px=0.05, snow=0.25),
+        still("s12_d", 3.0, z0=1.0, z1=1.08, py=0.04, snow=0.25)]},
+    # s13a: the memory shot (no strike), slow push to her face, snow
+    {"id": "s13a", "dur": 7.958, "xfade": 0.5, "parts": [
+        still("s13a", 4.4, z0=1.35, z1=1.42, cx=-0.13, snow=0.5),
+        still("s13a", 4.058, z0=1.08, z1=1.0, snow=0.5)]},
+    # the 4th strike as a cut-in on "A fourth —": flare at src 1.71 lands at 80.50 s; out before the src 2.6 vignette
+    {"id": "s13a_strike", "dur": 1.375, "src": f"{SH}/s13a_strike.mp4", "src_in": 1.17},
+    keep("s13b", dur=4.292, src_in=0.5),
+    # s14: her plea, then the grandmother's light takes her hands
+    {"id": "s14", "dur": 4.25, "xfade": 0.4, "parts": [
+        still("s14", 2.4, z0=1.0, z1=1.05, px=0.03, flicker=0.02),
+        still("s14_b", 2.25, z0=1.02, z1=1.07, glow=0.06, flicker=0.02)]},
+    # s15: the bundle at the wall, the first flare (dissolves in 90.83-91.18 s), the blaze filling the corner
+    {"id": "s15", "dur": 4.375, "xfade": 0.35, "parts": [
+        still("s15", 1.3, z0=1.0, z1=1.03),
+        still("s15_b", 1.45, z0=1.0, z1=1.05, flicker=0.05),
+        still("s15_c", 2.325, z0=1.0, z1=1.06, flicker=0.04, glow=0.08)]},
+    # s16: she is lifted, they rise over the rooftops, high into the light
+    {"id": "s16", "dur": 8.042, "xfade": 0.4, "parts": [
+        still("s16_a", 3.0, z0=1.15, z1=1.25),
+        still("s16_b", 2.9, z0=1.0, z1=1.06, py=-0.12, snow=0.3),
+        still("s16_c", 2.942, z0=1.05, z1=1.2, glow=0.1)]},
+    {"id": "s17", "dur": 7.167, **still("s17", 7.167, z0=1.0, z1=1.07, snow=0.4)},
+    # s18 + s19: from the townspeople (dp's street-side frame) dissolve up into the sky, so the corner is never seen
+    # empty (screening note): s19 joins past the corner at src 4.4, then holds on its last sky frame
+    {"id": "s18-s19", "dur": 9.5, "xfade": 0.5, "fade_out": 1.0, "parts": [
+        still("s18", 4.3, z0=1.04, z1=1.0, px=0.03, snow=0.4),
+        {"src": f"{SH}/s19.mp4", "src_in": 4.4, "dur": 3.6},
+        {"src": "/hutian/media/fx/s19_sky.png", "dur": 2.6, "z0": 1.0, "z1": 1.04}]},
+    keep("end"),
+]
+for s in shots:
+    s.setdefault("id", "?")
+t = 0.0
+for s in shots:
+    s["in"] = round(t, 3); t += s["dur"]; s["out"] = round(t, 3)
+    if "parts" in s:
+        tot = sum(p["dur"] for p in s["parts"]) - s["xfade"] * (len(s["parts"]) - 1)
+        assert abs(tot - s["dur"]) < 0.01, (s["id"], tot, s["dur"])
+e = {**{k: v for k, v in v4.items() if k != "shots"}, "shots": shots, "out": "cut-v5c.mp4",
+     "audio": "mix.wav", "srt": "film.srt"}
+json.dump(e, open("edl.json", "w"), indent=1, ensure_ascii=False)
+print(f"total {t:.4f} s, {len(shots)} shots")
+for s in shots:
+    print(f"{s['id']:>12} {s['in']:8.3f} {s['out']:8.3f}")

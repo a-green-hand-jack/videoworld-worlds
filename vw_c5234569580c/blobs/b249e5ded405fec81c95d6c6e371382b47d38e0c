@@ -1,0 +1,13 @@
+{
+  "commitment_schema": 1,
+  "delivers": [
+    {
+      "what": "Design bible and published reference-image release under design/ in my repository; design/ is working/reference supply, picture/ is the assigned delivery path.",
+      "standard": "One coherent illustrated dusk palette; fixed child, floating paper lantern and river-village features across all shots. Reference images and written invariants are supplied before finished picture. Final distant light remains legible as the lantern among river-reflected stars."
+    },
+    {
+      "what": "Five generated source stills, silent 1280x720 24 fps picture clips with 0.5-second head/tail handles, title/end-card sky backgrounds and shot log under picture/, plus a repository release.",
+      "standard": "Follows the director's settled script and shot list; enough picture for a 20-second cut including opening title and end card; shows a child releasing the lantern, drift past the village and the final small light among stars. Continuity and crop checks are documented from actual rendered frames. Editor owns final timeline, titles/cards, sound and film/paper-lantern.mp4."
+    }
+  ]
+}

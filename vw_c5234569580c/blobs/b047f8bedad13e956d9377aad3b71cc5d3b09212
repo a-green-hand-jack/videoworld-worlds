@@ -1,0 +1,20 @@
+{
+  "fps": 24,
+  "duration": 20.0,
+  "dissolve_frames": 8,
+  "head_fade": 0.4,
+  "tail_fade": [19.2, 20.0],
+  "shots": [
+    {"id": "T", "start": 0.0, "end": 2.5, "still": "T", "move": {"from": [0.5, 0.5, 1.00], "to": [0.5, 0.5, 1.04]}},
+    {"id": "1", "dissolve_frames": 4, "start": 2.5, "end": 6.0, "still": "1", "move": {"from": [0.5, 0.5, 1.00], "to": [0.5, 0.5, 1.12]}},
+    {"id": "2", "dissolve_frames": 0, "start": 6.0, "end": 9.5, "still": "2", "move": {"from": [0.5, 0.5, 1.00], "to": [0.55, 0.5, 1.12]}},
+    {"id": "3", "dissolve_frames": 0, "start": 9.5, "end": 13.0, "still": "3", "move": {"from": [0.05, 0.5, 1.15], "to": [0.95, 0.5, 1.15]}},
+    {"id": "4", "dissolve_frames": 0, "start": 13.0, "end": 16.0, "still": "4", "move": {"from": [0.5, 0.5, 1.12], "to": [0.5, 0.5, 1.00]}},
+    {"id": "5", "start": 16.0, "end": 18.0, "still": "5", "move": {"from": [0.5, 0.5, 1.00], "to": [0.5, 0.5, 1.08]}},
+    {"id": "E", "start": 18.0, "end": 20.0, "still": "E", "move": {"from": [0.5, 0.5, 1.00], "to": [0.5, 0.5, 1.00]}}
+  ],
+  "text": [
+    {"text": "The Paper Lantern", "size": 112, "y": 0.42, "in": [0.15, 0.5], "out": [2.2, 2.4]},
+    {"text": "The End", "size": 96, "y": 0.45, "in": [18.1, 18.5], "out": [19.3, 19.8]}
+  ]
+}

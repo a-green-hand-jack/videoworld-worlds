@@ -1,0 +1,56 @@
+# cut-v2 watched with film-understanding (gemini-3.8-flash, 640x360 viewing copy), 2026-10-22
+
+Line onsets measured in lines-v2 WAVs are 0.02–0.23 s after file start, so subtitle cues placed at line starts are within spec 11 by construction; the subtitle-timing remarks below are the model's estimate, to be checked with faster-whisper on the mixed cut.
+
+Here is an editorial breakdown of the animatic:
+
+### 1. Shot List
+* **00:00–00:06 (Shot 1):** Extreme wide high-angle of snowy medieval street at dusk; the girl walks alone in the distance.
+* **00:06–00:10 (Shot 2):** Medium full side-profile of the girl walking left to right, wearing oversized slippers and holding matches.
+* **00:10–00:15 (Shot 3):** Wide street view; carriages dash past as a boy runs off with her slipper, leaving her barefoot.
+* **00:15–00:21 (Shot 4):** Medium wide center shot; girl stands barefoot offering matches to indifferent passersby.
+* **00:21–00:26 (Shot 5):** Close-up of girl gazing wistfully toward a candlelit window.
+* **00:26–00:31 (Shot 6):** Wide shot; girl huddled on stone steps in an alley corner between two houses.
+* **00:31–00:37 (Shot 7):** Tight close-up of girl’s hands striking and holding a lit match against stone wall.
+* **00:37–00:46 (Shot 8):** Wide shot of corner; girl sits warming her feet before a vision of an ornate iron stove.
+* **00:46–00:53 (Shot 9):** Medium shot; brick wall turns translucent, revealing a roasted goose on a dining table inside.
+* **00:53–00:57 (Shot 10):** Wide shot of corner; table with roasted goose hopped into the snowy alley.
+* **00:57–01:03 (Shot 11):** Wide shot; girl seated beneath a massive glowing Christmas tree decorated with candles.
+* **01:03–01:12 (Shot 12):** Wide night sky; candle lights rise to become stars as a shooting star streaks across.
+* **01:12–01:20 (Shot 13):** Close-up of girl in corner holding a lit match, looking upward.
+* **01:20–01:25 (Shot 14):** Wide corner shot; spirit of Grandmother appears glowing and smiling with open arms.
+* **01:25–01:28 (Shot 15):** Close-up of girl crying and reaching out toward the light.
+* **01:28–01:33 (Shot 16):** Medium shot; girl striking the entire bundle of matches in a large flare.
+* **01:33–01:41 (Shot 17):** Aerial extreme wide; Grandmother carries the girl flying above the city into dawn light.
+* **01:41–01:48 (Shot 18):** Wide corner shot at dawn; girl slumped smiling and frozen against the wall.
+* **01:48–01:51 (Shot 19):** Wide corner shot; crowd of townsfolk gathered around her body looking down.
+* **01:51–01:56 (Shot 20):** Empty corner/alley looking down the street into the dawn sky.
+* **01:56–02:00 (Shot 21):** End title card.
+
+---
+
+### 2. Picture / Narration Mismatches
+* **00:31–00:36:** Narration says *"If she dared strike just one..."*, but the match is **already struck and fully burning** throughout the entire shot.
+* **00:44–00:46:** Narration says *"Then it went out,"* but the warm iron stove remains fully rendered, bright, and blazing until the cut at 00:46.
+* **00:55–00:57:** Narration ends on *"...then darkness,"* but the shot remains brightly lit by the feast table with no blackout or dissolve.
+
+---
+
+### 3. Subtitle Sync Issues
+* **00:00–00:01:** Subtitle appears at 00:00, but narration begins ~0.5s later at 00:00.6 (early by ~0.6s).
+* **00:44:** Subtitle *"Then it went out"* flashes slightly early before the line delivery finishes.
+* **01:10:** Subtitle *"Someone is dying."* appears ~0.4s ahead of the faint whispered audio.
+
+---
+
+### 4. Pacing / Shot Length
+* **Shot 8 (00:37–00:46, 9.0s):** **Too long.** Holding a static still for 9 seconds on a slow push causes the visual rhythm to stall, especially after the narration finishes at 00:45.
+* **Shot 15 (01:25–01:28, 3.0s):** **Too short.** The emotional climax of her plea (*"Grandmother! Take me with you!"*) cuts away before the viewer can absorb the emotional weight on her face.
+* **Shot 19 (01:48–01:51, 3.0s):** **Too short.** Introducing a completely new group of 6 characters and a new camera angle requires at least 4–5 seconds to read the staging and reactions.
+
+---
+
+### 5. Visual Consistency
+* **The Girl:** **Consistent.** Hair volume/curls, blue plaid apron, patched brown shawl/dress, and facial proportions match reliably across close-ups and wide shots.
+* **The Grandmother:** **Consistent.** White bonnet, spectacles, dress cut, and warm benevolent expression stay identical between Shot 14 and Shot 17.
+* **The Corner:** **Consistent.** The corner niche (Shots 6, 8, 10, 14, 18, 19, 20) preserves identical architectural landmarks throughout: cracked plaster stone wall in back, brown wooden shutters on the left building, and stone steps with multi-pane window on the right building. Shifts from night to dawn lighting are handled accurately.

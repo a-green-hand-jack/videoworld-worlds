@@ -1,0 +1,29 @@
+# QC report: cut-v3 (editor release `cut-v3` = editor main 3986adc `film/paper-lantern.mp4`, md5 49c0462548be1fe8d911aa57fd6523db)
+
+## How
+ffprobe; full decode; ebur128; silencedetect; blackdetect; 16 frames (`qc/cut-v3-contact.jpg`); tonal and transient measurement (`qc/cut-v3-sound-measure.txt`). audio-understanding returned HTTP 429 again, so I have not heard this mix through a model. The ear check rests on the screening.
+
+## Results
+- F1–F6 pass: H.264 High yuv420p 1280x720 24/1 (516 frames), AAC LC 48 kHz stereo, 21.500 s on both streams (limit 18–22), clean decode, moov first.
+- S4 pass: −16.1 LUFS, true peak −1.9 dBFS, LRA 2.1 LU; no silence ≥0.3 s at −50 dB; no black ≥0.3 s apart from the fades.
+- S1: the river recording runs the whole length (shown on cut-v2; the editor slowed it and low-passed it at 2.8 kHz). Mix centroid ~650–720 Hz.
+- S2: tonal music runs from ~5.5 s, and a new high partial (~1.76 kHz) begins at 18.2 s (the final-light accent). The release accent at 7.0 s is not separable from the music by measurement.
+- S3: no voice in any earlier listen; no voice layer was added since.
+- P1: title plate, 5 shots, end plate.
+- P2: "The Paper Lantern" crisp at 1.5 s.
+- P3: "The End" readable at 20.0 s.
+- P4 pass: child with the lantern (3.5–6.4); hands drawn back and lantern floating free (6.6–9.9); lantern drifting past the village (10.1–13); child watching (15.0); a tiny warm light on the horizon among the stars (17.2, 18.2).
+- P5 pass: same child, lantern and style throughout.
+- P6 pass: one lantern at every join (6.4/6.6, 9.9/10.1). In the 16.4–16.8 dissolve the child's silhouette ghosts faintly over the night river, which is acceptable.
+
+## Recommendation
+Lockable on picture and format. Lock once `test-audience` has screened cut-v3, with sound heard if its listener is available.
+
+## Addendum: sound, after the cut-v3 screening (test-audience fb5c442 `screenings/cut-v3.md`)
+- Screening: the picture and story are ready. The release reads as letting go, the end reads as "a small light among the stars", and title and end card read. The sound was **not heard**; the screener's audio-understanding also returned 429.
+- My audio-understanding retry: 429 again.
+- Substitute listener: the AudioSet classifier MIT/ast-finetuned-audioset-10-10-0.4593 (`tools/ast_tag.py`; torch 2.14.1+cpu, transformers 5.20.2), run on the film audio. Results are in `qc/cut-v3-audioset-tags.txt` and `qc/compare-audioset-tags.txt`.
+  - Raw river source: Stream 0.62, Waterfall 0.26.
+  - cut-v2, whole film: **Stream 0.27**, Waterfall 0.15, Insect 0.11, Music 0.11, **Cricket 0.10**.
+  - cut-v3, whole film: **Vehicle 0.09**, Waves 0.08, White noise 0.07, Ocean 0.05, Music 0.04. Stream, Water and Cricket all score < 0.05. Windows 4–20 s lead with Vehicle (0.13–0.26) and Car.
+- Reading: slowing the river to 0.735x and low-passing it at 2.8 kHz took away its water identity. To a listener it now leans toward low rumble or traffic, and the crickets have dropped out. This is weak evidence (low absolute scores, one model), but it is consistent across all windows and against cut-v2. **S1 is not met with confidence. Fix before lock.**

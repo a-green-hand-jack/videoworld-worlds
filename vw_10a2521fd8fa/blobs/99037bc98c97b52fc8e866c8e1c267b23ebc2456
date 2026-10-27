@@ -1,0 +1,22 @@
+frame-difference series (mean abs, 320x180 grey) per shot; jerk = mean |second difference| / mean difference
+s01         0.00-   5.83  mean 5.45  zero-steps   1  jerk 0.05
+s02         5.83-  10.46  mean 9.76  zero-steps   1  jerk 0.02
+s03        10.46-  15.38  mean 4.13  zero-steps   2  jerk 0.18
+s04        15.38-  21.40  mean 2.48  zero-steps  31  jerk 0.62
+s05        21.40-  27.00  mean 10.12  zero-steps   5  jerk 0.13
+s06        27.00-  32.08  mean 1.55  zero-steps   8  jerk 0.13
+s07        32.08-  38.04  mean 2.00  zero-steps   1  jerk 0.48
+s08        38.04-  46.33  mean 3.03  zero-steps  14  jerk 0.40
+s09        46.33-  53.33  mean 2.57  zero-steps   0  jerk 0.07
+s10        53.33-  58.21  mean 4.37  zero-steps   2  jerk 0.51
+s11        58.21-  64.00  mean 7.93  zero-steps   1  jerk 0.03
+s12        64.00-  72.00  mean 2.25  zero-steps   0  jerk 0.22
+s13a       72.00-  79.96  mean 3.42  zero-steps   0  jerk 0.18
+s13a_strike   79.96-  81.33  mean 3.09  zero-steps   1  jerk 0.71
+s13b       81.33-  85.62  mean 1.98  zero-steps   0  jerk 0.04
+s14        85.62-  89.88  mean 3.30  zero-steps   0  jerk 0.55
+s15        89.88-  94.25  mean 4.20  zero-steps   0  jerk 0.59
+s16        94.25- 102.29  mean 1.63  zero-steps   0  jerk 0.14
+s17       102.29- 109.46  mean 0.81  zero-steps   0  jerk 0.39
+s18-s19   109.46- 118.96  mean 4.01  zero-steps   0  jerk 0.09
+end       118.96- 121.96  mean 0.03  zero-steps  71  jerk 0.10

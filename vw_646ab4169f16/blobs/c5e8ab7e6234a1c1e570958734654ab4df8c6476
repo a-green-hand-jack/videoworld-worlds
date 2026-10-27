@@ -1,0 +1,2842 @@
+{
+ "timeline_schema": 1,
+ "fps": 24,
+ "width": 1024,
+ "height": 576,
+ "total_frames": 15800,
+ "total_seconds": 658.333,
+ "source": "/initial-state/inputs/0/elephantsdream-1024-h264-st-aac.mov (sha256 a462c56d...136c), pts time; frame_in/out = round(pts*24) on the 24 fps CFR delivery grid",
+ "method": "ffmpeg scdet + pixel/histogram differences, every boundary checked by eye on before/after frames; flashes and whip-pans inside a shot not counted as cuts",
+ "version": "v1",
+ "ids": "S001-S127 (v0 IDs and boundaries, adopted by the director in direction/shotlist.csv)",
+ "credits_shot": "S127",
+ "scenes": 12,
+ "shots": [
+  {
+   "id": "S001",
+   "frame_in": 0,
+   "frame_out": 619,
+   "frames": 619,
+   "seconds": 25.792,
+   "tc_in": "00:00:00",
+   "scene": "SC01",
+   "scene_v0": "SC01",
+   "framing": "wide",
+   "camera": "slow push/drift through a dark space",
+   "what": "Fade up from black: the title 'elephants dream' carved/painted into a weathered ochre-green tiled wall or ceiling, warm green light; camera drifts on, light dims to greenish dark. Proog V.O. (off): 'At the left we can see... at the right we can see the... head-snarlers. Everything is safe. Perfectly safe.'",
+   "enters_by": "cut",
+   "ref_note": "fades up from black over 0-1 s; the title 'Elephants Dream' is new lettering painted onto dp's wall in the edit (on 2.0 s, legible 3.5-16.5 s, gone 18.0 s); presenter card 18.6-23.6 s as the wall darkens",
+   "overlays": [
+    {
+     "text": "a VideoWorld film production",
+     "start": 18.6,
+     "end": 23.6,
+     "size": 34,
+     "y": 0.43,
+     "fade": 1.0
+    }
+   ],
+   "dialogue": [
+    {
+     "line": "L01",
+     "speaker": "Proog",
+     "text": "At the left we can see... At the right we can see the... the head-snarlers. Everything is safe. Perfectly safe.",
+     "start_s": 15.1,
+     "end_s": 24.5,
+     "note": "V.O. over the titles; slow, guide-like, proud"
+    },
+    {
+     "line": "L02",
+     "speaker": "Proog",
+     "text": "Emo? Emo!",
+     "start_s": 25.2,
+     "end_s": 26.8,
+     "note": "alarm rising"
+    }
+   ],
+   "title_fx": {
+    "tool": "edit/tools/title_s001.py",
+    "text": "Elephants Dream",
+    "on": 2.0,
+    "full": 3.5,
+    "fade_from": 16.5,
+    "off": 18.0,
+    "note": "title typeset (IM Fell English) and painted onto dp's S001 wall: tracked to the plate, takes the wall's light and texture, fully legible 3.5-16.5 s (13 s)"
+   }
+  },
+  {
+   "id": "S002",
+   "frame_in": 619,
+   "frame_out": 654,
+   "frames": 35,
+   "seconds": 1.458,
+   "tc_in": "00:25:19",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "CU",
+   "camera": "Proog swings round into camera",
+   "what": "Proog (bald, big nose, grey side-hair/stubble, olive-brown coat, dark red vest) turns sharply toward camera, alarmed, warm dark background: 'Emo? Emo!'",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S003",
+   "frame_in": 654,
+   "frame_out": 723,
+   "frames": 69,
+   "seconds": 2.875,
+   "tc_in": "00:27:06",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "wide",
+   "camera": "fast pan/whip across",
+   "what": "Pale teal machine wall of riveted panels and glowing sockets; black cables shoot across frame; reveal of the walkway with Proog running and Emo being knocked down. Proog: 'Watch out!'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L03",
+     "speaker": "Proog",
+     "text": "Watch out!",
+     "start_s": 28.2,
+     "end_s": 29.3,
+     "note": "shout"
+    }
+   ]
+  },
+  {
+   "id": "S004",
+   "frame_in": 723,
+   "frame_out": 747,
+   "frames": 24,
+   "seconds": 1.0,
+   "tc_in": "00:30:03",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "MCU low angle",
+   "camera": "handheld, fast",
+   "what": "Emo (thin, pale, dark hair, grey-teal shirt) is swept and pinned by a lashing cable; Proog lunges in, grabbing.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S005",
+   "frame_in": 747,
+   "frame_out": 753,
+   "frames": 6,
+   "seconds": 0.25,
+   "tc_in": "00:31:03",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "CU insert",
+   "camera": "static",
+   "what": "Flash insert: machine panel with cogs and a glowing white hexagonal nut.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S006",
+   "frame_in": 753,
+   "frame_out": 882,
+   "frames": 129,
+   "seconds": 5.375,
+   "tc_in": "00:31:09",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "CU",
+   "camera": "slow drift",
+   "what": "Machine panel: cogs, glowing hex nut; black cables whip and settle in front of it, mist.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S007",
+   "frame_in": 882,
+   "frame_out": 1200,
+   "frames": 318,
+   "seconds": 13.25,
+   "tc_in": "00:36:18",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "wide",
+   "camera": "locked off, slight drift",
+   "what": "Dissolve to wide: pale teal hall, wall of sockets, web of thin cables, bright white light behind; Emo lies on the walkway at left, Proog stands at right by the wall and turns to him. Proog: 'Are you hurt?'",
+   "enters_by": "cut",
+   "ref_note": "enters by a dissolve from S006 (about 36.6-37.1 s); cut point set mid-dissolve",
+   "dialogue": [
+    {
+     "line": "L04",
+     "speaker": "Proog",
+     "text": "Are you hurt?",
+     "start_s": 46.3,
+     "end_s": 47.6,
+     "note": "breathless"
+    }
+   ]
+  },
+  {
+   "id": "S008",
+   "frame_in": 1200,
+   "frame_out": 1321,
+   "frames": 121,
+   "seconds": 5.042,
+   "tc_in": "00:50:00",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "MCU profile",
+   "camera": "static",
+   "what": "Emo in profile facing right, against riveted teal wall, dazed, looks down. Emo: 'I don't think so. You?'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L05",
+     "speaker": "Emo",
+     "text": "I don't think so. You?",
+     "start_s": 52.0,
+     "end_s": 53.8,
+     "note": "dazed"
+    }
+   ]
+  },
+  {
+   "id": "S009",
+   "frame_in": 1321,
+   "frame_out": 1518,
+   "frames": 197,
+   "seconds": 8.208,
+   "tc_in": "00:55:01",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "MCU profile",
+   "camera": "static",
+   "what": "Proog in profile facing left, bright white backlight, web of cables behind. Proog: 'I'm OK. Get up. Emo, it's not safe here. ... Let's go.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L06",
+     "speaker": "Proog",
+     "text": "I'm OK.",
+     "start_s": 55.3,
+     "end_s": 56.3,
+     "note": ""
+    },
+    {
+     "line": "L07",
+     "speaker": "Proog",
+     "text": "Get up. Emo, it's not safe here.",
+     "start_s": 57.0,
+     "end_s": 61.1,
+     "note": "urgent"
+    },
+    {
+     "line": "L08",
+     "speaker": "Proog",
+     "text": "Let's go.",
+     "start_s": 61.8,
+     "end_s": 62.8,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S010",
+   "frame_in": 1518,
+   "frame_out": 1673,
+   "frames": 155,
+   "seconds": 6.458,
+   "tc_in": "01:03:06",
+   "scene": "SC02",
+   "scene_v0": "SC02",
+   "framing": "extreme wide",
+   "camera": "static",
+   "what": "Tall teal shaft/wall rising out of a white abyss; a small walkway-machine sticking out with the two tiny figures. Emo: 'What's next?' Proog: 'You'll see. ... You'll see.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L09",
+     "speaker": "Emo",
+     "text": "What's next?",
+     "start_s": 63.4,
+     "end_s": 64.2,
+     "note": "curious"
+    },
+    {
+     "line": "L10",
+     "speaker": "Proog",
+     "text": "You'll see. ... You'll see.",
+     "start_s": 65.6,
+     "end_s": 68.5,
+     "note": "teasing, mysterious"
+    }
+   ]
+  },
+  {
+   "id": "S011",
+   "frame_in": 1673,
+   "frame_out": 1933,
+   "frames": 260,
+   "seconds": 10.833,
+   "tc_in": "01:09:17",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "wide to MCU",
+   "camera": "static, figures walk into camera",
+   "what": "Dark curtained doorway with white light beyond; Proog and Emo come through, Proog walks forward into a close, leaning, looking around. Proog: 'This way.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L11",
+     "speaker": "Proog",
+     "text": "Emo, this way.",
+     "start_s": 75.6,
+     "end_s": 77.8,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S012",
+   "frame_in": 1933,
+   "frame_out": 2103,
+   "frames": 170,
+   "seconds": 7.083,
+   "tc_in": "01:20:13",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "extreme wide low",
+   "camera": "slow tilt",
+   "what": "Black-and-white cable hall: a vast dark space of hanging black cables, vertical light poles, a lit platform/walkway high up.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S013",
+   "frame_in": 2103,
+   "frame_out": 2355,
+   "frames": 252,
+   "seconds": 10.5,
+   "tc_in": "01:27:15",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "extreme wide high",
+   "camera": "slow drift",
+   "what": "High view over a winding segmented metal walkway through a forest of cables and telegraph-pole racks; Proog and Emo walk in from bottom and on. Proog: 'Follow me!'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L12",
+     "speaker": "Proog",
+     "text": "Follow me!",
+     "start_s": 94.3,
+     "end_s": 95.3,
+     "note": ""
+    },
+    {
+     "line": "L13",
+     "speaker": "Proog",
+     "text": "(indistinct mutter as he leaps on)",
+     "start_s": 95.8,
+     "end_s": 99.5,
+     "note": "? pass 2 only; keep as a mutter/effort"
+    }
+   ]
+  },
+  {
+   "id": "S014",
+   "frame_in": 2355,
+   "frame_out": 2427,
+   "frames": 72,
+   "seconds": 3.0,
+   "tc_in": "01:38:03",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "wide low angle",
+   "camera": "tracking",
+   "what": "Proog leaps from platform to platform among cables and poles, Emo following behind.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S015",
+   "frame_in": 2427,
+   "frame_out": 2524,
+   "frames": 97,
+   "seconds": 4.042,
+   "tc_in": "01:41:03",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "extreme wide",
+   "camera": "slow pan",
+   "what": "Wide over the winding walkway: white flying cable-creatures (telephone-receiver 'birds') flutter around the cables.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S016",
+   "frame_in": 2524,
+   "frame_out": 2663,
+   "frames": 139,
+   "seconds": 5.792,
+   "tc_in": "01:45:04",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Proog jumps up onto a telegraph pole crossbar, flying creatures pass; Emo waits on the walkway.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S017",
+   "frame_in": 2663,
+   "frame_out": 2731,
+   "frames": 68,
+   "seconds": 2.833,
+   "tc_in": "01:50:23",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "extreme wide",
+   "camera": "pan",
+   "what": "Pan across telegraph poles and taut cables; tiny figure crossing.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S018",
+   "frame_in": 2731,
+   "frame_out": 2893,
+   "frames": 162,
+   "seconds": 6.75,
+   "tc_in": "01:53:19",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "wide",
+   "camera": "follows action",
+   "what": "Emo on a metal platform; a white bird-creature flaps past him; Proog leaps across onto a metal tube; then both walk toward camera.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S019",
+   "frame_in": 2893,
+   "frame_out": 3054,
+   "frames": 161,
+   "seconds": 6.708,
+   "tc_in": "02:00:13",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "extreme wide high",
+   "camera": "slow drift",
+   "what": "High view: the winding walkway with the two walking along it among pylons and receivers.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S020",
+   "frame_in": 3054,
+   "frame_out": 3136,
+   "frames": 82,
+   "seconds": 3.417,
+   "tc_in": "02:07:06",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Proog in front, facing camera, looking about; Emo behind him on the walkway.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S021",
+   "frame_in": 3136,
+   "frame_out": 3181,
+   "frames": 45,
+   "seconds": 1.875,
+   "tc_in": "02:10:16",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "high angle",
+   "camera": "tracking",
+   "what": "Looking down at the walkway: Emo and Proog walking forward.",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L14",
+     "speaker": "Proog",
+     "text": "Hurry, Emo!",
+     "start_s": 130.8,
+     "end_s": 131.9,
+     "note": "? pass 2 only"
+    }
+   ]
+  },
+  {
+   "id": "S022",
+   "frame_in": 3181,
+   "frame_out": 3219,
+   "frames": 38,
+   "seconds": 1.583,
+   "tc_in": "02:12:13",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Proog strides toward camera, swinging his arms, Emo behind.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S023",
+   "frame_in": 3219,
+   "frame_out": 3244,
+   "frames": 25,
+   "seconds": 1.042,
+   "tc_in": "02:14:03",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "CU insert",
+   "camera": "fast move",
+   "what": "Metal walkway segment/plate tilting among cables and receiver racks.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S024",
+   "frame_in": 3244,
+   "frame_out": 3341,
+   "frames": 97,
+   "seconds": 4.042,
+   "tc_in": "02:15:04",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Proog and Emo stop on a walkway plate in the black cable void; Proog listening.",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L15",
+     "speaker": "Proog",
+     "text": "Listen, listen!",
+     "start_s": 135.8,
+     "end_s": 137.5,
+     "note": "? pass 2 only; hushed"
+    }
+   ]
+  },
+  {
+   "id": "S025",
+   "frame_in": 3341,
+   "frame_out": 3432,
+   "frames": 91,
+   "seconds": 3.792,
+   "tc_in": "02:19:05",
+   "scene": "SC03",
+   "scene_v0": "SC03",
+   "framing": "MS low angle",
+   "camera": "static",
+   "what": "Proog and Emo under a telegraph pole; a white creature flutters overhead; Proog crouches, holding Emo back.",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L16",
+     "speaker": "Proog",
+     "text": "Listen... listen.",
+     "start_s": 139.5,
+     "end_s": 142.7,
+     "note": "? pass 2 only; whisper"
+    }
+   ]
+  },
+  {
+   "id": "S026",
+   "frame_in": 3432,
+   "frame_out": 3493,
+   "frames": 61,
+   "seconds": 2.542,
+   "tc_in": "02:23:00",
+   "scene": "SC04",
+   "scene_v0": "SC03",
+   "framing": "extreme wide",
+   "camera": "fly-through",
+   "what": "Flight through the black cable space: white telephone receivers/birds hang and swarm among taut white wires; a large grey machine node.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S027",
+   "frame_in": 3493,
+   "frame_out": 3597,
+   "frames": 104,
+   "seconds": 4.333,
+   "tc_in": "02:25:13",
+   "scene": "SC04",
+   "scene_v0": "SC03",
+   "framing": "extreme wide",
+   "camera": "fly-through",
+   "what": "The flight goes on deeper into the dark wire space, fewer receivers, fading toward black.",
+   "enters_by": "continuous",
+   "continuity": "no cut at 145.54 s: the flight past the receivers goes on",
+   "dialogue": []
+  },
+  {
+   "id": "S028",
+   "frame_in": 3597,
+   "frame_out": 3820,
+   "frames": 223,
+   "seconds": 9.292,
+   "tc_in": "02:29:21",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "black / extreme wide",
+   "camera": "- / static",
+   "what": "[149.88–152.30] Fade to black (about 3 s). [152.30–159.17] Fade up: dark red-brown room, walls of hanging cables and machinery, a red carpet square lit from above with an old candlestick telephone on a pedestal at its centre; a tiny figure at the right.",
+   "enters_by": "cut",
+   "ref_note": "opens on black (149.9-152.4 s held in the original), fades up to the red room",
+   "beats": [
+    {
+     "frame": 3655,
+     "at_frame_in_shot": 58,
+     "tc_s": 152.292,
+     "kind": "fade",
+     "what": "held black ends, fade up to the red room begins (152.30 s)"
+    }
+   ],
+   "dialogue": [],
+   "gain": {
+    "note": "cut to black at 3597, held black to 3654, fade up 3655-3686 (measured on the original luma)",
+    "keys": [
+     [
+      0,
+      0.0
+     ],
+     [
+      57,
+      0.0
+     ],
+     [
+      89,
+      1.0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S029",
+   "frame_in": 3820,
+   "frame_out": 3976,
+   "frames": 156,
+   "seconds": 6.5,
+   "tc_in": "02:39:04",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "high angle / MS",
+   "camera": "static",
+   "what": "[159.25–161.25] Overhead: the telephone on its round pedestal on the red carpet. [161.25–163.25] Proog, red-lit, looking down at the phone. [163.25–165.67] Emo, red-lit, against a cage of cables.",
+   "enters_by": "cut",
+   "ref_note": "enters through a 2-frame dip to black at 159.1 s",
+   "beats": [
+    {
+     "frame": 3868,
+     "at_frame_in_shot": 48,
+     "tc_s": 161.167,
+     "kind": "cut",
+     "what": "dip to black, cut to Proog red-lit (161.17 s)"
+    },
+    {
+     "frame": 3918,
+     "at_frame_in_shot": 98,
+     "tc_s": 163.25,
+     "kind": "cut",
+     "what": "dip to black, cut to Emo red-lit (163.25 s)"
+    }
+   ],
+   "dialogue": [],
+   "gain": {
+    "note": "two dips to black (original 3862-3875 and 3912-3925): 6 frames down, black at 48 and 98, 7 frames up",
+    "keys": [
+     [
+      41,
+      1.0
+     ],
+     [
+      48,
+      0.0
+     ],
+     [
+      55,
+      1.0
+     ],
+     [
+      91,
+      1.0
+     ],
+     [
+      98,
+      0.0
+     ],
+     [
+      105,
+      1.0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S030",
+   "frame_in": 3976,
+   "frame_out": 4024,
+   "frames": 48,
+   "seconds": 2.0,
+   "tc_in": "02:45:16",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "MS low angle",
+   "camera": "static",
+   "what": "The candlestick telephone on its pedestal, Emo's hand reaching toward it.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S031",
+   "frame_in": 4024,
+   "frame_out": 4043,
+   "frames": 19,
+   "seconds": 0.792,
+   "tc_in": "02:47:16",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "top shot",
+   "camera": "static",
+   "what": "From above: Proog and Emo by the round lamp and the phone on the red carpet.",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L17",
+     "speaker": "Proog",
+     "text": "You're not paying attention!",
+     "start_s": 168.3,
+     "end_s": 169.8,
+     "note": "stern"
+    }
+   ]
+  },
+  {
+   "id": "S032",
+   "frame_in": 4043,
+   "frame_out": 4082,
+   "frames": 39,
+   "seconds": 1.625,
+   "tc_in": "02:48:11",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Proog close, leaning in, stern. Proog: 'You're not paying attention.'",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S033",
+   "frame_in": 4082,
+   "frame_out": 4184,
+   "frames": 102,
+   "seconds": 4.25,
+   "tc_in": "02:50:02",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Emo beside the candlestick phone, reaching for its receiver.",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L18",
+     "speaker": "Emo",
+     "text": "I... I just want to answer the phone...",
+     "start_s": 170.5,
+     "end_s": 174.6,
+     "note": "? pass 2 only; sheepish"
+    }
+   ]
+  },
+  {
+   "id": "S034",
+   "frame_in": 4184,
+   "frame_out": 4279,
+   "frames": 95,
+   "seconds": 3.958,
+   "tc_in": "02:54:08",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "OTS MCU",
+   "camera": "push in",
+   "what": "Over Emo's shoulder: Proog leans in, takes the receiver and holds it out. Proog: 'Emo, look. I mean, listen.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L19",
+     "speaker": "Proog",
+     "text": "Emo, look. I mean, listen.",
+     "start_s": 174.6,
+     "end_s": 177.0,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S035",
+   "frame_in": 4279,
+   "frame_out": 4379,
+   "frames": 100,
+   "seconds": 4.167,
+   "tc_in": "02:58:07",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "ECU",
+   "camera": "push in",
+   "what": "Inside the receiver's earpiece: a red-orange organic mechanism of tiny cogs and tendrils. Proog: 'You have to learn to listen.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L20",
+     "speaker": "Proog",
+     "text": "You have to learn to listen.",
+     "start_s": 179.5,
+     "end_s": 181.7,
+     "note": "lecturing"
+    }
+   ]
+  },
+  {
+   "id": "S036",
+   "frame_in": 4379,
+   "frame_out": 4554,
+   "frames": 175,
+   "seconds": 7.292,
+   "tc_in": "03:02:11",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "high angle",
+   "camera": "static",
+   "what": "Looking down a dark shaft onto the red carpet and the phone far below. Proog: 'This is not some game. You, I mean we, we could easily die out here.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L21",
+     "speaker": "Proog",
+     "text": "This is not some game.",
+     "start_s": 183.2,
+     "end_s": 184.5,
+     "note": ""
+    },
+    {
+     "line": "L22",
+     "speaker": "Proog",
+     "text": "You... I mean, we... we could easily die out here.",
+     "start_s": 185.3,
+     "end_s": 189.0,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S037",
+   "frame_in": 4554,
+   "frame_out": 4666,
+   "frames": 112,
+   "seconds": 4.667,
+   "tc_in": "03:09:18",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Emo, wide-eyed, as Proog's hand holds the receiver to his ear. Proog: 'Listen. Listen to the sounds of the machine.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L23",
+     "speaker": "Proog",
+     "text": "Listen. Listen to the sounds of the machine.",
+     "start_s": 189.9,
+     "end_s": 193.7,
+     "note": "hushed, reverent"
+    }
+   ]
+  },
+  {
+   "id": "S038",
+   "frame_in": 4666,
+   "frame_out": 5114,
+   "frames": 448,
+   "seconds": 18.667,
+   "tc_in": "03:14:10",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "extreme wide",
+   "camera": "long crane down",
+   "what": "Up the red cage of cables to a ceiling machine; a lamp descends slowly down the cables (Proog's head passing at left), revealing the telephone pedestal below. Proog: 'Listen to your breathing.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L24",
+     "speaker": "Proog",
+     "text": "Listen to your breathing.",
+     "start_s": 197.6,
+     "end_s": 199.3,
+     "note": "whisper"
+    }
+   ]
+  },
+  {
+   "id": "S039",
+   "frame_in": 5114,
+   "frame_out": 5198,
+   "frames": 84,
+   "seconds": 3.5,
+   "tc_in": "03:33:02",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Emo, red-lit, looks up, then down, hand at his mouth, listening.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S040",
+   "frame_in": 5198,
+   "frame_out": 5308,
+   "frames": 110,
+   "seconds": 4.583,
+   "tc_in": "03:36:14",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "MS",
+   "camera": "static",
+   "what": "A spindly mechanical bird/insect contraption with a glowing eye perched on a stand by the curved wall, twitching.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S041",
+   "frame_in": 5308,
+   "frame_out": 5376,
+   "frames": 68,
+   "seconds": 2.833,
+   "tc_in": "03:41:04",
+   "scene": "SC04",
+   "scene_v0": "SC04",
+   "framing": "low CU",
+   "camera": "static",
+   "what": "Legs: Proog's feet walk past a three-pronged stand on the red carpet.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S042",
+   "frame_in": 5376,
+   "frame_out": 5596,
+   "frames": 220,
+   "seconds": 9.167,
+   "tc_in": "03:44:00",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "CU to wide",
+   "camera": "pan along",
+   "what": "Green-lit metal pipes and a brass horn/valve; the pan finds a green tiled platform and a doorway beyond.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S043",
+   "frame_in": 5596,
+   "frame_out": 5733,
+   "frames": 137,
+   "seconds": 5.708,
+   "tc_in": "03:53:04",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "MCU",
+   "camera": "static",
+   "what": "Proog and Emo in a bright doorway, Proog in front, peering out into the dark.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S044",
+   "frame_in": 5733,
+   "frame_out": 5829,
+   "frames": 96,
+   "seconds": 4.0,
+   "tc_in": "03:58:21",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "extreme wide",
+   "camera": "static",
+   "what": "A small platform of pipes jutting into a huge dark misty abyss; the two tiny figures on it; shafts of light.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S045",
+   "frame_in": 5829,
+   "frame_out": 5868,
+   "frames": 39,
+   "seconds": 1.625,
+   "tc_in": "04:02:21",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Emo and Proog step onto a green-lit platform edge, Proog leading.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S046",
+   "frame_in": 5868,
+   "frame_out": 5916,
+   "frames": 48,
+   "seconds": 2.0,
+   "tc_in": "04:04:12",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "MS",
+   "camera": "static",
+   "what": "On the platform edge: Proog lifts a leg and hops; Emo behind him by a bright door.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S047",
+   "frame_in": 5916,
+   "frame_out": 5929,
+   "frames": 13,
+   "seconds": 0.542,
+   "tc_in": "04:06:12",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "MCU low",
+   "camera": "static",
+   "what": "Proog with arm flung out, balancing.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S048",
+   "frame_in": 5929,
+   "frame_out": 5977,
+   "frames": 48,
+   "seconds": 2.0,
+   "tc_in": "04:07:01",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "CU",
+   "camera": "follows",
+   "what": "A small round pedestal on a pole (dial-like top) rises out of the dark mist.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S049",
+   "frame_in": 5977,
+   "frame_out": 5981,
+   "frames": 4,
+   "seconds": 0.167,
+   "tc_in": "04:09:01",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "CU insert",
+   "camera": "fast",
+   "what": "Flash: green circuit-board machinery with hanging wires (0.17 s).",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S050",
+   "frame_in": 5981,
+   "frame_out": 5995,
+   "frames": 14,
+   "seconds": 0.583,
+   "tc_in": "04:09:05",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "CU",
+   "camera": "follows",
+   "what": "The green machinery with a brass valve wheel and a pipe reaching out into the dark.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S051",
+   "frame_in": 5995,
+   "frame_out": 6190,
+   "frames": 195,
+   "seconds": 8.125,
+   "tc_in": "04:09:19",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "wide",
+   "camera": "static to follow",
+   "what": "Proog hops from the platform onto a pedestal on a pole and leaps on through the light shafts; Emo watches from the edge.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S052",
+   "frame_in": 6190,
+   "frame_out": 6304,
+   "frames": 114,
+   "seconds": 4.75,
+   "tc_in": "04:17:22",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "wide",
+   "camera": "follows",
+   "what": "Proog leaping pedestal to pedestal in the dark.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S053",
+   "frame_in": 6304,
+   "frame_out": 6464,
+   "frames": 160,
+   "seconds": 6.667,
+   "tc_in": "04:22:16",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "MS to wide",
+   "camera": "static",
+   "what": "Proog's arm swings past; Emo stands on a pedestal in the light shafts. Emo: 'Don't you ever get tired of this?'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L25",
+     "speaker": "Emo",
+     "text": "Well, don't you ever get tired of this?",
+     "start_s": 266.5,
+     "end_s": 269.2,
+     "note": "weary"
+    }
+   ]
+  },
+  {
+   "id": "S054",
+   "frame_in": 6464,
+   "frame_out": 6560,
+   "frames": 96,
+   "seconds": 4.0,
+   "tc_in": "04:29:08",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Proog balances on two pedestals in god-rays. Proog: 'Tired? Emo, the machine is like... like...'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L26",
+     "speaker": "Proog",
+     "text": "Tired?",
+     "start_s": 270.0,
+     "end_s": 270.4,
+     "note": "offended"
+    },
+    {
+     "line": "L27",
+     "speaker": "Proog",
+     "text": "Emo, the machine is like... like clockwork.",
+     "start_s": 271.1,
+     "end_s": 274.7,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S055",
+   "frame_in": 6560,
+   "frame_out": 6574,
+   "frames": 14,
+   "seconds": 0.583,
+   "tc_in": "04:33:08",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "extreme wide",
+   "camera": "static",
+   "what": "Dark hall of shafts of light: Proog stands on a pedestal on a pole, arms out; small objects on poles around him.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S056",
+   "frame_in": 6574,
+   "frame_out": 6650,
+   "frames": 76,
+   "seconds": 3.167,
+   "tc_in": "04:33:22",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "extreme wide",
+   "camera": "static",
+   "what": "Same hall: Emo hops across pedestals behind Proog; a small round bomb-like object on a pole. Proog: '...clockwork. One move out of place...'",
+   "enters_by": "continuous",
+   "continuity": "no cut at 273.92 s: a light flares in the same shot",
+   "dialogue": [
+    {
+     "line": "L28",
+     "speaker": "Proog",
+     "text": "One move out of place... and you're ground to a pulp.",
+     "start_s": 275.5,
+     "end_s": 278.9,
+     "note": "relishing"
+    }
+   ]
+  },
+  {
+   "id": "S057",
+   "frame_in": 6650,
+   "frame_out": 6723,
+   "frames": 73,
+   "seconds": 3.042,
+   "tc_in": "04:37:02",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "MS",
+   "camera": "static",
+   "what": "A round metal ball-machine with a little lamp, spinning on its own, then gone. Proog: '...and you're ground to a pulp.'",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S058",
+   "frame_in": 6723,
+   "frame_out": 6771,
+   "frames": 48,
+   "seconds": 2.0,
+   "tc_in": "04:40:03",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "MCU profile",
+   "camera": "static",
+   "what": "Emo in profile, a fiery explosion blooms behind/beside him.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S059",
+   "frame_in": 6771,
+   "frame_out": 6891,
+   "frames": 120,
+   "seconds": 5.0,
+   "tc_in": "04:42:03",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Proog, back to us in god-rays, turns, leaning forward, wild-eyed. Proog: 'Pulp, Emo! Is that what you want? Pulp?'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L29",
+     "speaker": "Proog",
+     "text": "Pulp, Emo! Is that what you want? Pulp?",
+     "start_s": 282.3,
+     "end_s": 286.3,
+     "note": "manic"
+    }
+   ]
+  },
+  {
+   "id": "S060",
+   "frame_in": 6891,
+   "frame_out": 7019,
+   "frames": 128,
+   "seconds": 5.333,
+   "tc_in": "04:47:03",
+   "scene": "SC05",
+   "scene_v0": "SC05",
+   "framing": "extreme wide",
+   "camera": "static",
+   "what": "Tiny figures crossing to a far platform in a smoky, light-shafted abyss. Proog: 'Emo, your goal in life... Pulp!'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L30",
+     "speaker": "Proog",
+     "text": "Emo, your goal in life...",
+     "start_s": 287.5,
+     "end_s": 289.6,
+     "note": "? 'goal in life' reading uncertain"
+    },
+    {
+     "line": "L31",
+     "speaker": "Proog",
+     "text": "Pulp!",
+     "start_s": 291.0,
+     "end_s": 291.4,
+     "note": "shout"
+    }
+   ]
+  },
+  {
+   "id": "S061",
+   "frame_in": 7019,
+   "frame_out": 7338,
+   "frames": 319,
+   "seconds": 13.292,
+   "tc_in": "04:52:11",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "wide to MS",
+   "camera": "static",
+   "what": "Inside a tall elevator cage of brass, glass and machinery in sepia light; Proog walks in and turns, Emo follows; then the vertical doors close to black.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S062",
+   "frame_in": 7338,
+   "frame_out": 7383,
+   "frames": 45,
+   "seconds": 1.875,
+   "tc_in": "05:05:18",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Wall panel: Proog's gloved hand presses a glowing red button.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S063",
+   "frame_in": 7383,
+   "frame_out": 7402,
+   "frames": 19,
+   "seconds": 0.792,
+   "tc_in": "05:07:15",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Dark machine interior: a mechanical arm swings, a lit capsule.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S064",
+   "frame_in": 7402,
+   "frame_out": 7437,
+   "frames": 35,
+   "seconds": 1.458,
+   "tc_in": "05:08:10",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Proog and Emo in the elevator, Proog pleased; quick cut to the machine arm.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S065",
+   "frame_in": 7437,
+   "frame_out": 7497,
+   "frames": 60,
+   "seconds": 2.5,
+   "tc_in": "05:09:21",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "wide",
+   "camera": "fast move",
+   "what": "A mechanical arm passes a capsule toward a huge iris-like tunnel; the camera rushes into it.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S066",
+   "frame_in": 7497,
+   "frame_out": 7635,
+   "frames": 138,
+   "seconds": 5.75,
+   "tc_in": "05:12:09",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "POV / CU",
+   "camera": "rush through / fast",
+   "what": "[312.38–315.12] Racing down a spiralling tunnel of cables and rings toward white light. [315.12–317.79] Bursting through cables toward light; a metal cylinder capsule tumbles. [317.79–318.12] Flash: the cylinder capsule hurtles past.",
+   "enters_by": "cut",
+   "beats": [
+    {
+     "frame": 7563,
+     "at_frame_in_shot": 66,
+     "tc_s": 315.125,
+     "kind": "cut",
+     "what": "hard cut: bursting through cables, capsule tumbles (315.13 s)"
+    },
+    {
+     "frame": 7627,
+     "at_frame_in_shot": 130,
+     "tc_s": 317.792,
+     "kind": "cut",
+     "what": "hard cut: capsule flash close-up, 8 frames (317.79 s)"
+    }
+   ],
+   "dialogue": []
+  },
+  {
+   "id": "S067",
+   "frame_in": 7635,
+   "frame_out": 7680,
+   "frames": 45,
+   "seconds": 1.875,
+   "tc_in": "05:18:03",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "MS",
+   "camera": "static",
+   "what": "In the elevator: Emo and Proog side by side, Proog smug.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S068",
+   "frame_in": 7680,
+   "frame_out": 7833,
+   "frames": 153,
+   "seconds": 6.375,
+   "tc_in": "05:20:00",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "wide",
+   "camera": "slow push",
+   "what": "Dark machine room: a robot arm on a glowing rail picks up a capsule.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S069",
+   "frame_in": 7833,
+   "frame_out": 7861,
+   "frames": 28,
+   "seconds": 1.167,
+   "tc_in": "05:26:09",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "CU",
+   "camera": "fast",
+   "what": "Machine arm and iris ring with lights; then a blurred close pass of Proog's sleeve/hand across the lens.",
+   "enters_by": "cut",
+   "beats": [
+    {
+     "frame": 7850,
+     "at_frame_in_shot": 17,
+     "tc_s": 327.083,
+     "kind": "cut",
+     "what": "hard cut from the iris ring to Proog swinging by (327.08 s); the shot list puts this beat in S070"
+    }
+   ],
+   "dialogue": []
+  },
+  {
+   "id": "S070",
+   "frame_in": 7861,
+   "frame_out": 7910,
+   "frames": 49,
+   "seconds": 2.042,
+   "tc_in": "05:27:13",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Brown-orange machine shaft: Emo, lower left, watches; Proog's body swings by and he peers round into camera.",
+   "enters_by": "continuous",
+   "continuity": "no hard cut at 327.54 s: Proog's coat swings across the lens (body wipe) into this shot",
+   "dialogue": []
+  },
+  {
+   "id": "S071",
+   "frame_in": 7910,
+   "frame_out": 8010,
+   "frames": 100,
+   "seconds": 4.167,
+   "tc_in": "05:29:14",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "wide",
+   "camera": "push in",
+   "what": "The arm loads the capsule; the iris tunnel opens to a dark spiral hole.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S072",
+   "frame_in": 8010,
+   "frame_out": 8057,
+   "frames": 47,
+   "seconds": 1.958,
+   "tc_in": "05:33:18",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "POV",
+   "camera": "static",
+   "what": "Down the barrel of the iris tunnel: the capsule shoots away into the swirl.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S073",
+   "frame_in": 8057,
+   "frame_out": 8178,
+   "frames": 121,
+   "seconds": 5.042,
+   "tc_in": "05:35:17",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "CU",
+   "camera": "fast",
+   "what": "The metal capsule flies, tumbling, through grey streaked blur.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S074",
+   "frame_in": 8178,
+   "frame_out": 8290,
+   "frames": 112,
+   "seconds": 4.667,
+   "tc_in": "05:40:18",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Grey-white blurred surroundings: Emo, and Proog reaching out a hand, then lunging at a lever beside Emo and pulling it. Proog: 'Now!'",
+   "enters_by": "cut",
+   "beats": [
+    {
+     "frame": 8190,
+     "at_frame_in_shot": 12,
+     "tc_s": 341.25,
+     "kind": "event",
+     "what": "Proog lunges at the lever (341.25 s, no cut)"
+    }
+   ],
+   "dialogue": [
+    {
+     "line": "L32",
+     "speaker": "Proog",
+     "text": "Emo, close your eyes.",
+     "start_s": 341.5,
+     "end_s": 343.2,
+     "note": "? pass 2 only"
+    },
+    {
+     "line": "L33",
+     "speaker": "Proog",
+     "text": "Now!",
+     "start_s": 344.5,
+     "end_s": 345.4,
+     "note": "shout, pulls the lever"
+    }
+   ]
+  },
+  {
+   "id": "S075",
+   "frame_in": 8290,
+   "frame_out": 8461,
+   "frames": 171,
+   "seconds": 7.125,
+   "tc_in": "05:45:10",
+   "scene": "SC06",
+   "scene_v0": "SC06",
+   "framing": "CU",
+   "camera": "static",
+   "what": "[345.42–346.29] Proog's face, intense. [346.29–352.54] Proog's face, eyes widening; light floods white.",
+   "enters_by": "cut",
+   "beats": [
+    {
+     "frame": 8311,
+     "at_frame_in_shot": 21,
+     "tc_s": 346.292,
+     "kind": "event",
+     "what": "background starts streaking white behind Proog (346.29 s, no cut)"
+    }
+   ],
+   "dialogue": []
+  },
+  {
+   "id": "S076",
+   "frame_in": 8461,
+   "frame_out": 8605,
+   "frames": 144,
+   "seconds": 6.0,
+   "tc_in": "05:52:13",
+   "scene": "SC07",
+   "scene_v0": "SC07",
+   "framing": "extreme wide",
+   "camera": "static",
+   "what": "Black void: a vast curved rocky machine structure and gantries glowing faintly.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S077",
+   "frame_in": 8605,
+   "frame_out": 8714,
+   "frames": 109,
+   "seconds": 4.542,
+   "tc_in": "05:58:13",
+   "scene": "SC07",
+   "scene_v0": "SC07",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Emo and Proog stand on a small glowing square platform floating in black. Proog: 'What is at your left side, Emo?' Emo: 'Well...'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L34",
+     "speaker": "Proog",
+     "text": "What do you see at your left side, Emo?",
+     "start_s": 359.3,
+     "end_s": 361.6,
+     "note": "quiz-master"
+    },
+    {
+     "line": "L35",
+     "speaker": "Emo",
+     "text": "Well... nothing.",
+     "start_s": 362.0,
+     "end_s": 364.7,
+     "note": "flat"
+    }
+   ]
+  },
+  {
+   "id": "S078",
+   "frame_in": 8714,
+   "frame_out": 8754,
+   "frames": 40,
+   "seconds": 1.667,
+   "tc_in": "06:03:02",
+   "scene": "SC07",
+   "scene_v0": "SC07",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Emo's face, eyes lowered, glowing green-white. Emo: '...nothing.'",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S079",
+   "frame_in": 8754,
+   "frame_out": 8875,
+   "frames": 121,
+   "seconds": 5.042,
+   "tc_in": "06:04:18",
+   "scene": "SC07",
+   "scene_v0": "SC07",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Both on the platform; Emo gestures, Proog leans out. Proog: 'Really?' Emo: 'No, nothing at all.' Proog: 'Really. And at your right?'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L36",
+     "speaker": "Proog",
+     "text": "Really?",
+     "start_s": 364.9,
+     "end_s": 365.2,
+     "note": ""
+    },
+    {
+     "line": "L37",
+     "speaker": "Emo",
+     "text": "No, nothing at all.",
+     "start_s": 366.2,
+     "end_s": 367.5,
+     "note": ""
+    },
+    {
+     "line": "L38",
+     "speaker": "Proog",
+     "text": "Really.",
+     "start_s": 367.8,
+     "end_s": 368.1,
+     "note": ""
+    },
+    {
+     "line": "L39",
+     "speaker": "Proog",
+     "text": "And at your right?",
+     "start_s": 368.4,
+     "end_s": 369.7,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S080",
+   "frame_in": 8875,
+   "frame_out": 8945,
+   "frames": 70,
+   "seconds": 2.917,
+   "tc_in": "06:09:19",
+   "scene": "SC07",
+   "scene_v0": "SC07",
+   "framing": "CU two-shot",
+   "camera": "static",
+   "what": "Emo and Proog cheek to cheek, Proog's face close. Proog: 'What do you see at your right side, Emo?'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L40",
+     "speaker": "Proog",
+     "text": "What do you see at your right side, Emo?",
+     "start_s": 369.8,
+     "end_s": 371.7,
+     "note": "close, insinuating"
+    }
+   ]
+  },
+  {
+   "id": "S081",
+   "frame_in": 8945,
+   "frame_out": 9118,
+   "frames": 173,
+   "seconds": 7.208,
+   "tc_in": "06:12:17",
+   "scene": "SC07",
+   "scene_v0": "SC07",
+   "framing": "wide",
+   "camera": "static to descend / descend",
+   "what": "[372.71–377.42] The two on the small platform in the void. Emo: 'The same, Proog. Exactly the same. Nothing.' [377.42–379.92] The platform drops through flashing white light; streaks of grey blur rush by.",
+   "enters_by": "cut",
+   "beats": [
+    {
+     "frame": 9058,
+     "at_frame_in_shot": 113,
+     "tc_s": 377.417,
+     "kind": "event",
+     "what": "white light floods up from below as the platform drops (377.42 s, no cut)"
+    }
+   ],
+   "dialogue": [
+    {
+     "line": "L41",
+     "speaker": "Emo",
+     "text": "The same, Proog. Exactly the same. Nothing!",
+     "start_s": 373.2,
+     "end_s": 377.4,
+     "note": "exasperated"
+    }
+   ]
+  },
+  {
+   "id": "S082",
+   "frame_in": 9118,
+   "frame_out": 9245,
+   "frames": 127,
+   "seconds": 5.292,
+   "tc_in": "06:19:22",
+   "scene": "SC08",
+   "scene_v0": "SC07",
+   "framing": "wide",
+   "camera": "pan",
+   "what": "A brilliant white glowing machine of filaments and rings; Proog crouches beside a tall white contraption.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S083",
+   "frame_in": 9245,
+   "frame_out": 9256,
+   "frames": 11,
+   "seconds": 0.458,
+   "tc_in": "06:25:05",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "white",
+   "camera": "-",
+   "what": "Flash of pure white.",
+   "enters_by": "cut",
+   "ref_note": "white flash (pure white) between S082 and S084",
+   "dialogue": []
+  },
+  {
+   "id": "S084",
+   "frame_in": 9256,
+   "frame_out": 9295,
+   "frames": 39,
+   "seconds": 1.625,
+   "tc_in": "06:25:16",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Emo reaching up with his hand through glowing dust, in a sepia haze.",
+   "enters_by": "cut",
+   "ref_note": "fades in from white",
+   "dialogue": []
+  },
+  {
+   "id": "S085",
+   "frame_in": 9295,
+   "frame_out": 9514,
+   "frames": 219,
+   "seconds": 9.125,
+   "tc_in": "06:27:07",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "extreme wide",
+   "camera": "slow pan",
+   "what": "Golden-lit cathedral of machinery: rows of brass drums and webs of cables under shafts of light.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S086",
+   "frame_in": 9514,
+   "frame_out": 9722,
+   "frames": 208,
+   "seconds": 8.667,
+   "tc_in": "06:36:10",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "MS / wide",
+   "camera": "follows / static",
+   "what": "[396.42–399.46] Emo, bent forward, walks toward a glowing door in the gloom. [399.46–405.08] Warm amber room: Emo walks to a white door; Proog behind a big wired sphere. Emo: 'Do you hear that? Can we go here?'",
+   "enters_by": "cut",
+   "beats": [
+    {
+     "frame": 9587,
+     "at_frame_in_shot": 73,
+     "tc_s": 399.458,
+     "kind": "cut",
+     "what": "hard cut to the amber room (399.46 s)"
+    }
+   ],
+   "dialogue": [
+    {
+     "line": "L42",
+     "speaker": "Emo",
+     "text": "Listen, Proog. Do you hear that? Can we go here?",
+     "start_s": 400.2,
+     "end_s": 404.4,
+     "note": "excited, hushed"
+    }
+   ]
+  },
+  {
+   "id": "S087",
+   "frame_in": 9722,
+   "frame_out": 9797,
+   "frames": 75,
+   "seconds": 3.125,
+   "tc_in": "06:45:02",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Emo beside a pale door with a handle; Proog leans in, stern. Proog: 'There?' Emo: 'Yeah.' Proog: 'It isn't safe, Emo.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L43",
+     "speaker": "Proog",
+     "text": "There?",
+     "start_s": 405.4,
+     "end_s": 405.9,
+     "note": ""
+    },
+    {
+     "line": "L44",
+     "speaker": "Emo",
+     "text": "Yeah.",
+     "start_s": 406.0,
+     "end_s": 406.2,
+     "note": ""
+    },
+    {
+     "line": "L45",
+     "speaker": "Proog",
+     "text": "It isn't safe, Emo.",
+     "start_s": 406.6,
+     "end_s": 407.9,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S088",
+   "frame_in": 9797,
+   "frame_out": 9833,
+   "frames": 36,
+   "seconds": 1.5,
+   "tc_in": "06:48:05",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "CU insert",
+   "camera": "static",
+   "what": "Proog's gloved hand holds up a small dark carved totem/key with a horned head and a red light. Emo: 'But...'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L46",
+     "speaker": "Emo",
+     "text": "But...",
+     "start_s": 408.9,
+     "end_s": 409.8,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S089",
+   "frame_in": 9833,
+   "frame_out": 9964,
+   "frames": 131,
+   "seconds": 5.458,
+   "tc_in": "06:49:17",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Proog holds the totem in front of Emo by the door. Proog: 'Trust me, it's not.' Emo: 'Well, maybe I could...' Proog: 'No.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L47",
+     "speaker": "Proog",
+     "text": "Trust me, it's not.",
+     "start_s": 410.3,
+     "end_s": 411.9,
+     "note": ""
+    },
+    {
+     "line": "L48",
+     "speaker": "Emo",
+     "text": "Well, maybe I could...",
+     "start_s": 412.9,
+     "end_s": 414.6,
+     "note": ""
+    },
+    {
+     "line": "L49",
+     "speaker": "Proog",
+     "text": "No.",
+     "start_s": 414.6,
+     "end_s": 414.9,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S090",
+   "frame_in": 9964,
+   "frame_out": 9989,
+   "frames": 25,
+   "seconds": 1.042,
+   "tc_in": "06:55:04",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "CU insert",
+   "camera": "static",
+   "what": "The horned totem turned, its red eye lights.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S091",
+   "frame_in": 9989,
+   "frame_out": 10099,
+   "frames": 110,
+   "seconds": 4.583,
+   "tc_in": "06:56:05",
+   "scene": "SC08",
+   "scene_v0": "SC08",
+   "framing": "MS",
+   "camera": "push / whip",
+   "what": "[416.21–419.21] Proog thrusts the totem toward Emo; light flares. Proog: 'NO!' [419.21–420.79] The door slams; a pale green tiled room with a big fan; Proog bent over Emo.",
+   "enters_by": "cut",
+   "beats": [
+    {
+     "frame": 10061,
+     "at_frame_in_shot": 72,
+     "tc_s": 419.208,
+     "kind": "morph",
+     "what": "the room behind them changes from the door to the green tiled room while they stay in frame (419.21 s, no cut)"
+    }
+   ],
+   "dialogue": [
+    {
+     "line": "L50",
+     "speaker": "Emo",
+     "text": "But...",
+     "start_s": 417.1,
+     "end_s": 418.0,
+     "note": ""
+    },
+    {
+     "line": "L51",
+     "speaker": "Proog",
+     "text": "No!",
+     "start_s": 418.0,
+     "end_s": 418.3,
+     "note": "shout, with the totem flare"
+    },
+    {
+     "line": "L52",
+     "speaker": "Proog",
+     "text": "Any further questions, Emo?",
+     "start_s": 420.7,
+     "end_s": 423.0,
+     "note": "cold"
+    }
+   ]
+  },
+  {
+   "id": "S092",
+   "frame_in": 10099,
+   "frame_out": 10159,
+   "frames": 60,
+   "seconds": 2.5,
+   "tc_in": "07:00:19",
+   "scene": "SC09",
+   "scene_v0": "SC08",
+   "framing": "CU wide-lens",
+   "camera": "static",
+   "what": "Proog close, sneering, in a green tiled room with a big fan. Proog: 'Any further questions, Emo?'",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S093",
+   "frame_in": 10159,
+   "frame_out": 10238,
+   "frames": 79,
+   "seconds": 3.292,
+   "tc_in": "07:03:07",
+   "scene": "SC09",
+   "scene_v0": "SC08",
+   "framing": "MCU",
+   "camera": "static",
+   "what": "Emo against green tiles, sullen. Emo: 'No.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L53",
+     "speaker": "Emo",
+     "text": "No.",
+     "start_s": 424.3,
+     "end_s": 424.8,
+     "note": "sullen"
+    }
+   ]
+  },
+  {
+   "id": "S094",
+   "frame_in": 10238,
+   "frame_out": 10276,
+   "frames": 38,
+   "seconds": 1.583,
+   "tc_in": "07:06:14",
+   "scene": "SC09",
+   "scene_v0": "SC08",
+   "framing": "CU",
+   "camera": "static",
+   "what": "A round lit porthole/lamp seen through a square opening in the pale green tiled wall.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S095",
+   "frame_in": 10276,
+   "frame_out": 10576,
+   "frames": 300,
+   "seconds": 12.5,
+   "tc_in": "07:08:04",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "wide",
+   "camera": "pan/pull back",
+   "what": "Wide of the green tiled room (fan, pipes): Emo stands apart, Proog walks to him. Proog: 'Emo.' Emo: 'Yeah?' Proog: 'Emo, why... Emo, why... why can't you see the beauty of this place? The way it works...'",
+   "enters_by": "cut",
+   "ref_note": "opens on ~0.4 s black, then the green room",
+   "dialogue": [
+    {
+     "line": "L54",
+     "speaker": "Proog",
+     "text": "Emo.",
+     "start_s": 429.5,
+     "end_s": 430.4,
+     "note": "softer"
+    },
+    {
+     "line": "L55",
+     "speaker": "Emo",
+     "text": "Yeah?",
+     "start_s": 430.8,
+     "end_s": 431.0,
+     "note": ""
+    },
+    {
+     "line": "L56",
+     "speaker": "Proog",
+     "text": "Emo, why... Emo, why... why can't you see the beauty of this place?",
+     "start_s": 431.8,
+     "end_s": 438.1,
+     "note": "pleading"
+    },
+    {
+     "line": "L57",
+     "speaker": "Proog",
+     "text": "The way it works... how perfect it is.",
+     "start_s": 438.7,
+     "end_s": 443.6,
+     "note": "rapt"
+    }
+   ]
+  },
+  {
+   "id": "S096",
+   "frame_in": 10576,
+   "frame_out": 10655,
+   "frames": 79,
+   "seconds": 3.292,
+   "tc_in": "07:20:16",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "CU wide-lens",
+   "camera": "static",
+   "what": "Proog, arms wide, ecstatic. Proog: '...how perfect it is.'",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S097",
+   "frame_in": 10655,
+   "frame_out": 10828,
+   "frames": 173,
+   "seconds": 7.208,
+   "tc_in": "07:23:23",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "wide",
+   "camera": "static",
+   "what": "The tiled room: Emo throws up his arm, Proog backs away. Emo: 'No, Proog, I don't see. I don't see because there's nothing there.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L58",
+     "speaker": "Emo",
+     "text": "No, Proog, I don't see. I don't see because there's nothing there.",
+     "start_s": 444.5,
+     "end_s": 449.6,
+     "note": "angry"
+    },
+    {
+     "line": "L59",
+     "speaker": "Emo",
+     "text": "And why should I trust my life to something that isn't there?",
+     "start_s": 449.6,
+     "end_s": 454.6,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S098",
+   "frame_in": 10828,
+   "frame_out": 10959,
+   "frames": 131,
+   "seconds": 5.458,
+   "tc_in": "07:31:04",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Emo, intense. Emo: 'And why should I trust my life to something that isn't there? Well, can you tell me that?'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L60",
+     "speaker": "Emo",
+     "text": "Well, can you tell me that? Proog, answer me!",
+     "start_s": 455.6,
+     "end_s": 458.2,
+     "note": "? words and speaker uncertain (heard as 'What can you tell me then? Emo, answer me'); off-screen over S103"
+    }
+   ]
+  },
+  {
+   "id": "S099",
+   "frame_in": 10959,
+   "frame_out": 11048,
+   "frames": 89,
+   "seconds": 3.708,
+   "tc_in": "07:36:15",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "CU wide-lens",
+   "camera": "static",
+   "what": "Proog, hands spread, then raises a hand. Proog: 'Emo... answer me.' (speaker to confirm)",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S100",
+   "frame_in": 11048,
+   "frame_out": 11056,
+   "frames": 8,
+   "seconds": 0.333,
+   "tc_in": "07:40:08",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "CU",
+   "camera": "fast",
+   "what": "Proog's arm swings across frame.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S101",
+   "frame_in": 11056,
+   "frame_out": 11076,
+   "frames": 20,
+   "seconds": 0.833,
+   "tc_in": "07:40:16",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "wide",
+   "camera": "static",
+   "what": "High angle: Proog lunges toward Emo.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S102",
+   "frame_in": 11076,
+   "frame_out": 11205,
+   "frames": 129,
+   "seconds": 5.375,
+   "tc_in": "07:41:12",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Emo leans back, staring at Proog. Emo: 'Proog... you're a sick man.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L61",
+     "speaker": "Emo",
+     "text": "Proog... you're a sick man.",
+     "start_s": 464.6,
+     "end_s": 466.4,
+     "note": "cold"
+    }
+   ]
+  },
+  {
+   "id": "S103",
+   "frame_in": 11205,
+   "frame_out": 11255,
+   "frames": 50,
+   "seconds": 2.083,
+   "tc_in": "07:46:21",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Emo shoves past Proog by the fan. Emo: 'Stay away from me.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L62",
+     "speaker": "Emo",
+     "text": "Stay away from me.",
+     "start_s": 467.4,
+     "end_s": 468.4,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S104",
+   "frame_in": 11255,
+   "frame_out": 11333,
+   "frames": 78,
+   "seconds": 3.25,
+   "tc_in": "07:48:23",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Emo walks down a tiled corridor, glancing back.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S105",
+   "frame_in": 11333,
+   "frame_out": 11397,
+   "frames": 64,
+   "seconds": 2.667,
+   "tc_in": "07:52:05",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Proog in the long tiled room, pleading. Proog: 'No, Emo, it's a trap.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L63",
+     "speaker": "Proog",
+     "text": "No, Emo, it's a trap!",
+     "start_s": 472.4,
+     "end_s": 474.4,
+     "note": "desperate"
+    }
+   ]
+  },
+  {
+   "id": "S106",
+   "frame_in": 11397,
+   "frame_out": 11448,
+   "frames": 51,
+   "seconds": 2.125,
+   "tc_in": "07:54:21",
+   "scene": "SC09",
+   "scene_v0": "SC09",
+   "framing": "CU profile",
+   "camera": "static",
+   "what": "Emo turns, smiling. Emo: 'It's a trap?'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L64",
+     "speaker": "Emo",
+     "text": "It's a trap?",
+     "start_s": 475.8,
+     "end_s": 477.0,
+     "note": "mocking"
+    }
+   ]
+  },
+  {
+   "id": "S107",
+   "frame_in": 11448,
+   "frame_out": 11550,
+   "frames": 102,
+   "seconds": 4.25,
+   "tc_in": "07:57:00",
+   "scene": "SC10",
+   "scene_v0": "SC09",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Empty green tiled room; Emo spreads his arms and red organic cables/vines sprout from the walls. Emo: 'At the left side you can see... the Hanging Gardens of Babylon!'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L65",
+     "speaker": "Emo",
+     "text": "At the left side you can see... the Hanging Gardens of Babylon!",
+     "start_s": 477.0,
+     "end_s": 481.1,
+     "note": "showman, mimicking Proog's tour-guide voice"
+    }
+   ]
+  },
+  {
+   "id": "S108",
+   "frame_in": 11550,
+   "frame_out": 11628,
+   "frames": 78,
+   "seconds": 3.25,
+   "tc_in": "08:01:06",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "MS",
+   "camera": "circles",
+   "what": "Emo, arms out, amid a mass of writhing red-brown tubes. Emo: 'How's that for a trap?'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L66",
+     "speaker": "Emo",
+     "text": "How's that for a trap?",
+     "start_s": 482.1,
+     "end_s": 483.3,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S109",
+   "frame_in": 11628,
+   "frame_out": 11687,
+   "frames": 59,
+   "seconds": 2.458,
+   "tc_in": "08:04:12",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "CU wide-lens",
+   "camera": "static",
+   "what": "Proog, appalled, under the ceiling. Proog: 'No, Emo.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L67",
+     "speaker": "Proog",
+     "text": "No, Emo.",
+     "start_s": 485.7,
+     "end_s": 486.6,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S110",
+   "frame_in": 11687,
+   "frame_out": 11885,
+   "frames": 198,
+   "seconds": 8.25,
+   "tc_in": "08:06:23",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Emo walks into a golden-amber world of tubes and rain-like light streaks. Emo: 'On the right side you can see... well, guess what... the Colossus of Rhodes!'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L68",
+     "speaker": "Emo",
+     "text": "On the right side you can see...",
+     "start_s": 489.0,
+     "end_s": 491.2,
+     "note": ""
+    },
+    {
+     "line": "L69",
+     "speaker": "Emo",
+     "text": "Well, guess what?",
+     "start_s": 491.8,
+     "end_s": 492.4,
+     "note": ""
+    },
+    {
+     "line": "L70",
+     "speaker": "Emo",
+     "text": "The Colossus of Rhodes!",
+     "start_s": 493.0,
+     "end_s": 494.6,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S111",
+   "frame_in": 11885,
+   "frame_out": 11914,
+   "frames": 29,
+   "seconds": 1.208,
+   "tc_in": "08:15:05",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Proog, hands raised against the tubes. Proog: 'No!'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L71",
+     "speaker": "Proog",
+     "text": "No!",
+     "start_s": 495.5,
+     "end_s": 496.1,
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "S112",
+   "frame_in": 11914,
+   "frame_out": 12041,
+   "frames": 127,
+   "seconds": 5.292,
+   "tc_in": "08:16:10",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "MS",
+   "camera": "static",
+   "what": "Emo amid tubes, pointing, triumphant. Emo: 'The Colossus of Rhodes! And it is here just for you, Proog. ... Just for you.'",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L72",
+     "speaker": "Emo",
+     "text": "The Colossus of Rhodes!",
+     "start_s": 496.6,
+     "end_s": 497.8,
+     "note": ""
+    },
+    {
+     "line": "L73",
+     "speaker": "Emo",
+     "text": "And it is here just for you, Proog.",
+     "start_s": 498.0,
+     "end_s": 500.0,
+     "note": ""
+    },
+    {
+     "line": "L74",
+     "speaker": "Emo",
+     "text": "Just for you.",
+     "start_s": 500.2,
+     "end_s": 501.5,
+     "note": "quiet, cruel"
+    }
+   ]
+  },
+  {
+   "id": "S113",
+   "frame_in": 12041,
+   "frame_out": 12195,
+   "frames": 154,
+   "seconds": 6.417,
+   "tc_in": "08:21:17",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Proog stumbles through the golden tube-forest, hands to his head; a giant organic tube-figure looms.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S114",
+   "frame_in": 12195,
+   "frame_out": 12260,
+   "frames": 65,
+   "seconds": 2.708,
+   "tc_in": "08:28:03",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "extreme wide",
+   "camera": "static",
+   "what": "Proog alone in a vast golden hall of tube-machines.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S115",
+   "frame_in": 12260,
+   "frame_out": 12288,
+   "frames": 28,
+   "seconds": 1.167,
+   "tc_in": "08:30:20",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "MS",
+   "camera": "fast",
+   "what": "A tube-creature lunges low across the golden floor; Proog ducks.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S116",
+   "frame_in": 12288,
+   "frame_out": 12382,
+   "frames": 94,
+   "seconds": 3.917,
+   "tc_in": "08:32:00",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Golden hall: tiny Emo far off; Proog bends forward in the foreground.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S117",
+   "frame_in": 12382,
+   "frame_out": 12450,
+   "frames": 68,
+   "seconds": 2.833,
+   "tc_in": "08:35:22",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Proog's face, cold and resolved.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S118",
+   "frame_in": 12450,
+   "frame_out": 12480,
+   "frames": 30,
+   "seconds": 1.25,
+   "tc_in": "08:38:18",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "CU insert",
+   "camera": "fast",
+   "what": "Golden tiled floor and tubes; Proog's hand grabs a tube.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S119",
+   "frame_in": 12480,
+   "frame_out": 12497,
+   "frames": 17,
+   "seconds": 0.708,
+   "tc_in": "08:40:00",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "CU",
+   "camera": "fast",
+   "what": "Proog's hand swings a tube like a whip.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S120",
+   "frame_in": 12497,
+   "frame_out": 12517,
+   "frames": 20,
+   "seconds": 0.833,
+   "tc_in": "08:40:17",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "MCU",
+   "camera": "static",
+   "what": "Emo, braced, flinching.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S121",
+   "frame_in": 12517,
+   "frame_out": 12526,
+   "frames": 9,
+   "seconds": 0.375,
+   "tc_in": "08:41:13",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "wide",
+   "camera": "fast",
+   "what": "Proog rushes at Emo along the tube-lined wall.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S122",
+   "frame_in": 12526,
+   "frame_out": 12581,
+   "frames": 55,
+   "seconds": 2.292,
+   "tc_in": "08:41:22",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "CU low",
+   "camera": "static",
+   "what": "Emo's face from below, struck, eyes rolling.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S123",
+   "frame_in": 12581,
+   "frame_out": 12755,
+   "frames": 174,
+   "seconds": 7.25,
+   "tc_in": "08:44:05",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Emo falls among the tubes beside a tube-giant; Proog stands alone as the gold drains to dark green.",
+   "enters_by": "cut",
+   "dialogue": [
+    {
+     "line": "L75",
+     "speaker": "Proog",
+     "text": "It is there... I'm telling you, Emo... it is... it is...",
+     "start_s": 530.3,
+     "end_s": 539.3,
+     "note": "broken, to himself"
+    }
+   ]
+  },
+  {
+   "id": "S124",
+   "frame_in": 12755,
+   "frame_out": 12793,
+   "frames": 38,
+   "seconds": 1.583,
+   "tc_in": "08:51:11",
+   "scene": "SC10",
+   "scene_v0": "SC10",
+   "framing": "CU",
+   "camera": "static",
+   "what": "Proog looking up, mouth open, dark green light.",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S125",
+   "frame_in": 12793,
+   "frame_out": 13063,
+   "frames": 270,
+   "seconds": 11.25,
+   "tc_in": "08:53:01",
+   "scene": "SC11",
+   "scene_v0": "SC10",
+   "framing": "wide",
+   "camera": "static",
+   "what": "Proog on the dark tiled floor among dead tubes, Emo lying still; Proog kneels over him. Proog: 'I'm telling you, Emo... it is. It is...'",
+   "enters_by": "cut",
+   "dialogue": []
+  },
+  {
+   "id": "S126",
+   "frame_in": 13063,
+   "frame_out": 13578,
+   "frames": 515,
+   "seconds": 21.458,
+   "tc_in": "09:04:07",
+   "scene": "SC11",
+   "scene_v0": "SC11",
+   "framing": "CU",
+   "camera": "slow pull back",
+   "what": "Emo's limp hand among tangled metal tubes on a tiled floor; slow fade to black.",
+   "enters_by": "cut",
+   "ref_note": "ends with a fade to black about 564-565.7 s",
+   "dialogue": [],
+   "gain": {
+    "note": "slow fade to black over the whole shot, gain = original luma relative to its first frames, black from 509",
+    "keys": [
+     [
+      0,
+      1.0
+     ],
+     [
+      24,
+      0.977
+     ],
+     [
+      48,
+      0.942
+     ],
+     [
+      72,
+      0.892
+     ],
+     [
+      96,
+      0.835
+     ],
+     [
+      120,
+      0.756
+     ],
+     [
+      144,
+      0.669
+     ],
+     [
+      168,
+      0.596
+     ],
+     [
+      192,
+      0.541
+     ],
+     [
+      216,
+      0.489
+     ],
+     [
+      240,
+      0.436
+     ],
+     [
+      264,
+      0.394
+     ],
+     [
+      288,
+      0.377
+     ],
+     [
+      312,
+      0.347
+     ],
+     [
+      336,
+      0.32
+     ],
+     [
+      360,
+      0.294
+     ],
+     [
+      384,
+      0.276
+     ],
+     [
+      408,
+      0.242
+     ],
+     [
+      432,
+      0.177
+     ],
+     [
+      456,
+      0.11
+     ],
+     [
+      480,
+      0.059
+     ],
+     [
+      504,
+      0.013
+     ],
+     [
+      509,
+      0.0
+     ],
+     [
+      514,
+      0.0
+     ]
+    ]
+   }
+  },
+  {
+   "id": "S127",
+   "frame_in": 13578,
+   "frame_out": 15800,
+   "frames": 2222,
+   "seconds": 92.583,
+   "tc_in": "09:25:18",
+   "scene": "SC12",
+   "scene_v0": "SC12",
+   "framing": "credits",
+   "camera": "static / roll",
+   "what": "Black, end credits with small white animated cable-creatures scampering; this remake's credits and the CC BY 2.5 attribution to the original.",
+   "enters_by": "cut",
+   "ref_note": "credits on black; the remake's own credits + CC BY 2.5 attribution go here (spec D2)",
+   "dialogue": []
+  }
+ ]
+}

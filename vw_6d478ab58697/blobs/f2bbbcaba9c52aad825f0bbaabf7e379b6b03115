@@ -1,0 +1,4 @@
+# Delivery specification
+film/check.mp4: H.264 video 1280x720 24fps, title card throughout; AAC stereo; duration 9.5-10.5 s.
+Sound: 0-3 clean 440 Hz; 3-5 silence; 5-8 rain-like noise; 8-10 880 Hz hard-clipped.
+Lock needs: my own watch/measure, test-audience screening, both listening.md files present.

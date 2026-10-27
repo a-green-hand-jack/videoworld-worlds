@@ -1,0 +1,108 @@
+"""Synthesize the film's sound bed: river lapping + dusk ambience (crickets, early bird) and a music-box cue.
+usage: make_sound.py OUT.wav [duration]"""
+import sys, numpy as np, soundfile as sf
+from scipy import signal
+SR = 48000
+DUR = float(sys.argv[2]) if len(sys.argv) > 2 else 20.0
+REL, STAR, RIPPLE = 6.2, 16.0, 6.9      # cue entry, quiet peak, water touch (shot 2)
+rng = np.random.default_rng(11)
+n = int(SR * DUR); t = np.arange(n) / SR
+
+def sos(kind, f, order=2):
+    return signal.butter(order, f, kind, fs=SR, output='sos')
+def lp(x, f): return signal.sosfilt(sos('lowpass', f), x)
+def bp(x, lo, hi): return signal.sosfilt(sos('bandpass', [lo, hi]), x)
+def place(buf, ev, start):
+    i0 = int(start * SR)
+    if i0 >= len(buf): return
+    m = min(len(ev), len(buf) - i0); buf[i0:i0 + m] += ev[:m]
+
+# ---------- water: slow low flow + lapping bubbles/slaps (not broadband hiss)
+def water(seed):
+    r = np.random.default_rng(seed)
+    flow = lp(r.standard_normal(n), 220) * (0.6 + 0.4 * np.sin(2 * np.pi * 0.11 * t + r.random() * 6))
+    flow = flow / np.abs(flow).max() * 0.09
+    bub = np.zeros(n)
+    for st in np.cumsum(r.exponential(1 / 11, int(DUR * 14))):
+        if st > DUR - 0.2: break
+        f0 = r.uniform(250, 900); ln = r.uniform(0.04, 0.12)
+        tt = np.arange(int(ln * SR)) / SR
+        ph = 2 * np.pi * f0 * (np.exp(tt * 9) - 1) / 9      # rising chirp, a bubble
+        place(bub, r.uniform(0.2, 1) * 0.065 * np.sin(ph) * np.exp(-tt / ln * 4) * np.minimum(tt / 0.004, 1), st)
+    slap = np.zeros(n)
+    for st in np.cumsum(r.exponential(1 / 1.6, int(DUR * 3))):
+        if st > DUR - 0.5: break
+        ln = r.uniform(0.15, 0.35); m = int(ln * SR); tt = np.arange(m) / SR
+        place(slap, bp(r.standard_normal(m), 350, 1100) * np.exp(-tt * 14) * np.minimum(tt / 0.01, 1) * r.uniform(0.2, 0.6) * 0.08, st)
+    return flow + bub + slap
+amb = np.stack([water(1), water(2)], 1)
+
+# ---------- evening: crickets (3-pulse chirps), early bird that stops by ~9 s
+def cricket(f, rate, ph, amp):
+    gate = (np.sin(2 * np.pi * rate * t + ph) > 0.35).astype(float)
+    gate = lp(gate, 60)
+    pulses = np.clip(np.sin(2 * np.pi * 38 * t), 0, None) ** 0.7
+    return amp * np.sin(2 * np.pi * f * t) * pulses * gate
+env_c = np.clip((t - 0.8) / 2, 0, 1) * np.clip((DUR - 1.0 - t) / 2.0, 0, 1) * (0.5 + 0.5 * np.clip((t - 8) / 6, 0, 1))
+cr = (cricket(4300, 2.3, 0.0, 0.035) + cricket(4750, 1.9, 1.7, 0.03) + cricket(3900, 2.7, 3.1, 0.022)) * env_c
+amb[:, 0] += cr; amb[:, 1] += np.roll(cr, 40) * 0.8 + cricket(4500, 2.1, 0.8, 0.02) * env_c
+
+def chirp(f0, f1, ln, amp):
+    tt = np.arange(int(ln * SR)) / SR
+    return amp * np.sin(2 * np.pi * (f0 * tt + (f1 - f0) * tt ** 2 / (2 * ln))) * np.sin(np.pi * tt / ln) ** 2
+bird = np.zeros(n)
+for st0, k in [(1.0, 4), (3.4, 3), (5.3, 3), (7.4, 2)]:
+    for j in range(k):
+        place(bird, chirp(2900 + 150 * j, 4300 - 100 * j, 0.14, 0.09), st0 + j * 0.2)
+amb[:, 0] += bird * 0.9; amb[:, 1] += np.roll(bird, 700) * 0.6
+
+# ripple as the lantern meets the water
+m = int(1.4 * SR); tt = np.arange(m) / SR
+rip = bp(rng.standard_normal(m), 250, 1300) * np.exp(-tt * 4) * np.minimum(tt / 0.03, 1) * 0.17
+place(amb[:, 0], rip, RIPPLE); place(amb[:, 1], np.roll(rip, 120), RIPPLE)
+for k in range(5):
+    place(amb[:, 0], chirp(500 + 80 * k, 900 + 100 * k, 0.09, 0.05), RIPPLE + 0.1 + 0.17 * k)
+    place(amb[:, 1], chirp(520 + 80 * k, 920 + 100 * k, 0.09, 0.05), RIPPLE + 0.14 + 0.17 * k)
+
+# ---------- music: music-box line (D major pentatonic, ~65 bpm), warm pad, held tonic chord
+def hz(m): return 440.0 * 2 ** ((m - 69) / 12)
+N = dict(D3=50, A3=57, D4=62, Fs4=66, A4=69, B4=71, D5=74, E5=76, Fs5=78, A5=81, B5=83, D6=86)
+def box(f, amp, ln=3.2):
+    m = int(ln * SR); tt = np.arange(m) / SR
+    s = (np.sin(2 * np.pi * f * tt) + 0.35 * np.sin(2 * np.pi * 2 * f * tt) * np.exp(-tt * 5)
+         + 0.18 * np.sin(2 * np.pi * 5.4 * f * tt) * np.exp(-tt * 14))
+    return amp * s * np.exp(-tt * 1.5) * np.minimum(tt / 0.003, 1)
+B = 60 / 65.0
+line = [  # (time, note, amp)
+    (REL, 'D5', .30), (REL + B, 'A4', .26), (REL + 2 * B, 'Fs5', .28), (REL + 3.5 * B, 'E5', .24),
+    (REL + 5 * B, 'D5', .28), (REL + 6 * B, 'B4', .24), (REL + 7.5 * B, 'A4', .26), (REL + 9 * B, 'D5', .30),
+    (REL + 10 * B, 'Fs5', .30), (REL + 11 * B, 'A5', .32), (REL + 12.5 * B, 'Fs5', .28), (REL + 13.5 * B, 'E5', .28),
+    (14.0, 'D5', .30), (15.0, 'B4', .26),
+    # peak: a high arpeggio lifts the star moment, then resolves
+    (STAR, 'A5', .50), (STAR + 0.45, 'D6', .46), (STAR + 0.9, 'Fs5', .42), (STAR + 1.5, 'A5', .44),
+    (STAR + 2.1, 'D6', .38), (STAR + 3.0, 'B5', .30), (18.0, 'A4', .32), (18.5, 'Fs4', .30), (19.0, 'D4', .30)]
+mus = np.zeros(n)
+for s, nm, a in line: place(mus, box(hz(N[nm]), a), s)
+def pad(midi, amp, a, b):
+    f = hz(midi); env = np.clip((t - a) / 2.5, 0, 1) * np.clip((b - t) / 1.5, 0, 1)
+    sig = sum(np.sin(2 * np.pi * f * (1 + d) * t + p) for d, p in [(0, 0), (0.0035, 1), (-0.003, 2)]) / 3
+    return amp * env * lp(sig + 0.4 * np.sin(2 * np.pi * 2 * f * t), 1800)
+swell = 0.55 + 0.45 * np.clip((t - REL) / (STAR - REL), 0, 1)
+mus_pad = (pad(50, .09, REL - 0.3, DUR) + pad(57, .07, 9.0, DUR) + pad(62, .06, 10.0, DUR) + pad(66, .05, 11.0, DUR)) * swell
+mus_pad += (pad(74, .05, 17.6, DUR) + pad(66, .04, 17.6, DUR)) 
+# reverb
+ir = rng.standard_normal(int(1.8 * SR)) * np.exp(-np.arange(int(1.8 * SR)) / SR * 2.6); ir = lp(ir, 5000); ir /= np.abs(ir).sum() * 0.12
+wet = signal.fftconvolve(mus, ir)[:n]
+musL = mus + 0.55 * wet + mus_pad
+musR = np.roll(mus, 90) + 0.55 * np.roll(wet, 410) * 1.0 + np.roll(mus_pad, 30)
+
+AMB, MUS = 1.5, 0.5
+out = amb * AMB + np.stack([musL, musR], 1) * MUS
+out *= (np.clip(t / 1.0, 0, 1) * np.clip((DUR - t) / 1.2, 0, 1))[:, None]
+out *= 0.5 / np.abs(out).max()
+sf.write(sys.argv[1], out.astype(np.float32), SR, subtype='FLOAT')
+# diagnostics: music vs ambience level
+a = amb * (np.clip(t / 1.0, 0, 1) * np.clip((DUR - t) / 1.2, 0, 1))[:, None]
+for lo, hi in [(2, 5), (6.5, 10), (10, 15), (16, 18), (18.5, 19.5)]:
+    s = slice(int(lo * SR), int(hi * SR)); r = lambda x: 20 * np.log10(np.sqrt((x[s] ** 2).mean()) + 1e-9)
+    print(f'{lo}-{hi}s  ambience {r(a):.1f} dB  music {r(np.stack([musL, musR], 1)):.1f} dB  (scale {0.5 / np.abs(amb + np.stack([musL, musR], 1)).max():.2f})')

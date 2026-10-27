@@ -1,0 +1,496 @@
+{
+ "fps": 24,
+ "width": 1280,
+ "height": 720,
+ "shots": [
+  {
+   "id": "s01",
+   "dur": 5.25,
+   "in": 0.0,
+   "out": 5.25,
+   "lines": [
+    "1"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Wide, high angle, slow push in  [STREET]\n\nSnowy 1840s Danish town street at dusk: gabled houses, snow falling,\ncandle-lit windows, cobbles under snow, nearly dark. Tiny figure of\nthe girl far down the street."
+  },
+  {
+   "id": "s02",
+   "dur": 4.9583,
+   "in": 5.25,
+   "out": 10.208,
+   "lines": [
+    "2"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Medium-wide, tracking alongside  [STREET]\n\nThe girl walks: bareheaded, long fair curls with snow on them, thin\nragged dress, old apron full of matches, bundle in one hand, shuffling\nin a pair of far-too-big worn adult slippers."
+  },
+  {
+   "id": "s03",
+   "dur": 4.9583,
+   "in": 10.208,
+   "out": 15.167,
+   "lines": [
+    "3"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Wide, then she jumps back; end on her feet  [STREET]\n\nTwo dark carriages with horses rush past through snow; she leaps\naside; both slippers fly off; a ragged boy snatches one and runs off\nlaughing; end on her BARE feet, red and blue in the snow. From here on\nshe is barefoot."
+  },
+  {
+   "id": "s04",
+   "dur": 6.2917,
+   "in": 15.167,
+   "out": 21.458,
+   "lines": [
+    "4",
+    "5"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Medium, low eye level  [STREET]\n\nShe holds out matches to hurrying, well-wrapped passers-by who don't\nlook at her."
+  },
+  {
+   "id": "s05",
+   "dur": 5.125,
+   "in": 21.458,
+   "out": 26.583,
+   "lines": [
+    "6"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Close-up on her face, then her POV: glowing window  [STREET + warm window]\n\nSnowflakes in her hair; she looks up at a warm window where a family\ntable and a goose can just be glimpsed. Longing."
+  },
+  {
+   "id": "s06",
+   "dur": 5.8333,
+   "in": 26.583,
+   "out": 32.417,
+   "lines": [
+    "7"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Wide → medium, static  [STREET]\n\nTHE CORNER: she sits down where the two houses meet, draws her bare\nfeet up under her dress, hugs herself; wind blows snow."
+  },
+  {
+   "id": "s07",
+   "dur": 5.9583,
+   "in": 32.417,
+   "out": 38.375,
+   "lines": [
+    "8"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Extreme close-up hands  [STREET → first warm light]\n\nNumb, red fingers pull one match from the bundle and strike it on the\nwall: a bright flame flares."
+  },
+  {
+   "id": "s08",
+   "dur": 8.125,
+   "in": 38.375,
+   "out": 46.5,
+   "lines": [
+    "9",
+    "10"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Medium on girl, match light  [VISION → STREET]\n\nA big black iron stove with shining brass feet and a brass ornament\nappears before her, glowing; she stretches out her feet to it; the\nmatch dies, the stove fades, a burnt match in her fingers."
+  },
+  {
+   "id": "s09",
+   "dur": 6.2083,
+   "in": 46.5,
+   "out": 52.708,
+   "lines": [
+    "11"
+   ],
+   "src": null,
+   "bg": "0x4a3010",
+   "slate": "Over her shoulder toward the wall  [VISION]\n\nSecond match: the wall where the light falls turns transparent like a\nveil; through it, a room: snow-white tablecloth, fine porcelain, a\nroast goose steaming."
+  },
+  {
+   "id": "s10",
+   "dur": 4.75,
+   "in": 52.708,
+   "out": 57.458,
+   "lines": [
+    "12"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Inside the vision, low angle  [VISION → STREET]\n\nThe roast goose hops off the dish, a knife and fork stuck in its back,\nand waddles toward her — then darkness: cold damp wall again."
+  },
+  {
+   "id": "s11",
+   "dur": 5.4583,
+   "in": 57.458,
+   "out": 62.917,
+   "lines": [
+    "13"
+   ],
+   "src": null,
+   "bg": "0x4a3010",
+   "slate": "Wide low angle, from behind her looking up  [VISION]\n\nThird match: she sits beneath an enormous Christmas tree, thousands of\ncandles on its green branches, coloured pictures hanging; she reaches\nup."
+  },
+  {
+   "id": "s12",
+   "dur": 7.25,
+   "in": 62.917,
+   "out": 70.167,
+   "lines": [
+    "14",
+    "15"
+   ],
+   "src": null,
+   "bg": "0x4a3010",
+   "slate": "Tilt up from her face to the sky  [VISION → night sky]\n\nThe match goes out; the candle lights rise higher and higher into the\nnight sky and become stars; one star falls with a long trail of fire.\nHer face watches it."
+  },
+  {
+   "id": "s13a",
+   "dur": 9.125,
+   "in": 70.167,
+   "out": 79.292,
+   "lines": [
+    "16"
+   ],
+   "src": null,
+   "bg": "0x101830",
+   "slate": "Close on her face in the dark, the burnt match, the sky behind  [night sky, faint warm memory]\n\nShe remembers: her face lifted to the falling star's fading trail, a\nfaint memory-glow of the grandmother's smile (soft, translucent, not\nyet the vision). Cold, still."
+  },
+  {
+   "id": "s13b",
+   "dur": 4.625,
+   "in": 79.292,
+   "out": 83.917,
+   "lines": [
+    "17"
+   ],
+   "src": null,
+   "bg": "0x4a3010",
+   "slate": "Close-up hands striking, then medium reveal  [VISION, white-gold]\n\nFourth match flares on the wall; in its glow the GRANDMOTHER appears:\nold, mild, radiant, full of love, standing in light before the wall."
+  },
+  {
+   "id": "s14",
+   "dur": 3.0417,
+   "in": 83.917,
+   "out": 86.958,
+   "lines": [
+    "18"
+   ],
+   "src": null,
+   "bg": "0x4a3010",
+   "slate": "Close-up the girl  [VISION]\n\nTears, she reaches out to her grandmother: \"Grandmother! Take me with\nyou!\" (lip movement soft, may be partly hidden)."
+  },
+  {
+   "id": "s15",
+   "dur": 4.625,
+   "in": 86.958,
+   "out": 91.583,
+   "lines": [
+    "19"
+   ],
+   "src": null,
+   "bg": "0x6e6030",
+   "slate": "Close-up hands, then medium  [brilliant white-gold]\n\nShe strikes the WHOLE bundle at once against the wall; a blaze\nbrighter than daylight fills the corner."
+  },
+  {
+   "id": "s16",
+   "dur": 8.7083,
+   "in": 91.583,
+   "out": 100.292,
+   "lines": [
+    "20"
+   ],
+   "src": null,
+   "bg": "0x1b2240",
+   "slate": "Wide, rising  [white-gold over STREET below]\n\nThe grandmother lifts the girl in her arms; both fly upward in light\nand joy, high above the snowy rooftops into a glowing sky."
+  },
+  {
+   "id": "s17",
+   "dur": 6.3333,
+   "in": 100.292,
+   "out": 106.625,
+   "lines": [
+    "21"
+   ],
+   "src": null,
+   "bg": "0x5a5464",
+   "slate": "Medium, static, slow push  [DAWN]\n\nDAWN, the same CORNER: the girl sits leaning against the wall, rosy\ncheeks, a small smile, eyes closed, snow on her; burnt matches beside\nher. Still, peaceful, unmistakably not alive."
+  },
+  {
+   "id": "s18",
+   "dur": 2.9167,
+   "in": 106.625,
+   "out": 109.542,
+   "lines": [
+    "22"
+   ],
+   "src": null,
+   "bg": "0x5a5464",
+   "slate": "Medium-wide  [DAWN]\n\nA few townspeople in winter coats gather and look down at her; a woman\nspeaks quietly."
+  },
+  {
+   "id": "s19",
+   "dur": 7.4583,
+   "in": 109.542,
+   "out": 117.0,
+   "lines": [
+    "23"
+   ],
+   "src": null,
+   "bg": "0x5a5464",
+   "slate": "Tilt up from the corner to the sky  [DAWN → gold]\n\nFrom the burnt matches in the snow up over the rooftops to the morning\nsky, faintly golden."
+  },
+  {
+   "id": "end",
+   "dur": 3.0,
+   "in": 117.0,
+   "out": 120.0,
+   "lines": [],
+   "title": [
+    "The Little Match Girl",
+    "after Hans Christian Andersen"
+   ],
+   "fade_in": 0.75
+  }
+ ],
+ "srt": "scratch.srt",
+ "out": "cut-v0b.mp4",
+ "lines": [
+  {
+   "line": "1",
+   "shot": "1",
+   "speaker": "NARRATOR",
+   "start": 0.3,
+   "end": 4.667,
+   "dur": 4.366666666666667,
+   "measured": false,
+   "text": "Bitter cold, almost dark: the last evening of the year."
+  },
+  {
+   "line": "2",
+   "shot": "2",
+   "speaker": "NARRATOR",
+   "start": 5.55,
+   "end": 9.917,
+   "dur": 4.366666666666667,
+   "measured": false,
+   "text": "A poor girl shuffled along in her mother's big slippers."
+  },
+  {
+   "line": "3",
+   "shot": "3",
+   "speaker": "NARRATOR",
+   "start": 10.508,
+   "end": 14.875,
+   "dur": 4.366666666666667,
+   "measured": false,
+   "text": "Carriages raced by; she lost them, and went on barefoot."
+  },
+  {
+   "line": "4",
+   "shot": "4",
+   "speaker": "GIRL",
+   "start": 15.467,
+   "end": 17.75,
+   "dur": 2.2833333333333337,
+   "measured": false,
+   "text": "Matches… who'll buy my matches?"
+  },
+  {
+   "line": "5",
+   "shot": "4",
+   "speaker": "NARRATOR",
+   "start": 18.05,
+   "end": 21.167,
+   "dur": 3.116666666666667,
+   "measured": false,
+   "text": "No one had bought a single match."
+  },
+  {
+   "line": "6",
+   "shot": "5",
+   "speaker": "NARRATOR",
+   "start": 21.758,
+   "end": 26.125,
+   "dur": 4.366666666666667,
+   "measured": false,
+   "text": "Candles gleamed in the windows; it smelled of roast goose."
+  },
+  {
+   "line": "7",
+   "shot": "6",
+   "speaker": "NARRATOR",
+   "start": 26.883,
+   "end": 32.083,
+   "dur": 5.2,
+   "measured": false,
+   "text": "She huddled in a corner, afraid to go home to her father."
+  },
+  {
+   "line": "8",
+   "shot": "7",
+   "speaker": "NARRATOR",
+   "start": 32.717,
+   "end": 37.083,
+   "dur": 4.366666666666667,
+   "measured": false,
+   "text": "Her hands were numb. If she dared strike just one…"
+  },
+  {
+   "line": "9",
+   "shot": "8",
+   "speaker": "NARRATOR",
+   "start": 38.675,
+   "end": 43.875,
+   "dur": 5.2,
+   "measured": false,
+   "text": "How it blazed! A warm iron stove seemed to stand before her."
+  },
+  {
+   "line": "10",
+   "shot": "8",
+   "speaker": "NARRATOR",
+   "start": 44.175,
+   "end": 46.042,
+   "dur": 1.8666666666666667,
+   "measured": false,
+   "text": "Then it went out."
+  },
+  {
+   "line": "11",
+   "shot": "9",
+   "speaker": "NARRATOR",
+   "start": 46.8,
+   "end": 52.417,
+   "dur": 5.616666666666667,
+   "measured": false,
+   "text": "A second: the wall became a veil, and inside, a roast goose steamed."
+  },
+  {
+   "line": "12",
+   "shot": "10",
+   "speaker": "NARRATOR",
+   "start": 53.008,
+   "end": 56.958,
+   "dur": 3.95,
+   "measured": false,
+   "text": "It hopped down and waddled toward her — then darkness."
+  },
+  {
+   "line": "13",
+   "shot": "11",
+   "speaker": "NARRATOR",
+   "start": 57.758,
+   "end": 62.542,
+   "dur": 4.783333333333334,
+   "measured": false,
+   "text": "A third: she sat beneath a Christmas tree ablaze with candles."
+  },
+  {
+   "line": "14",
+   "shot": "12",
+   "speaker": "NARRATOR",
+   "start": 63.217,
+   "end": 68.0,
+   "dur": 4.783333333333334,
+   "measured": false,
+   "text": "Out it went. The lights rose and became stars. One fell."
+  },
+  {
+   "line": "15",
+   "shot": "12",
+   "speaker": "GIRL",
+   "start": 68.3,
+   "end": 69.75,
+   "dur": 1.45,
+   "measured": false,
+   "text": "Someone is dying."
+  },
+  {
+   "line": "16",
+   "shot": "13a",
+   "speaker": "NARRATOR",
+   "start": 70.467,
+   "end": 79.0,
+   "dur": 8.533333333333333,
+   "measured": false,
+   "text": "Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God."
+  },
+  {
+   "line": "17",
+   "shot": "13b",
+   "speaker": "NARRATOR",
+   "start": 79.592,
+   "end": 83.542,
+   "dur": 3.95,
+   "measured": false,
+   "text": "A fourth — and there stood Grandmother, shining and kind."
+  },
+  {
+   "line": "18",
+   "shot": "14",
+   "speaker": "GIRL",
+   "start": 84.217,
+   "end": 86.5,
+   "dur": 2.2833333333333337,
+   "measured": false,
+   "text": "Grandmother! Take me with you!"
+  },
+  {
+   "line": "19",
+   "shot": "15",
+   "speaker": "NARRATOR",
+   "start": 87.258,
+   "end": 91.208,
+   "dur": 3.95,
+   "measured": false,
+   "text": "She struck the whole bundle, to keep her near."
+  },
+  {
+   "line": "20",
+   "shot": "16",
+   "speaker": "NARRATOR",
+   "start": 91.883,
+   "end": 100.0,
+   "dur": 8.116666666666667,
+   "measured": false,
+   "text": "Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear."
+  },
+  {
+   "line": "21",
+   "shot": "17",
+   "speaker": "NARRATOR",
+   "start": 100.592,
+   "end": 106.208,
+   "dur": 5.616666666666667,
+   "measured": false,
+   "text": "At dawn she sat there still, rosy-cheeked and smiling — frozen to death."
+  },
+  {
+   "line": "22",
+   "shot": "18",
+   "speaker": "PASSER-BY",
+   "start": 106.925,
+   "end": 109.208,
+   "dur": 2.2833333333333337,
+   "measured": false,
+   "text": "She wanted to warm herself."
+  },
+  {
+   "line": "23",
+   "shot": "19",
+   "speaker": "NARRATOR",
+   "start": 109.842,
+   "end": 116.708,
+   "dur": 6.866666666666667,
+   "measured": false,
+   "text": "No one knew the beautiful things she had seen, or the joy she had gone to."
+  }
+ ]
+}

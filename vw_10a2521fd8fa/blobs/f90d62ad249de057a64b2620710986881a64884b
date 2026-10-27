@@ -1,0 +1,11 @@
+# cut-v5d — supersedes cut-v5b (121.959 s)
+
+EDL `edl.json` from `make_edl.py`. Changes from cut-v5b:
+- Mix: sound-designer `mix-cut-v5c` (3216af2): strike 4 starts 80.34 so its ignition peak lands on the 80.46–80.50 flare.
+- s18 (1:49.5–1:53.8): dp's revised street-side frame (7028c18) keeps her against the left wall, where s17 has her.
+- s13a memory (1:12–1:20): one continuous pull-back from her face to the grandmother's memory-glow, no cut inside it
+  (director's cut-v5b review: the two framings read as a jump).
+- Subtitles: two-sentence cues split at the pause between their sentences (`tools/snap_srt.py`), so "Her hands were numb." is off
+  screen from 33.92 and "If she dared strike just one…" appears on its onset at 34.42 (director's review: the cue seemed to
+  outstay the speech); same for L04, L09, L14, L18. 30 cues, starts on the voice onsets of the dialogue stem.
+Measured (`verify.txt`): no must-fails, -16.1 LUFS, TP -1.8 dBTP, 121.959 s.

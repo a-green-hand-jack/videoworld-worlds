@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+"""Timeline v1: the 127 shots of v0 (IDs and frame boundaries the director adopted in direction/shotlist.csv),
+each with the director's scene, framing, camera and content, the script lines (direction/script.csv) and the
+beats inside it that I located frame by frame on the original.
+usage: retime.py V0.json SHOTLIST.csv SCRIPT.csv OUT.json"""
+import csv, json, sys
+v0 = json.load(open(sys.argv[1])); sl = {r['shot']: r for r in csv.DictReader(open(sys.argv[2]))}; sc = list(csv.DictReader(open(sys.argv[3])))
+FPS = 24
+# events inside a shot, found by eye on frame strips of the original (pts time -> 24 fps frame)
+BEATS = {
+    'S028': [(3655, 'fade', 'held black ends, fade up to the red room begins (152.30 s)')],
+    'S029': [(3868, 'cut', 'dip to black, cut to Proog red-lit (161.17 s)'), (3918, 'cut', 'dip to black, cut to Emo red-lit (163.25 s)')],
+    'S066': [(7563, 'cut', 'hard cut: bursting through cables, capsule tumbles (315.13 s)'), (7627, 'cut', 'hard cut: capsule flash close-up, 8 frames (317.79 s)')],
+    'S069': [(7850, 'cut', 'hard cut from the iris ring to Proog swinging by (327.08 s); the shot list puts this beat in S070')],
+    'S074': [(8190, 'event', 'Proog lunges at the lever (341.25 s, no cut)')],
+    'S075': [(8311, 'event', 'background starts streaking white behind Proog (346.29 s, no cut)')],
+    'S081': [(9058, 'event', 'white light floods up from below as the platform drops (377.42 s, no cut)')],
+    'S086': [(9587, 'cut', 'hard cut to the amber room (399.46 s)')],
+    'S091': [(10061, 'morph', 'the room behind them changes from the door to the green tiled room while they stay in frame (419.21 s, no cut)')],
+}
+# v0 boundaries where the original does not cut: the two shots join without a visible jump
+CONTINUOUS = {'S027': 'no cut at 145.54 s: the flight past the receivers goes on', 'S056': 'no cut at 273.92 s: a light flares in the same shot',
+              'S070': 'no hard cut at 327.54 s: Proog\'s coat swings across the lens (body wipe) into this shot'}
+shots = []
+for s in v0['shots']:
+    r = sl[s['id']]
+    assert abs(float(r['in_s']) * FPS - s['frame_in']) <= 3, (s['id'], r['in_s'], s['frame_in'])
+    n = {k: s[k] for k in ('id', 'frame_in', 'frame_out', 'frames', 'seconds')}
+    fi = s['frame_in']
+    n.update(tc_in=f"{fi//(60*FPS):02d}:{fi//FPS%60:02d}:{fi%FPS:02d}", scene=r['scene'], scene_v0=s['scene'], framing=r['framing'], camera=r['camera'], what=r['content'],
+             enters_by='continuous' if s['id'] in CONTINUOUS else 'cut')
+    if s.get('ref_note'): n['ref_note'] = s['ref_note']
+    if s['id'] in CONTINUOUS: n['continuity'] = CONTINUOUS[s['id']]
+    if s['id'] in BEATS:
+        n['beats'] = [{'frame': f, 'at_frame_in_shot': f - fi, 'tc_s': round(f / FPS, 3), 'kind': k, 'what': w} for f, k, w in BEATS[s['id']]]
+        assert all(fi < b['frame'] < s['frame_out'] for b in n['beats'])
+    if s.get('overlays'): n['overlays'] = s['overlays']
+    n['dialogue'] = []
+    shots.append(n)
+byid = {s['id']: s for s in shots}
+for l in sc:
+    s = byid[l['shot']]; f = round(float(l['start_s']) * FPS)
+    assert s['frame_in'] - 6 <= f < s['frame_out'], (l['line'], l['shot'], f)
+    s['dialogue'].append({'line': l['line'], 'speaker': l['speaker'], 'text': l['text'], 'start_s': float(l['start_s']), 'end_s': float(l['end_s']), 'note': l['note']})
+tl = {k: v0[k] for k in ('timeline_schema', 'fps', 'width', 'height', 'total_frames', 'total_seconds', 'source', 'method')}
+tl.update(version='v1', ids='S001-S127 (v0 IDs and boundaries, adopted by the director in direction/shotlist.csv)', credits_shot='S127',
+          scenes=len({s['scene'] for s in shots}), shots=shots)
+assert sum(s['frames'] for s in shots) == tl['total_frames']
+json.dump(tl, open(sys.argv[4], 'w'), indent=1, ensure_ascii=False)
+print(len(shots), 'shots', sum(len(s['dialogue']) for s in shots), 'lines', sum(len(s.get('beats', [])) for s in shots), 'beats')

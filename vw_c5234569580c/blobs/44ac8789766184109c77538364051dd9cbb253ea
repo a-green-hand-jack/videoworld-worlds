@@ -1,0 +1,18 @@
+# QC — editor `cut-v0` (PLACEHOLDER animatic), editor commit b90c7db4d16d
+
+Checked against `direction/delivery-spec.md`. Picture slots are labelled placeholders, so the picture items are not judged here. Method: `tools/qc.sh` on the release asset `cut-v0.mp4`, audio band/tonality analysis (STFT, 2 s windows), and two listening passes with audio-understanding (whole track at 48 kbit/s mono; 06–18 s at 96 kbit/s).
+
+## Hard items — all pass
+- H2: h264 High, 1280x720, SAR 1:1, 24/1 fps CFR, 480 frames. H3: yuv420p; atoms ftyp, moov, free, mdat (faststart).
+- H4: AAC LC 48 kHz stereo. H5: format, video and audio each 20.000 s. H6: decodes with no errors.
+- H7: −18.9 LUFS integrated, LRA 3.7 LU, true peak −6.7 dBFS; no silence > 0.5 s at −50 dB. The head fades in (−46.8 dB at 0.0 s → −24 dB at 1.0 s) and the tail fades out (−25.7 dB at 18.5 s → −53 dB at 19.9 s).
+
+## Picture (layout only)
+- Title "The Paper Lantern" 0–2.5 s and "The End" 18–20 s are legible, centred, with fades (`qc/cut-v0-contact.jpg`). Timeline matches the shot list.
+
+## Sound — faults
+1. **S2, the cue is inaudible** (whole cut, from 06:00). Tonal peaks are measurable from 6 s (≈440, 222, 492, 738, 292 Hz: a D-major line), but only 8–16 dB above the local noise floor in narrow bins. Both listening passes report **no music at all** between 00:00 and 00:20, including the dedicated 06–18 s pass. The music has to sit clearly above the water.
+2. **S1, the water reads as broadband noise or surf, not a river, and the evening layer is missing.** The listener describes "a continuous broadband rush… like distant ocean surf or shaped white/pink noise… resembles tape hiss". It hears no insects or birds (the editor's note says there is a bird; it is not perceived). L/R correlation −0.03: wide, which is good.
+3. Not a fault: the listener's "abrupt ending" is contradicted by the measured fade-out (above).
+
+**Recommendation: fix (sound).** Make the water gentler and less broadband (lap/trickle detail, lower level), make the crickets and bird audible, and bring the cue up so that a listener clearly hears it from about 6 s. A rough target: music peaks 6–10 dB above the ambience in its band. Picture awaits `production-designer`'s `picture/`.

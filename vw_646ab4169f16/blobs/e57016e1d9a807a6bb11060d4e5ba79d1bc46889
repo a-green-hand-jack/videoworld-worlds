@@ -1,0 +1,25 @@
+# Script — Elephants Dream remake
+
+The remake keeps the original's story and every line, in English, at the original's timing (spec D4: each line starts within ±0.5 s of `start`; D5: one subtitle cue per line).
+Voices: **Proog** (P): an older man, gruff, theatrical, a tour guide's pride that turns to mania. **Emo** (E): a young man, nervous and soft at first, then defiant, mocking and cold.
+Timings come from two transcription passes (faster-whisper small.en, word timestamps) of the original and were checked against the picture.
+Lines marked `?` are uncertain readings; `sound-designer` and `qc` may report a better reading with evidence (timecode in the original), and I will rule on it here. A machine-readable copy is `script.csv`.
+
+## Story by scene
+- **SC01 Titles (00:00–00:25.8).** Out of the dark, the title. Proog's voice, like a tour guide's, presents the wonders of the Machine.
+- **SC02 The cable attack (00:25.8–01:09.7).** In a pale teal hall of sockets, cables lash out and knock Emo down. Proog pulls him clear. Neither is hurt. Proog hurries him on: the Machine is not safe.
+- **SC03 The cable forest (01:09.7–02:23).** Through a door into a black infinity of cables and telegraph poles, where white telephone-receiver 'birds' flutter. Proog leaps ahead along a winding walkway and Emo follows. Proog listens.
+- **SC04 The red telephone room (02:23–03:44).** A dark red room with an old telephone on a pedestal. Emo reaches for it. Proog scolds him and makes him listen to the receiver, which is full of living mechanism: 'Listen to the sounds of the machine.' A lamp descends. A mechanical bird twitches.
+- **SC05 The abyss of pedestals (03:44–04:52.5).** Out over a misty abyss, Proog hops across pedestals on poles with bravado. Emo asks if he ever gets tired. Proog's mania for the clockwork Machine shows: 'Pulp!'
+- **SC06 The elevator (04:52.5–05:52.5).** In a brass elevator cage, Proog presses a red button. A machine arm fires a capsule through a spiral tunnel. 'Now!' Proog pulls a lever, and light floods in.
+- **SC07 The void (05:52.5–06:19.9).** On a small glowing platform in black nothingness, Proog quizzes Emo on what he sees to the left and to the right. Emo sees nothing. They drop through white flashes.
+- **SC08 The forbidden door (06:19.9–07:00.8).** In a golden cathedral of machinery, Emo hears something behind a door. Proog forbids it with a horned totem: 'No!'
+- **SC09 The quarrel (07:00.8–07:57).** In a green tiled room, Proog asks why Emo cannot see the beauty of the Machine. Emo says there is nothing there and calls Proog a sick man. Proog warns him: it's a trap.
+- **SC10 Emo's world (07:57–08:53).** Emo makes his own world bloom out of the tiles: 'the Hanging Gardens of Babylon', 'the Colossus of Rhodes', 'just for you, Proog'. Proog, terrified and cornered, strikes Emo down. The gold drains away.
+- **SC11 Proog alone (08:53–09:26).** Proog kneels over the motionless Emo: 'It is there... I'm telling you, Emo...' Emo's limp hand lies among the tubes, fading to black.
+- **SC12 Credits (09:26–10:58).**
+
+## Dialogue
+
+| line | start | end | shot | who | line | delivery / note |
+|---|---|---|---|---|---|---|

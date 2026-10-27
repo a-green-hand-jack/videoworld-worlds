@@ -1,0 +1,13 @@
+# Picture v1 check
+
+Checked against the objective (five still-image shots; 720p24; consistent child/lantern; dusk release, village drift, distant light among stars) and director's shot list at 9295620297b479eaacac54eb1b91f9702f0379f5.
+
+All five encoded MP4s were decoded from beginning to end with ffmpeg without error. ffprobe confirms H.264 yuv420p, 1280x720, SAR 1:1, 24/1 fps, a single silent video stream and exactly 108/108/108/96/72 frames (4.5/4.5/4.5/4/3 s). CRF is 17 in the recorded render script. The measured frame-to-frame changes are in measurements.json; no wholly repeated consecutive frames were measured at the 320x180 check resolution. This is a decode/motion continuity check, not a browser playback claim.
+
+Visual inspection from decoded MP4 frames: encoded-contact.jpg contains each clip's first, middle and last frame, labelled with local timecode. In shot 1 (0.000/2.250/4.458) the full child and tray remain safely framed. In shot 2 (same local times) the separate hands, matching rust sleeves, cream lantern ribs and floating base remain legible. Shot 3 (same local times) keeps lantern and reflected warm village intact and advances the lantern slightly right on screen. Shot 4 (0.000/2.000/3.958) gently widens, retaining the amber point. Shot 5 (0.000/1.500/2.958) pushes in 2.5%; the amber point stays on the water among star reflections. No exposed image edges are visible in these sampled frames. Fractional crops and smoothstep easing are continuous by construction; subjective playback is left to the assembled cut review.
+
+Both sky cards are 1280x720 with no lettering. They are same-aspect sky-only crops, enlarged; the title sky has a small softening pass. This avoids distorted stars or vertically stretched texture. cards-contact.jpg shows both.
+
+Director's stills check accepted all five identities and beats. The optional note about hands appearing large in shot 2 is retained as a minor perspective ambiguity; I retain the accepted source because sleeves, light and lantern proportions establish continuity and the release is very clear. Shot 5 explicitly uses the requested slow push, not a pull back.
+
+Editor: use the middle nominal durations after removing 12-frame handles at each end. Title and end-card typography, final timeline, ambience, musical cue and complete-film encoding remain editor deliveries.

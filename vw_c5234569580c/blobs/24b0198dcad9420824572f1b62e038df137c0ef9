@@ -1,0 +1,41 @@
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from pathlib import Path
+import json, subprocess, hashlib
+ROOT=Path('/hutian/repo')
+rows=[]
+recipes=[('shot1',108,1.00,1.065,.40,.59),('shot2',108,1.00,1.055,.56,.58),('shot3',108,1.06,1.06,.50,.56),('shot4',96,1.065,1.00,.85,.49),('shot5',72,1.00,1.025,.64,.51)]
+for name,n,z0,z1,cx,cy in recipes:
+    src=ROOT/'picture/stills'/f'{name}.png'
+    im=Image.open(src).convert('RGB'); W,H=im.size
+    out=ROOT/'picture/shots'/f'{name}.mp4'
+    process=subprocess.Popen(['ffmpeg','-hide_banner','-loglevel','error','-y','-f','rawvideo','-pix_fmt','rgb24','-s','1280x720','-r','24','-i','-','-an','-vf','setsar=1','-c:v','libx264','-preset','medium','-crf','17','-pix_fmt','yuv420p','-movflags','+faststart',str(out)],stdin=subprocess.PIPE)
+    previews=[]
+    for f in range(n):
+        t=f/(n-1); ease=t*t*(3-2*t); z=z0+(z1-z0)*ease
+        w=W/z; h=H/z
+        left=(W-w)*cx; top=(H-h)*cy
+        if name=='shot3': left=(W-w)*(.85-.7*ease)
+        frame=im.transform((1280,720),Image.Transform.AFFINE,(w/1280,0,left,0,h/720,top),Image.Resampling.BICUBIC)
+        process.stdin.write(frame.tobytes())
+        if f in (0,n//2,n-1):
+            preview=ROOT/'picture/checks'/f'{name}-{f:03d}.jpg'; frame.save(preview,quality=94); previews.append(str(preview.relative_to(ROOT)))
+    process.stdin.close(); code=process.wait()
+    if code: raise RuntimeError(f'ffmpeg failed {name}: {code}')
+    probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(out)]))
+    rows.append({'shot':name,'source':str(src.relative_to(ROOT)),'clip':str(out.relative_to(ROOT)),'frames':n,'fps':24,'duration':n/24,'source_size':[W,H],'zoom':[z0,z1],'anchor':[cx,cy],'horizontal_pan_fraction':[.85,.15] if name=='shot3' else None,'source_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'preview_frames':previews,'probe':probe})
+    print(f'Finished {name} {n} frames',flush=True)
+(ROOT/'picture/shot-log.json').write_text(json.dumps(rows,indent=2)+'\n')
+# Backgrounds use only sky pixels from the actual approved scene, resampled to the frame.
+for src,out,box in [('shot1','title_bg',(700,0,1056,200)),('shot5','end_bg',(500,0,1122,350))]:
+    im=Image.open(ROOT/'picture/stills'/f'{src}.png').convert('RGB')
+    im=im.crop(box).resize((1280,720),Image.Resampling.LANCZOS)
+    if out == 'title_bg': im=im.filter(ImageFilter.GaussianBlur(.65))
+    im.save(ROOT/'picture/cards'/f'{out}.png')
+# Visual reference contact sheet of final stills (scene identities, not generated labels).
+sheet=Image.new('RGB',(1024,970),'#172136'); draw=ImageDraw.Draw(sheet)
+for i,(name,*_) in enumerate(recipes):
+    thumb=Image.open(ROOT/'picture/stills'/f'{name}.png').convert('RGB'); thumb.thumbnail((490,276))
+    x=14+(i%2)*510; y=12+(i//2)*320
+    sheet.paste(thumb,(x,y)); draw.text((x,y+283),name,fill='#f6e5c4')
+sheet.save(ROOT/'design/reference-contact-sheet.jpg',quality=95)
+print('HUTIAN_WAKE: Picture rendering complete with probes and review frames.',flush=True)

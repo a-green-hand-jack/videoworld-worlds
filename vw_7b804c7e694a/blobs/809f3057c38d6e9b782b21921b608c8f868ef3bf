@@ -1,0 +1,79 @@
+Here is the QC inspection report for the 2-minute short of *The Little Match Girl*.
+
+---
+
+### 1. Shot-by-Shot Log
+
+*Overall Style & Character Consistency:* The 2D hand-painted watercolor/ink storybook style is **100% consistent** throughout (no photoreal, 3D, or anime breaks). The **girl** is consistent across all shots ( wavy blonde hair, brown dress, dark fringed shawl, blue-and-white plaid apron with matches in pocket). The **grandmother** is mostly consistent across her two appearances, except her dark shawl disappears in the flying shot.
+
+* **00:00–00:05 | Shot 1:** High-angle wide shot of a snowy timber-framed street at dusk; tiny figure of the girl in the distance. Style consistent.
+* **00:05–00:09 | Shot 2:** Medium-full profile shot of the girl shuffling right-to-left in oversized brown slippers, holding matches. Girl & style consistent.
+* **00:09–00:13 | Shot 3:** Wide street shot; two horse-drawn carriages race away; the girl stumbles out of her slippers on the left while a laughing boy in a cap runs off with one slipper on the right. Girl & style consistent.
+* **00:13–00:14 | Shot 4:** Close-up of the girl’s red, bare feet standing in the snow. Style consistent.
+* **00:14–00:21 | Shot 5:** Full shot of the girl standing barefoot in the street holding out a bundle of matches as townsfolk in winter coats walk past ignoring her. Girl & style consistent.
+* **00:21–00:25 | Shot 6:** Close-up of the girl’s face looking up wistfully at a lit window. Girl & style consistent.
+* **00:25–00:26 | Shot 7:** Push-in past the girl’s head to a warm window showing a family of four at a dinner table with a roast goose. Style consistent.
+* **00:26–00:31 | Shot 8:** Wide shot of the girl sitting huddled on a stone step in a snowy wall corner as wind swirls. Girl & style consistent.
+* **00:31–00:33 | Shot 9:** Medium close-up of the girl’s torso and hands pulling a single match from her apron pocket. Style consistent.
+* **00:33–00:37 | Shot 10:** Extreme close-up of the girl’s hand striking a match against the stone wall; it bursts into flame. Style consistent.
+* **00:37–00:39 | Shot 11:** Wide shot of the alley; an ornate glowing iron stove stands before the seated girl. Girl & style consistent.
+* **00:39–00:42 | Shot 12:** Close-up of the girl smiling warmly and closing her eyes in the firelight. Girl & style consistent.
+* **00:42–00:45 | Shot 13:** Wide shot of the girl holding the lit match before the stove; the flame goes out with a wisp of smoke and the stove vanishes. Girl & style consistent.
+* **00:45–00:48 | Shot 14:** Over-the-shoulder medium shot of the girl holding a second lit match against a brick wall that turns translucent. Girl & style consistent.
+* **00:48–00:52 | Shot 15:** Over-the-shoulder view as the wall dissolves to reveal a table set with candles and a steaming roast goose. Girl & style consistent.
+* **00:52–00:57 | Shot 16:** Reverse wide angle; a live white goose hops off the table and waddles toward the kneeling girl (while the cooked goose with knife and fork remains on the platter behind it); fades to near-black. Girl & style consistent.
+* **00:57–01:02 | Shot 17:** Wide shot of the girl kneeling beneath a huge Christmas tree lit with candles and ornaments; camera tilts up. Girl & style consistent.
+* **01:02–01:04 | Shot 18:** Medium shot of the girl on the left looking up at the candlelit tree. Girl & style consistent.
+* **01:04–01:12 | Shot 19:** Low-angle shot of the girl by the tree looking up at a dark blue sky full of stars and a bright golden shooting star. Girl & style consistent.
+* **01:12–01:14 | Shot 20:** Medium close-up of the girl against the stone wall holding an unlit match. Girl & style consistent.
+* **01:14–01:16 | Shot 21:** Same framing; the match in her hand is now lit, casting warm light on the wall. Girl & style consistent.
+* **01:16–01:19 | Shot 22:** Tight close-up of the girl’s face looking up in awe by the match flame. Girl & style consistent.
+* **01:19–01:25 | Shot 23:** Wide alley shot; Grandmother appears on the left in a white cap, dark shawl, and grey apron, surrounded by a golden aura, opening her arms as the girl stands and reaches out. Style consistent.
+* **01:25–01:29 | Shot 24:** Close-up of the girl crying with tears on her cheeks, reaching her left hand toward the golden light on the right. Girl & style consistent.
+* **01:29–01:33 | Shot 25:** Medium close-up of the girl holding the entire bundle of matches blazing with a large flame. Girl & style consistent.
+* **01:33–01:41 | Shot 26:** Wide high-angle shot of Grandmother carrying the smiling girl in her arms, flying up into a golden sky above snow-covered rooftops. Style consistent; **Grandmother wardrobe inconsistency:** her dark brown shawl and grey apron from 01:20 are missing (she wears an all-white dress).
+* **01:41–01:48 | Shot 27:** Wide shot at dawn; the girl sits motionless and smiling in the snowy corner surrounded by burnt matchsticks. Girl & style consistent.
+* **01:48–01:52 | Shot 28:** Wide shot of the same corner; five townspeople (two men in top hats, two women, a boy) stand around looking down at the dead girl. Girl & style consistent.
+* **01:52–01:54 | Shot 29:** Close-up of seven burnt wooden matches lying in the snow. Style consistent.
+* **01:54–01:58 | Shot 30:** Camera tilts up from the empty alley corner, over the stone wall and snowy rooftops, into the pale morning sky; fades to black. Style consistent.
+* **01:58–02:02 | Shot 31:** Black title card with white serif text: *"The Little Match Girl / after Hans Christian Andersen"*.
+
+---
+
+### 2. Visible Generation Faults
+
+* **00:09–00:11 | Merged/Clipped Horse Anatomy (Shot 3):** The two carriages drive *toward* the camera while their horses face/run *away* or sideways, clipping directly through the front of the carriage cabs. At 00:09, a disembodied horse head/neck protrudes from behind the left carriage while the girl clips through a dark horse leg.
+* **00:11–00:12 | Spontaneous Object Spawning (Shot 3):** The lost brown slipper on the right side of the road materializes out of thin air in the snow at 00:11 before the boy runs into frame to grab it.
+* **00:15–00:21 | Background Pedestrian Morphing & Moonwalking (Shot 5):**
+  * On the left, two men in top hats walk merged together; at 00:17–00:18 their coats and limbs morph into a single three-legged figure before splitting apart, with one sliding backward.
+  * In the center background, a dark figure splits/morphs into two figures at 00:17.
+* **00:34 | Self-Igniting Match (Shot 10):** The girl holds the match stationary a few inches away from the stone wall; it spontaneously bursts into flame without striking the wall.
+* **00:43–00:45 | Levitating/Seated Pose Glitch (Shot 13):** The girl is seated in a chair-posture against a flat vertical wall with no step or ledge beneath her, appearing to float in mid-air.
+* **00:52–00:56 | Duplicate Goose Logic Fault (Shot 16):** Instead of the roast goose hopping off the platter, a live white feathered goose with a knife and fork stuck in its back hops off the table while the *cooked* roast goose (also with a knife and fork in it) remains sitting on the platter behind it. As the live goose lands at 00:53, the knife and fork on its back vanish into thin air.
+* **01:04–01:12 | Frozen Frame / Static Hold (Shot 19):** The entire shot (8 seconds) is a completely static image with only a slow digital zoom-in; neither the girl, the candle flames, nor the shooting star animate.
+* **01:14–01:15 | Paint-Wash Transition Artifact (Shot 20–21):** When the match lights, a grey unpainted border/vignette washes inward around the edges of the frame.
+* **01:26–01:29 | Near-Frozen Frame (Shot 24):** The girl’s face, tears, and outstretched hand are completely frozen still for 4 seconds with only a subtle lighting flicker.
+* **01:30–01:33 | Near-Frozen Frame (Shot 25):** The girl is completely static while only the flame on the match bundle animates slightly.
+* **01:34–01:41 | Frozen Frame (Shot 26):** Grandmother and the girl flying in the sky are a completely static 2D cutout image being slowly panned/zoomed across a static background for 7 seconds.
+* **01:42–01:48 & 01:49–01:52 | Static Holds (Shots 27 & 28):** Both dawn shots are completely static illustrations with only a slow camera push-in (even the townspeople in Shot 28 are frozen like statues).
+
+*(Note: No watermarks, garbled text, strobing flashes, or unintended black frames were detected.)*
+
+---
+
+### 3. Audio, Subtitle Sync & SFX Issues
+
+* **Subtitle Sync:** Narration and dialogue are **in sync** with the burned-in subtitles throughout the entire 2-minute runtime.
+* **00:09–00:13 | Missing SFX (Carriages):** Two horse-drawn carriages race past in the foreground, but there are **no horse hooves, whinnies, or carriage wheel/cobblestone sound effects**—only music and narration.
+* **00:34 | Mistimed Action/SFX (1st Match Strike):** The match strike SFX plays at 00:34.3 just as the flame appears, but visually the hand never strikes the match against the wall.
+* **00:46 | Missing Visual for SFX (2nd Match Strike):** A loud match-strike SFX plays at 00:46, but on screen the girl is already holding a fully lit match.
+* **00:53–00:56 | Missing SFX (Goose):** No hops, footsteps, or honking/rustling SFX as the goose jumps off the table and waddles toward her.
+* **00:58 | Missing Visual for SFX (3rd Match Strike):** A match-strike SFX (followed by magical chimes) plays at 00:58 over a wide shot of the Christmas tree where no match is being struck on screen.
+* **01:14–01:15 | Missing SFX (Match Ignition):** Visually, the girl’s match ignites between 01:14 and 01:15, but there is **no match-strike or ignition sound effect**.
+* **01:20 | Missing Visual for SFX (4th Match Strike):** A match-strike SFX plays at 01:20 on the cut to Grandmother, but the girl is already holding a lit match in the wide shot.
+
+---
+
+### 4. Graphic or Inappropriate Content
+
+* **None (Clean for intended fairy-tale adaptation, with thematic advisory):** There is no gore, nudity, profanity, or graphic violence. In keeping with Andersen's original story, the film depicts **child poverty/neglect**, mentions fear of domestic abuse (*"afraid to go home to her father"* at 00:28), and depicts the **hypothermic death of a child** (*"frozen to death"* at 01:42–01:52), which is portrayed gently and non-graphically (she appears peacefully asleep). Suitable for general/family audiences familiar with the classic tale.

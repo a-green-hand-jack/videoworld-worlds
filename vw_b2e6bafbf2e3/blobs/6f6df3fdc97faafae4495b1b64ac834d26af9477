@@ -1,0 +1,17 @@
+# The Paper Lantern — animatic timeline (v1, 20.0 s, 24 fps = 480 frames)
+
+| # | In | Out | Dur | Content | Camera |
+|---|----|-----|-----|---------|--------|
+| T | 00:00.0 | 00:02.0 | 2.0 | Opening title "The Paper Lantern" | slow fade in, static |
+| 1 | 00:02.0 | 00:05.0 | 3.0 | Dusk, village on the river, wide | slow pan right |
+| 2 | 00:05.0 | 00:08.5 | 3.5 | Child on the bank holding the lantern | slow push in |
+| 3 | 00:08.5 | 00:12.0 | 3.5 | Child lets the lantern go onto the water | slow push / tilt follow |
+| 4 | 00:12.0 | 00:15.0 | 3.0 | Lantern drifts past the village roofs on the river | slow pan |
+| 5 | 00:15.0 | 00:18.5 | 3.5 | Lantern a small light among the stars | slow tilt up / pull back |
+| E | 00:18.5 | 00:20.0 | 1.5 | End card | fade to black |
+
+Transitions: 0.4 s cross-dissolves (taken from the shot durations above, not added). Total 20.0 s.
+
+Stills requested: 16:9, at least 1920x1080 (shots 1, 4 pans: at least 2560x1080 or wider), so moves do not upscale past 1280x720.
+
+Sound plan: water + evening ambience bed (0–20 s, fade in 1 s / out 2 s), soft bell/pad cue entering with shot 2 (~5.0 s), lifting at release (8.5 s), resolving over the stars (15–19 s). No dialogue.

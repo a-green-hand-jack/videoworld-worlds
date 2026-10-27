@@ -1,0 +1,7 @@
+# Image generation route check
+
+The world exposes gpt-image-2 through its image-generation HTTPS resource. No native image_gen tool was exposed in the tool catalog. The bundled imagegen CLI reached the Image API but failed after generation with `AttributeError: 'str' object has no attribute 'data'` (full nonsecret traceback retained alongside this note). No image was saved by that invocation.
+
+Next check uses the exact HTTP JSON interface supplied by `ht-resource describe image-generation`, retaining the response locally and decoding its returned image field. No skill script is modified. The local-compute resource has no network, so image HTTP requests must complete in the networked sandbox; subsequent clip rendering is a tracked local-compute job.
+
+Resolved: this world returns `text/event-stream` with keepalive events and an `image_generation.completed` event containing `b64_json`, rather than the JSON object the bundled SDK CLI expects. The documented direct HTTP request succeeds. `production/decode_image_response.py` decodes either form; `request_image.sh` calls the supplied `/images/edits` interface with source reference. Shot01 was decoded and visually inspected at 1672x941; it is the approved style reference for subsequent shots. Actual returned size differs from the request, so rendering uses a centered exact-16:9 subpixel crop, without stretching.

@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+"""S001 title: new typeset lettering painted onto dp's moving wall plate.
+The plate's camera motion is tracked frame to frame (sparse optical flow -> similarity transform), the lettering is
+laid out once in the wall's coordinates at a reference frame and carried with the wall; each frame it takes the wall's
+local light, its fine texture and an emboss shadow/highlight, and wears at the edges with a wall-fixed noise mask.
+usage: title_s001.py PLATE.mp4 OUT.mp4 [--debug DIR]"""
+import argparse, json, subprocess, numpy as np, cv2
+from PIL import Image, ImageDraw, ImageFont
+ap = argparse.ArgumentParser(); ap.add_argument('plate'); ap.add_argument('out'); ap.add_argument('--debug')
+ap.add_argument('--text', default='Elephants Dream'); ap.add_argument('--font', default='/hutian/work/fonts/IMFeENrm28P.ttf')
+ap.add_argument('--t_in', type=float, default=2.0); ap.add_argument('--t_full', type=float, default=3.5)
+ap.add_argument('--t_fade', type=float, default=16.5); ap.add_argument('--t_out', type=float, default=18.0)
+ap.add_argument('--ref', type=int, default=240); ap.add_argument('--cy', type=float, default=0.47)
+a = ap.parse_args()
+W, H, FPS = 1024, 576, 24
+def read(path):
+    p = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], capture_output=True, check=True)
+    return np.frombuffer(p.stdout, np.uint8).reshape(-1, H, W, 3)
+F = read(a.plate); N = len(F)
+# --- track: M[t] maps frame-0 wall coordinates to frame t (2x3 similarity) ---
+M = [np.eye(3)]; gray = [cv2.cvtColor(f, cv2.COLOR_RGB2GRAY) for f in F]; ok = []
+for t in range(1, N):
+    g0, g1 = gray[t - 1], gray[t]; step = np.eye(3); good = False
+    if g0.mean() > 8 and g1.mean() > 8:
+        p0 = cv2.goodFeaturesToTrack(g0, 400, 0.01, 12)
+        if p0 is not None and len(p0) > 20:
+            p1, st, _ = cv2.calcOpticalFlowPyrLK(g0, g1, p0, None, winSize=(21, 21), maxLevel=3)
+            s = st.ravel() == 1
+            if s.sum() > 20:
+                A, inl = cv2.estimateAffinePartial2D(p0[s], p1[s], method=cv2.RANSAC, ransacReprojThreshold=1.5)
+                if A is not None and inl.sum() > 15: step = np.vstack([A, [0, 0, 1]]); good = True
+    ok.append(good); M.append(step @ M[-1])
+# frames in the black fades get the motion of the nearest tracked frame
+okf = [False] + ok
+first = okf.index(True) if any(okf) else 0
+for t in range(first - 1, -1, -1):
+    d = M[first + 1] @ np.linalg.inv(M[first]); M[t] = np.linalg.inv(d) @ M[t + 1]
+Mref_inv = np.linalg.inv(M[a.ref])
+# --- lettering, laid out once at the reference frame ---
+S = 2  # supersample
+font = ImageFont.truetype(a.font, 132 * S)
+rng = np.random.default_rng(7)
+glyphs = []; x = 0
+for ch in a.text:
+    if ch == ' ': x += int(font.size * 0.28); continue
+    bb = font.getbbox(ch); gw, gh = bb[2] - bb[0] + 8 * S, font.size * 2
+    im = Image.new('L', (gw, gh), 0); ImageDraw.Draw(im).text((4 * S - bb[0], font.size // 2), ch, font=font, fill=255)
+    im = im.rotate(rng.uniform(-2.2, 2.2), resample=Image.BICUBIC)
+    glyphs.append((x, int(rng.uniform(-3, 3) * S), im)); x += int((bb[2] - bb[0]) * 0.70) + int(font.size * 0.05)
+lw = x + 20 * S; lay = Image.new('L', (lw, font.size * 2), 0)
+for gx, gy, im in glyphs:
+    im = im.resize((int(im.width * 0.70), im.height), Image.LANCZOS)  # tall and thin
+    lay.paste(im, (gx, gy), im)
+L = np.asarray(lay, np.float32) / 255
+ys, xs = np.nonzero(L > 0.05); L = L[ys.min() - 4:ys.max() + 5, xs.min() - 4:xs.max() + 5]
+L = cv2.resize(L, (L.shape[1] // S, L.shape[0] // S), interpolation=cv2.INTER_AREA)
+lh, lw = L.shape
+canvas = np.zeros((H, W), np.float32); x0, y0 = (W - lw) // 2, int(a.cy * H - lh / 2)
+canvas[y0:y0 + lh, x0:x0 + lw] = L
+# worn paint: wall-fixed noise eats into the strokes
+noise = cv2.GaussianBlur(rng.random((H, W)).astype(np.float32), (0, 0), 1.6)
+noise = (noise - noise.min()) / (noise.max() - noise.min())
+wear = np.clip((noise - 0.30) * 3.0, 0, 1) * 0.55 + 0.45
+mask_ref = canvas * wear
+bone = np.array([226, 214, 182], np.float32) / 255
+def env(t):
+    if t < a.t_in or t > a.t_out: return 0.0
+    if t < a.t_full: return (t - a.t_in) / (a.t_full - a.t_in)
+    if t > a.t_fade: return (a.t_out - t) / (a.t_out - a.t_fade)
+    return 1.0
+out = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
+                        '-c:v', 'libx264', '-preset', 'medium', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', str(FPS), a.out], stdin=subprocess.PIPE)
+log = []
+ref_light = None
+for t in range(N):
+    f = F[t].astype(np.float32) / 255; e = env(t / FPS)
+    if e > 0:
+        T = (M[t] @ Mref_inv)[:2]
+        m = cv2.warpAffine(mask_ref, T, (W, H), flags=cv2.INTER_LINEAR) * e
+        luma = f @ np.array([0.299, 0.587, 0.114], np.float32)
+        light = cv2.GaussianBlur(luma, (0, 0), 40)  # the wall's local light
+        if ref_light is None: ref_light = float(np.percentile(light, 90))
+        detail = luma - cv2.GaussianBlur(luma, (0, 0), 3)  # the wall's fine texture
+        paint = bone[None, None, :] * np.clip(light / ref_light, 0.05, 1.15)[..., None] * 1.25 * (1 + 2.2 * detail)[..., None]
+        sh = cv2.GaussianBlur(cv2.warpAffine(m, np.float32([[1, 0, 2], [0, 1, 3]]), (W, H)), (0, 0), 2.0)
+        hl = np.clip(m - cv2.warpAffine(m, np.float32([[1, 0, 1], [0, 1, 1]]), (W, H)), 0, 1)
+        f = f * (1 - 0.55 * sh * (1 - m))[..., None]
+        f = f * (1 - m[..., None]) + np.clip(paint, 0, 1) * m[..., None]
+        f = f + 0.18 * hl[..., None] * np.clip(light / ref_light, 0, 1)[..., None]
+    out.stdin.write((np.clip(f, 0, 1) * 255).astype(np.uint8).tobytes())
+    log.append({'frame': t, 'env': round(e, 3), 'tracked': bool(okf[t]), 'dx': round(float((M[t] @ Mref_inv)[0, 2]), 2), 'dy': round(float((M[t] @ Mref_inv)[1, 2]), 2)})
+out.stdin.close(); out.wait()
+if a.debug: json.dump({'frames': N, 'tracked': int(sum(okf)), 'log': log}, open(f'{a.debug}/title_s001_track.json', 'w'))
+print('frames', N, 'tracked', sum(okf), 'title box', x0, y0, lw, lh)

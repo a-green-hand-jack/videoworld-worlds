@@ -1,0 +1,25 @@
+{
+  "created": 1792451592,
+  "background": "opaque",
+  "data": [
+    {
+      "generation_id": "cb1c11c6-5961-4f47-adc6-9fa6b3b09bb1"
+    }
+  ],
+  "output_format": "png",
+  "quality": "low",
+  "size": "1672x941",
+  "usage": {
+    "input_tokens": 1680,
+    "input_tokens_details": {
+      "image_tokens": 1508,
+      "text_tokens": 172
+    },
+    "output_tokens": 301,
+    "output_tokens_details": {
+      "image_tokens": 301,
+      "text_tokens": 0
+    },
+    "total_tokens": 1981
+  }
+}

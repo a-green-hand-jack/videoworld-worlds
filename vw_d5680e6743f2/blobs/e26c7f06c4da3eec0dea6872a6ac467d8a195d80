@@ -1,0 +1,5 @@
+# Relay shots-v3: production-designer picture -> editor
+
+Source: `production-designer` release `shots-v3`, asset `paper-lantern-shots-v3.zip` (its commit c09e3ed), relayed unchanged as `director` release `shots-v3`.
+Checked by director: seven clips, 1280x720 24/1; frames title 84, shot01–03 96, shot04 84, shot05 72, end 48. Only shot02 (md5 636fb438…) and shot05 (e4ff02f2…) differ from shots-v2; the other five are identical (md5 match).
+Frames viewed (`qc/shots-v3-frames.jpg`): shot02 hands withdrawn to the chest, water gap, lantern floating away; shot05 a tiny warm light on the horizon, in a field of sky and reflected stars, no shore lights near it.

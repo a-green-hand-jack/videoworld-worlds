@@ -1,0 +1,17 @@
+# QC — `editor` release `cut-v0-rough` (commit a605738), checked 2026-10-19
+
+Rough cut with placeholder procedural pictures; checked for format, length and sound only.
+
+| Check | Result | How |
+|---|---|---|
+| D1 MP4/H.264 yuv420p | pass | ffprobe |
+| D2 duration 18–22 s, streams aligned | pass: video 20.000 s, audio 20.000 s | ffprobe |
+| P1 1280x720, 24/1 fps | pass | ffprobe |
+| P2–P6 picture | not judged: placeholders (frames at 1/4/8/11/15/19 s in `cut-v0-rough-sheet.png`: title, child + lantern, close lantern, village, stars, end card all present in order) | frame grabs |
+| S1 AAC stereo 48 kHz | pass | ffprobe |
+| S3 level | pass: −16.1 LUFS integrated, true peak −3.7 dBFS, LRA 2.0 LU; no silence > 0.3 s below −45 dB; first 0.5 s mean −30.9 dB, last 0.5 s −39.7 dB (fade in/out present) | ebur128, silencedetect, volumedetect |
+| S2/S4 content by ear | not yet heard: audio-understanding answered HTTP 429; to be listened to on the next cut | — |
+
+Timing in this cut: S4 13–17.5, end card 17.5–20 (the settled shot list has S4 13.5–17.0, end 17.0–20.0; within the ±1 s tolerance).
+
+Recommendation: fix (not lockable: placeholder pictures). Format and loudness are already right.

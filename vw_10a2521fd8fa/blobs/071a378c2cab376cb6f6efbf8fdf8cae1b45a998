@@ -1,0 +1,24 @@
+# Director's review of cut-v6d (editor bd72b94, release cut-v6d), 2026-10-22 ~22:45 UTC
+
+Status: **lock candidate.** Waiting on qc's delta check (qc#12) and test-audience's screening (test-audience#9, my release `screen-cut-v6d`).
+film.mp4 sha256 dd738de7b41b3e75d6c3707555527a6252b6cbf30f40c7c3e0d387cfe2864b2c; H.264 High yuv420p 1280x720 24 fps, AAC-LC 48 kHz stereo, 121.959 s, -16.1 LUFS, -1.8 dBTP, faststart, 30 burned-in cues (editor verify.txt, no must-fails).
+
+## How I checked
+- **Watched whole with sound**: gemini-4-argon on a 640x360 viewing copy (`cut-v6d-film-understanding-argon.txt`).
+- Sound vs cut-v5d: correlation ≥ 0.98 in every second, same length (the mix is kept from round 1, as the objective asks).
+- Repeated frames over the whole cut (consecutive luma difference < 0.02, outside the 0:45.7 match-out and the end title): **none**.
+- Cadence (alt2 / 12 Hz peak): s04 0.10/1.4, s09 0.01/0.3, s13a 0.03/0.1, s14 0.06/0.8, s16 0.12/1.5, s17 0.04/1.0, s18 0.03/0.5. All even (cut-v5d's s17/s18 stepped every 3–9 frames; cut-v6b's s18 was 0.34/3.8).
+- Frames of the changed shots: s13a barefoot, the memory-glow fades (`cut-v6d-s13a.jpg`); s18 the woman's hand to her mouth, breath, clean (`cut-v6d-s18.jpg`).
+
+## What the watch found
+- **Story**: all twelve beats present and in order; "the ending reads and moves… her peaceful death unmistakable and poignant". Narration warm and clear, the girl's three lines in place, subtitles in sync, every strike heard on its flare, no dropouts or level jumps.
+- **Motion**: every shot has real motion. Near-still by design: dawn 1:41–1:46 (she does not move) and the matches close 1:46–1:49. The townspeople 1:49–1:53 are "mostly still figures" with breath, snow and the woman's hand.
+- **Continuity**: the girl is consistent and barefoot from 0:15 ("never accidentally regains shoes"). The grandmother wears cap, plum shawl and lilac dress from 1:21 to 1:41; the memory at 1:12 is a sepia glow.
+- **Artefacts noted** (MM:SS) and how I weigh them:
+  - 0:08–0:13: slipper slides, horse legs muddled, slipper pops. Round-1 shots s02/s03, accepted in round 1; the s02/s03 retakes were judged not worth the risk.
+  - 0:24–0:25: a framing hitch into the window. Round-1 s05; minor.
+  - 0:43–0:44: the flame pops to smoke in one frame. Round-1 s08; minor.
+  - 0:53–0:56: the goose has a duck head and apples. Whimsical, as directed; accepted.
+  - 1:02–1:03: a slight speed ramp in the tree tilt. Round-1 Gemini s11 (my alt2 on s11 in v6b: 0.01); minor.
+  - 1:27–1:28: a faint trailing duplicate of the grandmother's hand for a moment. From the editor's motion-compensated in-between in s14; dp's even re-conversion of s14 is 3.5x softer with blended fingers (editor's measure), so this is the better of the two. Accepted.
+  - 1:30–1:31: the single match "freezes" in the bundle's fireball. Minor, inside the flare.

@@ -1,0 +1,17 @@
+# Screening notes: `screen-cut-v5d` (director release, film.mp4, 121.96 s): partial, not a full watch
+
+**What I could not do.** This time I could not watch the film. film-understanding and audio-understanding both answered HTTP 402 ("prepayment credits are depleted") on every request, including a plain text one, so no model could see or hear the cut. I did not play the film myself. **There is no first-time-viewer report for v5d.** The last full watch is `screen-cut-v5b` (`screening/screen-cut-v5b.md`). What follows is a check of the changes you listed, from frames and measurements only. It tells you nothing about how the film feels.
+
+## What I checked (frames extracted from the release at 0:12, 0:54, 1:10, 1:16, 1:18, 1:22, 1:40, 1:45, 1:51 and 1:54; `screening/screen-cut-v5d-frames.jpg`)
+- **Memory of the grandmother (1:12-1:20).** At 1:16 and 1:18 the framing is the same: the girl holds a burnt-out match beside the faint grandmother, and the subtitle "had said: a falling star is a soul going to God" is on screen. I see no jump or flash between them. The first of the two frames is slightly closer to the star shot before it. This matches "one continuous move", but I only saw two stills, not the motion.
+- **Fourth match (1:22).** A different picture, with the grandmother shining in the alley and the girl on the steps with a lit match, under the subtitle "A fourth — and there stood Grandmother, shining and kind." The flare and the words appear together in the picture. **I could not check the sound at all.**
+- **Last two shots (1:40-1:54).** The girl sits in the same place in the dawn shot and in the crowd shot, against the wall at the left, with the same pose, the same matches on the snow and the same light. A viewer wouldn't see her jump. The crowd (three adults) is closer than in v5b but comes from the same side. The subtitle "She wanted to warm herself." is on screen with the crowd, and "No one knew the beautiful things she had seen, or the joy she had gone to." plays over the rooftops at 1:54.
+- **Subtitles.** In every frame I took they are whole sentences in the same style as v5b (white with a dark outline). I did not check when each one leaves.
+- **Things from v5b that I could see are still fixed.** The goose at 0:54 is one hopping roast goose (as in v5b). The star over the rooftops at 1:10 and the flight at 1:40 are the same compositions as in v5b.
+- **Measured, with ffprobe and ffmpeg:** 1280x720, 24 fps, H.264 and AAC, 121.96 s. Loudness is -16.1 LUFS with a true peak of -1.8 dBFS. Black frames appear at 0:45.7-0:46.4 (0.75 s, between the first and second matches) and from 1:58.9 to the end (3.0 s, the end title or fade). A freeze starts at 1:59.5, which fits an end card. I found no other freeze of 1.5 s or longer. I did not look at what plays in the black at 0:46.
+
+## What this does and doesn't say
+Nothing in the frames or measurements is new or worse than in v5b, and the listed changes look present. That is all. I can't say whether the whisper at 1:10 is better or worse, whether the fourth match's sound sits on its flare, whether a subtitle leaves late, or whether a viewer is moved. The static characters from 1:08 (v5b's biggest remaining flaw) are still static in the frames I took, as far as stills can show.
+
+## Next step
+If the screening resource is restored, I will watch v5d in full and report. If the director would rather lock on the v5b screening plus qc's checks of the listed changes, the decision is the director's.

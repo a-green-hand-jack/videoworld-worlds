@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+"""gen_kf.py shot_id...  -> keyframes/<id>.png via image-generation (design refs as references). Env MODEL, REFDIR."""
+import sys, os, json, base64, subprocess, urllib.request, io
+sys.path.insert(0, os.path.dirname(__file__))
+from shots import S, STYLE
+from PIL import Image
+REFDIR = os.environ.get("REFDIR", "/hutian/work/refs")
+url = subprocess.check_output(["ht-resource","url","image-generation"]).decode().strip()
+for sid in sys.argv[1:]:
+    s = S[sid]
+    parts = [{"text": f"Key frame, 16:9, full-bleed painting to all four edges (no border, no frame, no paper margin, no vignette), no street lamps. Keep the characters, places and painting style exactly as in the reference images. {s['kf']} Style: {STYLE}."}]
+    for r in s["refs"][:5]:
+        parts.append({"inlineData": {"mimeType": "image/" + ("png" if r.endswith(".png") else "jpeg"), "data": base64.b64encode(open(r if "/" in r else f"{REFDIR}/{r}.jpg","rb").read()).decode()}})
+    body = json.dumps({"contents":[{"parts":parts}],"generationConfig":{"responseModalities":["IMAGE"],"imageConfig":{"aspectRatio":"16:9"}}}).encode()
+    req = urllib.request.Request(f"{url}/v1beta/models/gemini-3-pro-image:generateContent", body,
+        {"Content-Type":"application/json","x-goog-api-key":os.environ["HT_RESOURCE_TOKEN"]})
+    try:
+        d = json.load(urllib.request.urlopen(req, timeout=300))
+        for p in d["candidates"][0]["content"]["parts"]:
+            if "inlineData" in p:
+                im = Image.open(io.BytesIO(base64.b64decode(p["inlineData"]["data"]))).convert("RGB").resize((1280,720), Image.LANCZOS)
+                os.makedirs("keyframes", exist_ok=True); im.save(f"keyframes/{sid}.png"); print("ok", sid, flush=True); break
+        else: print("noimage", sid, json.dumps(d)[:300], flush=True)
+    except Exception as e: print("fail", sid, e, flush=True)

@@ -1,0 +1,29 @@
+from PIL import Image,ImageFilter
+from pathlib import Path
+root=Path(__file__).resolve().parents[1]
+im=Image.open(root/'production/generated/shot05-before-scale.png').convert('RGB')
+# Move the lantern farther away visually while preserving its exact painted design.
+# Replace the small original light area with adjacent river texture, then place
+# a 40%-scale copy of the original lantern/reflection, with feathered margins.
+box=(870,555,990,680);patch=im.crop(box)
+water=im.crop((735,555,855,680))
+mask=Image.new('L',patch.size,0)
+from PIL import ImageDraw
+ImageDraw.Draw(mask).rectangle((9,9,111,116),fill=255)
+mask=mask.filter(ImageFilter.GaussianBlur(5))
+im.paste(water,box[:2],mask)
+small=patch.resize((48,50),Image.Resampling.LANCZOS)
+smask=mask.resize(small.size,Image.Resampling.LANCZOS)
+# Original lantern center (925,595) becomes (925,595).
+im.paste(small,(903,579),smask)
+# Director's note: distinguish the tiny lantern from warm village reflections.
+import numpy as np
+a=np.asarray(im,dtype=np.float32).copy(); yy,xx=np.mgrid[:a.shape[0],:a.shape[1]]
+warm=np.clip((a[:,:,0]-a[:,:,2]-15)/65,0,1)
+side=((xx<600)|(xx>1150)) & (yy>340)
+a *= (1-.18*warm*side)[:,:,None]
+r2=(xx-925)**2+(yy-595)**2
+halo=np.exp(-r2/(2*9**2))[:,:,None]*np.array([22,14,4])
+core=np.exp(-r2/(2*3.2**2))[:,:,None]*np.array([75,64,30])
+a=np.clip(a+halo+core,0,255)
+Image.fromarray(a.astype(np.uint8)).save(root/'picture/stills/shot05.png')

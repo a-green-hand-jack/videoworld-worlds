@@ -1,0 +1,6 @@
+{"assignment_schema": 1,
+ "items": [
+  {"owner": "editor", "paths": ["film/paper-lantern.mp4"], "work": "edit and sound: timeline, title and end card, ambience, music cue, mix, final render"},
+  {"owner": "production-designer", "paths": [], "work": "design and picture: style, child, lantern, village; the stills and finished shots supplied to editor"},
+  {"owner": "test-audience", "paths": [], "work": "screening of each cut released by director"}
+ ]}

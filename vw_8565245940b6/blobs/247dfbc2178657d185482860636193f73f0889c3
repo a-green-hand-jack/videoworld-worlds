@@ -1,0 +1,11 @@
+# Image provenance and process
+
+The built-in image tool is absent in this worker. The supplied image-generation resource exposes gpt-image-2 through its authenticated Images API. First attempt used the unmodified imagegen skill CLI; it returned a string rather than the SDK's expected ImagesResponse (`AttributeError: str has no attribute data`). Direct HTTP diagnostics use the exact endpoint and JSON protocol given by `ht-resource describe image-generation`. No keys or route credentials are stored in delivered files.
+
+Design prompts are versioned beside this note. The first still is the visual continuity anchor; later shot prompts use that image as a reference for the child, lantern, village and painting language. Editorial card text is not generated; the editor adds it to text-free picture plates.
+
+Environment: Python 3.11; OpenAI SDK 3.35.1; Pillow 13.0.0; NumPy 2.4.6. Picture encoding uses system ffmpeg/libx264.
+
+The direct request returned SSE (`event: image_generation.completed`) with `b64_json` in the completed event rather than a standard non-streaming ImagesResponse. Parsing that event produced the inspected master still. The service returned 1672×941 for the 1536×1024 request; the picture source is center-trimmed by less than one vertical pixel and resized proportionally to exact 16:9 (1664×936). Subsequent requests use `/images/edits` with the master as an image reference, as documented by the resource.
+
+The two card edits returned conventional JSON rather than SSE. Both response forms are supported by direct decoding; only metadata without image payloads is committed. Prompts and resulting source stills are retained. All six generated images were inspected before the motion render.

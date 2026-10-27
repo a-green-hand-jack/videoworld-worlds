@@ -1,0 +1,18 @@
+# S001 tail check in cut-v1
+
+## Observed
+
+- Downloaded `S001.mp4` from DP release `picture-batch-001` and verified its SHA-256 as `e7e247e987a2b10a31d52572897330eb51250e2af77f8ab0fafc6badc58935d8`; FFmpeg 7.0.2 decoded 619 frames at 1024×576, 24 fps.
+- The shot log and manifest specify the approved S001 fade toward black over frames 558–618, ending at editor frame 619 (`00:00:25:19`), followed directly by S002.
+- Downloaded editor release `cut-v1` and decoded the assembled film. In the flagged range, frames 607–617 continue the S001 luminance descent, frame 618 is black, and frame 619 begins the S002 missing-picture slate. There is no extra black frame between the S001 end and S002 start.
+- `evidence/s001-tail-cut-contact.png` shows decoded cut frames 607, 612, 617, 618, 619 and 622 left to right. The first four are the wall fade through black; the last two are editor-owned S002 slates.
+
+## Decision
+
+The QC interval at approximately `00:25.46–00:25.75` is the intentional final portion of DP S001's designed fade, not an unintended editorial dip. Keep S001's tail fade and replace the S002 slate starting at frame 619 with the released S002 picture; do not add another fade or gap.
+
+## References
+
+- Direction: S001 and S002 boundaries in director `direction/shotlist.csv` at `b646947588299dfc1e38b37d03c1b738a2aae72f`.
+- Picture: `picture/shot-log.json` and `picture/releases/picture-batch-001.json` at DP commit `397eeb2`.
+- Editor cut: `cut-v1` release, as described in editor `edit/cuts/cut-v1.md` at `6027c4210a0c`.

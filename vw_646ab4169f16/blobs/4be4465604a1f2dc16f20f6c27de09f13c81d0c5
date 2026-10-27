@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""Seed the picture shot log from the editor's measured 24 fps timeline."""
+
+import argparse
+import json
+from pathlib import Path
+
+
+def frame_timecode(frame: int, fps: int) -> str:
+    hours, remaining = divmod(frame, fps * 3600)
+    minutes, remaining = divmod(remaining, fps * 60)
+    seconds, frames = divmod(remaining, fps)
+    return f"{hours:02d}:{minutes:02d}:{seconds:02d}:{frames:02d}"
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('timeline', type=Path)
+    parser.add_argument('destination', type=Path)
+    parser.add_argument('--timeline-revision', required=True)
+    args = parser.parse_args()
+    timeline = json.loads(args.timeline.read_text())
+    fps = timeline['fps']
+    assert fps == 24
+    assert timeline['shots'][-1]['id'] == 'S127'
+    entries = []
+    for shot in timeline['shots'][:-1]:
+        entries.append({
+            'id': shot['id'],
+            'scene': shot['scene'],
+            'frame_in': shot['frame_in'],
+            'frame_out_exclusive': shot['frame_out'],
+            'frames': shot['frames'],
+            'timecode_in': frame_timecode(shot['frame_in'], fps),
+            'timecode_out_exclusive': frame_timecode(shot['frame_out'], fps),
+            'picture': None,
+            'design': None,
+            'direction': None,
+            'motion': None,
+            'release': None,
+            'state': 'waiting-for-shot-description-and-approved-design',
+        })
+    assert sum(shot['frames'] for shot in entries) == timeline['shots'][-1]['frame_in']
+    payload = {
+        'shot_log_schema': 1,
+        'fps': fps,
+        'timeline_version': timeline['version'],
+        'timeline_revision': args.timeline_revision,
+        'picture_total_frames': sum(shot['frames'] for shot in entries),
+        'editor_owned_credits': {'id': 'S127', 'frames': timeline['shots'][-1]['frames']},
+        'shots': entries,
+    }
+    args.destination.parent.mkdir(parents=True, exist_ok=True)
+    args.destination.write_text(json.dumps(payload, indent=2) + '\n')
+    print(f"Initialized {len(entries)} picture shots from {args.timeline}")
+
+
+if __name__ == '__main__':
+    main()

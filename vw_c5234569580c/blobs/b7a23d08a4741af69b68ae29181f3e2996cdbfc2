@@ -1,0 +1,8 @@
+# QC — production-designer picture v1 (commit 96f3682072d8, `picture/`)
+
+- Format (ffprobe): shots 1–5 at 1280x720 yuv420p 24/1, 108/108/108/96/72 frames (4.5/4.5/4.5/4.0/3.0 s), matching the supply spec including the 0.5 s handles. The cards are 1280x720 PNG.
+- Motion (mean absolute frame difference, 640x360 gray): steady through each body. The only low-motion frames are frames 0–4 and the last 4–6 of each clip (eased start and stop), which fall inside the 12-frame handles, so no stutter is visible in the nominal film time.
+- Picture (first, middle and last frames of each shot): moves are gentle pushes; shot 4 pulls back; shot 3 drifts so the lantern advances slightly rightward. No edges revealed. The child and lantern match the accepted stills (`qc/stills-v1.md`).
+- Cards: `title_bg` is a bright orange-violet dusk sky, `end_bg` a starry night. Watch in the cut: cream title type on the bright orange part of `title_bg` needs its shadow/placement to stay legible (P1).
+
+Recommendation: picture v1 accepted for the cut.

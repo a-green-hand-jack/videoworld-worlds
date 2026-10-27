@@ -1,0 +1,185 @@
+"""Lay narration, music and effects onto an editor EDL (edit/cut-vN/edl.json) and write mix.wav, stems and film.srt.
+usage: mix.py EDL.json OUTDIR
+Everything is anchored to shot ids / line numbers of the EDL, so a new cut re-syncs by running this again."""
+import json, os, re, subprocess, sys
+import numpy as np
+SR = 48000
+edl = json.load(open(sys.argv[1])); out = sys.argv[2]; os.makedirs(out, exist_ok=True)
+shots = {s["id"]: s for s in edl["shots"]}
+lines = {int(l["line"]): l for l in edl["lines"]}
+real = {int(l["id"][1:]): l["duration_s"] for l in json.load(open("lines/cue_sheet.json"))["lines"]}
+for n, l in lines.items(): l["end"] = l["start"] + real[n]
+texts = {int(i[1:]): (sp, t) for i, sp, t in json.load(open("tools/lines.json"))}
+words = json.load(open("lines/words.json"))
+total = max(s["out"] for s in edl["shots"])
+N = int(round(total * SR))
+
+def sh(*a): return subprocess.run(a, capture_output=True, text=True)
+def load(path, start=0.0):
+    r = subprocess.run(["ffmpeg", "-v", "error", "-ss", str(start), "-i", path, "-ar", str(SR), "-ac", "2", "-f", "f32le", "-"], capture_output=True)
+    return np.frombuffer(r.stdout, np.float32).reshape(-1, 2).copy()
+def lufs_arr(x):
+    p = subprocess.run(["ffmpeg", "-nostats", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "-", "-af", "ebur128=peak=true", "-f", "null", "-"], input=x.astype(np.float32).tobytes(), capture_output=True)
+    m = re.findall(r"I:\s+(-?[\d.]+) LUFS", p.stderr.decode()); return float(m[-1]) if m else -70.0
+def db(x): return 10 ** (x / 20)
+def T(spec):  # "s08.in", "s08.out", "L9.start", "L9.end" (+ offset added by caller)
+    k, p = spec.split(".")
+    if k in shots: return shots[k][{"in": "in", "out": "out"}[p]]
+    return lines[int(k[1:])][{"start": "start", "end": "end"}[p]]
+def put(track, x, t, gain_db=0.0, fin=0.0, fout=0.0, dur=None):
+    if dur is not None: x = x[: int(dur * SR)]
+    x = x * db(gain_db)
+    n = len(x)
+    if fin: k = min(n, int(fin * SR)); x[:k] *= np.linspace(0, 1, k)[:, None] ** 1.5
+    if fout: k = min(n, int(fout * SR)); x[n - k:] *= np.linspace(1, 0, k)[:, None] ** 1.5
+    s = int(round(t * SR)); e = min(N, s + n)
+    if e > s: track[s:e] += x[: e - s]
+def fit(x, target_lufs):
+    return x * db(target_lufs - lufs_arr(x))
+def loop(x, dur):
+    reps = int(np.ceil(dur * SR / len(x))) + 1; xf = int(0.5 * SR); y = x
+    for _ in range(reps):
+        y = np.concatenate([y[:-xf], y[-xf:] * np.linspace(1, 0, xf)[:, None] + x[:xf] * np.linspace(0, 1, xf)[:, None], x[xf:]])
+        if len(y) > dur * SR: break
+    return y[: int(dur * SR)]
+
+# ---------- dialogue ----------
+dlg = np.zeros((N, 2), np.float32)
+for n, l in lines.items():
+    x = load(f"lines/L{n:02d}.wav")
+    put(dlg, x, l["start"])
+speech = np.abs(dlg).max(axis=1)
+win = int(0.05 * SR)
+env = np.convolve(speech, np.ones(win) / win, mode="same")
+act = (env > db(-48)).astype(float)
+act0 = act.copy()   # un-shifted voice activity, used to snap subtitle starts to onsets
+look = int(0.20 * SR)                      # music ducks a little before the voice
+act = np.concatenate([act[look:], np.zeros(look)])
+def smooth(a, atk, rel):
+    o = np.zeros_like(a); y = 0.0
+    ca, cr = 1 - np.exp(-1 / (atk * SR)), 1 - np.exp(-1 / (rel * SR))
+    for i in range(0, len(a), 48):         # control rate 1 kHz
+        v = a[i]; y += (v - y) * (ca if v > y else cr) * 48; o[i:i + 48] = y
+    return np.clip(o, 0, 1)
+duck = smooth(act, 0.12, 0.45)[:, None]
+
+# ---------- music ----------
+MUS = "music/%s.mp3"
+mus = np.zeros((N, 2), np.float32)
+CUES = []
+def m(cue, off, a, b, fin=0.8, fout=1.0, gain=0.0):
+    t0, t1 = T(a[0]) + a[1], T(b[0]) + b[1]
+    CUES.append({"type": "music", "file": f"music/{cue}.mp3", "from_cue_s": off, "start_s": round(t0, 3), "end_s": round(t1, 3), "anchors": f"{a[0]}{a[1]:+} .. {b[0]}{b[1]:+}"})
+    x = fit(load(MUS % cue, off), -23.0)
+    put(mus, x, t0, gain, fin, fout, dur=t1 - t0)
+strike1 = T("L8.start") + 2.15          # picture: flare lands on "strike just one…" (editor, cut-v4)
+m("m1_cold_street", 0, ("s01.in", 0.0), ("L8.start", 2.15), fin=2.0, fout=1.0)
+m("m2_stove_goose", 0, ("L8.start", 2.15), ("L10.end", 0.3), fin=0.5, fout=0.5, gain=1)
+m("m2_stove_goose", 22, ("s09.in", 0.15), ("s10.in", 4.0), fin=0.4, fout=0.7, gain=1)
+m("m3_tree_stars", 0, ("s11.in", 0.15), ("s13a.in", 0.6), fin=0.5, fout=1.2, gain=1)
+m("m4_grandmother_ascent", 0, ("s13a.in", 0.5), ("s16.out", 0.0), fin=1.5, fout=2.0, gain=1)
+m("m5_morning_after", 0, ("s17.in", -0.2), ("end.out", 0.0), fin=1.5, fout=3.0)
+mus *= (1 - 0.62 * duck)       # about -8.4 dB under speech
+
+# ---------- effects ----------
+fx = np.zeros((N, 2), np.float32)
+cache = {}
+def sfx(name, t, lufs, gain=0.0, dur=None, fin=0.02, fout=0.05, lp=False, pan=None):
+    CUES.append({"type": "sfx", "file": f"sfx/{name}.mp3", "start_s": round(t, 3), "dur_s": None if dur is None else round(dur, 3), "lufs_before_duck": lufs})
+    if name not in cache: cache[name] = load(f"sfx/{name}.mp3")
+    x = cache[name]
+    if lp and dur: x = loop(x, dur)
+    x = fit(x, lufs)
+    if pan:  # (l0, l1): left gain at start..end of the sound, right is the complement
+        w = np.linspace(pan[0], pan[1], len(x))[:, None]; x = x * np.concatenate([1 - w, w], axis=1) * 1.4
+    put(fx, x, t, gain, fin, fout, dur=dur)
+S = lambda spec, o=0.0: T(spec) + o
+end = shots["end"]["in"] if "end" in shots else total
+sfx("wind_snow_loop", 0.0, -35, dur=S("L8.end", 0.45), lp=True, fin=2.0, fout=1.2)
+sfx("new_year_bells", S("s05.in", 0.5), -38, dur=5.5, fin=1.0, fout=2.0)
+sfx("snow_footsteps", S("s02.in", 0.2), -33, dur=4.5, fin=0.5, fout=0.8)
+sfx("carriage_fast", S("s03.in", 0.0), -26, dur=4.5, fin=0.1, fout=0.6, pan=(0.1, 0.9))
+sfx("snow_footsteps", S("s04.in", 3.0), -36, dur=3.0, fin=0.5, fout=0.8)
+sfx("match_strike", strike1 - 0.05, -22)
+sfx("flame_crackle", strike1, -33, dur=S("L10.end", 0.3) - strike1, lp=True, fin=0.2, fout=0.4)
+sfx("stove_fire", strike1 + 0.8, -34, dur=S("L10.end", 0.3) - strike1 - 0.8, lp=True, fin=1.0, fout=0.4)
+sfx("flame_out", S("L10.start", 0.15), -29)
+sfx("match_strike", S("s09.in", -0.1), -22)
+sfx("goose_table", S("s09.in", 0.6), -34, dur=S("s10.in", 3.8) - S("s09.in") - 0.6, lp=True, fin=1.0, fout=0.6)
+sfx("flame_out", S("s10.in", 3.5), -29)   # goose vision goes dark 56.9-57.4 s (cut-v5 frames)
+sfx("match_strike", S("s11.in", 0.0), -22)
+sfx("tree_shimmer", S("s11.in", 0.5), -30, dur=5.0, fin=0.5, fout=1.0)
+sfx("flame_out", S("L14.start", -0.2), -29)
+sfx("tree_shimmer", S("L14.start", 0.8), -31, dur=3.5, fin=0.3, fout=1.0)
+sfx("falling_star", S("s12.in", 4.95), -26, dur=3.0, fin=0.05, fout=0.8)
+strike4 = shots["s13a_strike"]["in"] + 0.38 if "s13a_strike" in shots else T("L17.start") - 0.05   # on the flare in picture
+sfx("match_strike", strike4, -22)
+sfx("flame_crackle", strike4 + 0.1, -37, dur=S("s14.out") - strike4, lp=True, fin=0.5, fout=1.0)
+sfx("bundle_blaze", S("s15.in", 0.9), -24, dur=4.0, fin=0.02, fout=0.8)
+sfx("ascent_airy", S("s16.in", 0.0), -29, dur=min(8.0, S("s16.out") - S("s16.in")), lp=True, fin=1.0, fout=1.5)
+sfx("morning_town", S("s17.in", 0.0), -34, dur=S("end.in") - S("s17.in") + 1.5, lp=True, fin=1.5, fout=2.5)
+sfx("wind_snow_loop", S("s17.in", 0.0), -37, dur=S("end.in") - S("s17.in") + 1.0, lp=True, fin=1.5, fout=2.5)
+fx *= (1 - 0.35 * duck)        # about -3.7 dB under speech; strikes are short and clear of lines
+
+# ---------- master: one gain for all stems, so the stems sum to the mix ----------
+mix = dlg + mus + fx
+g = -16.0 - lufs_arr(mix)
+for a in (dlg, mus, fx, mix): a *= db(g)
+def wav(path, x):
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", "-", "-c:a", "pcm_s24le", path], input=x.astype(np.float32).tobytes())
+wav(f"{out}/_mix_raw.wav", mix)   # master limiter on the mix only (stems stay unlimited)
+subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{out}/_mix_raw.wav", "-af", "alimiter=limit=0.80:attack=3:release=60:level=disabled", "-c:a", "pcm_s24le", f"{out}/mix.wav"]); os.remove(f"{out}/_mix_raw.wav")
+wav(f"{out}/dialogue.wav", dlg); wav(f"{out}/music.wav", mus); wav(f"{out}/effects.wav", fx)
+
+# ---------- subtitles, cut on phrase boundaries, <=42 chars/line, <=2 lines ----------
+def tc(t): h = int(t // 3600); mi = int(t % 3600 // 60); s = t % 60; return f"{h:02d}:{mi:02d}:{s:06.3f}".replace(".", ",")
+cues = []
+for n in sorted(lines):
+    sp, text = texts[n]; w = words[f"L{n:02d}"]; st = lines[n]["start"]
+    toks = text.split()
+    # one cue if it fits in two lines of 42; else split at the punctuation/length boundary nearest the middle
+    parts = [toks]
+    if len(text) > 84 or len(text) > 42 and False:
+        best = None
+        for k in range(2, len(toks) - 1):
+            a, b = " ".join(toks[:k]), " ".join(toks[k:])
+            sc = (0 if re.search(r"[,;:—]$", toks[k - 1]) else 20) + abs(len(a) - len(b))
+            if best is None or sc < best[0]: best = (sc, k)
+        parts = [toks[:best[1]], toks[best[1]:]]
+    idx = 0
+    for p in parts:
+        k = len(p)
+        if len(w) == len(toks):
+            a, b = w[idx][1], w[idx + k - 1][2]
+        else:   # whisper merged/dropped a token (e.g. an em dash): spread the line's span by characters
+            t0, t1 = w[0][1], w[-1][2]; tot = len(text)
+            before = len(" ".join(toks[:idx])); a = t0 + (t1 - t0) * before / tot; b = t0 + (t1 - t0) * (before + len(" ".join(p))) / tot
+            if len(parts) == 2:   # snap the split to the longest pause near the middle of the line
+                gaps = [(w[j + 1][1] - w[j][2], j) for j in range(len(w) - 1) if 0.25 * (t1 - t0) < w[j][2] - t0 < 0.75 * (t1 - t0)]
+                if gaps:
+                    j = max(gaps)[1]; cut_a, cut_b = w[j][2], w[j + 1][1]
+                    a, b = (t0, cut_a) if idx == 0 else (cut_b, t1)
+        idx += k
+        s = " ".join(p)
+        if len(s) > 42:   # wrap on two lines near the middle
+            best = min(range(1, k), key=lambda j: abs(len(" ".join(p[:j])) - len(" ".join(p[j:]))) - (12 if re.search(r"[.,;:!?—…]$", p[j - 1]) else 0))
+            s = " ".join(p[:best]) + "\n" + " ".join(p[best:])
+        a_abs = st + a
+        # snap the cue start to the nearest voice onset (silence >= 0.12 s then speech) on the dialogue stem
+        lo, hi = int(max(0, a_abs - 0.5) * SR), int(min(total, a_abs + 0.5) * SR)
+        seg = act0[lo:hi]; sil = int(0.12 * SR)
+        ons = [i for i in range(sil, len(seg)) if seg[i] > 0.5 and seg[i - sil:i].max() < 0.5] if len(seg) > sil else []
+        if idx - k == 0 and not ons and act0[lo:hi].size: ons = []
+        if ons:
+            o = min(ons, key=lambda i: abs((lo + i) / SR - a_abs)); a_abs = (lo + o) / SR
+        elif idx - k == 0: a_abs = lines[n]["start"] + 0.04
+        cues.append((a_abs, st + b + 0.15, s))
+cues.sort()
+cues = [(a, min(b, cues[i + 1][0] - 0.04) if i + 1 < len(cues) else b, s) for i, (a, b, s) in enumerate(cues)]
+open(f"{out}/film.srt", "w").write("".join(f"{i}\n{tc(a)} --> {tc(b)}\n{s}\n\n" for i, (a, b, s) in enumerate(cues, 1)))
+print("duration", total, "gain applied dB", round(g, 2))
+for n in sorted(lines): CUES.append({"type": "speech", "file": f"lines/L{n:02d}.wav", "start_s": round(lines[n]["start"], 3), "end_s": round(lines[n]["end"], 3), "speaker": texts[n][0], "text": texts[n][1]})
+CUES.sort(key=lambda c: c["start_s"])
+json.dump({"cut_edl": sys.argv[1], "duration_s": total, "cues": CUES}, open(f"{out}/cue_sheet.json", "w"), indent=1)
+open(f"{out}/cue_sheet.md", "w").write("| start | end/dur | type | file | note |\n|---|---|---|---|---|\n" + "".join(f"| {c['start_s']:.2f} | {c.get('end_s', c.get('dur_s'))} | {c['type']} | {c['file']} | {c.get('text', c.get('anchors', ''))} |\n" for c in CUES))
+json.dump({"edl": sys.argv[1], "duration_s": total, "lines": {n: lines[n]["start"] for n in lines}}, open(f"{out}/layout.json", "w"))

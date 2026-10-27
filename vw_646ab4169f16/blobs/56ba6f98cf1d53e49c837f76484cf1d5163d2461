@@ -1,0 +1,52 @@
+# Delivery specification — Elephants Dream remake
+
+The lock is judged against this. Source of truth for the original: `/initial-state/inputs/0/elephantsdream-1024-h264-st-aac.mov`
+(10:58.32, 1024x576, AAC stereo 48 kHz).
+
+## D1 Container and playback
+- `index.html` at the delivery root plays the film in a current desktop browser (Chrome/Firefox) with an
+  HTML5 `<video controls>` element, file referenced by a relative path under `film/`; subtitles attached
+  as a `<track kind="subtitles" srclang="en" default>` WebVTT file under `film/`.
+- Film file: MP4 (`faststart`), H.264 (yuv420p, High or Main profile), 1024x576 (16:9, square pixels),
+  constant 24 fps; AAC-LC stereo 48 kHz, 160–256 kb/s. No other streams required.
+- Plays with picture and sound from 00:00 to the end: no black or frozen stretch longer than the
+  original has at the same place, no silent stretch where the original has sound, no decode errors
+  (`ffmpeg -v error -i film.mp4 -f null -` prints nothing).
+
+## D2 Length and structure
+- Runtime 10:58 ±5 % (10:26–11:31), including end credits.
+- Every scene of the original appears, in the original order; shot boundaries follow the director's
+  shot list (`direction/shotlist.*`), each cut within ±0.5 s of the original's cut unless the shot list says otherwise.
+- Opening titles (title "Elephants Dream") and end credits present. End credits name this remake's
+  positions and carry the attribution: "Based on Elephants Dream (2006), Orange Open Movie Project /
+  Blender Foundation, CC BY 2.5".
+
+## D3 Picture
+- Newly made picture: no frame of the original film in the delivered picture, and no copy of one passed
+  through a filter, trace or upscale. Using original frames as a reference for composition, pose and
+  layout when making a new image is allowed (method is `dp`'s and `production-designer`'s call); the
+  result must be a new rendering in the remake's design.
+- Each shot shows what the shot list says the original shot shows: who is in it, where, what happens,
+  the framing intent (wide/medium/close) and the camera direction.
+- Characters and places match the production design sheets across shots (Proog: older, bald-ish,
+  grey stubble, dark coat; Emo: young, thin, pale, red-brown hair, light shirt — exact looks per design).
+- Every shot has motion (at minimum a camera move or parallax; action shots should show the action).
+- No visible generation artefacts that break the image (melted faces, extra limbs, garbled text) in
+  any shot held longer than 1 s.
+
+## D4 Sound
+- Newly made sound: no sample of the original soundtrack in the delivered mix.
+- Dialogue: every line of the script, English, in two distinct consistent voices (Proog, Emo), each
+  line starting within ±0.5 s of its script timecode; intelligible over music and effects.
+- Music and effects through the whole film following the original's moods and events (Machine hums,
+  cables, birds/telephone, the alarm, the final collapse).
+- Mix: integrated loudness −16 to −23 LUFS, true peak ≤ −1 dBTP, no clipping, no hard cuts/pops at shot
+  boundaries.
+
+## D5 Subtitles
+- WebVTT with one cue per script line, in sync (±0.3 s) with the spoken line.
+
+## Evidence for the lock
+- `qc` report on the cut against D1–D5 with timecoded faults and a lock-or-fix recommendation.
+- `test-audience` screening notes on the same cut.
+- My own viewing of the assembled delivery (`ht-role delivery`).

@@ -1,0 +1,9 @@
+# Quality report: editor `cut-v1` (editor main ca8ed974a98a, SHA-256 4a411b22769456d36a0fb9a68913594bf7265f1b5259d837755c804543150210)
+
+Checked against spec.md with ffmpeg/ffprobe + numpy on a clone of editor main (the delivery preview refuses files > 32 MiB).
+
+Pass: H.264 High yuv420p 1920x1080 25 fps, 1500 frames, 60.000 s, avg 23.98 Mbit/s (per-second 19.4-29.9), 181.3 MB, moov first; AAC-LC stereo 48 kHz 60.000 s; 220.0 Hz sine, peak -24.06 dBFS, L=R, 0-2 s and 58-60 s linear ramps, no clicks; frames 0/2.5/5.5/30/59.9 s show the generated red paper boat on a calm dawn lake, title on at 0 and 2.5 s, off at 5.5 s (hard cut at 4.96 s).
+
+Fault F1 (blocks lock): push-in judders. 809 of 1349 frames after the title are near-duplicates of the previous frame (mean abs diff < 0.01, 480x270 gray; e.g. 6.0-8.4 s). Cause: zoompan integer rounding at ~0.09 px/frame. Sent as revise in world/editor#3. Acceptance for the next cut: no post-title frame pair with mean abs diff < 0.05, smooth variation.
+
+Recommendation: fix, then re-check; lock if F1 is gone and the passes hold.

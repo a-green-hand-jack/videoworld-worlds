@@ -1,0 +1,452 @@
+[
+ {
+  "id": "L01",
+  "ref": "At the left we can see... At the right we can see the... the head-snarlers. Everything is safe. Perfectly safe.",
+  "asr": "At the left we can see at the right we can see that it has now ours. Everything is  safe. Perfectly safe.",
+  "wer": 0.23809523809523808
+ },
+ {
+  "id": "L02",
+  "ref": "Emo? Emo!",
+  "asr": "Emote. Emote.",
+  "wer": 1.0
+ },
+ {
+  "id": "L03",
+  "ref": "Watch out!",
+  "asr": "Watch out.",
+  "wer": 0.0
+ },
+ {
+  "id": "L04",
+  "ref": "Are you hurt?",
+  "asr": "Are you third?",
+  "wer": 0.3333333333333333
+ },
+ {
+  "id": "L05",
+  "ref": "I don't think so. You?",
+  "asr": "Don't think so",
+  "wer": 0.4
+ },
+ {
+  "id": "L06",
+  "ref": "I'm OK.",
+  "asr": "I'm L.K.",
+  "wer": 1.0
+ },
+ {
+  "id": "L07",
+  "ref": "Get up. Emo, it's not safe here.",
+  "asr": "Yeah, you know it's not safe here",
+  "wer": 0.42857142857142855
+ },
+ {
+  "id": "L08",
+  "ref": "Let's go.",
+  "asr": "Let's go",
+  "wer": 0.0
+ },
+ {
+  "id": "L09",
+  "ref": "What's next?",
+  "asr": "What's next?",
+  "wer": 0.0
+ },
+ {
+  "id": "L10",
+  "ref": "You'll see. ... You'll see.",
+  "asr": "You'll see you'll see",
+  "wer": 0.0
+ },
+ {
+  "id": "L11",
+  "ref": "Emo, this way.",
+  "asr": "emote this way.",
+  "wer": 0.3333333333333333
+ },
+ {
+  "id": "L12",
+  "ref": "Follow me!",
+  "asr": "Follow me",
+  "wer": 0.0
+ },
+ {
+  "id": "L13",
+  "ref": "Mm... hup! Hup.",
+  "asr": "They're memorable, aren't they?",
+  "wer": null
+ },
+ {
+  "id": "L14",
+  "ref": "Hurry, Emo!",
+  "asr": "Curry emote",
+  "wer": 1.0
+ },
+ {
+  "id": "L15",
+  "ref": "Listen, listen!",
+  "asr": "Listen, listen.",
+  "wer": 0.0
+ },
+ {
+  "id": "L16",
+  "ref": "Listen... listen.",
+  "asr": "Listen, listen.",
+  "wer": 0.0
+ },
+ {
+  "id": "L17",
+  "ref": "You're not paying attention!",
+  "asr": "You're not paying attention.",
+  "wer": 0.0
+ },
+ {
+  "id": "L18",
+  "ref": "I... I just want to answer the phone...",
+  "asr": "I just want to answer the phone.",
+  "wer": 0.125
+ },
+ {
+  "id": "L19",
+  "ref": "Emo, look. I mean, listen.",
+  "asr": "You won't look I mean listen",
+  "wer": 0.4
+ },
+ {
+  "id": "L20",
+  "ref": "You have to learn to listen.",
+  "asr": "You have tomorrow to listen.",
+  "wer": 0.3333333333333333
+ },
+ {
+  "id": "L21",
+  "ref": "This is not some game.",
+  "asr": "This is not some game.",
+  "wer": 0.0
+ },
+ {
+  "id": "L22",
+  "ref": "You... I mean, we... we could easily die out here.",
+  "asr": "You know what I mean? We could easily die out here.",
+  "wer": 0.3
+ },
+ {
+  "id": "L23",
+  "ref": "Listen. Listen to the sounds of the machine.",
+  "asr": "Listen, listen to the sounds of the machine.",
+  "wer": 0.0
+ },
+ {
+  "id": "L24",
+  "ref": "Listen to your breathing.",
+  "asr": "Listen to your breathing.",
+  "wer": 0.0
+ },
+ {
+  "id": "L25",
+  "ref": "Well, don't you ever get tired of this?",
+  "asr": "Well, don't you ever get tired of this?",
+  "wer": 0.0
+ },
+ {
+  "id": "L26",
+  "ref": "Tired?",
+  "asr": "Tired",
+  "wer": 0.0
+ },
+ {
+  "id": "L27",
+  "ref": "Emo, the machine is like... like clockwork.",
+  "asr": "Emo, the machine is like like clockwork.",
+  "wer": 0.0
+ },
+ {
+  "id": "L28",
+  "ref": "One move out of place... and you're ground to a pulp.",
+  "asr": "One move out of place and you're ground to a point",
+  "wer": 0.09090909090909091
+ },
+ {
+  "id": "L29",
+  "ref": "Pulp, Emo! Is that what you want? Pulp?",
+  "asr": "Hope you vote. Is that what you want?",
+  "wer": 0.5
+ },
+ {
+  "id": "L30",
+  "ref": "Emo, your goal in life...",
+  "asr": "emo, your goal in life",
+  "wer": 0.0
+ },
+ {
+  "id": "L31",
+  "ref": "Pulp!",
+  "asr": "Hope",
+  "wer": 1.0
+ },
+ {
+  "id": "L32",
+  "ref": "Emo, close your eyes.",
+  "asr": "Emo, close your eyes.",
+  "wer": 0.0
+ },
+ {
+  "id": "L33",
+  "ref": "Now!",
+  "asr": "Don't.",
+  "wer": 1.0
+ },
+ {
+  "id": "L34",
+  "ref": "What do you see at your left side, Emo?",
+  "asr": "What do you see at your left side? Emote.",
+  "wer": 0.1111111111111111
+ },
+ {
+  "id": "L35",
+  "ref": "Well... nothing.",
+  "asr": "Well, nothing.",
+  "wer": 0.0
+ },
+ {
+  "id": "L36",
+  "ref": "Really?",
+  "asr": "Really?",
+  "wer": 0.0
+ },
+ {
+  "id": "L37",
+  "ref": "No, nothing at all.",
+  "asr": "No, nothing at all.",
+  "wer": 0.0
+ },
+ {
+  "id": "L38",
+  "ref": "Really.",
+  "asr": "Really?",
+  "wer": 0.0
+ },
+ {
+  "id": "L39",
+  "ref": "And at your right?",
+  "asr": "And you're right.",
+  "wer": 0.5
+ },
+ {
+  "id": "L40",
+  "ref": "What do you see at your right side, Emo?",
+  "asr": "What do you see at your right side, in mode?",
+  "wer": 0.2222222222222222
+ },
+ {
+  "id": "L41",
+  "ref": "The same, Proog. Exactly the same. Nothing!",
+  "asr": "The same proved exactly the same.  Nothing?",
+  "wer": 0.14285714285714285
+ },
+ {
+  "id": "L42",
+  "ref": "Listen, Proog. Do you hear that? Can we go here?",
+  "asr": "Listen, Perugue, do you hear that? Can we go here?",
+  "wer": 0.1
+ },
+ {
+  "id": "L43",
+  "ref": "There?",
+  "asr": "Yeah",
+  "wer": 1.0
+ },
+ {
+  "id": "L44",
+  "ref": "Yeah.",
+  "asr": "Yup.",
+  "wer": 1.0
+ },
+ {
+  "id": "L45",
+  "ref": "It isn't safe, Emo.",
+  "asr": "It isn't safe, emote.",
+  "wer": 0.25
+ },
+ {
+  "id": "L46",
+  "ref": "But...",
+  "asr": "Bye.",
+  "wer": 1.0
+ },
+ {
+  "id": "L47",
+  "ref": "Trust me, it's not.",
+  "asr": "Trust me, it's not.",
+  "wer": 0.0
+ },
+ {
+  "id": "L48",
+  "ref": "Well, maybe I could...",
+  "asr": "Well, maybe I could.",
+  "wer": 0.0
+ },
+ {
+  "id": "L49",
+  "ref": "No.",
+  "asr": "No",
+  "wer": 0.0
+ },
+ {
+  "id": "L50",
+  "ref": "But...",
+  "asr": "What?",
+  "wer": 1.0
+ },
+ {
+  "id": "L51",
+  "ref": "No!",
+  "asr": "No",
+  "wer": 0.0
+ },
+ {
+  "id": "L52",
+  "ref": "Any further questions, Emo?",
+  "asr": "Any further questions?  Emote.",
+  "wer": 0.25
+ },
+ {
+  "id": "L53",
+  "ref": "No.",
+  "asr": "No?",
+  "wer": 0.0
+ },
+ {
+  "id": "L54",
+  "ref": "Emo.",
+  "asr": "Emote.",
+  "wer": 1.0
+ },
+ {
+  "id": "L55",
+  "ref": "Yeah?",
+  "asr": "Yeah",
+  "wer": 0.0
+ },
+ {
+  "id": "L56",
+  "ref": "Emo, why... Emo, why... why can't you see the beauty of this place?",
+  "asr": "Emo? Why, Mo? Why, why can't you see the beauty of this place?",
+  "wer": 0.07692307692307693
+ },
+ {
+  "id": "L57",
+  "ref": "The way it works... how perfect it is.",
+  "asr": "The way it works, how perfect it is.",
+  "wer": 0.0
+ },
+ {
+  "id": "L58",
+  "ref": "No, Proog, I don't see. I don't see because there's nothing there.",
+  "asr": "No prude, I don't see I don't see because there's nothing there",
+  "wer": 0.08333333333333333
+ },
+ {
+  "id": "L59",
+  "ref": "And why should I trust my life to something that isn't there?",
+  "asr": "And why should I trust my life to something that isn't there?",
+  "wer": 0.0
+ },
+ {
+  "id": "L60",
+  "ref": "Well, can you tell me that? Proog, answer me!",
+  "asr": "Well, can you tell me that?  Crude, answer me.",
+  "wer": 0.1111111111111111
+ },
+ {
+  "id": "L61",
+  "ref": "Proog... you're a sick man.",
+  "asr": "Prude you're a sick man",
+  "wer": 0.2
+ },
+ {
+  "id": "L62",
+  "ref": "Stay away from me.",
+  "asr": "Stay away from me",
+  "wer": 0.0
+ },
+ {
+  "id": "L63",
+  "ref": "No, Emo, it's a trap!",
+  "asr": "No Evo, it's a trap",
+  "wer": 0.2
+ },
+ {
+  "id": "L64",
+  "ref": "It's a trap?",
+  "asr": "It's a trap?",
+  "wer": 0.0
+ },
+ {
+  "id": "L65",
+  "ref": "At the left side you can see... the Hanging Gardens of Babylon!",
+  "asr": "At the left side, you can see the hanging gardens of Babylon.",
+  "wer": 0.0
+ },
+ {
+  "id": "L66",
+  "ref": "How's that for a trap?",
+  "asr": "How's that for a trap?",
+  "wer": 0.0
+ },
+ {
+  "id": "L67",
+  "ref": "No, Emo.",
+  "asr": "No emo",
+  "wer": 0.0
+ },
+ {
+  "id": "L68",
+  "ref": "On the right side you can see...",
+  "asr": "On the right side you can see",
+  "wer": 0.0
+ },
+ {
+  "id": "L69",
+  "ref": "Well, guess what?",
+  "asr": "Well, guess what?",
+  "wer": 0.0
+ },
+ {
+  "id": "L70",
+  "ref": "The Colossus of Rhodes!",
+  "asr": "The Colossus of Rhodes",
+  "wer": 0.0
+ },
+ {
+  "id": "L71",
+  "ref": "No!",
+  "asr": "No",
+  "wer": 0.0
+ },
+ {
+  "id": "L72",
+  "ref": "The Colossus of Rhodes!",
+  "asr": "The Colossus of Rhodes",
+  "wer": 0.0
+ },
+ {
+  "id": "L73",
+  "ref": "And it is here just for you, Proog.",
+  "asr": "And it is here just for you, Prue.",
+  "wer": 0.125
+ },
+ {
+  "id": "L74",
+  "ref": "Just for you.",
+  "asr": "Just for you",
+  "wer": 0.0
+ },
+ {
+  "id": "L75",
+  "ref": "It is there... I'm telling you, Emo... it is... it is...",
+  "asr": "It is there I'm telling you.  He'd mow it as it is.",
+  "wer": 0.2727272727272727
+ }
+]

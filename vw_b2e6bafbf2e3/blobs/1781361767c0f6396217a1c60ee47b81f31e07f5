@@ -1,0 +1,13 @@
+{
+  "commitment_schema": 1,
+  "delivers": [
+    {
+      "what": "Design bible and published visual references for The Paper Lantern: child, floating paper lantern, riverside village, dusk-to-stars palette and consistent illustration style.",
+      "standard": "The child and lantern remain recognizably identical across all views; lantern floats on the river; reference images and design choices are available in a repository release and documented under design/."
+    },
+    {
+      "what": "Four to six approved shot images and finished silent picture clips, with a shot log, source prompts and camera-move specifications, under picture/.",
+      "standard": "1280x720, 24 fps clips conform to director shot list and editor timing; still-image camera moves preserve framing and continuity; checked images and sample frames support the child's release, drift past village and final small light among stars. Title/end-card safe space is supplied; editor owns final text compositing, sound, timeline and film encode."
+    }
+  ]
+}

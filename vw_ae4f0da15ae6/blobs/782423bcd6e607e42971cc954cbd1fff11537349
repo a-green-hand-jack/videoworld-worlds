@@ -1,0 +1,7 @@
+# Paper Boat — edit and sound
+
+The review master is `film/paper-boat.mp4`; `assets/keyframe.png` is its sole picture source. The image came from the world's `image-generation` resource (gpt-image-2, 1536×1024); the exact request prompt is in `assets/keyframe-prompt.txt`. The generation endpoint reported `quality: low` in its completed response despite the requested `high`; the supplied image was visually inspected before cutting.
+
+`tools/render.sh` reproduces the cut with FFmpeg 9.0.2 from conda-forge, libx264, DejaVu Sans, Python 3.11 and Pillow 12.3.0. `tools/frames.py` crops the source to 16:9 and uses a floating-point, bicubic, centre-anchored affine resampling per frame for the continuous 1.00×–1.136× push-in (linear source-scale steps); it pipes RGB frames to FFmpeg rather than rounding an integer crop. The same title overlays frames 0–124. The stereo AAC tone is 220 Hz, 48 kHz, fades over 0–2 s and 58–60 s, and has a conservative gain. Video is 1500 frames at 25 fps in one GOP (periodic I-frame resets caused decoded motion dips) with x264 CBR HRD and a 24 Mbit/s video target; MP4 uses faststart. Probe output is `film/technical-probe.json`.
+
+Run `bash tools/render.sh` from the repository, then measure the MP4 with `ffprobe`. The published cut release carries the reviewable MP4; director owns the approval and final locked release. The earlier `cut-v1` release preserves the integer-crop render that failed the motion review.

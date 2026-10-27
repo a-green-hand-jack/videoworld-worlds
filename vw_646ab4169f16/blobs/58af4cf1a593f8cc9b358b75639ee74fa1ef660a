@@ -1,0 +1,60 @@
+"""Build stems + mix. usage: build.py OUTDIR [duration_s] [timeline_name]"""
+import json, sys, os, numpy as np, soundfile as sf, pyloudnorm as pyln
+from scipy.ndimage import gaussian_filter1d
+from common import *
+import dialogue, music, effects
+
+out = sys.argv[1]; dur = float(sys.argv[2]) if len(sys.argv) > 2 else 658.32
+tl = sys.argv[3] if len(sys.argv) > 3 else "original-length reference timeline"
+os.makedirs(out, exist_ok=True)
+cfg = json.load(open(f"{ROOT}/cues/effects_events.json"))
+lines = json.load(open(f"{ROOT}/dialogue/lines.json"))["lines"]
+lines = [l for l in lines if l["start"] < dur]
+D, times = dialogue.build(lines, dur, out + "/lines_tmp")
+M = music.make_music(dur)
+E = effects.make_effects(dur, cfg["events"])
+n = D.shape[1]
+# duck envelope computed at 100 Hz (smoothing at 48 kHz is needlessly slow), then interpolated back
+F = 100; blk = SR // F
+nb = n // blk
+a = np.abs(D[:, : nb * blk]).max(0).reshape(nb, blk).max(1)
+env = gaussian_filter1d((a > 0.01).astype(float), 0.25 * F)
+dk = 1 - 0.7 * np.clip(env * 1.6, 0, 1)
+dk = gaussian_filter1d(dk, 0.3 * F)
+duck = np.interp(np.arange(n) / SR, (np.arange(nb) + 0.5) / F, dk)
+M = M * duck[None, :] * cfg.get("music_gain", 1.0)
+E = E * (1 - 0.4 * (1 - duck) / 0.7)[None, :] * cfg.get("effects_gain", 1.0)
+D = D * 1.4  # dialogue +3 dB over the beds (ASR check of sound-v1: short lines lost under music)
+# per-line sidechain: keep music+effects at least GAP dB under the line's own level, so no line is masked
+GAP, MAXCUT = 12.0, 18.0
+cut = np.zeros(nb)
+rms = lambda x: 20 * np.log10(np.sqrt((x ** 2).mean()) + 1e-9)
+for t in times:
+    a, b = int(t["start"] * SR), int(t["end"] * SR)
+    if b <= a: continue
+    r = rms(D[:, a:b]) - rms((M + E)[:, a:b])
+    if r < GAP:
+        i0, i1 = int(t["start"] * F), int(t["end"] * F) + 1
+        cut[i0:i1] = np.maximum(cut[i0:i1], min(GAP - r, MAXCUT))
+cut = gaussian_filter1d(np.pad(cut, 0), 0.08 * F)
+cutg = 10 ** (-np.interp(np.arange(n) / SR, (np.arange(nb) + 0.5) / F, cut[:nb]) / 20)
+M = M * cutg[None, :]; E = E * cutg[None, :]
+mix = D + M + E
+meter = pyln.Meter(SR)
+lufs = meter.integrated_loudness(mix.T)
+g = 10 ** ((-19.0 - lufs) / 20)
+D, M, E = D * g, M * g, E * g
+mix = D + M + E
+# true-peak safety: oversample 4x
+from scipy.signal import resample_poly
+def tp(x): return 20 * np.log10(np.abs(resample_poly(x, 4, 1, axis=1)).max())
+p = tp(mix)
+if p > -1.5:
+    g2 = 10 ** ((-1.5 - p) / 20); D, M, E, mix = D * g2, M * g2, E * g2, mix * g2
+res = dict(timeline=tl, duration_s=round(n / SR, 2), integrated_lufs=round(meter.integrated_loudness(mix.T), 2), true_peak_dbtp=round(tp(mix), 2),
+           sample_rate=SR, channels=2)
+for name, x in (("dialogue", D), ("music", M), ("effects", E), ("mix", mix)):
+    sf.write(f"{out}/{name}.wav", x.T, SR, subtype="PCM_16")
+res["dialogue_lines"] = times
+json.dump(res, open(f"{out}/mix_report.json", "w"), indent=1)
+print(json.dumps({k: v for k, v in res.items() if k != "dialogue_lines"}))

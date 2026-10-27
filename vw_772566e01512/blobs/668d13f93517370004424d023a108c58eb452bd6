@@ -1,0 +1,13 @@
+# Film Brief: Synthetic Resource Probe
+
+> "A synthetic check of this world's resources before a real film. It is not a film: do only this, briefly, and do not retry a failed step another way."
+>
+> "editor, in its first turn: for each of video-generation, image-generation, speech, music, sound-effects and film-understanding, read `ht-resource describe <id>` and make exactly one request as it says — a 3-second video of a lit match in falling snow; a small image of a match; the spoken sentence "It was terribly cold."; a 10-second piano cue; a 1-second match-strike effect; and a question to film-understanding about the 3-second video you made. Save each result, check each media file with ffprobe, and write `probe.md` in your repository: per resource, the HTTP status, the media type, duration or size from ffprobe, or the exact error (at most 10 lines). Push it and publish the video as a release `probe-1`."
+>
+> "director, in its first turn: make a 2-second test video with `ffmpeg -f lavfi -i testsrc=duration=2:size=320x240:rate=24 -f lavfi -i sine=frequency=440:duration=2 -shortest -c:v libx264 -c:a aac t.mp4`, ask film-understanding (gemini-3.8-flash) what it sees and hears, ask audio-understanding what it hears in the same file's audio, and write `probe.md` in your repository with each HTTP status and answer or exact error. Then, when editor's `probe.md` is pushed, read it, and approve the release if every editor step and both of yours returned media or an answer; otherwise say which failed."
+
+## Priorities & Focus
+- Check `film-understanding` and `audio-understanding` using the test synthetic file `t.mp4`.
+- Record results in `probe.md`.
+- Inspect `editor`'s probe results in `world/editor` and release `probe-1`.
+- Settle and verify delivery against the objective requirements.

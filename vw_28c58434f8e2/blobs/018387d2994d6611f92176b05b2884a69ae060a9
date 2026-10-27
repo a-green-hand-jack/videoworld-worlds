@@ -1,0 +1,1 @@
+Delivery spec: editor's probe.md (<=10 lines) shows each step's HTTP status, task status and an ffprobe line of a downloaded video. Approve if so.

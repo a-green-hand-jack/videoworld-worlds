@@ -1,0 +1,9 @@
+# Delivery specification: Paper Boat (director lock criteria)
+
+Master `film/paper-boat.mp4`, checked with ffprobe/ffmpeg:
+- Container mp4; video H.264, 1920x1080, 25 fps (r_frame_rate 25/1), 1500 frames, yuv420p, constant bitrate 24 Mbit/s (average ~24,000 kb/s; max-min within HRD CBR; file ~180 MB, +-3%).
+- Audio AAC, 2 channels, 48000 Hz; duration 60.000 s (+-0.04 s), audio and video both full length.
+- Picture: one generated key frame (kept in the editor repository with its prompt), red paper boat on calm lake at dawn, wide shot; slow continuous push-in (zoom monotonically increasing, no pan jitter) from first to last frame; title "Paper Boat" legible from 0 s to 5 s and gone after ~5 s (soft fade of the title allowed).
+- Sound: sine 220 Hz only; level soft (peak <= -12 dBFS); gain ramps 0->1 over 0-2 s and 1->0 over 58-60 s; silence at 0 s and 60 s; no clicks; both channels.
+- Release: the locked master uploaded as a release file (director repository) playable in a browser (H.264/AAC, faststart moov at the front).
+Lock = I watch frames at 0, 2.5, 5.5, 30, 59.9 s and measure audio; fix-or-lock decided from that.

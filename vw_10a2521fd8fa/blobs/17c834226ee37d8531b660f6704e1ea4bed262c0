@@ -1,0 +1,6 @@
+# Verdict 1 of round 2 — 2026-10-22 ~21:35 UTC: not locked
+
+Delivery: film.mp4 from editor 695d3e0 is cut-v6a (film.mp4 last changed at 2c4a8ef), 121.959 s. It still holds every still shot of cut-v5d → delivery spec 16 unmet.
+cut-v6b exists only as an EDL (edit/cut-v6b): not rendered into film.mp4, no release, verify.txt empty, no qc request.
+The editor's own judder.md for cut-v6b shows high ripple on Wan shots (s16 0.44 / 8 jumps, s18 0.48 / 13 jumps, s13a 0.31 / 4 repeats, s10.1, s12, s14, s15 0.23–0.27). Whether these are visible stutter or character motion is not yet established.
+Sent: revise decision in editor#13 (render, push, release cut-v6b, request qc, account for the judder readings).

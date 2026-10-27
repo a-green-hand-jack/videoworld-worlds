@@ -1,0 +1,60 @@
+import json, sys, os, numpy as np, soundfile as sf
+from scipy import signal
+from common import *
+from piper import PiperVoice, SynthesisConfig
+V = "/hutian/work/voices/en/en_US/"
+VOICES = {
+  "Proog": dict(path=V+"norman/medium/en_US-norman-medium.onnx", semis=-1.0, pan=-0.12, gain=1.0, ls=1.12),
+  "Emo":   dict(path=V+"ryan/high/en_US-ryan-high.onnx", semis=+2.0, pan=0.12, gain=0.95, ls=1.0),
+}
+_cache = {}
+def voice(sp):
+    if sp not in _cache: _cache[sp] = PiperVoice.load(VOICES[sp]["path"])
+    return _cache[sp]
+
+def say(sp, text, ls, ns=0.75):
+    v = voice(sp); cfg = SynthesisConfig(length_scale=ls, noise_scale=ns, noise_w_scale=0.4)
+    ch = list(v.synthesize(text, cfg))
+    x = np.concatenate([c.audio_float_array for c in ch]); sr = ch[0].sample_rate
+    r = 2 ** (VOICES[sp]["semis"] / 12)  # pitch (and speed) by resampling
+    from fractions import Fraction
+    fr = Fraction(r).limit_denominator(200)
+    x = signal.resample_poly(x, SR * fr.denominator, sr * fr.numerator)
+    return x
+
+def trim(x, thr=0.01):
+    idx = np.where(np.abs(x) > thr * np.abs(x).max())[0]
+    return x[max(idx[0] - int(.02 * SR), 0): idx[-1] + int(.05 * SR)]
+
+def render_line(L):
+    sp = L["speaker"]; slot = L["end"] - L["start"]
+    tp = f"{ROOT}/dialogue/takes/{L['id']}.flac"
+    if os.path.exists(tp):  # take chosen by pick_takes.py for the lowest ASR word error
+        x, _ = sf.read(tp)
+        return x, json.load(open(f"{ROOT}/dialogue/takes.json"))[L["id"]]["length_scale"]
+    ls = VOICES[sp]["ls"]
+    x = trim(say(sp, L["text"], ls)); d = len(x) / SR
+    # pace toward ~75 % of the script slot: slow short lines a little, speed up long ones
+    target = 0.75 * slot
+    ls2 = float(np.clip(ls * target / d, 0.75, 2.2 if d < 0.5 else 1.6))
+    if abs(ls2 - ls) > 0.05:
+        ls = ls2; x = trim(say(sp, L["text"], ls))
+    for _ in range(4):
+        d = len(x) / SR
+        if d <= slot: break
+        ls = max(0.55, ls * slot / d * 0.95); x = trim(say(sp, L["text"], ls))
+    x = hp(x, 70); x = x / (np.abs(x).max() + 1e-9) * 0.7 * VOICES[sp]["gain"]
+    n = int(.01 * SR); x[:n] *= np.linspace(0, 1, n); x[-n:] *= np.linspace(1, 0, n)
+    return x, ls
+
+def build(lines, dur, outdir):
+    os.makedirs(outdir + "/lines", exist_ok=True)
+    D = np.zeros((2, int(dur * SR))); times = []
+    for L in lines:
+        x, ls = render_line(L)
+        sf.write(f"{outdir}/lines/{L['id']}_{L['speaker']}.wav", x, SR, subtype="PCM_16")
+        add(D, pan(x, VOICES[L["speaker"]]["pan"]), L["start"])
+        times.append(dict(id=L["id"], speaker=L["speaker"], start=L["start"], end=round(L["start"] + len(x) / SR, 2),
+                          script_slot_end=L["end"], text=L["text"], length_scale=round(ls, 2)))
+    D = reverb(D, 0.7, 0.10, seed=9)
+    return D, times

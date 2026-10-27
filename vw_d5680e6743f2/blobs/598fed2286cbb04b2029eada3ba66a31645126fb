@@ -1,0 +1,35 @@
+# Screening of cut-v1 (director release `screen-cut-v1`, `paper-lantern-cut-v1.mp4`)
+
+**How I watched.** Downloaded the release asset (20.5 s, 1280x720, 24 fps, H.264 + AAC stereo; ffprobe). I do not play video in real time: I saw it as a 2 fps contact sheet of the whole film, full frames at 1.5, 4, 8, 11, 14, 16.5, 17, 18.5 s and the middle of each dissolve, and found the cut points by frame difference. I heard the audio through the `audio-understanding` resource (mono 48k mp3 of the track, two questions). So the picture notes are from sampled frames, not continuous playback, and sound notes are the listener model's description, not my ears. Times are ±0.5 s unless given as dissolve ranges.
+
+## What I understood
+A child in a yellow sweater kneels on old stone steps by a river at dusk and sets a glowing paper lantern on the water. The lantern floats off past a village and bridge, the child sits and watches, the sky goes from pink to night, and the lantern ends as a tiny amber point far down a wide starry river. Sweet, quiet, wistful. I would say it is about letting something go and watching it become distant. I understood the story with no explanation. The child reads as a small kid with a bob haircut; no face is ever shown (always from the side or behind), so I have no sense of the child's feeling beyond posture.
+
+## Timecoded notes
+- **0.0–0.6** Fades up from black onto a dark, dim sky; title is not yet legible. Slightly slow start but fine.
+- **0.6–2.8 Title "The Paper Lantern"** on a wide dusk river-and-village establishing shot, golden serif text centred over the sunset. Readable at 1.5 s, fades out ~2.5–2.8. Held me: lovely establishing picture, tells me place and time of day at once. The text is a little low-contrast against the bright clouds and gold reflections; I could read it but it is not crisp.
+- **2.8–3.3** Dissolve to shot 2.
+- **3.3–6.3 Shot 2: child kneeling on steps, lantern at the water's edge.** Clear: child, steps, willow, glowing lantern. This is where I understood the premise. Held.
+- **6.3–6.8 Dissolve** to the close shot. **Pulled out:** at the middle of this dissolve (6.55) a second, small ghost lantern and the ghost of the child sit beside the large lantern, so there are briefly two lanterns of different sizes. Reads as a glitch rather than a transition.
+- **6.8–9.8 Shot 3: close on the lantern with the child's hands at left, rippling water.** Beautiful and the most engaging stretch; the lantern is big and clear. Small confusion: the hands are in a position that reads as "reaching to the lantern", not "letting go"; I could not tell whether the child is placing it or pushing it away. No clear moment of release.
+- **9.8–10.3 Dissolve.** At 10.0 the big lantern and a second smaller lantern overlap (lantern appears doubled again).
+- **10.3–13.3 Shot 4: lantern small on the river, village shore with willow and lit houses.** I could find the lantern straight away (small glowing cube mid-frame) and it feels like it has drifted away. Some of the shoreline lights compete with it a little, but it still read. Good sense of travel; the picture drifts slowly.
+- **13.3–13.8 Dissolve** to shot 5 (the lantern vanishes into the child-on-steps picture; the child ghosts over the shore at 13.5).
+- **13.8–16.3 Shot 5: child seated on the steps from behind, watching; tiny lantern far out.** The emotional beat: the child is watching it go. I found the lantern only after looking for it (tiny glowing dot near centre at 14); on a first pass I mostly read this as "child sits looking at the river". Mild lull here, the picture changes little.
+- **16.3–16.8 Dissolve.** The child stays on screen in the dissolve while the sky goes from dusk to night; reads smoothly.
+- **16.8–19.3 Shot 6: wide, starry river at night, no child.** Big payoff picture: Milky Way sky, village lights, river reflections. The lantern is a tiny amber dot at centre of the water (around x 55%, y 62% of frame at 17.0 and 18.5). I **could find it, but only because I knew to look**; it sits on the water among shore-light reflections, looks like one more light, and is not clearly "a small light among the stars". The idea of the lantern rising/merging into the stars does not come across; it stays on the river.
+- **19.3–20.5 End card "The End"** over a dimmer night village picture, fades in about 19.7 and out to black by the end. Readable at ~20.0 (cream serif on dark blue, more legible than the title). It is a short hold (about 1 s of readable text); I just had time to read it. No sense of confusion.
+
+## What I hear (listener model, not my ears)
+- **0–5** Bright trickling water, crickets/evening insects, a couple of bird chirps in the first ~3 s. The listener describes the water as a *small trickling stream or creek*, not a wide slow river lapping: a mismatch with the broad, calm river on screen, but it gives a pleasant evening ambience and was clearly audible to the listener model (this differs from the director's QC note that water was inaudible; I cannot tell if that is the level in a particular player or the difference of method, I am reporting only what the model heard).
+- **~5.5** Soft solo piano and a warm pad enter (around when the child places the lantern). Gentle, tender, slightly melancholy; fits the picture and the story well. Piano plays through to about 18 s with a resolving final chord, then decays, with water and insects lingering through the end card to the cut-off. No clicks or dropouts heard.
+- Fit: music and mood fit; the ending feels resolved. Nothing synchronises to a visual event (the piano does not mark the release or the arrival of the night sky), which is fine for the feel, but there is no sound moment for "the lantern goes".
+
+## Where I was held / confused / pulled out
+- **Held:** opening establishing shot with title (0.6–2.8); the lantern close-up (6.8–9.8); the starry night wide (16.8–19.3); the music entry.
+- **Confused:** whether the child lets the lantern go on purpose (7–10, no clear release); that the lantern in the last shot is the same lantern, and where it "goes" (the film promises "a small light among the stars" but the end shows a dot on the water below the stars).
+- **Bored/lull:** 13.8–16.3, child sitting still with the lantern almost invisible.
+- **Pulled out:** doubled lanterns in the dissolves at 6.3–6.8 and 9.8–10.3; ghost of the child over the shore at ~13.5.
+
+## Summary for lock
+Story and mood land with no explanation, title and end card both read, the sound fits. Not yet what I would call right: (1) the doubled lantern in two dissolves; (2) the final lantern is findable but not clearly a light among the stars; (3) the release moment is unclear; (4) water ambience sounds like a brook, not a river. I have not seen it in continuous playback.

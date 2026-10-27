@@ -1,0 +1,31 @@
+# Screening notes: `cut-v2` of The Paper Lantern
+
+**Cut:** `cut-v2` (director release, `paper-lantern-cut-v2.mp4`), 1280x720, 24 fps, H.264 + AAC, 20.0 s.
+**How I watched:** frames sampled at 1 per second for the whole film, then 3 to 4 frames per second around 01:50–03:00, 05:30–07:00 and 07:30–10:40 with timecodes; sound heard through the audio-understanding resource and measured by half-second level. I did not watch in a real-time player. I did not re-read the script first.
+
+## Erratum to my notes on `cut-v1`
+I gave the double lantern as 06:30–07:00. That was wrong: it is at **about 09:15–09:45**, in the dissolve from the hands close-up to the drifting shot. I mislabelled the tile. So `director`'s fix at 06:00 answered a mistimed note, and **the double lantern is still in `cut-v2`** (below). Sorry for the wrong pointer; `screening/cut-v1.md` now carries this correction.
+
+## The two things `director` changed
+- **Title overlap (01:50–03:00): reads cleanly.** The title holds to about 02:10, fades out by about 02:30 over the plain sky, and the child shot then comes up with no title on it (02:30–03:00). No double image.
+- **06:00 change: reads cleanly, as a straight cut** from the child at the water to the hands close-up, at about 05:50–06:00. It is a natural "closer on the moment" cut. Nothing doubled.
+- **But the double lantern at 09:15–09:45 is still there.** The hands close-up dissolves into the far-shore shot, and for about half a second I see two lanterns: the large close-up lantern fading and, at lower left, a small lantern with a wake. Then the small one stays. It reads as a ghost or a second lantern for a moment, though it settles quickly, and I understood it as the lantern shrinking away. It was the single place where I hesitated. A straight cut at that point, like the one at 06:00, would remove it.
+
+## Timecoded experience
+- **00:00–02:30 Title.** Calm and legible; slightly long (a tenth of the film) but sound is already under it.
+- **02:30–06:00 Child at the water.** The story is plain here: a child crouches and sets a glowing lantern on the river at dusk, with a lit village across the water. This is where I was held most.
+- **06:00–09:15 Hands close-up.** The hands open over the water by the lantern, with ripples; I read it as letting go. It is a long hold on the same image (about 3 s) but it works as the pause before the lantern goes.
+- **09:15–09:45** double lantern in the dissolve, as above.
+- **09:45–13:00 Lantern drifts past the village.** Lantern small with a wake, village windows lit behind. Clearly "alone and moving". This is the slow stretch, and my attention drifted most between about 11:00 and 13:00.
+- **13:00–15:00 Wide river.** Lantern a tiny point; a sense of distance, and the child left behind.
+- **15:00–18:00 Stars.** The sky fills with stars and small lights appear on the water. This is the payoff. I still could not tell which dot was the lantern after about 16:00; I liked that as a feeling more than I minded it as information.
+- **18:00–20:00 "The End"** over a starfield, fading to dark. Read clearly.
+
+## What I understood without being told
+Same as `cut-v1`, and clearly: a child sets a lantern on the river at dusk; it drifts past a lit village; it ends as one small light among the stars. Both cards read.
+
+## Sound
+Unchanged from `cut-v1` by measurement (same levels at 00:00, 05:00, 10:00, 15:00, 18:00, 19:00 and 19:30: -45, -35, -31, -23, -20, -26, -39 dB). Water and evening ambience throughout, with a soft chime and piano cue entering about 06:00 as the hands open. The listener heard no speech and no clipping. The level falls from -26 dB at 19:00 to -39 dB at 19:30 and the music stops without a resolving chord; I felt that as ending a touch before the picture ends. This time the listener described the end as a fade-out, not a cut-off, so I would call it minor. The listener described the ambience this time as flowing water with birds; last time as water with crickets. Either way it was evening-and-water and I was never bothered by it.
+
+## Summary
+Both of `director`'s changes read cleanly. One thing from `cut-v1` is still there because I timecoded it wrongly: the double lantern at **09:15–09:45**. Everything else I flagged in `cut-v1` (the slow 11:00–13:00 stretch, losing the lantern among lights at 16:00–18:00) is left as `director` chose, and I did not find anything new.

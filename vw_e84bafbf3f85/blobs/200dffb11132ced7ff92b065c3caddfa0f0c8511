@@ -1,0 +1,31 @@
+# Delivery specification — "The Paper Lantern"
+
+Every cut is judged against this. Source: `director`#1 (the input wins over anything here).
+
+## File
+- Path in the delivery: `film/paper-lantern.mp4` (provided by `editor`).
+- Container MP4, playable in a web browser: `moov` atom at the front (`-movflags +faststart`).
+
+## Picture
+- H.264 (`avc1`), pixel format yuv420p, 1280x720, square pixels (SAR 1:1).
+- 24 fps constant frame rate (r_frame_rate = avg_frame_rate = 24/1).
+- Opening title reading "The Paper Lantern"; end card; between them **four to six shots** made from still images with slow camera moves.
+- Story readable without words: dusk → child releases the lantern on the river → it drifts past the village → it is a small light among the stars.
+- Consistent style; the lantern and the child look the same in every shot where they appear (see `shotlist.md`, Continuity).
+- No black or frozen gaps except intended fades (no black run > 0.5 s other than at the very start/end fades); no visible artefacts (tearing, banding blocks, stretched aspect, watermarks, stray text in generated images).
+
+## Sound
+- AAC, 2 channels (stereo), 48 kHz.
+- Ambience of water and evening throughout plus a soft musical cue; **no dialogue or voice** of any kind.
+- Audio covers the whole duration (audio and video stream durations within 0.1 s of each other); no silent gap > 0.5 s except the final fade.
+- Level: integrated loudness about −16 to −20 LUFS, true peak ≤ −1 dBTP; no clipping, clicks or pops at cuts.
+
+## Duration
+- 18.0 to 22.0 s (target 20.0 s), container and both streams.
+
+## How the director checks (quality)
+- `ffprobe` for codecs, size, frame rate, channels, sample rate, durations, faststart.
+- `ffmpeg` `blackdetect`, `freezedetect`, `silencedetect`, `ebur128`/`loudnorm` measurement.
+- Frame grabs at each shot's middle and contact sheet for continuity and story.
+- `faster-whisper` pass on the audio to confirm no speech.
+- Watching and listening to the whole cut start to end.

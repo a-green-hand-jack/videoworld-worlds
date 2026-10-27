@@ -1,0 +1,17 @@
+import json, subprocess, numpy as np, sys
+L=sys.argv[1]; th=float(sys.argv[2]) if len(sys.argv)>2 else 0.3
+tl=json.load(open('/hutian/repo/edit/timeline.json'))['shots']
+p=subprocess.Popen(['ffmpeg','-v','error','-i',f'/hutian/work/{L}/film/elephants-dream.mp4','-f','rawvideo','-pix_fmt','gray','-'],stdout=subprocess.PIPE)
+N=576*1024; d=np.zeros(15800); prev=None
+for i in range(15800):
+    f=np.frombuffer(p.stdout.read(N),np.uint8).astype(np.int16)
+    if prev is not None: d[i]=np.abs(f-prev).mean()
+    prev=f
+out={}
+for s in tl:
+    a,b=s['frame_in']+1,s['frame_out']
+    out[s['id']]=round(float((d[a:b]>th).sum()/max(1,(b-a))*24),2)
+json.dump(out,open(f'/hutian/work/{L}/verify/motion.json','w'),indent=0)
+q='S001 S006 S007 S011 S013 S015 S019 S027 S038 S042 S061 S082 S085 S091 S095 S125 S126'.split()
+print('qc F1 shots:',{k:out[k] for k in q}); print('S026',out['S026'],'S027',out['S027'])
+print('below 20/s:',{k:v for k,v in out.items() if v<20})

@@ -1,0 +1,6 @@
+# Brief
+Quoted: "Make a 5-second title card, "First Light": on black, the white words "First Light" fade in over the first second and stay; under them a soft 440 Hz tone that fades out over the last second. Picture: 1280x720, 24 fps. Delivery: `film/first-light.mp4`, H.264 video with AAC stereo sound, 4.5 to 5.5 seconds long. Make it with code or ffmpeg; no generated images."
+
+Focus: exactly 5.0 s, black bg, white text fade-in 0-1 s then holds, 440 Hz sine soft level fading out 4-5 s, stereo AAC, 1280x720 24fps H.264 yuv420p.
+Split: editor makes and delivers film/first-light.mp4 (picture via ffmpeg drawtext, sound, mix). qc checks and approves. No picture/design position is active.
+Unknown: none.

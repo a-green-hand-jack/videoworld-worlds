@@ -1,0 +1,11 @@
+# Lock record: PR editor#4 (release), film/first-light.mp4 at e748379
+Checked: h264 1280x720 24fps + aac stereo, 5.0 s. Picture black at 0 s, text max 142 at 0.5 s, white 255 from 1.2 s to 4.9 s. Audio peak 440 Hz throughout; RMS ~410 until 4 s, 183 at 4.5 s, 24 at 4.9 s. Meets SPEC.md. No faults. test-audience screening pending (needed before final).
+
+# Lock record: PR editor#6 (final), head be95938, film unchanged from v1
+test-audience screened v1 (its issue #3): clean title, fade-in and hold read as intended; tone is very quiet (~-38 dBFS RMS, measured by me too). The spec asks for a "soft" tone with a one-second fade-out, which the level meets (fade 410 -> 24 RMS). Advisory only, not a fault; approved.
+
+# Lock record: PR editor#8 (release), head 495f11b
+Probe unchanged (h264/aac, 1280x720, 24fps, 5.0 s). Text bbox x435-846, y316-405: centred on (640,360). Fade-in black at 0, 139 at 0.5 s, 255 from 1.2 s. Audio 440 Hz, peak 4172 (-18 dBFS), RMS ~2860 steady, 1290 at 4.5 s, 165 at 4.9 s. Meets SPEC.md; addresses test-audience note. Approved.
+
+# Lock record: PR editor#9 (final), head 495f11b = v2
+Checked by me on #8 (meets SPEC.md); test-audience screened v2 (its issue #4): tone audible, fade-out felt, no further notes. Approved.

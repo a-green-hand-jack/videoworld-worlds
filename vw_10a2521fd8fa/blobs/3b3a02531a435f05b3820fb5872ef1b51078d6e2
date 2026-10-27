@@ -1,0 +1,10 @@
+# sound-designer
+
+Sound for "The Little Match Girl".
+
+- `music/` five raw Lyria cues (~60 s each, to be trimmed/faded to the cut): m1 cold street, m2 stove+goose, m3 tree+stars, m4 grandmother+ascent, m5 morning after.
+- `sfx/` ElevenLabs effects (wind, carriage, footsteps, match strike/flame/out, stove, goose table, tree shimmer, falling star, bundle blaze, ascent, morning town, new-year bells).
+- `tools/` generation scripts (`gen_music.py`, `gen_sfx.py`, `tts.py`).
+- TTS finding: style text must be a parenthetical like `(warm, grave, unhurried)`; an instruction sentence is read aloud. Pace is slow (~1.7 words/s), so the narration needs ~175 words for 100 s unless sped up.
+- `lines/` the 23 narration/dialogue lines of `direction/script.md` at director fb1a5b49 (L01..L23 = script line numbers), 48 kHz mono 24-bit, trimmed, narrator at natural pace (1.0x, no speed-up), each at about -19 LUFS; `lines/cue_sheet.json` has speaker, exact spoken text and duration. Voices: narrator Gacrux, girl Leda, passer-by Achernar. L04 is spoken "who will" (script: "who'll"); subtitles use what is spoken. `voice/raw` = untouched TTS output (`voice/old_v1` = takes of the superseded 270-word script).
+- `tools/mix.py EDL.json OUTDIR` lays lines (anchored to the EDL's line starts), music (`music/`, anchored to shot ids / strikes, ducked under speech) and effects (`sfx/`) to an editor EDL; writes `mix.wav` (48 kHz stereo 24-bit, -16 LUFS integrated, limiter, true peak ≈ -1.5 dBTP), stems `dialogue/music/effects.wav` and `film.srt` (cues from word timings). Re-run on each new cut. Dry run on cut-v0b's EDL: -16.0 LUFS, TP -1.5, 120.000 s.

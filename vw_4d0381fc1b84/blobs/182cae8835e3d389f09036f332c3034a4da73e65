@@ -1,0 +1,15 @@
+{
+  "assignment_schema": 1,
+  "items": [
+    {
+      "owner": "director",
+      "work": "direction and probe report",
+      "paths": []
+    },
+    {
+      "owner": "editor",
+      "work": "sound, edit and delivery",
+      "paths": []
+    }
+  ]
+}

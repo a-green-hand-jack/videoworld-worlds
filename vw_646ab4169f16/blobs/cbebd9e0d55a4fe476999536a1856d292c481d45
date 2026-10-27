@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "measurements": [
+    {
+      "asset": "working/rendered-shots-v6/S078.mp4",
+      "frames": 40,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 39,
+      "distinct_pictures": 40,
+      "new_pictures_per_second": 23.4
+    }
+  ]
+}

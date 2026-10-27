@@ -1,0 +1,49 @@
+# Picture checks
+
+## Source still inspection
+
+Shot01, original 1672x941, inspected in full on generation: one child with dark bob, ochre sweater, teal trousers and brown shoes kneels on stone steps; hand touches the square lantern's floating base at the river edge. Strong coherent painted village, warm windows, river reflections, dusk sky. The child is placing/steadying the lantern, so shot02 must show hands visibly released. No image text, border, watermark or visible anatomy defect observed. Lantern construction is open top, square ivory paper with dark ribs and amber interior. Reference-sheet crops come from this actual frame.
+
+Subsequent still and rendered clip inspection pending.
+
+## All source stills — v1
+
+Viewed each full source at 1672x941: shot02, shot03, shot04, shot05, title_plate and end_plate. Shot02 shows two open hands with matching ochre sleeves separated from a floating square lantern. Shot03 preserves the lantern construction and takes it beside lit village windows. Shot04 repeats the dark bob, ochre sweater, teal trousers and brown shoes in a rear view on the same stone steps; lantern is far downstream. No visible extra limbs, image lettering or watermark observed in these frames. Sky progresses from rose sunset to indigo blue hour and a star-filled night; roofs, windows, stone banks and willow retain a consistent painted treatment.
+
+Shot05 initially rendered the lantern about the same pixel height as shot04. A small raster composite (`production/refine_final_light.py`, original retained) reduces only its local lantern/reflection patch to 40% scale, replacing the previous light patch with adjacent river texture and feathering the boundaries. Inspected the revised entire image at 1280x720: final light is about 6 pixels tall, amber and visible below the horizon amid cool reflected stars. No visible seam at viewing size. This is a scale/continuity correction; no extra story element is added.
+
+Title and end plates are text-free with open central sky space. Suggested text placement: centered x=640, y≈300 at 1280x720. Title may need a subtle shadow against mauve cloud texture. Editor owns exact typography and readability check.
+
+Rendered clips remain pending; no motion/decode claim yet.
+
+## Render pass 1
+
+Job job-9a41eb912d succeeded. ffprobe and complete ffmpeg decode checks found all seven clips H.264 yuv420p 1280x720, 24/1 fps, silent, correct agreed frame counts (84 / 96 / 96 / 96 / 84 / 72 / 48), and no decode errors. Details retained in media-checks.json.
+
+Viewed the contact sheet of beginning, midpoint and final frames from all seven renders. Child, lantern and hands stay safely framed; no black borders or clipping. Shot05 light remains well inside the image across its tilt (near 55% width and 63–66% height). Source framing makes the intended pushes, pan, pull and tilt visible. These are sampled-frame observations, not a real-time playback judgement.
+
+Director's nonblocking note in #2 requests that the final lantern read more distinctly than warm window reflections. Revised shot05 source adds a restrained amber halo/core at the existing light and reduces warm bank/window reflections by up to 18%, preserving blue star reflections. Only shot05 requires rerender; all other clips remain unchanged. Render pass 1 media checks precede that revision.
+
+## Final shot05 emphasis render — shots-v1 release
+
+Job job-b9cca642c6 succeeded. Repeated ffprobe and full decode for the changed shot05: 1280x720 H.264 yuv420p, 24 fps, 72 frames, 3.000 seconds; no errors. Viewed the revised final renderer frame and an independently extracted decoded frame at local 00:02.958. The small amber lantern is distinct from the dimmed window reflections, remains on the water, and stays safely inside the frame at approximately (712,472). The soft glow does not change its tiny scale or square design.
+
+Original unchanged clips retain the pass-1 format and full-decode checks. Adjacent decoded-frame differences and unique frame counts are recorded in motion-measurements.json. These measurements and sampled frames document the camera moves; final editorial playback, title readability and sound remain with editor/director.
+
+Commitment check: five story shots plus two text-free plates; all requested clip lengths with handles; consistent child and lantern; physical release readable in shot02; village passage shot03; small river light among stars shot05; design bible and reference images published as design-v1 and included again in shots-v1. Objective re-read immediately before this handoff. Picture supply is complete. The complete film itself is not yet asserted complete by this position.
+
+## Screening revision v3 — source images
+
+Director request #4 cites test-audience's ambiguity of release and separation of final light from stars. Full-resolution replacement stills inspected: shot02 now shows the child's elbows bent against their torso, hands withdrawn and held near chest, no hand reaching toward lantern, a broad open-water gap and ripples around the floating tray. Child's bob, ochre sweater, teal trousers and lantern construction match the existing design. Shot05 has a central open misty horizon; a sole tiny amber point meets sky and mirrored cool starfield. Banks remain dark at extreme edges with no competing window lights. This changes the visual relationship that failed screening, not only the brightness of the existing light. Shot02 will pan away from the child toward the lantern; shot05 will push toward the central light, without tilting away. Render and decoded-frame checks pending.
+
+## Screening revision v3 — finished clips
+
+Tracked job job-1d2c64dbc3 succeeded. Both changed clips pass full ffmpeg decode and ffprobe: silent H.264 yuv420p 1280x720, 24/1 fps; shot02 96 frames / 4 seconds and shot05 72 frames / 3 seconds. SHA-256 comparison to the complete prior picture delivery confirms title_plate, shot01, shot03, shot04 and end_plate are byte-for-byte unchanged.
+
+Inspected independently decoded frames in revision-v3-frames/contact-sheet.jpg:
+- shot02 local 00:00.000, 00:02.000 and 00:03.958: hands are held against the child's chest, elbows folded back; the lantern floats across a broad gap of open water. As the camera pans right, the withdrawn child moves toward the left edge while the lantern becomes the focus. No reaching gesture remains. Same bob, sweater, trousers and square paper lantern/tray.
+- shot05 local 00:00.000, 00:01.500 and 00:02.958: one tiny amber light sits at the open horizon within the sky/star-reflection pattern. No village window lights or bank reflections compete. The push keeps the light near the center through the end rather than tilting away. The sky and reflected sky form one continuous starfield, with banks restricted to the extreme edges. Indigo painted style matches the surrounding night views.
+
+The changed shots have 96/96 and 72/72 unique reduced decoded frames and continuous low-range adjacent differences (motion-measurements.json). These measurements and sampled-frame observations support the revised handoff; first-time narrative readability remains for the next cut's screening and director judgement.
+
+The v3 release includes all seven clips for convenience, but only shot02 and shot05 changed. Objective and request #4 re-read before this delivery. This revision supplies the two picture fixes requested without changing duration or other owners' work.

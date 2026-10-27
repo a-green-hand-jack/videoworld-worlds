@@ -1,0 +1,21 @@
+{
+  "tag": "picture-batch-002",
+  "id": "S002",
+  "asset": "S002.mp4",
+  "sha256": "72c86dc0b2732c74ac315c975d511352eda0c43420ce5a1f75260aedd5f621f0",
+  "frames": 35,
+  "frame_in": 619,
+  "frame_out_exclusive": 654,
+  "fps": 24,
+  "size": "1024x576",
+  "source_artwork": [
+    "working/s002-proog-turn-start.png",
+    "working/s002-proog-revised.png"
+  ],
+  "designer_approval": "production-designer#5 comment 94; production-designer release design-character-v1",
+  "direction": "director direction-v3 S002",
+  "timeline": "editor edit/timeline.json v1 at 6027c4210a0c",
+  "sound": "none in this picture clip; editor synchronizes separate mix",
+  "action": "Generated turn-start key dissolves into the approved alarmed key while a restrained push-in supplies continuous camera motion; contact sheet samples frames 0, 10, 20 and 34 in evidence/s002-contact.png.",
+  "source_policy": "No original-film pixels used; source midpoint was reference-only for composition and timing."
+}

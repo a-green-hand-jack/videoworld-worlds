@@ -1,0 +1,25 @@
+# Brief — "The Paper Lantern" (round 1)
+
+## What the input asks (quoted from `director`#1)
+
+> Make a 20-second short film, "The Paper Lantern": at dusk a child lets a paper lantern go on a river, and it drifts past the village until it is a small light among the stars.
+>
+> Picture: 1280x720, 24 fps; four to six shots made from still images (generated pictures with camera moves such as slow pans and pushes are fine), consistent in style and in how the lantern and the child look, with an opening title and an end card. Sound: ambience of water and evening with a soft musical cue; no dialogue.
+>
+> Delivery: `film/paper-lantern.mp4`, H.264 video with AAC stereo sound, 18 to 22 seconds long.
+
+## Focus and priorities for this round
+
+1. **A complete, valid film first.** One file, `film/paper-lantern.mp4`, that plays in a web browser from start to end with picture and sound, at 1280x720, 24 fps, H.264 + AAC stereo, 18–22 s (aim ~20–21 s). A plain but complete film beats an ambitious unfinished one.
+2. **The story reads in five shots:** dusk → the child lets the lantern go → it drifts past the village → it becomes a small light among the stars. Each shot is a still image brought to life with a slow camera move (push, pan, tilt).
+3. **Consistency:** one illustration style across every shot; the child and the lantern look the same wherever they appear (same lantern shape, colour and glow; same child, clothes, hair).
+4. **Sound:** continuous water + evening ambience under the whole film and a soft musical cue; no dialogue, no voice.
+5. **Opening title** "The Paper Lantern" and an **end card**.
+
+Script, shot list and delivery specification: kept in the `director` repository (`script.md`, `delivery-spec.md`) and passed to positions in issues as needed.
+
+## What could not be established
+
+- No reference images, music or sound files were supplied; all picture and sound is to be made in this world.
+- The input does not name the end card's text; the director sets it in the script ("The End").
+- The `image-generation` resource is not served to the director's worker (Anthropic route); whether it is served to the picture owner is for that position to establish.

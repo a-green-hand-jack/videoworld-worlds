@@ -1,0 +1,9 @@
+# QC — editor `cut-v3` (editor commit 9f1844fc1e29), against `direction/delivery-spec.md`
+
+Assembled delivery (`ht-role delivery`: editor 9f1844fc1e291104f13a2968bac0ff989be70870 + production-designer 96f3682072d887f5a1d4832bd9b59598a84385ba; no errors, nothing undelivered). `film/paper-lantern.mp4` sha256 c173866bb418c4c278c58342a65a3ec1f8810c67974f1e59e7f8f6a9ceb9b6ad, byte-identical to editor release `cut-v3`.
+
+- Hard, all pass: h264 1280x720 SAR 1:1 yuv420p 24/1, 480 frames; AAC 48 kHz stereo; 20.000 s on format, video and audio; faststart; clean decode; −19.8 LUFS; true peak −6.0 dBFS; no silence > 0.5 s.
+- 09.5 and 13.0: straight cuts. Frames every 3 frames from 09.0 and 12.6 show one lantern at all times (`qc/cut-v3-cut09.jpg`, `qc/cut-v3-cut13.jpg`).
+- Unchanged: decoded audio MD5 09942865b21364a13fd5cdb25fb63bc3, identical to cut-v1 and cut-v2 (S1–S4 as in `qc/cut-v1.md`). The contact sheet every 0.5 s matches cut-v2 outside the two cuts: the title, the 06.0 cut, the 16.0 dissolve and the end card are as checked in `qc/cut-v2.md`.
+
+**Recommendation: lock after `test-audience` screens cut-v3 (director release `cut-v3`).**

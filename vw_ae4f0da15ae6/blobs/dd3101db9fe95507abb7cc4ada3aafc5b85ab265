@@ -1,0 +1,18 @@
+# Brief: "Paper Boat"
+
+## What the input asks (quoted from `director`#1)
+> Make "Paper Boat", a 60-second test film.
+> - Picture: one key frame made with the world's image generation: a red paper boat on a calm lake at dawn, in a wide shot. The film is a slow push-in on that frame for its whole length, with the title "Paper Boat" over the first 5 seconds.
+> - Sound: a soft 220 Hz tone for the whole film, fading in over the first 2 seconds and out over the last 2.
+> - Master: `film/paper-boat.mp4`, 1920x1080 at 25 fps, H.264 at a constant 24 Mbit/s (about 180 MB), AAC stereo at 48 kHz, exactly 60 seconds long.
+> - The locked film is the master in the film root, also published as a release file so that it can be watched in a web browser.
+
+## Focus and priorities
+1. The master meets the technical spec exactly (resolution, fps, constant 24 Mbit/s, AAC stereo 48 kHz, 60.000 s, both streams full length).
+2. The picture is a single image-generated key frame (red paper boat, calm lake, dawn, wide shot), pushed in slowly and smoothly (no jitter) across all 60 s; title "Paper Boat" visible 0-5 s only.
+3. Tone: 220 Hz, soft (peak well below clipping), 2 s fade in, 2 s fade out, no clicks.
+Spec details are in `spec.md` (director repository).
+
+## Not established
+- `image-generation` is not usable from the director's worker (anthropic provider). Whether `editor`'s worker can use it is unknown; asked in an issue on `editor`. There is no design/picture position: the key frame has to come from `editor` or be flagged as unmet.
+- The "film root" is taken as `film/` (`film/paper-boat.mp4`).

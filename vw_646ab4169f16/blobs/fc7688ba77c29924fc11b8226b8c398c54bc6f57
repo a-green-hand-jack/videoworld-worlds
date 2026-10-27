@@ -1,0 +1,10 @@
+{"assignment_schema": 1,
+ "items": [
+  {"owner": "editor", "work": "the locked film: browser player page, the film file (picture + mixed sound), English subtitles, credits", "paths": ["index.html", "film/"]},
+  {"owner": "director", "work": "direction (brief, script, shot list, delivery specification) and the lock; feeds every position, nothing delivered", "paths": []},
+  {"owner": "production-designer", "work": "designs of characters, places, props and style; feeds dp and editor", "paths": []},
+  {"owner": "dp", "work": "the picture of every shot, key frames to finished shots, and the shot log; feeds editor", "paths": []},
+  {"owner": "sound-designer", "work": "dialogue, music, effects and the synced mix; feeds editor", "paths": []},
+  {"owner": "qc", "work": "checks of each cut against the specification, designs and original; feeds editor and director", "paths": []},
+  {"owner": "test-audience", "work": "first-time screenings of each cut; feeds director", "paths": []}
+ ]}

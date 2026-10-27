@@ -1,0 +1,11 @@
+# Lock record: Paper Boat
+
+Locked film: editor main d94f6d69a74d819460dd0535fc465395d0ddcc09, `film/paper-boat.mp4`, SHA-256 1a8f8650e22f63951162a9f06b173e5eab0ff818201ba1b28d2b4ac917cdb0b6 (181,546,534 bytes), same as editor release `cut-v2`. Published as release `paper-boat-final` in the director repository.
+
+Checked against spec.md (ffmpeg/ffprobe/numpy on the clone; delivery preview is capped at 32 MiB):
+- H.264 High yuv420p 1920x1080, 25/1, 1500 frames, 60.000 s, 24.011 Mbit/s average (per-second 22.7-27.3); AAC-LC stereo 48 kHz 60.000 s; moov at byte 36 (faststart).
+- Audio: 220.0 Hz, peak -24.06 dBFS, L=R, 0-2 s and 58-60 s ramps, no clicks (max step 0.0018).
+- Picture: frames at 0, 2.5, 5.5, 30, 59.9 s watched: the one gpt-image-2 key frame (editor assets/keyframe.png, prompt in assets/keyframe-prompt.txt), red origami boat on a calm dawn lake, wide shot, steady centred push-in; title on until 4.96 s only.
+- Motion: cut-v1 fault F1 (zoompan stepping, 809 duplicate frames) fixed: 1374 post-title frame pairs, mean abs diff 0.068-0.097, none below 0.05.
+Note: the file is a single GOP (seeking in a browser is coarser, playback is fine).
+Conclusion: meets the input and spec.md; approved.

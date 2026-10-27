@@ -1,0 +1,76 @@
+line,start_s,end_s,shot,speaker,text,note
+L01,15.1,24.5,S001,Proog,At the left we can see... At the right we can see the... the head-snarlers. Everything is safe. Perfectly safe.,"V.O. over the titles; slow, guide-like, proud"
+L02,25.2,26.8,S001,Proog,Emo? Emo!,alarm rising
+L03,28.2,29.3,S003,Proog,Watch out!,shout
+L04,46.3,47.6,S007,Proog,Are you hurt?,breathless
+L05,52.0,53.8,S008,Emo,I don't think so. You?,dazed
+L06,55.3,56.3,S009,Proog,I'm OK.,
+L07,57.0,61.1,S009,Proog,"Get up. Emo, it's not safe here.",urgent
+L08,61.8,62.8,S009,Proog,Let's go.,
+L09,63.4,64.2,S010,Emo,What's next?,curious
+L10,65.6,68.5,S010,Proog,You'll see. ... You'll see.,"teasing, mysterious"
+L11,75.6,77.8,S011,Proog,"Emo, this way.",
+L12,94.3,95.3,S013,Proog,Follow me!,
+L13,95.8,99.5,S013,Proog,(indistinct mutter as he leaps on),? pass 2 only; keep as a mutter/effort
+L14,130.8,131.9,S021,Proog,"Hurry, Emo!",? pass 2 only
+L15,135.8,137.5,S024,Proog,"Listen, listen!",? pass 2 only; hushed
+L16,139.5,142.7,S025,Proog,Listen... listen.,? pass 2 only; whisper
+L17,168.3,169.8,S031,Proog,You're not paying attention!,stern
+L18,170.5,174.6,S033,Emo,I... I just want to answer the phone...,? pass 2 only; sheepish
+L19,174.6,177.0,S034,Proog,"Emo, look. I mean, listen.",
+L20,179.5,181.7,S035,Proog,You have to learn to listen.,lecturing
+L21,183.2,184.5,S036,Proog,This is not some game.,
+L22,185.3,189.0,S036,Proog,"You... I mean, we... we could easily die out here.",
+L23,189.9,193.7,S037,Proog,Listen. Listen to the sounds of the machine.,"hushed, reverent"
+L24,197.6,199.3,S038,Proog,Listen to your breathing.,whisper
+L25,266.5,269.2,S053,Emo,"Well, don't you ever get tired of this?",weary
+L26,270.0,270.4,S054,Proog,Tired?,offended
+L27,271.1,274.7,S054,Proog,"Emo, the machine is like... like clockwork.",
+L28,275.5,278.9,S056,Proog,One move out of place... and you're ground to a pulp.,relishing
+L29,282.3,286.3,S059,Proog,"Pulp, Emo! Is that what you want? Pulp?",manic
+L30,287.5,289.6,S060,Proog,"Emo, your goal in life...",? 'goal in life' reading uncertain
+L31,291.0,291.4,S060,Proog,Pulp!,shout
+L32,341.5,343.2,S074,Proog,"Emo, close your eyes.",? pass 2 only
+L33,344.5,345.4,S074,Proog,Now!,"shout, pulls the lever"
+L34,359.3,361.6,S077,Proog,"What do you see at your left side, Emo?",quiz-master
+L35,362.0,364.7,S077,Emo,Well... nothing.,flat
+L36,364.9,365.2,S079,Proog,Really?,
+L37,366.2,367.5,S079,Emo,"No, nothing at all.",
+L38,367.8,368.1,S079,Proog,Really.,
+L39,368.4,369.7,S079,Proog,And at your right?,
+L40,369.8,371.7,S080,Proog,"What do you see at your right side, Emo?","close, insinuating"
+L41,373.2,377.4,S081,Emo,"The same, Proog. Exactly the same. Nothing!",exasperated
+L42,400.2,404.4,S086,Emo,"Listen, Proog. Do you hear that? Can we go here?","excited, hushed"
+L43,405.4,405.9,S087,Proog,There?,
+L44,406.0,406.2,S087,Emo,Yeah.,
+L45,406.6,407.9,S087,Proog,"It isn't safe, Emo.",
+L46,408.9,409.8,S088,Emo,But...,
+L47,410.3,411.9,S089,Proog,"Trust me, it's not.",
+L48,412.9,414.6,S089,Emo,"Well, maybe I could...",
+L49,414.6,414.9,S089,Proog,No.,
+L50,417.1,418.0,S091,Emo,But...,
+L51,418.0,418.3,S091,Proog,No!,"shout, with the totem flare"
+L52,420.7,423.0,S091,Proog,"Any further questions, Emo?",cold
+L53,424.3,424.8,S093,Emo,No.,sullen
+L54,429.5,430.4,S095,Proog,Emo.,softer
+L55,430.8,431.0,S095,Emo,Yeah?,
+L56,431.8,438.1,S095,Proog,"Emo, why... Emo, why... why can't you see the beauty of this place?",pleading
+L57,438.7,443.6,S095,Proog,The way it works... how perfect it is.,rapt
+L58,444.5,449.6,S097,Emo,"No, Proog, I don't see. I don't see because there's nothing there.",angry
+L59,449.6,454.6,S097,Emo,And why should I trust my life to something that isn't there?,
+L60,455.6,458.2,S098,Emo,"Well, can you tell me that? Proog, answer me!","? words and speaker uncertain (heard as 'What can you tell me then? Emo, answer me'); off-screen over S103"
+L61,464.6,466.4,S102,Emo,Proog... you're a sick man.,cold
+L62,467.4,468.4,S103,Emo,Stay away from me.,
+L63,472.4,474.4,S105,Proog,"No, Emo, it's a trap!",desperate
+L64,475.8,477.0,S106,Emo,It's a trap?,mocking
+L65,477.0,481.1,S107,Emo,At the left side you can see... the Hanging Gardens of Babylon!,"showman, mimicking Proog's tour-guide voice"
+L66,482.1,483.3,S108,Emo,How's that for a trap?,
+L67,485.7,486.6,S109,Proog,"No, Emo.",
+L68,489.0,491.2,S110,Emo,On the right side you can see...,
+L69,491.8,492.4,S110,Emo,"Well, guess what?",
+L70,493.0,494.6,S110,Emo,The Colossus of Rhodes!,
+L71,495.5,496.1,S111,Proog,No!,
+L72,496.6,497.8,S112,Emo,The Colossus of Rhodes!,
+L73,498.0,500.0,S112,Emo,"And it is here just for you, Proog.",
+L74,500.2,501.5,S112,Emo,Just for you.,"quiet, cruel"
+L75,530.3,539.3,S123,Proog,"It is there... I'm telling you, Emo... it is... it is...","broken, to himself"

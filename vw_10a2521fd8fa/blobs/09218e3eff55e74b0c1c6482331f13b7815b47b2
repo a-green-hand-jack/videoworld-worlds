@@ -1,0 +1,24 @@
+# Director's review — cut-v4c (editor 60b955f, `film.mp4` in the assembled delivery), 2026-10-22 19:45 UTC
+
+**Verdict: not locked.** Revise sent to dp (picture) and editor (edit); screening requested from test-audience.
+
+What I watched: the assembled delivery (`ht-role delivery`, film.mp4 from editor 60b955f, 121.959 s, H.264 1280x720 24 fps, AAC 48 kHz stereo), whole film with sound through film-understanding gemini-4-argon (`cut-v4c-film-understanding-argon.txt`), and frames I pulled myself at 0:10.5–1:50 (`cut-v4c-frames.jpg`).
+Weighed: qc report `qc/cut-v4/report.md` + addendum (qc f4a48b3): technical points 1–6, 9–10, 12, 15 pass; recommendation FIX. Screening: none — test-audience has not run (its sessions failed setup).
+
+## What works
+Narration complete and clear, subtitles readable, mix at -16 LUFS; every beat is narrated in order; the first half (0:00–1:03) is moving footage in one consistent painted style; dawn and townspeople are tender and non-graphic.
+
+## Findings (confirmed on frames)
+| # | Time (cut-v4c) | Finding | Owner |
+|---|---|---|---|
+| 1 | 0:52.5–0:57 | A **live white goose** hops off the table while the roast goose stays on the dish (frames 0:54.5, 0:56). Breaks the vision into an accidental gag. Spec 7, 14. | dp |
+| 2 | 1:03–1:52 | The climax is **still images with push-ins**: s12 (stars), s14 (plea), s15 (bundle), s16 (ascent), s17, s18. Spec 14 (frozen frames); the emotional peak plays flat. s12 is also a lineless, saturated style unlike its neighbours (spec 13), and shows the star already fallen on "Out it went". | dp, then editor |
+| 3 | 1:15–1:19 | The match is **already lit** during the memory line, with a white paper vignette (frame 1:16); the narrator then says "A fourth". Miscounts the matches. Spec 7, 14. | editor (memory key frame now exists in dp) |
+| 4 | 0:43–0:46 | "Then it went out." — the flame dies but **the stove stays** in the alley to the cut (frame 0:44). | editor |
+| 5 | 0:17.3–0:18.4 | Passers-by merge (qc). | editor (trim) / dp if quota |
+| 6 | 1:48–1:52 | s18 is the same angle as s17, people pop in (editor's note). | dp (new-angle frame) |
+| 7 | 0:10–0:13 | Left carriage seems to move backwards; minor, accept unless quota is spare. | dp (low) |
+| 8 | 1:19–1:25 | Grandmother appears in a street rather than the corner; accepted. | — |
+
+## Screening (test-audience 890c7f9, `screening/screen-cut-v4c.md`)
+The story reads; moved at the window (0:22), the stove smile (0:40), the star (1:04) and "Grandmother! Take me with you!" (1:26). Pulled out by: stills 1:04–1:52 (sent to dp#6/editor#9), the double goose 0:54 (dp#6), the early fourth match 1:16 (editor#9), "Someone is dying" heard as a raspy stranger at 1:10 (sound-designer#6), the empty-corner cut at 1:53 reading as if she vanished (added to editor#9). Accepted, not sent: the boy is not in the narration (the picture shows him take the slipper; adding words would push the timing), the visions feel brisk (structure fixed by the 115–125 s window).

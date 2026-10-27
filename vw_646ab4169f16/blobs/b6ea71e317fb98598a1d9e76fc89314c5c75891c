@@ -1,0 +1,1121 @@
+{
+  "schema": 1,
+  "measurements": [
+    {
+      "asset": "working/rendered-shots-v3/S001.mp4",
+      "frames": 619,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 618,
+      "distinct_pictures": 619,
+      "new_pictures_per_second": 23.961
+    },
+    {
+      "asset": "working/rendered-shots-v3/S004.mp4",
+      "frames": 24,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 23,
+      "distinct_pictures": 24,
+      "new_pictures_per_second": 23.0
+    },
+    {
+      "asset": "working/rendered-shots-v3/S005.mp4",
+      "frames": 6,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 5,
+      "distinct_pictures": 6,
+      "new_pictures_per_second": 20.0
+    },
+    {
+      "asset": "working/rendered-shots-v3/S006.mp4",
+      "frames": 129,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 128,
+      "distinct_pictures": 129,
+      "new_pictures_per_second": 23.814
+    },
+    {
+      "asset": "working/rendered-shots-v3/S007.mp4",
+      "frames": 318,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 317,
+      "distinct_pictures": 318,
+      "new_pictures_per_second": 23.925
+    },
+    {
+      "asset": "working/rendered-shots-v3/S008.mp4",
+      "frames": 121,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 120,
+      "distinct_pictures": 121,
+      "new_pictures_per_second": 23.802
+    },
+    {
+      "asset": "working/rendered-shots-v3/S009.mp4",
+      "frames": 197,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 196,
+      "distinct_pictures": 197,
+      "new_pictures_per_second": 23.878
+    },
+    {
+      "asset": "working/rendered-shots-v3/S010.mp4",
+      "frames": 155,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 154,
+      "distinct_pictures": 155,
+      "new_pictures_per_second": 23.845
+    },
+    {
+      "asset": "working/rendered-shots-v3/S011.mp4",
+      "frames": 260,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 259,
+      "distinct_pictures": 260,
+      "new_pictures_per_second": 23.908
+    },
+    {
+      "asset": "working/rendered-shots-v3/S012.mp4",
+      "frames": 170,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 169,
+      "distinct_pictures": 170,
+      "new_pictures_per_second": 23.859
+    },
+    {
+      "asset": "working/rendered-shots-v3/S013.mp4",
+      "frames": 252,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 251,
+      "distinct_pictures": 252,
+      "new_pictures_per_second": 23.905
+    },
+    {
+      "asset": "working/rendered-shots-v3/S014.mp4",
+      "frames": 72,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 71,
+      "distinct_pictures": 72,
+      "new_pictures_per_second": 23.667
+    },
+    {
+      "asset": "working/rendered-shots-v3/S015.mp4",
+      "frames": 97,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 96,
+      "distinct_pictures": 97,
+      "new_pictures_per_second": 23.753
+    },
+    {
+      "asset": "working/rendered-shots-v3/S016.mp4",
+      "frames": 139,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 138,
+      "distinct_pictures": 139,
+      "new_pictures_per_second": 23.827
+    },
+    {
+      "asset": "working/rendered-shots-v3/S017.mp4",
+      "frames": 68,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 67,
+      "distinct_pictures": 68,
+      "new_pictures_per_second": 23.647
+    },
+    {
+      "asset": "working/rendered-shots-v3/S018.mp4",
+      "frames": 162,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 161,
+      "distinct_pictures": 162,
+      "new_pictures_per_second": 23.852
+    },
+    {
+      "asset": "working/rendered-shots-v3/S019.mp4",
+      "frames": 161,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 160,
+      "distinct_pictures": 161,
+      "new_pictures_per_second": 23.851
+    },
+    {
+      "asset": "working/rendered-shots-v3/S020.mp4",
+      "frames": 82,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 81,
+      "distinct_pictures": 82,
+      "new_pictures_per_second": 23.707
+    },
+    {
+      "asset": "working/rendered-shots-v3/S021.mp4",
+      "frames": 45,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 44,
+      "distinct_pictures": 45,
+      "new_pictures_per_second": 23.467
+    },
+    {
+      "asset": "working/rendered-shots-v3/S022.mp4",
+      "frames": 38,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 37,
+      "distinct_pictures": 38,
+      "new_pictures_per_second": 23.368
+    },
+    {
+      "asset": "working/rendered-shots-v3/S023.mp4",
+      "frames": 25,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 24,
+      "distinct_pictures": 25,
+      "new_pictures_per_second": 23.04
+    },
+    {
+      "asset": "working/rendered-shots-v3/S024.mp4",
+      "frames": 97,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 96,
+      "distinct_pictures": 97,
+      "new_pictures_per_second": 23.753
+    },
+    {
+      "asset": "working/rendered-shots-v3/S025.mp4",
+      "frames": 91,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 90,
+      "distinct_pictures": 91,
+      "new_pictures_per_second": 23.736
+    },
+    {
+      "asset": "working/rendered-shots-v3/S026.mp4",
+      "frames": 61,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 60,
+      "distinct_pictures": 61,
+      "new_pictures_per_second": 23.607
+    },
+    {
+      "asset": "working/rendered-shots-v3/S027.mp4",
+      "frames": 104,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 103,
+      "distinct_pictures": 104,
+      "new_pictures_per_second": 23.769
+    },
+    {
+      "asset": "working/rendered-shots-v3/S028.mp4",
+      "frames": 223,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 222,
+      "distinct_pictures": 223,
+      "new_pictures_per_second": 23.892
+    },
+    {
+      "asset": "working/rendered-shots-v3/S029.mp4",
+      "frames": 156,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 155,
+      "distinct_pictures": 156,
+      "new_pictures_per_second": 23.846
+    },
+    {
+      "asset": "working/rendered-shots-v3/S030.mp4",
+      "frames": 48,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 47,
+      "distinct_pictures": 48,
+      "new_pictures_per_second": 23.5
+    },
+    {
+      "asset": "working/rendered-shots-v3/S031.mp4",
+      "frames": 19,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 18,
+      "distinct_pictures": 19,
+      "new_pictures_per_second": 22.737
+    },
+    {
+      "asset": "working/rendered-shots-v3/S032.mp4",
+      "frames": 39,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 38,
+      "distinct_pictures": 39,
+      "new_pictures_per_second": 23.385
+    },
+    {
+      "asset": "working/rendered-shots-v3/S033.mp4",
+      "frames": 102,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 101,
+      "distinct_pictures": 102,
+      "new_pictures_per_second": 23.765
+    },
+    {
+      "asset": "working/rendered-shots-v3/S034.mp4",
+      "frames": 95,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 94,
+      "distinct_pictures": 95,
+      "new_pictures_per_second": 23.747
+    },
+    {
+      "asset": "working/rendered-shots-v3/S035.mp4",
+      "frames": 100,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 99,
+      "distinct_pictures": 100,
+      "new_pictures_per_second": 23.76
+    },
+    {
+      "asset": "working/rendered-shots-v3/S036.mp4",
+      "frames": 175,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 174,
+      "distinct_pictures": 175,
+      "new_pictures_per_second": 23.863
+    },
+    {
+      "asset": "working/rendered-shots-v3/S037.mp4",
+      "frames": 112,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 111,
+      "distinct_pictures": 112,
+      "new_pictures_per_second": 23.786
+    },
+    {
+      "asset": "working/rendered-shots-v3/S038.mp4",
+      "frames": 448,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 447,
+      "distinct_pictures": 448,
+      "new_pictures_per_second": 23.946
+    },
+    {
+      "asset": "working/rendered-shots-v3/S039.mp4",
+      "frames": 84,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 83,
+      "distinct_pictures": 84,
+      "new_pictures_per_second": 23.714
+    },
+    {
+      "asset": "working/rendered-shots-v3/S040.mp4",
+      "frames": 110,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 109,
+      "distinct_pictures": 110,
+      "new_pictures_per_second": 23.782
+    },
+    {
+      "asset": "working/rendered-shots-v3/S041.mp4",
+      "frames": 68,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 67,
+      "distinct_pictures": 68,
+      "new_pictures_per_second": 23.647
+    },
+    {
+      "asset": "working/rendered-shots-v3/S042.mp4",
+      "frames": 220,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 219,
+      "distinct_pictures": 220,
+      "new_pictures_per_second": 23.891
+    },
+    {
+      "asset": "working/rendered-shots-v3/S043.mp4",
+      "frames": 137,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 136,
+      "distinct_pictures": 137,
+      "new_pictures_per_second": 23.825
+    },
+    {
+      "asset": "working/rendered-shots-v3/S044.mp4",
+      "frames": 96,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 95,
+      "distinct_pictures": 96,
+      "new_pictures_per_second": 23.75
+    },
+    {
+      "asset": "working/rendered-shots-v3/S045.mp4",
+      "frames": 39,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 38,
+      "distinct_pictures": 39,
+      "new_pictures_per_second": 23.385
+    },
+    {
+      "asset": "working/rendered-shots-v3/S046.mp4",
+      "frames": 48,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 47,
+      "distinct_pictures": 48,
+      "new_pictures_per_second": 23.5
+    },
+    {
+      "asset": "working/rendered-shots-v3/S047.mp4",
+      "frames": 13,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 12,
+      "distinct_pictures": 13,
+      "new_pictures_per_second": 22.154
+    },
+    {
+      "asset": "working/rendered-shots-v3/S048.mp4",
+      "frames": 48,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 47,
+      "distinct_pictures": 48,
+      "new_pictures_per_second": 23.5
+    },
+    {
+      "asset": "working/rendered-shots-v3/S049.mp4",
+      "frames": 4,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 3,
+      "distinct_pictures": 4,
+      "new_pictures_per_second": 18.0
+    },
+    {
+      "asset": "working/rendered-shots-v3/S050.mp4",
+      "frames": 14,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 13,
+      "distinct_pictures": 14,
+      "new_pictures_per_second": 22.286
+    },
+    {
+      "asset": "working/rendered-shots-v3/S051.mp4",
+      "frames": 195,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 194,
+      "distinct_pictures": 195,
+      "new_pictures_per_second": 23.877
+    },
+    {
+      "asset": "working/rendered-shots-v3/S052.mp4",
+      "frames": 114,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 113,
+      "distinct_pictures": 114,
+      "new_pictures_per_second": 23.789
+    },
+    {
+      "asset": "working/rendered-shots-v3/S053.mp4",
+      "frames": 160,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 159,
+      "distinct_pictures": 160,
+      "new_pictures_per_second": 23.85
+    },
+    {
+      "asset": "working/rendered-shots-v3/S054.mp4",
+      "frames": 96,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 95,
+      "distinct_pictures": 96,
+      "new_pictures_per_second": 23.75
+    },
+    {
+      "asset": "working/rendered-shots-v3/S055.mp4",
+      "frames": 14,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 13,
+      "distinct_pictures": 14,
+      "new_pictures_per_second": 22.286
+    },
+    {
+      "asset": "working/rendered-shots-v3/S056.mp4",
+      "frames": 76,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 75,
+      "distinct_pictures": 76,
+      "new_pictures_per_second": 23.684
+    },
+    {
+      "asset": "working/rendered-shots-v3/S057.mp4",
+      "frames": 73,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 72,
+      "distinct_pictures": 73,
+      "new_pictures_per_second": 23.671
+    },
+    {
+      "asset": "working/rendered-shots-v3/S058.mp4",
+      "frames": 48,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 47,
+      "distinct_pictures": 48,
+      "new_pictures_per_second": 23.5
+    },
+    {
+      "asset": "working/rendered-shots-v3/S059.mp4",
+      "frames": 120,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 119,
+      "distinct_pictures": 120,
+      "new_pictures_per_second": 23.8
+    },
+    {
+      "asset": "working/rendered-shots-v3/S060.mp4",
+      "frames": 128,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 127,
+      "distinct_pictures": 128,
+      "new_pictures_per_second": 23.812
+    },
+    {
+      "asset": "working/rendered-shots-v3/S061.mp4",
+      "frames": 319,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 318,
+      "distinct_pictures": 319,
+      "new_pictures_per_second": 23.925
+    },
+    {
+      "asset": "working/rendered-shots-v3/S062.mp4",
+      "frames": 45,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 44,
+      "distinct_pictures": 45,
+      "new_pictures_per_second": 23.467
+    },
+    {
+      "asset": "working/rendered-shots-v3/S063.mp4",
+      "frames": 19,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 18,
+      "distinct_pictures": 19,
+      "new_pictures_per_second": 22.737
+    },
+    {
+      "asset": "working/rendered-shots-v3/S064.mp4",
+      "frames": 35,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 34,
+      "distinct_pictures": 35,
+      "new_pictures_per_second": 23.314
+    },
+    {
+      "asset": "working/rendered-shots-v3/S065.mp4",
+      "frames": 60,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 59,
+      "distinct_pictures": 60,
+      "new_pictures_per_second": 23.6
+    },
+    {
+      "asset": "working/rendered-shots-v3/S066.mp4",
+      "frames": 138,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 137,
+      "distinct_pictures": 138,
+      "new_pictures_per_second": 23.826
+    },
+    {
+      "asset": "working/rendered-shots-v3/S067.mp4",
+      "frames": 45,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 44,
+      "distinct_pictures": 45,
+      "new_pictures_per_second": 23.467
+    },
+    {
+      "asset": "working/rendered-shots-v3/S068.mp4",
+      "frames": 153,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 152,
+      "distinct_pictures": 153,
+      "new_pictures_per_second": 23.843
+    },
+    {
+      "asset": "working/rendered-shots-v3/S069.mp4",
+      "frames": 28,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 27,
+      "distinct_pictures": 28,
+      "new_pictures_per_second": 23.143
+    },
+    {
+      "asset": "working/rendered-shots-v3/S070.mp4",
+      "frames": 49,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 48,
+      "distinct_pictures": 49,
+      "new_pictures_per_second": 23.51
+    },
+    {
+      "asset": "working/rendered-shots-v3/S071.mp4",
+      "frames": 100,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 99,
+      "distinct_pictures": 100,
+      "new_pictures_per_second": 23.76
+    },
+    {
+      "asset": "working/rendered-shots-v3/S072.mp4",
+      "frames": 47,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 46,
+      "distinct_pictures": 47,
+      "new_pictures_per_second": 23.489
+    },
+    {
+      "asset": "working/rendered-shots-v3/S073.mp4",
+      "frames": 121,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 120,
+      "distinct_pictures": 121,
+      "new_pictures_per_second": 23.802
+    },
+    {
+      "asset": "working/rendered-shots-v3/S074.mp4",
+      "frames": 112,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 111,
+      "distinct_pictures": 112,
+      "new_pictures_per_second": 23.786
+    },
+    {
+      "asset": "working/rendered-shots-v3/S075.mp4",
+      "frames": 171,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 170,
+      "distinct_pictures": 171,
+      "new_pictures_per_second": 23.86
+    },
+    {
+      "asset": "working/rendered-shots-v3/S076.mp4",
+      "frames": 144,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 143,
+      "distinct_pictures": 144,
+      "new_pictures_per_second": 23.833
+    },
+    {
+      "asset": "working/rendered-shots-v3/S077.mp4",
+      "frames": 109,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 108,
+      "distinct_pictures": 109,
+      "new_pictures_per_second": 23.78
+    },
+    {
+      "asset": "working/rendered-shots-v3/S078.mp4",
+      "frames": 40,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 39,
+      "distinct_pictures": 40,
+      "new_pictures_per_second": 23.4
+    },
+    {
+      "asset": "working/rendered-shots-v3/S079.mp4",
+      "frames": 121,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 120,
+      "distinct_pictures": 121,
+      "new_pictures_per_second": 23.802
+    },
+    {
+      "asset": "working/rendered-shots-v3/S080.mp4",
+      "frames": 70,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 69,
+      "distinct_pictures": 70,
+      "new_pictures_per_second": 23.657
+    },
+    {
+      "asset": "working/rendered-shots-v3/S081.mp4",
+      "frames": 173,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 172,
+      "distinct_pictures": 173,
+      "new_pictures_per_second": 23.861
+    },
+    {
+      "asset": "working/rendered-shots-v3/S082.mp4",
+      "frames": 127,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 126,
+      "distinct_pictures": 127,
+      "new_pictures_per_second": 23.811
+    },
+    {
+      "asset": "working/rendered-shots-v3/S083.mp4",
+      "frames": 11,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 10,
+      "distinct_pictures": 11,
+      "new_pictures_per_second": 21.818
+    },
+    {
+      "asset": "working/rendered-shots-v3/S084.mp4",
+      "frames": 39,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 38,
+      "distinct_pictures": 39,
+      "new_pictures_per_second": 23.385
+    },
+    {
+      "asset": "working/rendered-shots-v3/S085.mp4",
+      "frames": 219,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 218,
+      "distinct_pictures": 219,
+      "new_pictures_per_second": 23.89
+    },
+    {
+      "asset": "working/rendered-shots-v3/S086.mp4",
+      "frames": 208,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 207,
+      "distinct_pictures": 208,
+      "new_pictures_per_second": 23.885
+    },
+    {
+      "asset": "working/rendered-shots-v3/S087.mp4",
+      "frames": 75,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 74,
+      "distinct_pictures": 75,
+      "new_pictures_per_second": 23.68
+    },
+    {
+      "asset": "working/rendered-shots-v3/S088.mp4",
+      "frames": 36,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 35,
+      "distinct_pictures": 36,
+      "new_pictures_per_second": 23.333
+    },
+    {
+      "asset": "working/rendered-shots-v3/S089.mp4",
+      "frames": 131,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 130,
+      "distinct_pictures": 131,
+      "new_pictures_per_second": 23.817
+    },
+    {
+      "asset": "working/rendered-shots-v3/S090.mp4",
+      "frames": 25,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 24,
+      "distinct_pictures": 25,
+      "new_pictures_per_second": 23.04
+    },
+    {
+      "asset": "working/rendered-shots-v3/S091.mp4",
+      "frames": 110,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 109,
+      "distinct_pictures": 110,
+      "new_pictures_per_second": 23.782
+    },
+    {
+      "asset": "working/rendered-shots-v3/S092.mp4",
+      "frames": 60,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 59,
+      "distinct_pictures": 60,
+      "new_pictures_per_second": 23.6
+    },
+    {
+      "asset": "working/rendered-shots-v3/S093.mp4",
+      "frames": 79,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 78,
+      "distinct_pictures": 79,
+      "new_pictures_per_second": 23.696
+    },
+    {
+      "asset": "working/rendered-shots-v3/S094.mp4",
+      "frames": 38,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 37,
+      "distinct_pictures": 38,
+      "new_pictures_per_second": 23.368
+    },
+    {
+      "asset": "working/rendered-shots-v3/S095.mp4",
+      "frames": 300,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 299,
+      "distinct_pictures": 300,
+      "new_pictures_per_second": 23.92
+    },
+    {
+      "asset": "working/rendered-shots-v3/S096.mp4",
+      "frames": 79,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 78,
+      "distinct_pictures": 79,
+      "new_pictures_per_second": 23.696
+    },
+    {
+      "asset": "working/rendered-shots-v3/S097.mp4",
+      "frames": 173,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 172,
+      "distinct_pictures": 173,
+      "new_pictures_per_second": 23.861
+    },
+    {
+      "asset": "working/rendered-shots-v3/S098.mp4",
+      "frames": 131,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 130,
+      "distinct_pictures": 131,
+      "new_pictures_per_second": 23.817
+    },
+    {
+      "asset": "working/rendered-shots-v3/S099.mp4",
+      "frames": 89,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 88,
+      "distinct_pictures": 89,
+      "new_pictures_per_second": 23.73
+    },
+    {
+      "asset": "working/rendered-shots-v3/S100.mp4",
+      "frames": 8,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 7,
+      "distinct_pictures": 8,
+      "new_pictures_per_second": 21.0
+    },
+    {
+      "asset": "working/rendered-shots-v3/S101.mp4",
+      "frames": 20,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 19,
+      "distinct_pictures": 20,
+      "new_pictures_per_second": 22.8
+    },
+    {
+      "asset": "working/rendered-shots-v3/S102.mp4",
+      "frames": 129,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 128,
+      "distinct_pictures": 129,
+      "new_pictures_per_second": 23.814
+    },
+    {
+      "asset": "working/rendered-shots-v3/S103.mp4",
+      "frames": 50,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 49,
+      "distinct_pictures": 50,
+      "new_pictures_per_second": 23.52
+    },
+    {
+      "asset": "working/rendered-shots-v3/S104.mp4",
+      "frames": 78,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 77,
+      "distinct_pictures": 78,
+      "new_pictures_per_second": 23.692
+    },
+    {
+      "asset": "working/rendered-shots-v3/S105.mp4",
+      "frames": 64,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 63,
+      "distinct_pictures": 64,
+      "new_pictures_per_second": 23.625
+    },
+    {
+      "asset": "working/rendered-shots-v3/S106.mp4",
+      "frames": 51,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 50,
+      "distinct_pictures": 51,
+      "new_pictures_per_second": 23.529
+    },
+    {
+      "asset": "working/rendered-shots-v3/S107.mp4",
+      "frames": 102,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 101,
+      "distinct_pictures": 102,
+      "new_pictures_per_second": 23.765
+    },
+    {
+      "asset": "working/rendered-shots-v3/S108.mp4",
+      "frames": 78,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 77,
+      "distinct_pictures": 78,
+      "new_pictures_per_second": 23.692
+    },
+    {
+      "asset": "working/rendered-shots-v3/S109.mp4",
+      "frames": 59,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 58,
+      "distinct_pictures": 59,
+      "new_pictures_per_second": 23.593
+    },
+    {
+      "asset": "working/rendered-shots-v3/S110.mp4",
+      "frames": 198,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 197,
+      "distinct_pictures": 198,
+      "new_pictures_per_second": 23.879
+    },
+    {
+      "asset": "working/rendered-shots-v3/S111.mp4",
+      "frames": 29,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 28,
+      "distinct_pictures": 29,
+      "new_pictures_per_second": 23.172
+    },
+    {
+      "asset": "working/rendered-shots-v3/S112.mp4",
+      "frames": 127,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 126,
+      "distinct_pictures": 127,
+      "new_pictures_per_second": 23.811
+    },
+    {
+      "asset": "working/rendered-shots-v3/S113.mp4",
+      "frames": 154,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 153,
+      "distinct_pictures": 154,
+      "new_pictures_per_second": 23.844
+    },
+    {
+      "asset": "working/rendered-shots-v3/S114.mp4",
+      "frames": 65,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 64,
+      "distinct_pictures": 65,
+      "new_pictures_per_second": 23.631
+    },
+    {
+      "asset": "working/rendered-shots-v3/S115.mp4",
+      "frames": 28,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 27,
+      "distinct_pictures": 28,
+      "new_pictures_per_second": 23.143
+    },
+    {
+      "asset": "working/rendered-shots-v3/S116.mp4",
+      "frames": 94,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 93,
+      "distinct_pictures": 94,
+      "new_pictures_per_second": 23.745
+    },
+    {
+      "asset": "working/rendered-shots-v3/S117.mp4",
+      "frames": 68,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 67,
+      "distinct_pictures": 68,
+      "new_pictures_per_second": 23.647
+    },
+    {
+      "asset": "working/rendered-shots-v3/S118.mp4",
+      "frames": 30,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 29,
+      "distinct_pictures": 30,
+      "new_pictures_per_second": 23.2
+    },
+    {
+      "asset": "working/rendered-shots-v3/S119.mp4",
+      "frames": 17,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 16,
+      "distinct_pictures": 17,
+      "new_pictures_per_second": 22.588
+    },
+    {
+      "asset": "working/rendered-shots-v3/S120.mp4",
+      "frames": 20,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 19,
+      "distinct_pictures": 20,
+      "new_pictures_per_second": 22.8
+    },
+    {
+      "asset": "working/rendered-shots-v3/S121.mp4",
+      "frames": 9,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 8,
+      "distinct_pictures": 9,
+      "new_pictures_per_second": 21.333
+    },
+    {
+      "asset": "working/rendered-shots-v3/S122.mp4",
+      "frames": 55,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 54,
+      "distinct_pictures": 55,
+      "new_pictures_per_second": 23.564
+    },
+    {
+      "asset": "working/rendered-shots-v3/S123.mp4",
+      "frames": 174,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 173,
+      "distinct_pictures": 174,
+      "new_pictures_per_second": 23.862
+    },
+    {
+      "asset": "working/rendered-shots-v3/S124.mp4",
+      "frames": 38,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 37,
+      "distinct_pictures": 38,
+      "new_pictures_per_second": 23.368
+    },
+    {
+      "asset": "working/rendered-shots-v3/S125.mp4",
+      "frames": 270,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 269,
+      "distinct_pictures": 270,
+      "new_pictures_per_second": 23.911
+    },
+    {
+      "asset": "working/rendered-shots-v3/S126.mp4",
+      "frames": 515,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 445,
+      "distinct_pictures": 446,
+      "new_pictures_per_second": 20.738
+    }
+  ]
+}

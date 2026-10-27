@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+"""cut-v6a EDL: cut-v5d's timeline, shots, mix (mix-cut-v5c) and subtitle timing, rendered with the conform's
+sub-pixel push-ins (no whole-pixel judder on the stills) and two subtitle cues re-wrapped. Run from this directory."""
+import json
+e = json.load(open("../cut-v5d/edl.json"))
+e.update(out="cut-v6a.mp4", srt="film.srt", audio="../cut-v5d/mix.wav", tmpdir="/hutian/tmp")
+json.dump(e, open("edl.json", "w"), indent=1)

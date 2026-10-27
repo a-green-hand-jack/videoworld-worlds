@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "measurements": [
+    {
+      "asset": "working/rendered-shots-v7/S026.mp4",
+      "frames": 61,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 60,
+      "distinct_pictures": 61,
+      "new_pictures_per_second": 23.607
+    },
+    {
+      "asset": "working/rendered-shots-v7/S027.mp4",
+      "frames": 104,
+      "fps": 24,
+      "threshold_luma": 0.3,
+      "changed_pairs": 103,
+      "distinct_pictures": 104,
+      "new_pictures_per_second": 23.769
+    }
+  ]
+}

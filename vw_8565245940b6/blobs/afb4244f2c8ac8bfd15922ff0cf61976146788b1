@@ -1,0 +1,7 @@
+"""Ask audio-understanding about a sound file. Usage: listen.py FILE 'question'"""
+import base64, json, os, subprocess, sys, urllib.request
+url = subprocess.check_output(['ht-resource', 'url', 'audio-understanding'], text=True).strip()
+body = {'model': 'gemini-3.8-flash', 'input': [{'type': 'text', 'text': sys.argv[2]}, {'type': 'audio', 'mime_type': 'audio/mp3', 'data': base64.b64encode(open(sys.argv[1], 'rb').read()).decode()}]}
+request = urllib.request.Request(url + '/v1beta/interactions', json.dumps(body).encode(), {'Content-Type': 'application/json', 'x-goog-api-key': os.environ['HT_RESOURCE_TOKEN']})
+answer = json.load(urllib.request.urlopen(request, timeout=900))
+print(''.join(i.get('text', '') for i in answer.get('outputs', []) if i.get('type') == 'text'))

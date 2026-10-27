@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+"""cut-v6d EDL: cut-v6c with, per Wan shot, the version better on evenness and sharpness (director's revise in editor#13):
+dp's shots-b7 (96aaa99, temporal-mix re-conversion) for s13a and s18; cut-v6c's sources (shots-b6, dp 21c78b3, kept in
+/hutian/media/b6) for every other Wan shot, where shots-b7 is about half as sharp or shows blend trails. The conform
+no longer repeats the first frame of a take seeked between frames. Run from this directory."""
+import json
+e = json.load(open("../cut-v6c/edl.json"))
+B7, B6 = "/hutian/dp/shots", "/hutian/media/b6"
+TAKE_B7 = {"s13a_wan2.mp4", "s18b_wan1.mp4"}
+for s in e["shots"]:
+    for p in s.get("parts", [s]):
+        src = p.get("src", "")
+        if src.endswith("s18b_wan1_h0.mp4"):
+            src = src.replace("_h0", "")
+        name = src.split("/")[-1]
+        if "_wan" in name and "_h0" not in name:
+            p["src"] = f"{B7 if name in TAKE_B7 else B6}/{name}"
+# s04, s12 and s16 open on their take's own first frame, which the take repeats: start them one frame on (cut points unchanged)
+for s in e["shots"]:
+    if s["id"] in ("s04", "s12", "s16"):
+        s["src_in"] = round(s.get("src_in", 0) + 0.04, 4)  # seeks to the next frame (1/24 = 0.0417)
+# s16's take has 241 frames: starting one on leaves 240 (10.0 s), so s17 takes the freed frame at its head
+B = {s["id"]: s for s in e["shots"]}
+B["s16"].update(dur=10.0, out=102.208)
+B["s17"].update(dur=7.251, **{"in": 102.208})
+B["s17"]["parts"][0].update(src_in=0.316, dur=5.284)
+e.update(out="cut-v6d.mp4", srt="film.srt")
+json.dump(e, open("edl.json", "w"), indent=1)

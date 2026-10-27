@@ -1,0 +1,5 @@
+# S001 picture check — picture-batch-001
+
+Observed on DP's locally rendered `S001-final.mp4` before release: FFmpeg 7.0.2-static decodes all 619 video frames at 24 fps in 1024×576 H.264/yuv420p, with no decoder errors. FFmpeg `framemd5` has 398 distinct frames in picture frames 60–559; first and last are both black. The wall drifts right, starting on black, fading over the first 24 frames and the final 60 frames, matching the 00:00–00:25.79 editor grid. The plate is newly made from DP-generated artwork, with no original film frame as any image-generation input; the source film at 00:02/00:07/00:12/00:17 and designer `design/opening-wall.md` were visual guidance.
+
+`evidence/s001-title-diagnostic.png` is a 12-second frame with **sample** light-coloured text at the editor's proposed 40% title position: visually readable against the olive centre. This is *not* editor's actual title font, compositing, or cut; editor must check title readability (≥8 seconds) and sync in its assembled cut. No sound is in this picture file (sound-designer owns mix).

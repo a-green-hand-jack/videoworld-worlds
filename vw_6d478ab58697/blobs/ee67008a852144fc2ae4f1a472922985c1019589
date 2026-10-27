@@ -1,0 +1,6 @@
+# Brief
+Objective (quoted): a 10-second clip "Tone, Rain, Clip". 1280x720, 24 fps, title card for the whole clip. Sound made with ffmpeg: 0-3 s clean 440 Hz tone, 3-5 s silence, 5-8 s rain-like noise, 8-10 s 880 Hz tone driven into hard clipping. Delivery `film/check.mp4`, H.264 + AAC stereo, 9.5-10.5 s.
+Before lock, production-designer and test-audience each send the clip's sound to `audio-understanding`, and keep request, answer as received, and match verdict in `listening.md` in their own repository.
+
+Focus: exact timing of the four sound parts; a plain title card.
+Split: production-designer makes the title card image (title.png 1280x720, in its repo) and does listening.md; editor builds film/check.mp4 (title card looped, ffmpeg sound), publishes it as a release; test-audience screens that release and does listening.md.

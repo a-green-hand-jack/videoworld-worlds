@@ -1,0 +1,36 @@
+{
+    "programs": [
+
+    ],
+    "stream_groups": [
+
+    ],
+    "streams": [
+        {
+            "index": 0,
+            "codec_name": "h264",
+            "width": 1920,
+            "height": 1080,
+            "pix_fmt": "yuv420p",
+            "r_frame_rate": "25/1",
+            "duration": "60.000000",
+            "bit_rate": "24011368",
+            "nb_frames": "1500"
+        },
+        {
+            "index": 1,
+            "codec_name": "aac",
+            "sample_rate": "48000",
+            "channels": 2,
+            "r_frame_rate": "0/0",
+            "duration": "60.000000",
+            "bit_rate": "190074",
+            "nb_frames": "2814"
+        }
+    ],
+    "format": {
+        "duration": "60.000000",
+        "size": "181546534",
+        "bit_rate": "24206204"
+    }
+}

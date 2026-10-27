@@ -1,0 +1,10 @@
+import json
+from faster_whisper import WhisperModel
+m=WhisperModel("/hutian/qcwork/hf/models--Systran--faster-whisper-small.en/snapshots/d1d751a5f8271d482d14ca55d9e2deeebbae577f",device="cpu",compute_type="int8",cpu_threads=4)
+segs,_=m.transcribe("/hutian/qcwork/cut-v2-16k.wav",word_timestamps=True,vad_filter=False,condition_on_previous_text=False,language="en")
+out=[]
+for s in segs:
+    out.append({"start":s.start,"end":s.end,"text":s.text,"words":[(w.word,w.start,w.end) for w in s.words]})
+    print(round(s.start,1),s.text,flush=True)
+json.dump(out,open("/hutian/qcwork/asr-cut-v2.json","w"))
+print("HUTIAN_WAKE: asr done",flush=True)

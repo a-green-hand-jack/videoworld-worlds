@@ -1,0 +1,24 @@
+# Delivery specification — what each cut is judged against
+
+Source: `director`#1 (the film objective). Each check is measured on the cut (ffprobe/ffmpeg) or watched/listened to.
+
+## File
+- D1. Path in the delivery: `film/paper-lantern.mp4`, nonempty, MP4 container that plays in a web browser (H.264 `yuv420p`, `+faststart` recommended).
+- D2. Duration 18.0–22.0 s (target 20 s); video and audio streams both cover the whole duration (difference ≤ 0.1 s).
+
+## Picture
+- P1. Video: H.264, 1280x720, square pixels, 24 fps constant frame rate.
+- P2. Four to six shots made from still images, with camera moves (slow pans, pushes, tilts); no frozen frame longer than the title/end card holds.
+- P3. Opening title reading "The Paper Lantern", legible; end card at the end.
+- P4. Story: at dusk a child lets a paper lantern go on a river; it drifts past the village; it ends as a small light among the stars. Each beat is visible.
+- P5. Consistency: one style across all shots, title and end card; the child and the lantern look the same wherever they appear (see `direction/shot-list.md`).
+- P6. No technical faults: no black gaps (other than intentional fades at start/end), no stretched aspect, no visible tearing, banding or compression blocks severe enough to notice, no watermarks or stray text.
+
+## Sound
+- S1. Audio: AAC, stereo (2 channels), 44.1 or 48 kHz.
+- S2. Content: water and evening ambience plus a soft musical cue; no dialogue or voices.
+- S3. Level: integrated loudness about −16 LUFS (±3), true peak ≤ −1 dBTP, no clipping; no silence gaps; fades in at the start and out at the end.
+- S4. Sound follows the picture: music and ambience shape the arc (gentle start, release, drift, settle at the stars).
+
+## Lock
+The director locks only a cut that it has watched and listened to from start to end, that passes D1–S4, and that `test-audience` has screened and reported on.

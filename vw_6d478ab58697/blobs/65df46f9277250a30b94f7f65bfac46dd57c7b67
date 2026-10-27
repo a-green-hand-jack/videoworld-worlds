@@ -1,0 +1,10 @@
+from PIL import Image, ImageDraw, ImageFont
+from pathlib import Path
+out = Path(__file__).parent
+image = Image.new('RGB', (1280,720), '#101B2B')
+draw = ImageDraw.Draw(image)
+font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 80)
+text = 'Tone, Rain, Clip'
+x0,y0,x1,y1 = draw.textbbox((0,0),text,font=font)
+draw.text(((1280-(x1-x0))/2-x0,(720-(y1-y0))/2-y0),text,font=font,fill='#FFFFFF')
+image.save(out/'title.png')

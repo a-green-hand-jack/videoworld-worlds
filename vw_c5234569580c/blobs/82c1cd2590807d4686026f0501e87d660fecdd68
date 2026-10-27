@@ -1,0 +1,11 @@
+# QC — production-designer source stills v1 (commit 562b408f10e9, `picture/stills/shot1..5.png`)
+
+Viewed each still whole (downscaled to 836 px wide) and shot 2's hands at full resolution.
+
+- Size 1672x940/941: enough for a ≈30 % move at 1280x720. Passes P6 resolution.
+- P3 beats: shot 1 child kneeling at the bank with the lit lantern, dusk sun, village and bridge; shot 2 hands releasing it, ripples; shot 3 lantern past the village with warm windows, wake trailing left so it reads as left→right travel; shot 4 open water, first stars, lantern small; shot 5 lantern a tiny warm point on the water among the reflected stars. The story reads.
+- P4/P5: one gouache style throughout; the lantern (cream cuboid on a dark tray, amber glow) matches in all five; the child's rust-red sleeves match between 1 and 2; palette moves from dusk to night as directed.
+- Minor (owner's call): in shot 2 the hands look large and adult-proportioned next to the small child of shot 1. Fingers are correct; no artefacts seen.
+- Shot 5: the lantern is the brightest warm point but small (≈8 px wide at 836 px). At 1280 px it is still visible; a slow push in shot 5 should keep it readable rather than shrink it.
+
+Recommendation: stills accepted for the clips.

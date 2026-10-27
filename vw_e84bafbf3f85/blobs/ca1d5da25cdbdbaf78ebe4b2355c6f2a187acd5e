@@ -1,0 +1,27 @@
+#!/bin/bash
+# Usage: qc/check.sh FILM.mp4 OUTDIR — measures a cut against delivery-spec.md
+set -u
+f=$1; out=$2; mkdir -p "$out"
+ffprobe -v error -show_format -show_streams -of json "$f" > "$out/ffprobe.json"
+python3 - "$out/ffprobe.json" "$f" <<'PY' | tee "$out/spec.txt"
+import json,sys
+d=json.load(open(sys.argv[1])); v=[s for s in d['streams'] if s['codec_type']=='video']; a=[s for s in d['streams'] if s['codec_type']=='audio']
+def ok(c,m): print(('PASS ' if c else 'FAIL ')+m)
+ok(len(v)==1 and len(a)==1, f"streams v={len(v)} a={len(a)}")
+if v:
+  v=v[0]; ok(v['codec_name']=='h264', 'video codec '+v['codec_name']); ok(v.get('pix_fmt')=='yuv420p','pix_fmt '+str(v.get('pix_fmt')))
+  ok((v['width'],v['height'])==(1280,720), f"size {v['width']}x{v['height']}"); ok(v.get('sample_aspect_ratio','1:1') in ('1:1','N/A'),'SAR '+str(v.get('sample_aspect_ratio')))
+  ok(v['r_frame_rate']=='24/1' and v['avg_frame_rate']=='24/1', f"fps r={v['r_frame_rate']} avg={v['avg_frame_rate']}")
+if a:
+  a=a[0]; ok(a['codec_name']=='aac','audio codec '+a['codec_name']); ok(a['channels']==2,f"channels {a['channels']}"); ok(a['sample_rate']=='48000','rate '+a['sample_rate'])
+D=float(d['format']['duration']); ok(18<=D<=22, f"duration {D:.3f}")
+if v and a:
+  dv=float(v.get('duration',0)); da=float(a.get('duration',0)); ok(abs(dv-da)<=0.1, f"stream durations v={dv:.3f} a={da:.3f}")
+b=open(sys.argv[2],'rb').read(1<<20); m=b.find(b'moov'); md=b.find(b'mdat'); ok(m!=-1 and (md==-1 or m<md),'faststart (moov before mdat)')
+PY
+ffmpeg -nostats -hide_banner -i "$f" -vf "blackdetect=d=0.3:pix_th=0.08,freezedetect=n=0.001:d=1.0" -af "silencedetect=n=-50dB:d=0.5,ebur128=peak=true" -f null - 2> "$out/filters.log"
+grep -E "black_start|freeze_start|freeze_duration|silence_start|silence_end" "$out/filters.log" | sed 's/^\[[^]]*\] //' > "$out/detect.txt"
+grep -A16 "Summary:" "$out/filters.log" > "$out/loudness.txt"
+mkdir -p "$out/frames"; ffmpeg -v error -y -i "$f" -vf "fps=2,scale=320:-1,tile=8x6" -frames:v 1 "$out/contact.png"
+for t in $(seq 0.5 1 21.5); do ffmpeg -v error -y -ss $t -i "$f" -frames:v 1 "$out/frames/t$t.jpg"; done
+echo "--- detect"; cat "$out/detect.txt"; echo "--- loudness"; cat "$out/loudness.txt"

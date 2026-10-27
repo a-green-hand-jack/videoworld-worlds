@@ -1,0 +1,14 @@
+# QC — `editor` release `cut-v4` (editor commit 378db12), checked 2026-10-19
+
+File `paper-lantern-cut-v4.mp4`, sha256 493be6275c8430fd16c2486f831f71284e2d04e23b4a94b68fb5c02e315eeb46 — identical to `film/paper-lantern.mp4` in `ht-role delivery` assembled from editor 378db12. Re-released as `world/director` `screen-cut-v4`.
+
+- Picture: video framemd5 digest e8d15523… identical to cut-v3, so the picture QC of `qc/cut-v3.md` and test-audience's screening of cut-v3 apply unchanged.
+- Format: H.264 High yuv420p 1280x720 24/1, 480 frames; AAC LC stereo 48 kHz; 20.000 s both streams. Black only at 0–0.17 s and 19.71–19.96 s; no freeze; no silence gap.
+- Level: −16.1 LUFS, true peak −4.5 dBFS, LRA 2.1 LU.
+- Proxy listen (AST, `tools/tag_audio.py`, `tools/tag_stems.py`; stems rendered from editor `tools/make_sound.py` @378db12):
+  - stems: crickets → Insect .17, Cricket .15, Frog .13 (Ringtone gone); water → Rain .20, Waves .17, Ocean .16, Rain on surface .16; wind → Rustling leaves .14; music → Music .47, Marimba .33, Glockenspiel .29; water touch → Sound effect .31, Plop .05.
+  - full cut: Frog .20, Music .18, Vehicle .12, Waves .07, Croak .05, "Outside, rural or natural" .03; Ringtone ≤ .04; Speech ≤ .05; end card Explosion .05 (was .19 in cut-v3).
+  - Residual: "Vehicle" .10–.19 over 00:00–00:09.5 in the full mix, not produced by any stem alone (no stem tags Vehicle); taken as a mixture artefact of the classifier, low confidence. Recorded as a residual risk, not a fault.
+- Not verified by ear (audio-understanding daily quota, 429).
+
+Conclusion: passes D1–S4 on measurement and proxy listening; lock once test-audience has reported on `screen-cut-v4`.

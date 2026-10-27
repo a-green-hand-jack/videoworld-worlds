@@ -1,0 +1,18 @@
+import numpy as np,scipy.io.wavfile as wf,scipy.signal as sg,json,statistics
+sr,x=wf.read("/hutian/qcwork/cut-v5-16k.wav");x=x.astype(np.float32)/32768
+b,a=sg.butter(4,[300/8000,3400/8000],"band");y=sg.filtfilt(b,a,x)
+h=160  # 10 ms
+e=10*np.log10(np.convolve(y**2,np.ones(2*h)/(2*h),"same")[::h]+1e-10)
+d=json.load(open("evidence/cut-v5/asr-isolated.json"))
+out=[]
+for r in d:
+    cs=r["cue"][0];i0=int((cs-0.6)*100);i1=int((cs+0.6)*100)
+    seg=e[i0:i1];jump=np.diff(seg[::1]);k=int(np.argmax(np.convolve(seg[5:]-np.roll(seg,5)[5:],np.ones(1))))  # 50ms rise
+    rise=seg[5:]-seg[:-5];k=int(np.argmax(rise))
+    out.append((r["line"],round((i0+k+2.5)/100-cs,2),round(float(rise[k]),1)))
+good=[o for o in out if o[2]>=8]
+print("lines with a clear rise (>=8 dB/50ms):",len(good),"of",len(out))
+v=[o[1] for o in good];print("median",statistics.median(v),"within0.15",sum(abs(t)<=.15 for t in v),"within0.3",sum(abs(t)<=.3 for t in v),"max",max(v),"min",min(v))
+print([o for o in good if abs(o[1])>.3])
+print("no clear rise:",[o[0] for o in out if o[2]<8])
+json.dump(out,open("evidence/cut-v5/onset.json","w"))

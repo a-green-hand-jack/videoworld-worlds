@@ -1,0 +1,55 @@
+# QC report — cut-v4 (release world/editor `cut-v4`, editor 0a845b6) against `direction/delivery-spec.md` (fb1a5b4)
+
+Checked file: `film.mp4` downloaded from the release (byte-identical to `film.mp4` at editor 0a845b6) and `film.srt`.
+Methods: ffprobe/ffmpeg measurements; faster-whisper `small.en` word timestamps against the burned-in cue times; band-passed
+speech-energy envelope; ebur128; blackdetect/freezedetect/silencedetect; frame-difference/luminance scan; contact sheets and
+full-size frames; whole-film viewing by gemini-4-argon (`film-understanding-gemini-4-argon.txt`, used as a lead only — it was
+wrong about the carriage sound and about "no ignition SFX", so every claim below was re-checked by me); audio listening by
+gemini-3.8-flash (audio-understanding) for the effects log.
+
+## Recommendation: **FIX — do not lock cut-v4.** Technically it passes; the picture does not yet.
+Deciding faults (all picture; each already in dp#2 or flagged below):
+1. s10 0:53–0:56 live goose instead of the roast goose hopping (spec 7, 14).
+2. s13a 1:14–1:16 the match is struck during the memory line, paper vignette at ~1:15 (spec 7, 14).
+3. s12 1:04–1:13 style break + static still; s14–s18 (1:25.6–1:53.5) are interim push-in stills, not moving shots (spec 14 "frozen
+   frames", 13 for s12/s17→s18 jump). dp replaces after quota reset.
+4. s04/s03 generation faults below (new): merging passers-by 0:17–0:19, horse/carriage clipping 0:10–0:11 (known).
+Not deciding but to fix in cut-v5: strike-4 SFX has no matching picture (#strike), three subtitle cues 0.3–0.4 s early (#sync).
+
+## Point by point
+| # | Spec point | Result | Evidence |
+|---|---|---|---|
+| 1 | one `film.mp4` at editor root | PASS | present, 48 MB, identical to release asset |
+| 2 | MP4, moov first, browser-playable | PASS | `moov` at byte 36, no `mdat` before it; H.264 High yuv420p, AAC-LC (browser-standard) |
+| 3 | H.264 High/Main, yuv420p, 1280x720, 24 fps CFR, square pixels | PASS | ffprobe: High, yuv420p, 1280x720, SAR 1:1, 24/1; 2926 frames, every packet pts step 41.67 ms (no irregular step) |
+| 4 | AAC-LC stereo 48 kHz ~160–192 kb/s, one track | PASS (rate slightly high) | 1 audio stream, AAC LC, 2 ch, 48 kHz, 199 kb/s (spec says "about"; fine) |
+| 5 | 115–125 s; streams equal within 0.1 s | PASS | format 121.959 s; video 121.917, audio 121.958 (Δ 0.04 s) |
+| 6 | burned English subtitles, lower third, ≤2 lines, ≤~42 chars | PASS with 1 nit | 25 cues all burned in, white/black outline, lower third, none covers a face (checked 0:24, 0:41, 1:17, 1:27, 1:46, 1:56 full-size). Nit: cue 23 (1:42.59) "rosy-cheeked and smiling — frozen to death." = 43 chars. `film.srt` sidecar matches the burn-in text. |
+| 7 | every script beat on screen and in narration, in order | PARTIAL | narration complete and in order (whisper transcript of the mix matches all 25 cues). On screen: stove, goose (wrong goose, see 1), tree→stars→falling star, grandmother, bundle, ascent, dawn, people, last line present. Faults: s10 goose, s13a strike timing. |
+| 8 | follows and moved | not mine | for test-audience/director; my own read: story is followable from narration + subs; the ascent/dawn (1:34–1:54) is on stills |
+| 9 | narration intelligible, 3 dialogue lines present, in character | PASS | whisper transcribes all narration and the girl's three lines + the passer-by's line without gaps; audio listening: ducking works, "Someone is dying" is a whisper but audible |
+| 10 | music and SFX support the beats; each strike heard | PASS | five strikes heard at ≈0:34.5, 0:46.2, 0:57.8, 1:20.5, 1:29.8; carriages/hooves 0:09.5–0:14, wind, goose, chimes; music arc cold→warm→climax→hushed |
+| 11 | speech ↔ subtitles ±0.25 s; effects ↔ picture ≤2 frames | PARTIAL | 21 of 25 cues within ±0.2 s. Early (cue shows before the speech): cue 6 (0:21.97) ≈0.3 s, cue 15 "Someone is dying" (1:10.32) ≈0.4 s, cue 18 "Grandmother! Take me with you!" (1:25.93) ≈0.3 s. Strike 1 flare 0:34.58 matches the sound. Strike 4 does not (see issues). Whisper word starts are ±0.1–0.15 s, so cues 6/15/18 need a re-measure on the mix, not a blind shift. |
+| 12 | −16 ±2 LUFS, TP ≤ −1 dBTP, no clipping/silence/jumps | PASS | ebur128: I −16.1 LUFS, LRA 3.6 LU, true peak −1.8 dBFS; astats flat factor 0, no clipped samples; silencedetect (−50 dB, 0.4 s) finds none; listening found no clicks or dropouts; vision ambiences end on the extinguishing match at 0:45.2, 0:57.0, 1:04.8 (intended) |
+| 13 | consistency (girl, grandmother, corner, style) | PASS except s12 | one girl (blond waves, brown dress, dark fringed shawl, blue plaid apron, bare feet) across s01–s19 in contact sheet; grandmother appears in s13b and s16 only (s16 is a still, white dress, shawl not visible — minor); one corner wall in s06–s17. s12 (the starry-sky still, 1:04–1:13) is a flatter, darker-blue style than neighbours (dp#2 already). s02 is daylight (dp#2). |
+| 14 | no visible generation faults | FAIL | see list; known: s03 horse legs, s10 goose, s13a vignette; new: s04 passers-by merging, s03 foot-insert luminance jump |
+| 15 | tone: no beating, peaceful death | PASS | no violence; dawn shot shows her smiling; closing images non-graphic |
+
+Also checked: black frames only at 0:00–0.125 (fade-in), 0:57.125–0:57.625 (goose vision going dark, intended), 1:58.83–2:01.9 (end title/fade). Freeze only from 1:59.54 (end title, static text, intended). No flashes/strobing found in the frame-difference scan other than the foot insert below.
+End title present: "The Little Match Girl / after Hans Christian Andersen".
+
+## Faults not yet reported (new), with owner
+| # | Cut-v4 time | Fault | Owner |
+|---|---|---|---|
+| A | 0:14.33–0:15.33 | A 1 s extreme close-up of bare feet is baked into s03 (hard cut inside the shot, mean luminance jumps 124→193 and back 196→124 at 15.33 into the next shot) — reads as a flash and an unmotivated jump cut; the feet are also very large in frame. Fix: trim s03 out-point before 14.33 or end the shot on the foot insert deliberately (dissolve). | editor (trim) / dp |
+| B | 0:17.0–0:18.9 (s04) | Passers-by merge: the two men at left overlap into one body at 0:17.3–0:18.4; background figures split/merge. | dp (editor can trim 0:17–0:19 only if the shot is kept) |
+| C | 0:34.3–0:34.6 (s07) | Match bursts into flame ~3–4 cm from the wall without touching it; the spark is at 0:34.58, the scrape SFX at ≈0:34.5. Reads, but the strike gesture is not shown. | dp (minor) |
+| D | 1:14.5–1:15.0 audio vs 1:20.5 audio | Strike-4 SFX is at ≈1:20.5 (cut to grandmother, s13b) but the girl lights her match at 1:14.6–1:15 in s13a (silent). The new s13a should hold the unlit match through the memory line and strike at the end of line 16 (~1:19.5–1:20.3), with strike 4 timed to that. | sound-designer (via editor) after dp's s13a |
+| E | cues 6, 15, 18 | Subtitles lead speech by ≈0.3–0.4 s (table above, point 11). | editor (srt) / sound-designer (mix) |
+| F | 1:42.59 (cue 23) | 43 characters on the second line (limit ~42). | editor |
+
+## Addendum — cut-v4b / cut-v4c re-check (editor 60b955f)
+- editor#4 (sync): accepted. cut-v4b starts each cue on the stem voice onset (edit/cut-v4/subtitle-onsets-v4b.txt); my whisper estimate for cues 6/15/18 is withdrawn.
+- editor#6 (feet flash): FIXED in cut-v4c. Luminance scan shows no 124→193 jump at 0:14.33; s03 now ends with the girl barefoot in the wide street shot, the cut into s04 is at 0:15.38. Cue 23 now ≤42 characters (no subtitle line over 42 in film.srt).
+- Unchanged and measured again on cut-v4c: 121.959 s, H.264 1280x720 24 fps, AAC, −16.1 LUFS, TP −1.8 dBFS, same audio packet count as cut-v4.
+- Recommendation unchanged: FIX. Open: dp#2 (s10 goose, s13a strike/vignette, s12 style, interim stills s14–s18, s03 horse legs), editor#5 (strike-4 SFX vs s13a), s04 passers-by (queued with dp).

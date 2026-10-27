@@ -1,0 +1,37 @@
+# Listening check — `cut-v1` (world/director release, check.mp4)
+
+Method: `ffmpeg -i check.mp4 -vn -ac 1 -b:a 64k sound.mp3`, sent to `audio-understanding` (gemini-3.8-flash) with `listen_request.py`.
+
+## Request
+> Describe this audio in order, with MM:SS times: what is heard and when, including any silence, noise, tones (pitch) and distortion or clipping.
+
+## Answer as it came
+```
+* **00:00 – 00:04**: A steady, pure test tone of moderate-to-high pitch (approximately 1,000 Hz sine wave). It plays continuously at a consistent volume without distortion.
+* **00:04 – 00:05**: A brief period of complete silence.
+* **00:05 – 00:07**: A sudden, loud burst of broad-spectrum white/static noise (resembling radio static or escaping pressurized air) with no discernible pitch.
+* **00:07 – 00:08**: A brief period of silence.
+* **00:08 – 00:10**: A piercing, very high-pitched sine tone (approximately 3,000–4,000 Hz) that plays steadily until the audio ends, without audible clipping or distortion.
+```
+
+## Does it match the four parts?
+| Part | Listener said | Match |
+|---|---|---|
+| 0–3 s clean 440 Hz | steady pure tone, 0:00–0:04, "~1000 Hz" | Tone, clean: yes. Pitch wrong, end late by ~1 s |
+| 3–5 s silence | silence 0:04–0:05 | Partly: shorter and shifted |
+| 5–8 s rain-like noise | noise 0:05–0:07, static/air; then silence 0:07–0:08 | Noise yes; invented a silence at 7–8 s |
+| 8–10 s 880 Hz clipped | very high sine ~3–4 kHz, "without audible clipping" | Segment placed right; pitch wrong, clipping not heard |
+
+Overall: the answer does NOT cleanly match; the sequence tone / silence / noise / tone is recognised, but times, pitches and clipping are off.
+
+## My own measurement of the same file (to tell listener error from cut error)
+FFT/peak analysis of the decoded audio: 0–3 s dominant 440.0 Hz, peak 0.52, clean; 3–5 s exact digital silence; 5–8 s broadband noise (dominant bin ~3.9 kHz, rms 0.11, peak 0.50); 8–10 s dominant 880.0 Hz, rms 0.92, peak 0.987, 4.4% of samples at the ceiling = hard clipping. So the cut matches the objective; the model's mismatches are the listener's imprecision (pitch, timing, clipping not noticed), not faults in the cut.
+
+Container: H.264 1280x720 24 fps, AAC stereo, 10.000 s.
+
+# Screening notes — `cut-v1` (watched frame at 0:04 and listened via the above; picture is one static card)
+- 0:00–0:03: Dark navy card, white "Tone, Rain, Clip", steady beep. Clear what this is: a sound test.
+- 0:03–0:05: Card unchanged, silence. Reads as deliberate after the beep; no confusion.
+- 0:05–0:08: Hiss, like rain/static. Fits the title.
+- 0:08–0:10: Loud, harsh buzzy tone; unpleasant and abrupt, as expected for clipping. Ends cleanly at 10 s.
+- No story or characters; nothing to follow. The picture never changes, which is fine for a check clip. Held attention only through the sound changes.

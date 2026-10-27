@@ -1,0 +1,2 @@
+image-generation (gemini-3.1-flash-image): HTTP 200
+saved match.jpg: JPEG image, 1408x768 (checked with PIL; `file` is not installed)

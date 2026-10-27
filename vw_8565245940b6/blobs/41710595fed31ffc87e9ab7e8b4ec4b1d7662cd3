@@ -1,0 +1,25 @@
+# QC — `editor` release `cut-v3` (editor commit beb5740), checked 2026-10-19
+
+File `paper-lantern-cut-v3.mp4`, sha256 7aec70da9d44032aeac80de216c3605bd45d13f0e80c62ab932dc0e21585176a; re-released for screening as `world/director` `screen-cut-v3`.
+
+## Spec
+D1/D2 pass (MP4, 20.000 s video 480 frames and audio). P1 pass (H.264 High yuv420p 1280x720 24/1). P2–P5 pass (sheet `cut-v3-sheet.png`: title 0.6–2.1 s, S1 push, S2 hands release, straight cut to S3 drift past the village, S4 tiny light among stars, end card). P6 pass (black only at 0–0.17 s and 19.71–19.96 s; no freeze ≥0.7 s). S1 pass (AAC LC stereo 48 kHz). S3 pass (−16.1 LUFS, −3.9 dBTP, LRA 2.1; no silence gap).
+
+## cut-v2 findings
+1. Double lantern: fixed: straight cut at 9.5 s (8 fps strip from 8.9 s, top two rows of `cut-v3-fixes.png`).
+2. Ending: fixed: lantern's warm point visible to ~17.1 s, "The End" rising under the plate dissolve, fully bright ≈17.8–19.3 s, fade to black 19.3–20.0 (3 fps strip from 16.4 s).
+3. Evening ambience: fixed by measurement: cricket tones 18–24 dB above the neighbouring band at 01–08 s (were 2–3 dB), fading through S3/S4 (13 dB at 15 s, gone by 18 s); 3.7–5.2 kHz band RMS −32 dBFS vs −27/−28 dBFS for the river/music bands, so present but not dominant. Largest sample steps (0.15–0.20) are spread over 1.7–9 s and follow the 4.3 kHz cricket tones, not isolated clicks.
+
+## Not verified
+By ear: audio-understanding still 429 (daily quota) at this check.
+
+Recommendation: lock candidate, pending test-audience's screening of `screen-cut-v3`.
+
+## Screening and proxy listening (added after test-audience `screenings/screen-cut-v3.md` @3423ec2)
+- Screening: notes 1–2 resolved, 3 improved; nothing new on picture; no click found (06.7 s step is water noise); sound unheard (429); whisper `tiny` " You" at 0.0 s with no_speech_prob 0.40.
+- Proxy listen, since no ear is available: AudioSet classifier AST (`tools/tag_audio.py`, `tools/tag_stems.py`) on the cut and on stems rendered from editor `tools/make_sound.py` @beb5740:
+  - cut-v3 sections: 0–2.5 s Music .15, **Ringtone .14**; 2.5–6 s **Ringtone .21**, Vehicle .17, Music .13; 6–9.5 Music .30, Ringtone .19; 9.5–13.5 Music .31; 13.5–17.5 Music .37; 17.5–20 Explosion .19, Sound effect .11 (low rumble alone under the fade). Cricket/Insect .00 throughout; Speech ≤ .10.
+  - stems alone: crickets → **Ringtone .25, Telephone .05** (no Cricket/Insect); water+wind → Ocean .29, Waves .28, Wind .15; music → Music .47, Marimba .33, Glockenspiel .29.
+  - Reading: music and water read as intended; the synthetic crickets (a 4.3 kHz sine with ~20 Hz sin² pulsing, the modulation of a telephone ring), now raised ~10 dB, most likely sound like an electronic ring rather than insects, and the low rumble reads "vehicle"/"explosion" where it is exposed (S1, end card).
+
+Recommendation revised: **fix** the crickets (natural chirp structure or a licensed field recording, verified to tag as Cricket/Insect and not Ringtone) and tame the exposed low rumble; then lock without a new screening if the picture is unchanged.

@@ -1,0 +1,23 @@
+# Lock Evaluation Record & Verdict
+
+## Objective Specification
+"Then, when editor's `probe.md` is pushed, read it, and approve the release if every editor step and both of yours returned media or an answer; otherwise say which failed."
+
+"A synthetic check of this world's resources before a real film. It is not a film: do only this, briefly, and do not retry a failed step another way."
+
+## Evaluated Steps & Results
+- **director steps**:
+  1. `film-understanding` (gemini-3.8-flash on synthetic `t.mp4`): **HTTP 200** (Answer returned: described visual test pattern and 1 kHz tone).
+  2. `audio-understanding` (gemini-3.8-flash on `t.mp4` audio): **HTTP 200** (Answer returned: described repetitive high-pitched beeps).
+- **editor steps** (from editor commit `3059f35522fe` and release `probe-1`):
+  1. `video-generation`: **HTTP 200**, video/mp4, 3.008 s.
+  2. `image-generation`: **HTTP 503**, `resource unavailable`: served on the model route of a worker whose provider speaks openai-responses; this worker speaks anthropic (not retried). **FAILED**.
+  3. `speech`: **HTTP 200**, audio/wav, 2.48 s.
+  4. `music`: **HTTP 200**, audio/mpeg, 62.77 s.
+  5. `sound-effects`: **HTTP 200**, audio/mpeg, 1.04 s.
+  6. `film-understanding`: **HTTP 200** (Answer returned: "A close-up, slow-motion shot of a lit matchstick burning while snowflakes fall gently in the background.").
+
+## Verdict
+Approval is **withheld**.
+The condition for approval ("approve the release if every editor step and both of yours returned media or an answer") was not met because editor's `image-generation` step failed with HTTP 503.
+Per the explicit task instruction ("do only this, briefly, and do not retry a failed step another way... otherwise say which failed"), the failed step is declared and no retry or release approval is executed.

@@ -1,0 +1,9 @@
+# Proposed design and picture package
+
+Objective read: production-designer issue #1, The Paper Lantern, 20 seconds, four to six still-based shots, 1280x720 / 24 fps, opening title and end card; H.264 / AAC stereo final film belongs to editor.
+
+I own the complete design and picture function. Proposed delivery paths are `design/` and `picture/`. I will publish design/reference images and shot media in releases and keep the image sources, shot log, prompts and camera specifications reviewable. Final clips are silent, 1280x720 / 24 fps, with frame-exact lengths settled by director/editor. Text compositing and final film assembly remain with editor.
+
+Design proposal for direction: tactile painted storybook illustration, indigo river and lavender dusk, warm amber lantern; one child with short dark hair and a plain ochre coat, one small square ivory paper river lantern on a dark shallow wooden float, no sky-lantern transformation. The final image can merge river reflections and stars while preserving the lantern's journey on water.
+
+Awaiting director brief, settled assignment and shot list/timing before making assets. The precise designs will be fixed against that direction and published with reference images.

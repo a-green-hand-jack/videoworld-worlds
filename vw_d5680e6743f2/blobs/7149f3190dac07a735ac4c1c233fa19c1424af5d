@@ -1,0 +1,7 @@
+# Interim check: editor main 704606b (cut-v3 sound/text on shots-v2 pictures)
+
+- 21.500 s both streams, 516 frames, 1280x720 24 fps, AAC stereo, clean decode, −16.1 LUFS, true peak −1.9 dBFS (F1–F6, S4 pass; 22.0 s hard limit respected).
+- Title at 1.5 s: outline + dark band, clearly legible over the clouds (`qc/interim-704606b-frames.jpg`).
+- End card: "The End" fully readable at 19.5 and 20.5 s, fading at 21.3 s.
+- Water: mean spectral centroid of the mix 0–5 s is 722 Hz (cut-v2 water-dominated band was much brighter); consistent with a slower, darker river. Accents at 7.0/18.0 s are soft (not among the strongest onsets) — needs a listen.
+- Not heard: audio-understanding returned HTTP 429 again (world total 43 requests). Listening is still owed before the lock.

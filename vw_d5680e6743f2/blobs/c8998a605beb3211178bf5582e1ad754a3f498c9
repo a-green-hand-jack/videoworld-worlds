@@ -1,0 +1,75 @@
+"""Synthesize the ambience + soft music cue for The Paper Lantern (21.5 s, stereo, 48k)."""
+import numpy as np, soundfile as sf
+from scipy.signal import butter, sosfilt
+GAIN_DB=1.7
+sr=48000; D=21.5; n=int(sr*D); t=np.arange(n)/sr
+rng=np.random.default_rng(7)
+def bp(x,lo,hi,o=2):
+    return sosfilt(butter(o,[lo,hi],btype='band',fs=sr,output='sos'),x)
+def env(*pts):
+    xs,ys=zip(*pts); return np.interp(t,xs,ys)
+# water: real public-domain river recording (see sound/source/SOURCES.md), looped with a crossfade
+import subprocess, os
+src=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','sound','source','river_shallow_small_river_stony_riverbed.ogg')
+subprocess.run(['ffmpeg','-v','error','-y','-i',src,'-ac','2','/tmp/river.wav'],check=True)
+rv,rsr=sf.read('/tmp/river.wav',always_2d=True)
+from scipy.signal import resample_poly
+rv=resample_poly(rv,sr,rsr,axis=0)
+rv=sosfilt(butter(4,70,btype='high',fs=sr,output='sos'),rv,axis=0)   # field-recording sub-bass rumble (24% of its energy < 40 Hz) is not water
+rv=sosfilt(butter(2,6500,btype='low',fs=sr,output='sos'),rv,axis=0)   # gentle softening of the highs only; speed unchanged so it keeps its water identity
+xf=int(2*sr); ramp=np.linspace(0,1,xf)[:,None]
+loop=np.concatenate([rv[:-xf], rv[-xf:]*np.cos(ramp*np.pi/2)+rv[:xf]*np.sin(ramp*np.pi/2)],0)  # seamless loop
+rep=np.concatenate([loop,loop],0)[:n]
+wl,wr=rep[:,0],rep[:,1]
+wl=wl/np.sqrt((wl**2).mean()); wr=wr/np.sqrt((wr**2).mean())   # unit RMS
+# calm lapping layer: slow swells of low-mid noise, different phase per channel
+def lap(seed,ph):
+    r=np.random.default_rng(seed); x=bp(r.standard_normal(n),120,650,2)
+    sw=(0.5+0.5*np.sin(2*np.pi*(0.21*t)+ph))**2*(0.6+0.4*np.sin(2*np.pi*0.07*t+ph*2))
+    return x*sw/np.sqrt((x**2).mean())
+# (no extra lapping layer: it read as low rumble to a classifier; see director#4)
+# crickets: gated 4.5 kHz tone bursts, fade in with dusk, fewer toward the stars
+def crickets(f,ph,rate):
+    ph_t=(t*rate+ph)%1.0
+    burst=(ph_t<0.35)                       # one chirp train per cycle
+    pulse=(np.sin(2*np.pi*(45*t))>0)*(np.sin(2*np.pi*(45*t))) # ~45 Hz pulses inside the train
+    sw=np.minimum(ph_t/0.03,1)*np.minimum((0.35-ph_t)/0.03,1)
+    return np.sin(2*np.pi*f*t)*burst*pulse*np.clip(sw,0,1)
+cr=env((0,0),(2,0.5),(14,0.5),(19,0.15),(21.5,0))
+cl,cr_=(crickets(4400,0,2.1)+0.6*crickets(5100,0.5,1.7))*cr,(crickets(4650,0.3,1.9)+0.6*crickets(4900,0.8,2.3))*cr
+# music: soft pad (Dsus/Am feel, pentatonic) + sparse plucked bells
+def tone(f,start,dur,amp,dec=1.8):
+    m=(t>=start)&(t<start+dur); tt=t[m]-start
+    y=np.zeros(n); y[m]=amp*np.sin(2*np.pi*f*tt)*np.exp(-tt/dec)*np.minimum(tt/0.01,1)
+    y[m]+=0.3*amp*np.sin(2*np.pi*2*f*tt)*np.exp(-tt/(dec*0.5))*np.minimum(tt/0.01,1)
+    return y
+pad=np.zeros(n)
+for f,a in [(293.66,0.4),(440.0,0.3),(587.33,0.2),(659.25,0.15)]:   # pad kept above 290 Hz: lower notes read as engine hum
+    pad+=a*(np.sin(2*np.pi*f*t)+0.5*np.sin(2*np.pi*f*1.003*t))
+pad*=env((0,0),(5.5,0),(9.5,0.06),(16,0.09),(19,0.08),(20.6,0.05),(21.5,0))
+bells=np.zeros(n)
+notes=[(6.4,587.33),(7.6,659.25),(8.8,880.0),(10.2,739.99),(11.6,659.25),(13.0,587.33),(14.8,880.0),(16.5,1174.66),(17.4,987.77),(18.4,1318.5)]
+for s_,f in notes: bells+=tone(f,s_,3.0,0.10)
+# accents: the release (shot 2, ~7.0 s): a clear soft bell plus a small water touch; the final light (~18.0 s): a high soft note; resolve on the end card
+bells+=tone(587.33,7.0,3.5,0.17,2.2)+tone(880.0,7.0,3.5,0.06,2.4)
+bells+=tone(1760.0,18.0,3.5,0.14,2.5)+tone(2349.3,18.0,3.0,0.05,2.0)
+bells+=tone(587.33,19.3,2.2,0.10,2.5)+tone(293.66,19.3,2.2,0.08,2.5)
+m=(t>=7.0)&(t<7.6); tt=t[m]-7.0
+drop=np.zeros(n); drop[m]=0.10*np.sin(2*np.pi*(450*tt+1800*tt**2))*np.exp(-tt/0.09)*np.minimum(tt/0.004,1)   # rising 'plink'
+for k,(d,a) in enumerate([(0.0,1.0),(0.17,0.5),(0.31,0.25)]):
+    mm=(t>=7.0+d)&(t<7.5+d); u=t[mm]-7.0-d
+    drop[mm]+=a*0.05*np.sin(2*np.pi*(380*u+1400*u**2))*np.exp(-u/0.08)*np.minimum(u/0.004,1)*0
+bells+=drop
+L=0.16*wl*env((0,0),(1,1),(20,1),(21.5,0))+0.4*cl+pad*0.9+bells*0.7
+R=0.16*wr*env((0,0),(1,1),(20,1),(21.5,0))+0.4*cr_+pad*1.0+np.roll(bells,int(0.012*sr))*0.7
+# gentle release splash/plink at ~10.0
+sp=bp(rng.standard_normal(n),600,2500)*env((9.95,0),(10.05,0.5),(10.6,0)) if False else 0
+x=np.stack([L,R],1)
+fade=env((0,0),(0.4,1),(20.6,1),(21.5,0))[:,None]; x*=fade
+x=sosfilt(butter(2,40,btype='high',fs=sr,output='sos'),x,axis=0)   # gentle master high-pass
+x*=0.64/np.abs(x).max()
+x*=10**(GAIN_DB/20)
+sf.write('/tmp/mix_raw.wav',x.astype(np.float32),sr,subtype='FLOAT')
+# peak-limit transients (limit 0.80 = -1.9 dBFS) so loudness can sit at -16 LUFS with true peak <= -1 dBTP
+subprocess.run(['ffmpeg','-v','error','-y','-i','/tmp/mix_raw.wav','-af','alimiter=limit=0.80:attack=3:release=60:level=disabled','-c:a','pcm_s16le','/hutian/repo/sound/mix.wav'],check=True)
+print(np.abs(x).max(), 20*np.log10(np.sqrt((x**2).mean())))

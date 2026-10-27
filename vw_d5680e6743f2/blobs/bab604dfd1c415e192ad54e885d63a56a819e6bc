@@ -1,0 +1,42 @@
+# Script and shot list — "The Paper Lantern"
+
+Target running time ~20.5 s (allowed 18–22 s). 24 fps, 1280x720. Timings are a guide for the edit; the editor may move any cut by up to ~0.5 s for rhythm, keeping the total in range.
+
+Direction of picture: one hand-made illustration look throughout (e.g. soft painterly / watercolour storybook), warm lantern light against cool blue-violet dusk that deepens to night across the film. The lantern: a small square paper lantern, warm orange-gold glow, the same shape and colour in every shot. The child: one child (about 7), same hair, clothes and colours in every shot; seen in shots 1, 2 and 4. Camera moves are slow and calm (Ken Burns style pushes, pans, tilts), no fast moves, no shake. Light dims shot by shot: dusk (1–2) → late dusk with lit windows (3) → blue hour (4) → night with stars (5).
+
+| # | In–out (approx.) | Shot | Picture | Camera move |
+|---|---|---|---|---|
+| T | 0:00.0–0:03.0 | Opening title | "The Paper Lantern" in a simple, legible type over a dusk sky/river plate in the film's style (or over dark), fade in from black, fade out or dissolve to shot 1 | static or very slow push |
+| 1 | 0:03.0–0:06.5 | Establishing | Wide: a river at dusk beside a small village; the child kneels on stone steps / a wooden jetty at the water's edge, holding the lit lantern | slow push in toward the child |
+| 2 | 0:06.5–0:10.0 | The release | Close: the child's hands set the glowing lantern on the water; the lantern's reflection on the river | slow push in on the lantern |
+| 3 | 0:10.0–0:13.5 | Past the village | Medium-wide: the lantern drifts on the river past village houses with warm lit windows and their reflections | slow horizontal pan following the drift |
+| 4 | 0:13.5–0:16.5 | Watching | From behind the child on the bank; the lantern is now small, far down the river | slow pull back or slow push |
+| 5 | 0:16.5–0:19.0 | Among the stars | Wide night: river runs to the horizon; the lantern is a tiny warm point of light that sits among the first stars reflected in the water and the sky | slow tilt up toward the stars |
+| E | 0:19.0–0:20.5 | End card | "The End" (may add a short credit line) over night sky or dark; fade to black at the very end | static |
+
+Transitions: soft dissolves (~0.5 s) or cuts; a fade from black at the start and to black at the end.
+
+Direction of sound (no dialogue, no voice anywhere):
+- **Ambience**, continuous from first to last frame: gentle river water (lapping, slow flow), evening atmosphere (crickets / soft insects, light breeze, perhaps a distant frog or bird at the start). It may thin out toward the night shots.
+- **Musical cue**: soft and simple (e.g. a few notes of piano, music box, harp or a soft pad), entering around the title or the release (shot 2), swelling gently at shot 5 and resolving on the end card. It sits under/with the ambience, never harsh.
+- Fade in at the start, fade out with the picture at the end; no clicks, no clipping, no sudden silence.
+
+## Picture handoff (settled with `production-designer`#3 and `editor`#2)
+
+`production-designer` renders finished **silent** clips, H.264 (or lossless) 1280x720, constant 24 fps, from its stills with the camera moves below; each clip carries a 0.5 s tail handle for dissolves. `editor` sets all text (title, end card) and all sound, and may trim.
+
+| File | Content | Clip length |
+|---|---|---|
+| `title_plate` | dusk sky over the river/village, calm, with space for the title text; no child, no text | 3.5 s |
+| `shot01` | wide dusk river + village, child kneeling on steps/jetty with the lit lantern; slow push in | 4.0 s |
+| `shot02` | close: child's hands set the glowing lantern on the water, reflection; slow push | 4.0 s |
+| `shot03` | lantern drifting past houses with lit windows; slow pan with the drift | 4.0 s |
+| `shot04` | from behind the child on the bank, lantern small far downriver; slow pull back | 3.5 s |
+| `shot05` | night, river to horizon, lantern a tiny warm light among reflected and sky stars; slow tilt up | 3.0 s |
+| `end_plate` | night sky / dark river, space for "The End"; no text | 2.0 s |
+
+Accepted treatment (from `production-designer`): painterly storybook gouache, indigo dusk and amber lantern light; one child with a repeatable silhouette; a square paper lantern on a shallow floating base; the closing light sits among stars reflected on the river.
+
+Text: title **"The Paper Lantern"**; end card **"The End"**.
+
+Relay: `production-designer` and `editor` cannot reach each other. `production-designer` publishes clips + stills + shot log as a release in its repository and answers in `production-designer`#2; `director` republishes the same files as a release in `director` (tag `shots-vN`) and tells `editor` in `editor`#2.

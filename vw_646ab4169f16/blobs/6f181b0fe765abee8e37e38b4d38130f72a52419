@@ -1,0 +1,238 @@
+#!/usr/bin/env python3
+"""Render exact-length picture replacements for director-timed in-shot beats."""
+from __future__ import annotations
+
+import hashlib
+import json
+import shutil
+import subprocess
+from pathlib import Path
+
+from PIL import Image, ImageDraw
+import imageio_ffmpeg
+
+FPS = 24
+WIDTH, HEIGHT = 1024, 576
+ROOT = Path(__file__).resolve().parents[1]
+KEY_DIR = ROOT / "working/shot-keys-v9"
+OUT_DIR = ROOT / "working/rendered-shots-v9"
+EVIDENCE_DIR = ROOT / "evidence"
+FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
+
+
+def fit_image(source: Path, target: Path, crop: tuple[float, float, float, float] | None = None) -> None:
+    image = Image.open(source).convert("RGB")
+    if crop is not None:
+        left, top, right, bottom = crop
+        image = image.crop((
+            round(left * image.width), round(top * image.height),
+            round(right * image.width), round(bottom * image.height),
+        ))
+    image.thumbnail((WIDTH, HEIGHT), Image.Resampling.LANCZOS)
+    canvas = Image.new("RGB", (WIDTH, HEIGHT), (12, 12, 12))
+    canvas.paste(image, ((WIDTH - image.width) // 2, (HEIGHT - image.height) // 2))
+    target.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(target, "PNG", optimize=True)
+
+
+def render_key(key: Path, frames: int, motion: str, output: Path) -> None:
+    subprocess.run([
+        "python3", str(ROOT / "tools/render_shot.py"),
+        "--image", str(key), "--frames", str(frames), "--motion", motion,
+        "--output", str(output), "--crf", "10",
+    ], check=True, cwd=ROOT)
+
+
+def concat_segments(segments: list[Path], frames: int, output: Path) -> None:
+    inputs: list[str] = []
+    for segment in segments:
+        inputs.extend(["-i", str(segment)])
+    labels = "".join(f"[{index}:v]" for index in range(len(segments)))
+    filter_graph = f"{labels}concat=n={len(segments)}:v=1:a=0,format=yuv420p[v]"
+    subprocess.run([
+        FFMPEG, "-hide_banner", "-loglevel", "error", "-y", *inputs,
+        "-filter_complex", filter_graph, "-map", "[v]", "-frames:v", str(frames),
+        "-c:v", "libx264", "-preset", "fast", "-crf", "10", "-pix_fmt", "yuv420p",
+        "-r", str(FPS), "-movflags", "+faststart", str(output),
+    ], check=True)
+
+
+def morph_segments(first: Path, second: Path, frames: int, transition_frames: int, output: Path) -> None:
+    # Hold the first setup through the beat. The transition begins at that exact
+    # frame and overlaps the held first setup, preserving the requested total.
+    first_frames = frames - (frames - 72) + transition_frames
+    second_frames = frames - 72
+    offset = 72 / FPS
+    duration = transition_frames / FPS
+    subprocess.run([
+        FFMPEG, "-hide_banner", "-loglevel", "error", "-y",
+        "-i", str(first), "-i", str(second),
+        "-filter_complex",
+        f"[0:v]settb=AVTB,fps={FPS},format=yuv420p[a];"
+        f"[1:v]settb=AVTB,fps={FPS},format=yuv420p[b];"
+        f"[a][b]xfade=transition=fade:duration={duration:.6f}:offset={offset:.6f},format=yuv420p[v]",
+        "-map", "[v]", "-frames:v", str(frames), "-c:v", "libx264", "-preset", "fast",
+        "-crf", "10", "-pix_fmt", "yuv420p", "-r", str(FPS), "-movflags", "+faststart",
+        str(output),
+    ], check=True)
+    if first_frames != 84 or second_frames != 38:
+        raise AssertionError((first_frames, second_frames))
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def media_frames(path: Path) -> int:
+    frames, _seconds = imageio_ffmpeg.count_frames_and_secs(str(path))
+    return int(frames)
+
+
+def make_contact_sheet(keys: list[tuple[str, Path]], target: Path) -> None:
+    thumb_w, thumb_h = 320, 180
+    canvas = Image.new("RGB", (thumb_w * 2, (thumb_h + 30) * 3), (18, 18, 18))
+    draw = ImageDraw.Draw(canvas)
+    for index, (label, path) in enumerate(keys):
+        image = Image.open(path).convert("RGB").resize((thumb_w, thumb_h), Image.Resampling.LANCZOS)
+        x = (index % 2) * thumb_w
+        y = (index // 2) * (thumb_h + 30)
+        canvas.paste(image, (x, y))
+        draw.text((x + 8, y + thumb_h + 6), label, fill=(235, 235, 235))
+    canvas.save(target, "JPEG", quality=92, optimize=True)
+
+
+def main() -> None:
+    KEY_DIR.mkdir(parents=True, exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
+    source = {
+        "S029_overhead": ROOT / "working/shot-keys-v2/S029.png",
+        "S029_proog": ROOT / "working/shot-keys-v2/S029.png",
+        "S029_emo": ROOT / "working/shot-keys-v2/S030.png",
+        "S066_tunnel": ROOT / "working/shot-keys-v5/S066.png",
+        "S066_capsule": ROOT / "working/shot-keys-v5/S065.png",
+        "S066_flash": ROOT / "working/shot-keys-v5/S065.png",
+        "S069_iris": ROOT / "working/shot-keys-v5/S065.png",
+        "S069_proog": ROOT / "working/shot-keys-v5/S069.png",
+        "S086_gloom": ROOT / "working/shot-keys-v5/S085.png",
+        "S086_amber": ROOT / "working/shot-keys-v5/S086.png",
+        "S091_totem": ROOT / "working/shot-keys-v5/S091.png",
+        "S091_green": ROOT / "working/shot-keys-v5/S092.png",
+    }
+    crops = {
+        "S029_proog": (0.02, 0.10, 0.68, 0.72),
+        "S029_emo": (0.36, 0.12, 0.99, 0.74),
+        "S066_flash": (0.35, 0.10, 0.95, 0.66),
+        "S069_iris": (0.40, 0.16, 1.00, 0.73),
+    }
+    for name, path in source.items():
+        fit_image(path, KEY_DIR / f"{name}.png", crops.get(name))
+
+    jobs = [
+        {
+            "id": "S029", "frame_in": 3820, "frames": 156,
+            "beats": [
+                {"at_frame_in_shot": 48, "absolute_frame": 3868, "kind": "cut", "what": "overhead telephone to red-lit Proog looking down"},
+                {"at_frame_in_shot": 98, "absolute_frame": 3918, "kind": "cut", "what": "red-lit Proog to Emo against cable cage"},
+            ],
+            "segments": [
+                ("S029_overhead", 48, "push-in"), ("S029_proog", 50, "push-in"), ("S029_emo", 58, "push-in"),
+            ],
+            "notes": "Hard changes at in-shot frames 48 and 98; each setup is full-bright and motion-bearing.",
+        },
+        {
+            "id": "S066", "frame_in": 7497, "frames": 138,
+            "beats": [
+                {"at_frame_in_shot": 66, "absolute_frame": 7563, "kind": "cut", "what": "cable tunnel to bursting capsule tumble"},
+                {"at_frame_in_shot": 130, "absolute_frame": 7627, "kind": "cut", "what": "capsule tumble to eight-frame capsule flash close-up"},
+            ],
+            "segments": [
+                ("S066_tunnel", 66, "push-in"), ("S066_capsule", 64, "push-in"), ("S066_flash", 8, "push-in"),
+            ],
+            "notes": "Hard changes at in-shot frames 66 and 130; final capsule flash is exactly eight frames.",
+        },
+        {
+            "id": "S069", "frame_in": 7833, "frames": 28,
+            "beats": [
+                {"at_frame_in_shot": 17, "absolute_frame": 7850, "kind": "cut", "what": "iris ring to Proog swinging close past lens"},
+            ],
+            "segments": [("S069_iris", 17, "push-in"), ("S069_proog", 11, "push-in")],
+            "notes": "Hard change at in-shot frame 17.",
+        },
+        {
+            "id": "S086", "frame_in": 9514, "frames": 208,
+            "beats": [
+                {"at_frame_in_shot": 73, "absolute_frame": 9587, "kind": "cut", "what": "gloomy glowing-door walk to warm amber room"},
+            ],
+            "segments": [("S086_gloom", 73, "push-in"), ("S086_amber", 135, "push-in")],
+            "notes": "Hard change at in-shot frame 73.",
+        },
+        {
+            "id": "S091", "frame_in": 9989, "frames": 110,
+            "beats": [
+                {"at_frame_in_shot": 72, "absolute_frame": 10061, "kind": "morph", "what": "door background morphs to pale green tiled fan room while Proog and Emo remain"},
+            ],
+            "segments": [("S091_totem", 72, "pan-right"), ("S091_green", 38, "push-in")],
+            "notes": "Twelve-frame visual morph begins exactly at in-shot frame 72; total remains 110 frames.",
+        },
+    ]
+    records = []
+    sheet_keys = []
+    for job in jobs:
+        sid = job["id"]
+        segment_paths = []
+        segment_records = []
+        for index, (key_name, frames, motion) in enumerate(job["segments"], 1):
+            segment = OUT_DIR / f"{sid}.segment-{index}.mp4"
+            render_key(KEY_DIR / f"{key_name}.png", frames if sid != "S091" or index != 1 else 84, motion, segment)
+            segment_paths.append(segment)
+            segment_records.append({"key": f"{key_name}.png", "frames": frames, "motion": motion})
+        output = OUT_DIR / f"{sid}.mp4"
+        if sid == "S091":
+            morph_segments(segment_paths[0], segment_paths[1], job["frames"], 12, output)
+        else:
+            concat_segments(segment_paths, job["frames"], output)
+        # Segment files are diagnostic only; the release carries the finished shot.
+        key_name = f"{sid}-key.png"
+        key_path = KEY_DIR / key_name
+        fit_image(source[job["segments"][0][0]], key_path, crops.get(job["segments"][0][0]))
+        sheet_keys.append((sid, key_path))
+        measured = media_frames(output)
+        if measured != job["frames"]:
+            raise RuntimeError(f"{sid}: expected {job['frames']} frames, got {measured}")
+        records.append({
+            "id": sid,
+            "frame_in": job["frame_in"],
+            "frame_out_exclusive": job["frame_in"] + job["frames"],
+            "frames": job["frames"],
+            "fps": FPS,
+            "asset": f"{sid}.mp4",
+            "asset_sha256": sha256(output),
+            "key_frame_asset": key_name,
+            "key_frame_sha256": sha256(key_path),
+            "segments": segment_records,
+            "beats": job["beats"],
+            "notes": job["notes"],
+            "source_policy": "All keys are derived from newly generated project artwork; no original-film pixels, frames, traces, filters or upscales are used.",
+        })
+        print(f"INTERNAL_BEAT_RENDER {sid} {job['frames']} {sha256(output)}", flush=True)
+    contact = EVIDENCE_DIR / "internal-beats-v9.jpg"
+    make_contact_sheet(sheet_keys, contact)
+    evidence = {
+        "evidence": "internal-beats-v9",
+        "batch": "picture-batch-035",
+        "fps": FPS,
+        "shots": records,
+        "visual_contact_sheet": contact.name,
+        "method": "newly generated shot-specific keys rendered with exact frame counts; hard cuts are concatenated at the supplied in-shot frames; S091 uses a 12-frame xfade beginning at in-shot frame 72.",
+    }
+    (EVIDENCE_DIR / "internal-beats-v9.json").write_text(json.dumps(evidence, indent=2) + "\n")
+    print("HUTIAN_WAKE: internal beat batch complete", flush=True)
+
+
+if __name__ == "__main__":
+    main()

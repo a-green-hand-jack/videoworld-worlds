@@ -1,0 +1,10 @@
+# Tags each given wav (1-9 s) with the AudioSet AST model; used on stems rendered from editor tools/make_sound.py.
+import sys, librosa, torch
+from transformers import ASTFeatureExtractor, ASTForAudioClassification
+name="MIT/ast-finetuned-audioset-10-10-0.4593"
+fe=ASTFeatureExtractor.from_pretrained(name); m=ASTForAudioClassification.from_pretrained(name).eval()
+for f in sys.argv[1:]:
+    y,_=librosa.load(f,sr=16000,mono=True); y=y[16000*1:16000*9]
+    x=fe(y,sampling_rate=16000,return_tensors='pt')
+    with torch.no_grad(): p=torch.sigmoid(m(**x).logits)[0]
+    top=torch.topk(p,6); print(f,', '.join(f'{m.config.id2label[int(i)]} {float(v):.2f}' for v,i in zip(top.values,top.indices)))

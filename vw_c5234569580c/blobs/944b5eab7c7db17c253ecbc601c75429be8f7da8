@@ -1,0 +1,108 @@
+"""Render the cut: build.py DELIVERY_DIR OUT.mp4 [--audio sound.wav] [--placeholder]
+DELIVERY_DIR holds picture/ (shots/shotN.mp4 with 0.5 s handles, stills/shotN.png, cards/title_bg.png,
+end_bg.png). Missing picture is drawn as labelled placeholders (animatic)."""
+import sys, json, subprocess, glob, os, numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+W, H = 1280, 720
+cfg = json.load(open(os.path.join(os.path.dirname(__file__), '..', 'cut.json')))
+FPS = cfg['fps']; N = round(cfg['duration'] * FPS)
+stills_dir, out = sys.argv[1], sys.argv[2]
+audio = sys.argv[sys.argv.index('--audio') + 1] if '--audio' in sys.argv else None
+FONT = os.path.join(os.path.dirname(__file__), '..', 'fonts', 'EBGaramond-Italic.ttf')
+HANDLE = 12
+
+def placeholder(sid, i):
+    w, h = 1700, 956
+    y = np.linspace(0, 1, h)[:, None]
+    top = np.array([230, 140, 90]) * (1 - i / 7) + np.array([10, 20, 60]) * (i / 7)
+    bot = np.array([60, 40, 90]) * (1 - i / 7) + np.array([5, 10, 30]) * (i / 7)
+    a = (top[None, None] * (1 - y[..., None]) + bot[None, None] * y[..., None]) * np.ones((1, w, 1))
+    im = Image.fromarray(a.astype(np.uint8)); d = ImageDraw.Draw(im)
+    f = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 60)
+    d.text((60, 40), f'PLACEHOLDER  shot {sid}', font=f, fill=(255, 255, 255))
+    cx = int(w * (0.2 + 0.12 * i)); cy = int(h * 0.7)
+    d.ellipse((cx - 30, cy - 40, cx + 30, cy + 40), fill=(255, 190, 70))
+    return im
+
+def read_clip(path):
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-'],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.uint8).reshape(-1, H, W, 3)
+
+CARD = {'T': 'cards/title_bg.png', 'E': 'cards/end_bg.png'}
+def load(sid, i):
+    pic = os.path.join(stills_dir, 'picture')
+    if sid in CARD and os.path.exists(os.path.join(pic, CARD[sid])):
+        return Image.open(os.path.join(pic, CARD[sid])).convert('RGB'), None, False
+    clip = os.path.join(pic, 'shots', f'shot{sid}.mp4')
+    still = os.path.join(pic, 'stills', f'shot{sid}.png')
+    if os.path.exists(clip):
+        c = read_clip(clip); print('clip', sid, c.shape)
+        return Image.new('RGB', (W, H)), c, False
+    if os.path.exists(still):
+        return Image.open(still).convert('RGB'), None, False
+    return placeholder(sid, i), None, True
+
+shots = cfg['shots']; imgs = []; clips = []; ph = []
+for i, s in enumerate(shots):
+    im, c, p = load(s['still'], i); imgs.append(im); clips.append(c); ph.append(p)
+    print('shot', s['id'], im.size, 'PLACEHOLDER' if p else ('clip' if c is not None else 'still'))
+
+def smooth(u): u = min(max(u, 0), 1); return u * u * (3 - 2 * u)
+
+def render(i, t):
+    s = shots[i]; im = imgs[i]; iw, ih = im.size
+    if clips[i] is not None:
+        c = clips[i]; k = int(round((t - s['start']) * FPS)) + HANDLE
+        return c[min(max(k, 0), len(c) - 1)].astype(np.float32)
+    u = smooth((t - s['start']) / (s['end'] - s['start']))
+    f, to = s['move']['from'], s['move']['to']
+    cx, cy, z = [f[k] + (to[k] - f[k]) * u for k in range(3)]
+    # largest 16:9 box in the image, divided by zoom
+    bw = min(iw, ih * 16 / 9); bh = bw * 9 / 16
+    bw /= z; bh /= z
+    x0 = cx * (iw - bw); y0 = cy * (ih - bh)   # cx,cy in 0..1 slide the box over the free range
+    return np.asarray(im.resize((W, H), Image.LANCZOS, box=(x0, y0, x0 + bw, y0 + bh)), dtype=np.float32)
+
+def textlayer(spec):
+    f = ImageFont.truetype(FONT, spec['size'])
+    lay = Image.new('L', (W, H), 0); d = ImageDraw.Draw(lay)
+    bb = d.textbbox((0, 0), spec['text'], font=f)
+    d.text(((W - (bb[2] - bb[0])) / 2 - bb[0], H * spec['y'] - (bb[3] - bb[1]) / 2 - bb[1]), spec['text'], font=f, fill=255)
+    glow = lay.filter(ImageFilter.GaussianBlur(14))
+    return np.asarray(lay, dtype=np.float32) / 255, np.asarray(glow, dtype=np.float32) / 255
+
+layers = [(textlayer(t), t) for t in cfg['text']]
+
+def ramp(t, a, b): return min(max((t - a) / (b - a), 0), 1)
+
+dis = cfg['dissolve_frames'] / FPS / 2
+cmd = ['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
+       '-c:v', 'libx264', '-preset', 'slow', '-crf', '15', '-pix_fmt', 'yuv420p', '-vf', 'setsar=1', '-r', str(FPS), '-fps_mode', 'cfr']
+vid = out + '.video.mp4'
+p = subprocess.Popen(cmd + [vid], stdin=subprocess.PIPE)
+for n in range(N):
+    t = (n + 0.5) / FPS
+    k = max(i for i, s in enumerate(shots) if s['start'] <= t + 1e-9)
+    fr = render(k, t)
+    # dissolve across cut boundaries, centred on the boundary; a shot's "dissolve_frames" sets the one into it
+    def half(j): return shots[j].get('dissolve_frames', cfg['dissolve_frames']) / FPS / 2
+    if k + 1 < len(shots) and half(k + 1) > 0 and shots[k + 1]['start'] - t < half(k + 1):
+        d = half(k + 1); a = (t - (shots[k + 1]['start'] - d)) / (2 * d)
+        fr = fr * (1 - a) + render(k + 1, t) * a
+    elif k > 0 and half(k) > 0 and t - shots[k]['start'] < half(k):
+        d = half(k); a = 0.5 + (t - shots[k]['start']) / (2 * d)
+        fr = render(k - 1, t) * (1 - a) + fr * a
+    for (core, glow), spec in layers:
+        al = ramp(t, *spec['in']) * (1 - ramp(t, *spec['out']))
+        if al > 0:
+            fr = fr * (1 - 0.45 * glow[..., None] * al) 
+            fr = fr * (1 - core[..., None] * al) + core[..., None] * al * np.array([255, 236, 200], np.float32)
+    g = ramp(t, 0, cfg['head_fade']) * (1 - ramp(t, *cfg['tail_fade']))
+    p.stdin.write(np.clip(fr * g, 0, 255).astype(np.uint8).tobytes())
+p.stdin.close(); p.wait()
+mux = ['ffmpeg', '-v', 'error', '-y', '-i', vid] + (['-i', audio] if audio else []) + \
+      ['-c:v', 'copy'] + (['-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-ac', '2'] if audio else []) + \
+      ['-t', str(cfg['duration']), '-movflags', '+faststart', out]
+subprocess.check_call(mux); os.remove(vid)
+print('placeholders:', [s['id'] for s, q in zip(shots, ph) if q])

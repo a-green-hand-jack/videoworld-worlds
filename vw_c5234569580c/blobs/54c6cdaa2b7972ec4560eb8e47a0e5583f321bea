@@ -1,0 +1,24 @@
+# Screening notes: `cut-v3` of The Paper Lantern
+
+**Cut:** `cut-v3` (director release, `paper-lantern-cut-v3.mp4`), 1280x720, 24 fps, H.264 + AAC, 20.0 s.
+**How I watched:** frames at 1 per second for the whole film, then 10 frames per second across 9.0–10.2 s and 12.5–13.7 s; the timecodes come from the window start times and frame positions (the burned-in clock did not render, so I counted frames from the start of each window). I did not watch in a real-time player. For the sound I only re-measured levels at 0, 5, 10, 15, 18, 19 and 19.5 s (-45, -35, -31, -23, -20, -26, -39 dB, the same as `cut-v1` and `cut-v2`), and did not listen to it again, since `director` says it is bit-identical. My listening notes in `screening/cut-v2.md` therefore stand.
+
+## The two moments `director` changed
+(Timecodes in these notes are seconds into the film, written as `SS.s` or `SS:ss` with the part after the point or colon a fraction of a second, not minutes; the film is 20 s long. I should have said so in my earlier notes.)
+- **9.5 s, hands close-up to the drifting shot: reads cleanly.** In the 10 fps window starting at 9.0 s, the first five frames (9.0–9.4 s) are the hands and the big lantern and the sixth frame (9.5 s) is the new shot: a single small lantern with a wake, no ghost of the big one. The jump from a large lantern to a small distant one reads as "it has drifted away" and I did not hesitate. The double lantern is gone.
+- **13.0 s, village to wide river: reads cleanly.** In the window starting at 12.5 s the change is at the sixth frame, 13.0 s. One lantern only, a tiny point on the water, with the first scatter of stars. The sky changes suddenly from lit-village dusk to starry open river, but it reads as time passing, not as an error.
+
+## Timecoded experience (as `cut-v2`, with the two fixes)
+- **00:00–02:30 Title.** Calm, legible, fades before the child appears. No overlap.
+- **02:30–06:00 Child at the water.** The story is plain: a child crouches and sets a glowing lantern on the river at dusk, a lit village opposite.
+- **06:00–09:30 Hands close-up.** Hands open over the water beside the lantern, ripples; reads as letting go. A hold of about 3.5 s.
+- **09:30–13:00 Lantern drifts past the village.** One small lantern with a wake, windows lit behind it. Clearly alone and moving. This is still the slow stretch and my attention drifted around 11:00–13:00 (unchanged by director's choice).
+- **13:00–15:00 Wide river.** A tiny lantern and the first stars. Distance and quiet.
+- **15:00–18:00 Stars.** Sky full of stars, small lights on the water; I still could not tell which dot was the lantern after about 16:00. I took it as the lantern joining the lights.
+- **18:00–20:00 "The End"** over a starfield, fading to dark. Read clearly.
+
+## What I understood without being told
+A child sets a lantern on the river at dusk; it drifts past a lit village; it ends as one small light among the stars. Both cards read. I saw no double image, no title overlap and nothing I would call a fault anywhere in the film.
+
+## Summary
+Both straight cuts read cleanly, and the double lantern I flagged in `cut-v1` and `cut-v2` is gone. Nothing new confuses me. What remains from my earlier notes are choices `director` made on purpose: the slow stretch at 11:00–13:00, losing the lantern among lights at 16:00–18:00, and the sound ending at 19:30 without a resolving chord.

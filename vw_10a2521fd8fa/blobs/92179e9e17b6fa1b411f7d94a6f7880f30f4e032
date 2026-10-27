@@ -1,0 +1,152 @@
+#!/usr/bin/env python3
+"""Per-frame global-motion measurement of a cut (qc#8, delivery spec 16-17).
+
+For every consecutive frame pair (luma, 1280x720, rows 0..575 so burned subtitles
+are excluded) it measures sub-pixel phase correlation on a 3x4 tile grid, fits
+translation + zoom (dx = tx + s*cx, dy = ty + s*cy), and records:
+  M      edge displacement in px/frame (largest displacement of the fitted motion
+         at the image corners), the 'speed' of the move
+  mad    mean abs luma difference of the pair (0 = repeated frame)
+  res    mean abs difference after warping frame t by the fitted motion
+         (small against mad = the picture is a still being moved; large = content moves)
+Per segment (EDL shots/parts or detected cuts) it reports: median speed, share of
+frames at <30% of the median, repeated frames, and the 'stair deviation': the largest
+deviation of the cumulative displacement from a smooth (Savitzky-Golay 1 s) fit.
+A whole-pixel push gives stair deviation ~0.3-0.5 px and runs of ~0 speed followed by
+jumps; a sub-pixel render gives < ~0.1 px.
+usage: judder.py film.mp4 [--edl edl.json] [--csv frames.csv] [--md report.md]
+"""
+import argparse, json, subprocess, sys
+import numpy as np, cv2
+from scipy.signal import savgol_filter
+
+W, H, ROWS, FPS = 1280, 720, 576, 24.0
+TR, TC = 3, 4
+
+def frames(path):
+    p = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', path, '-vf', 'format=gray', '-vsync', '0', '-f', 'rawvideo', '-'],
+                         stdout=subprocess.PIPE)
+    n = W * H
+    while True:
+        b = p.stdout.read(n)
+        if len(b) < n:
+            return
+        yield np.frombuffer(b, np.uint8).reshape(H, W)[:ROWS].astype(np.float32)
+
+th, tw = ROWS // TR, W // TC
+win = cv2.createHanningWindow((tw, th), cv2.CV_32F)
+cxs = np.array([(c + .5) * tw - W / 2 for r in range(TR) for c in range(TC)])
+cys = np.array([(r + .5) * th - ROWS / 2 for r in range(TR) for c in range(TC)])
+A = np.column_stack([np.ones(len(cxs)), np.zeros(len(cxs)), cxs])
+A2 = np.column_stack([np.zeros(len(cxs)), np.ones(len(cxs)), cys])
+AA = np.vstack([A, A2])  # unknowns tx, ty, s
+
+def pair(a, b):
+    d = np.abs(a - b).mean()
+    sh, rs = [], []
+    for r in range(TR):
+        for c in range(TC):
+            ta = a[r*th:(r+1)*th, c*tw:(c+1)*tw].copy(); tb = b[r*th:(r+1)*th, c*tw:(c+1)*tw].copy()
+            (dx, dy), resp = cv2.phaseCorrelate(ta, tb, win)
+            sh.append((dx, dy)); rs.append(resp)
+    sh = np.array(sh); w = np.array(rs) + 1e-6
+    y = np.concatenate([sh[:, 0], sh[:, 1]]); ww = np.concatenate([w, w])
+    sol = np.linalg.lstsq(AA * ww[:, None], y * ww, rcond=None)[0]
+    tx, ty, s = sol
+    corner = np.hypot(tx + s * W / 2, ty + s * ROWS / 2), np.hypot(tx - s * W / 2, ty - s * ROWS / 2)
+    M = max(corner)
+    # residual after warping a by the fitted motion (a -> b)
+    Mx = np.array([[1 + s, 0, tx - s * W / 2], [0, 1 + s, ty - s * ROWS / 2]], np.float32)
+    wa = cv2.warpAffine(a, Mx, (W, ROWS), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+    m = 24
+    rd = np.abs(wa[m:-m, m:-m] - b[m:-m, m:-m])
+    res = rd.mean()
+    return tx, ty, s, M, d, res, float(np.mean(rs)), float(np.median(rd)), float(np.percentile(rd, 90))
+
+def tc(t):
+    return f'{int(t // 60)}:{t % 60:05.2f}'
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('film'); ap.add_argument('--edl'); ap.add_argument('--csv'); ap.add_argument('--md'); ap.add_argument('--reuse', action='store_true', help='read --csv instead of decoding')
+    a = ap.parse_args()
+    prev = None; rows = []
+    if a.reuse:
+        R = np.loadtxt(a.csv, delimiter=',', skiprows=1)
+    else:
+        for i, f in enumerate(frames(a.film)):
+            if prev is not None:
+                rows.append((i,) + pair(prev, f))   # row k describes motion frame i-1 -> i
+            prev = f
+        R = np.array(rows)
+    n = len(R) + 1
+    if a.csv and not a.reuse:
+        np.savetxt(a.csv, R, delimiter=',', header='frame,tx,ty,s,M,mad,res,resp,rmed,r90', comments='', fmt='%.5f')
+    # segments
+    segs = []
+    if a.edl:
+        d = json.load(open(a.edl))
+        for sh in d['shots']:
+            parts = sh.get('parts')
+            if parts:
+                t = sh['in']; xf = sh.get('xfade', 0)
+                for k, p in enumerate(parts):
+                    dur = p['dur'] - (xf if k < len(parts) - 1 else 0) + (0 if k == 0 else 0)
+                    src = p.get('src', '')
+                    segs.append((f"{sh['id']}.{k+1}", t, t + p['dur'] - (xf if k < len(parts) - 1 else 0),
+                                 'still' if src.endswith('.png') else 'video', xf))
+                    t += p['dur'] - xf
+            else:
+                segs.append((sh['id'], sh['in'], sh['out'], 'still' if sh.get('src', '').endswith('.png') else
+                             ('title' if sh.get('title') else 'video'), 0))
+    else:
+        mad = R[:, 5]; med = np.median(mad)
+        cuts = [0] + [int(R[k, 0]) for k in range(len(R)) if mad[k] > max(12, 6 * med)] + [n]
+        for k in range(len(cuts) - 1):
+            segs.append((f'seg{k}', cuts[k] / FPS, cuts[k + 1] / FPS, '?', 0))
+    out = []
+    flags = []
+    for sid, t0, t1, kind, xf in segs:
+        g = 3  # guard frames at each edge (cuts and dissolves)
+        f0 = int(round(t0 * FPS)) + g + (int(xf * FPS) if xf and sid.split('.')[-1] != '1' else 0)
+        f1 = int(round(t1 * FPS)) - g
+        sel = R[(R[:, 0] >= f0) & (R[:, 0] < f1)]
+        if len(sel) < 12:
+            continue
+        M = sel[:, 4]; med = float(np.median(M))
+        mad = sel[:, 5]
+        # irregularity: share of frames whose speed leaves +-30% of the rolling median (13 frames)
+        from scipy.ndimage import median_filter
+        roll = median_filter(M, 13, mode='nearest')
+        irr = float(np.mean((np.abs(M - roll) > 0.3 * np.maximum(roll, 0.15)))) if med > 0.1 else 0.0
+        low = float(np.mean(M < 0.3 * med)) if med > 0.1 else 0.0
+        rollm = median_filter(mad, 13, mode='nearest')
+        rep = mad < 0.4 * rollm                      # repeated (near-identical) frames
+        dup = int(rep.sum())
+        run = 0; best = 0
+        for v in rep:
+            run = run + 1 if v else 0; best = max(best, run)
+        ev = []
+        if med > 0.1:
+            for k in range(1, len(M)):
+                if M[k] > 1.8 * max(roll[k], 0.15) and M[k - 1] < 0.5 * roll[k]:
+                    ev.append(int(sel[k, 0]))
+        dev = best
+        ripple = float(np.median(np.abs(M - roll) / np.maximum(roll, 0.15))) if med > 0.1 else 0.0
+        rip_dips = float(np.mean(np.abs(M - roll) > 0.1 * np.maximum(roll, 0.15))) if med > 0.1 else 0.0
+        ratio = float(np.median(sel[:, 8])); r90 = float(np.median(sel[:, 9]))
+        zoom = float(np.sum(sel[:, 3]))
+        out.append(dict(id=sid, kind=kind, t0=tc(f0 / FPS), t1=tc(f1 / FPS), n=len(sel), speed=med, cv=irr,
+                        low=low, dup=dup, stair=dev, r90=r90, ripple=ripple, rip=rip_dips, events=len(ev), ratio=ratio, mad=float(np.median(sel[:, 5])),
+                        total_zoom=zoom, first=[tc(e / FPS) for e in ev[:4]]))
+    lines = ['| seg | src | from | to | speed px/f | speed ripple (median dev) | share >10% off | >30% off | low-motion share | repeated frames | longest repeat run | jump events | content res med/p90 | first events |',
+             '|---|---|---|---|---|---|---|---|---|---|---|---|---|---|']
+    for o in out:
+        lines.append(f"| {o['id']} | {o['kind']} | {o['t0']} | {o['t1']} | {o['speed']:.3f} | {o['ripple']:.3f} | {o['rip']:.2f} | {o['cv']:.2f} | {o['low']:.2f} | {o['dup']} | "
+                     f"{o['stair']} | {o['events']} | {o['ratio']:.2f}/{o['r90']:.2f} | {', '.join(o['first'])} |")
+    txt = '\n'.join(lines)
+    print(txt)
+    if a.md: open(a.md, 'w').write(txt + '\n')
+    json.dump(out, open((a.md or 'judder') + '.json', 'w'), indent=1)
+
+main()

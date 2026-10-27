@@ -1,0 +1,19 @@
+# S002 picture check
+
+## Observed
+
+- The published `picture-batch-002` asset `S002.mp4` decodes with FFmpeg 7.0.2 as H.264 `yuv420p`, 1024×576, 24 fps, 35 frames and 1.46 seconds.
+- The clip begins on the newly generated tense 70% profile key, transitions through a visible head turn, and ends on the designer-approved alarmed Proog key with an open mouth.
+- `evidence/s002-contact.png` samples decoded frames 0, 10, 20 and 34; the dark green cable environment, olive coat, maroon chest and approved hooked nose/grey-blue eyes remain readable through the turn.
+- The clip contains no source-film frame. The two input keys are DP-generated artwork; the approved end key is `working/s002-proog-revised.png` from DP commit `540244a`.
+
+## Delivery mapping
+
+- Shot-list ID: `S002`, editor frames 619–653 inclusive, 35 frames, `00:00:25:19`–`00:00:27:06` exclusive.
+- Direction: S002 in director `direction/shotlist.csv` at `b646947588299dfc1e38b37d03c1b738a2aae72f`.
+- Design: Proog lock in production-designer commit `8870af30a095b7272376253b533bdac021773538`, approved in production-designer#5 comment 94 and release `design-character-v1`.
+- Release asset: `picture-batch-002` / `S002.mp4`, SHA-256 `72c86dc0b2732c74ac315c975d511352eda0c43420ce5a1f75260aedd5f621f0`.
+
+## Review status
+
+This is a finished picture handoff for editor assembly. Editor and QC still need to review the cut in context; the picture release does not claim dialogue or mix sync.

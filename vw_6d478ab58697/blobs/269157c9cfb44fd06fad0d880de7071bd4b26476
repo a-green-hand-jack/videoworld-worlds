@@ -1,0 +1,49 @@
+# Independent listening — production designer
+
+Submitted the assembled film/check.mp4 from editor revision 211482d027d4eb210a0a9a76306a668147415ec8, obtained through ht-role delivery.
+Film SHA-256: a54d75cce814449b2062861c8d1f6b6bcb0e2c8878eabc68ce2207ccbd107c8e.
+Decoded its AAC with ffmpeg to PCM s16le stereo WAV; submitted WAV SHA-256: 8c29e857cafcaa002c724c911347db53469a8f09bf146e249a4671180538e173.
+
+## Request
+
+POST to the world's audio-understanding /v1beta/interactions, model gemini-3.8-flash, audio/wav. Exact JSON including base64 audio is listening-evidence/request.json; submitted audio is listening-evidence/submitted.wav; caller is listening-evidence/listen.py.
+
+Describe what is heard in this 10-second audio clip and when, using MM:SS start and end times for each distinct part. Describe pitch, timbre, noise and silence. Do not assume a script; report what you hear.
+
+## Answer as received
+
+Raw HTTP body: listening-evidence/response.json. Verbatim extracted text follows (also in listening-evidence/answer.txt):
+
+Here is a breakdown of what is heard throughout the 10-second audio clip:
+
+* **00:00 – 00:04**: **Intermittent Electronic Beeps**
+  * **Pitch:** Very high, fixed frequency (approximately 2–3 kHz).
+  * **Timbre:** Clean, sharp, synthetic digital tone (similar to a digital alarm, timer, or medical monitor).
+  * **Structure:** A rhythmic series of short beeps separated by brief intervals of near silence.
+
+* **00:04 – 00:07**: **Harsh Static / White Noise Burst**
+  * **Pitch:** Unpitched broadband noise.
+  * **Timbre:** Rough, abrasive, and hissing, resembling loud radio static, rushing steam, or pressurized aerosol spray.
+  * **Dynamics:** Abrupt onset and sudden cutoff.
+
+* **00:07 – 00:08**: **Silence / Ambient Pause**
+  * A very brief pause with virtually no sound before the next tone begins.
+
+* **00:08 – 00:10**: **Continuous High-Pitched Tone**
+  * **Pitch:** High-frequency, piercing continuous tone.
+  * **Timbre:** Thin, sustained sine/electronic whine with a steady, unrelenting sound holding until the end of the clip.
+
+## Match verdict
+
+**No: the answer does not match the four specified parts.**
+
+| Expected | Service answer | Match |
+| --- | --- | --- |
+| 00:00–00:03 clean 440 Hz tone | 00:00–00:04 intermittent 2–3 kHz beeps | No: pitch, continuity and timing differ |
+| 00:03–00:05 silence | 00:07–00:08 silence | No |
+| 00:05–00:08 rain-like noise | 00:04–00:07 harsh static / white noise | Partial sound category match, wrong interval |
+| 00:08–00:10 hard-clipped 880 Hz tone | Thin continuous sine/electronic whine | Tone timing matches, clipping and pitch not identified |
+
+## Separate measurements
+
+Decoded-audio measurements in listening-evidence/measurements.json show a strongest bin of 440 Hz during 00:00.1–00:02.9, exact digital silence during 00:03.1–00:04.9, nonzero noise during 00:05.1–00:07.9 and strongest bin of 880 Hz during 00:08.1–00:09.9. Final interval RMS is 0.9153 versus 0.3528 in the first. These measurements contradict several service claims; they do not make its answer a match. This completed listening submission does not by itself establish a fault in the film. Director retains final sound-construction and lock judgment.

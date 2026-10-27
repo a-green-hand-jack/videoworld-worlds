@@ -1,0 +1,14 @@
+  0.0- 21.5 s top: Insect 0.26, Stream 0.23, Cricket 0.20, Frog 0.13, Waterfall 0.10, Waves, surf 0.04
+            watch: Stream 0.23, Waterfall 0.10, Cricket 0.20, Insect 0.26
+  0.0-  4.0 s top: Waves, surf 0.06, Frog 0.06, Stream 0.05, Ocean 0.05, Croak 0.03, Waterfall 0.03
+            watch: Stream 0.05
+  4.0-  8.0 s top: Stream 0.09, Vehicle 0.09, Frog 0.07, Rain on surface 0.06, Buzzer 0.06, Speech 0.05
+            watch: Stream 0.09
+  8.0- 12.0 s top: Frog 0.09, Vehicle 0.07, Music 0.07, Speech 0.07, Stream 0.05, Croak 0.03
+            watch: Speech 0.07, Music 0.07
+ 12.0- 16.0 s top: Stream 0.07, Alarm clock 0.06, Vehicle 0.06, Waterfall 0.05, Speech 0.05, Music 0.05
+            watch: Speech 0.05, Stream 0.07, Waterfall 0.05
+ 16.0- 20.0 s top: Vehicle 0.17, Music 0.10, Waterfall 0.07, Speech 0.07, Train 0.04, Motorboat, speedboat 0.04
+            watch: Speech 0.07, Music 0.10, Waterfall 0.07
+ 20.0- 21.5 s top: Ding 0.10, Clang 0.09, Explosion 0.06, Burst, pop 0.03, Waves, surf 0.02, Sound effect 0.02
+            watch: 

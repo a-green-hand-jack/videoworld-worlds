@@ -1,0 +1,15 @@
+# Picture shot log — v1
+
+All sources: generated approximately 1672x941 gouache stills, documented prompts in prompts/. Silent H.264 CRF 17, yuv420p, 1280x720, SAR 1:1, 24 fps CFR. A 0.5 s (12-frame) handle at each end is included in durations below; trim handles for the director's nominal sequence, or use them for dissolves. The camera move runs through all frames, including handles. Exact sampling parameters and ffprobe results are in shot-log.json.
+
+| Shot | Source / clip | Total | Frames | Nominal film time | Picture / move |
+|---|---|---:|---:|---|---|
+| 1 | stills/shot1.png / shots/shot1.mp4 | 4.5 s | 108 | 2.5–6.0 | Child at left bank holds lantern above water; 6.5% gentle push |
+| 2 | stills/shot2.png / shots/shot2.mp4 | 4.5 s | 108 | 6.0–9.5 | Rust-red sleeves and hands withdraw from floating base; 5.5% push |
+| 3 | stills/shot3.png / shots/shot3.mp4 | 4.5 s | 108 | 9.5–13.0 | Amber lantern past warm village; 6% crop and subtle leftward camera drift, advancing lantern right on screen |
+| 4 | stills/shot4.png / shots/shot4.mp4 | 4.0 s | 96 | 13.0–16.0 | Open river, first stars, tiny lantern; pull back from 106.5% to full frame |
+| 5 | stills/shot5.png / shots/shot5.mp4 | 3.0 s | 72 | 16.0–18.0 | Warm point on water among reflected stars; 2.5% push |
+
+Title/card: cards/title_bg.png and cards/end_bg.png are 1280x720 sky-only derivatives, with no lettering. Display 0–2.5 s / 18–20 s; editor types title and “The End”. Both backgrounds use sky-only crops with a 16:9 aspect ratio. They are enlarged for typography and are not detailed scenery sources.
+
+Narrative caveat: still photography implies the action. Shot 1 is before release, shot 2 just after release with hands open, and shot 3 away from the child. Within-shot movement is camera motion. The lantern remains on the water in all five scenes. Its left-trailing wake and successive framing establish the direction of travel.

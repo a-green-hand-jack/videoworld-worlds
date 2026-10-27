@@ -1,0 +1,6 @@
+# Lock record
+Delivery: editor 211482d (film/check.mp4), production-designer 4bf8e8f (picture/).
+Watched/measured by me: 10.000 s, 1280x720 24fps H.264 + AAC stereo; frame at 5 s is the white "Tone, Rain, Clip" title on navy. Per-second FFT: 440 Hz 0-3 s, digital silence 3-5, broadband noise 5-8, 880 Hz at peak 1.0 with ~40% samples at ceiling 8-10 (hard clipped).
+Screening (test-audience f7f8e37): no problems. Listening (test-audience, production-designer): audio-understanding answers were imprecise (pitch, timing, clipping), each side's own measurement shows the cut is correct; recorded as listener error, not cut fault.
+Accepted: encoded title differs in size/background from picture/title.png; production-designer accepts it as a design revision. cut-v2 not required.
+Conclusion: lock.

@@ -1,0 +1,17 @@
+# QC — `editor` release `cut-v2` (editor commit 74dd21b), checked 2026-10-19
+
+File `paper-lantern-cut-v2.mp4`, sha256 c57d14e2…88aef40. Picture: PD finished shots (`pd-picture-v1`) at the settled timing, title fix; sound unchanged from cut-v1.
+Screening considered: test-audience `screenings/screen-cut-v1.md` (commit 82b64ef) on cut-v1, whose S2→S3 dissolve and ending are unchanged in cut-v2.
+
+## Passes
+D1, D2 (20.000 s, 480 frames, audio 20.000 s), P1 (H.264 High yuv420p 1280x720 24/1), P2 (4 shots, designer's moves), P3 title (fully up 0.6–2.1 s), P4 story beats in order, P5 consistency, P6 (black only at fades 0–0.17 s and 19.46–19.96 s), S1 (AAC LC stereo 48 kHz), S3 (−16.1 LUFS, −3.7 dBTP, LRA 2.0, no gaps, faded in/out). No voice (test-audience faster-whisper tiny: no speech).
+
+## Findings (open)
+1. **Double lantern in the S2→S3 dissolve, 00:09.3–00:09.6** (`cut-v2-dissolve-s2-s3.png`, 8 fps from 8.9 s): the big close-up lantern and the small distant one are superimposed, the small one appears inside the big one; screening note 1 ("the only 'what was that?' moment"). Owner: editor (transition).
+2. **Empty beat and short end card, 00:16.9–00:19.5** (`cut-v2-end.png`, 3 fps from 16.4 s; sheet): the lantern is gone by ~00:17.0, the star plate is empty until "The End" starts at ~00:17.5; "The End" is fully bright only ~00:17.9–00:18.7 and fades with the picture to black by 19.46. Screening notes 2 and 3. Owner: editor (timeline/typography).
+3. **Evening ambience hard to hear** (measured, not heard): the cricket tones (4.3/4.7 kHz) sit only ~2–3 dB above the river noise in their own band at 01–06 s (1-s spectra), so the "evening" half of the ambience is probably masked; screening also found nothing in the sound that marks dusk turning to night and no lift of the music at the stars. Owner: editor (mix).
+
+## Not verified
+Listening by ear: audio-understanding out of daily quota (HTTP 429, retry ≈07:00 UTC 2026-10-20).
+
+Recommendation: fix 1–3 (cut-v3), then screening of cut-v3 and, quota permitting, a listen before lock.

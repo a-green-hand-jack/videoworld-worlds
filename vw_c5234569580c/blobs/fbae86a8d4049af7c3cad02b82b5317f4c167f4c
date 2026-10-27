@@ -1,0 +1,36 @@
+# Screening notes: `cut-v1` of The Paper Lantern
+
+> **Erratum (written when screening `cut-v2`):** I put the double-lantern moment at 06:30–07:00. That timecode is wrong. Re-sampling the frames shows it is at about 09:15–09:45, in the dissolve from the hands close-up to the drifting shot. The 06:00 change in `cut-v1` is a different, softer change where the hands close-up replaces the child shot. See `screening/cut-v2.md`.
+
+**Cut:** `cut-v1` (director release, `paper-lantern-cut-v1.mp4`), 1280x720, 24 fps, H.264 + AAC stereo, 20.0 s.
+**How I watched:** I did not read the script or shot list first. I looked at the picture as frames (1 per second for the whole film, 4 and 2 per second around 06:00–08:00 and 14:30–18:30) with timecodes burned in. I heard the sound through the audio-understanding resource (mono 32k mix of the whole film) and checked its claims by measuring level per half-second. I did not watch it in real time in a player, so motion smoothness is only inferred from frame spacing; everything below about picture is from stills.
+
+## What I understood, unprompted
+- **Child and action:** yes. A small child with a dark bob and a rust-orange jacket crouches at the river's edge and sets a glowing paper lantern on the water (03:00–06:00). The following close-up of hands at the water beside the lantern reads clearly as "letting it go" (06:00–08:00). I took the child to be a girl; the film does not say.
+- **Drifting past a village:** yes. From about 08:00 the lantern is small on the water with the village's lit windows behind it, and a wake behind it shows it moving (09:00–13:00). It passes the houses and the village slides out to the left.
+- **Small light among the stars:** mostly. By 14:30 the lantern is a tiny orange point in a wide dusk river with a few stars. By 16:00–18:00 the sky is full of stars and the lantern is one of several small warm points. At 16:00–18:00 the water also holds a scatter of similar small lights (reflections of stars or other lanterns). I could not tell which one was "my" lantern after about 16:00, which I liked as a feeling ("it became one of the lights") but it was a small loss in following it.
+- **Title and end card:** both read. "The Paper Lantern" (italic serif, cream on dusk-orange sky) 00:00–02:00, dissolving into the first shot around 02:00–03:00. "The End" appears about 18:00 over a starfield and fades by about 19:30.
+
+## Timecoded experience
+- **00:00–02:00 Title.** Held me: warm sky, calm, legible. A little long for a 20 s film (about a tenth of it with nothing yet happening) but the sound is already starting, so it did not feel empty.
+- **02:00–03:00 Dissolve to the first shot.** The title is still faintly on screen over the child and lantern, which for a moment is a double image. It is pretty and I did not mind it, but the child is hard to read until about 03:00.
+- **03:00–06:00 Child at the water.** Held me most here. Clear who, where and what. The sun sitting on the hills and the village lights opposite tell me it is dusk and a village is nearby. Slow push is gentle. I understood the story from this shot alone.
+- **06:00–08:00 Hands close-up.** The cut is a dissolve and at about 06:30–07:00 I saw two lanterns at once, a small one at lower left of the big one, for about a second. I read it as a second lantern or an error before it cleared. This is the one moment I was briefly confused. Afterwards the close-up is lovely (ripples round the lantern, hands open in a "release" shape), though it is the longest hold on the same image and I felt it as a pause, not a boredom.
+- **08:00–13:00 Lantern drifting past the village.** The picture changes to the far shore at night-blue with lit houses. The lantern is small, lower-centre, with a wake behind it. I understood it was now alone and travelling. Pace is slow and a little static: between about 10:00 and 13:00 little changes except the slow move, and it is the stretch where my attention drifted most. The sky has lost its orange, so the move from evening to night here felt right.
+- **13:00–15:00 Open river.** Wide, empty, quiet. The lantern is a tiny point. Nice sense of distance; I felt the child had been left far behind. No one is in the picture for the whole second half, and I did not miss them.
+- **15:00–18:00 Stars.** The sky fills with stars, the water carries small lights and the village is just a cluster of dots on the shore. This is the payoff. It gave me the feeling the brief asks for, though as said above I lost track of which dot was the lantern.
+- **18:00–20:00 End card.** "The End" over a deeper-blue starfield. Clear, calm, and the fade to dark is a gentle close.
+
+## Sound
+- **00:00–06:00:** evening ambience of insects and soft water lapping. I could hear both; the water was not harsh or noisy. Level rises gradually from near silence at 00:00 (about -57 dB per frame) to a steady bed by about 06:00.
+- **06:00–08:00:** a faint high chime/synth tone fades in and by 07:00–08:00 a sparse soft piano / bell-like melody is audible. I heard it as a soft cue, not intrusive, and clearly present. It enters just as the hands let go of the lantern, which is where it should.
+- **08:00–19:00:** the music stays slow and contemplative over the ambience. No speech at any point. No clipping or noise events heard; the film's peak is -10 dB and the whole mix sits around -26 dB mean.
+- **19:00–20:00:** the sound stops at the end of the film. By my measurement the level falls from about -25.6 dB at 19:00 to about -39 dB at 19:30, so there is a short fade, but the listener reported it as stopping without a resolving note. I felt it as ending slightly early compared with the picture's slow fade of "The End". This is a small point.
+- Overall the sound is the more settled half of the film: it never confused me and it carries the mood.
+
+## Summary
+It works as a first-time watch. I understood the child, the lantern, the drift past the village and the night sky without being told, and I read both cards. Things I would flag, in order of how much they affected me:
+1. **06:30–07:00 double lantern** during the dissolve into the close-up: the one moment of confusion.
+2. **16:00–18:00** I lost which light was the lantern (the water reflections add similar lights).
+3. **08:00–13:00** slow and static; the place my attention drifted.
+4. **02:00–03:00** title overlaps the child for a moment; **19:30–20:00** the sound ends a touch before the picture does.

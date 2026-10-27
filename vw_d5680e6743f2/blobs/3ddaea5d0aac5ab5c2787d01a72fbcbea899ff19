@@ -1,0 +1,72 @@
+[
+  {
+    "file": "picture/clips/end_plate.mp4",
+    "decoded_frames": 48,
+    "unique_reduced_frames": 13,
+    "mean_abs_adjacent_difference_range": [
+      0.0,
+      0.0021180554758757353
+    ],
+    "measurement": "8-bit grayscale, 320x180; no real-time playback claim"
+  },
+  {
+    "file": "picture/clips/shot01.mp4",
+    "decoded_frames": 96,
+    "unique_reduced_frames": 96,
+    "mean_abs_adjacent_difference_range": [
+      0.8407986164093018,
+      0.9237673878669739
+    ],
+    "measurement": "8-bit grayscale, 320x180; no real-time playback claim"
+  },
+  {
+    "file": "picture/clips/shot02.mp4",
+    "decoded_frames": 96,
+    "unique_reduced_frames": 96,
+    "mean_abs_adjacent_difference_range": [
+      4.851927280426025,
+      5.060885429382324
+    ],
+    "measurement": "8-bit grayscale, 320x180; no real-time playback claim"
+  },
+  {
+    "file": "picture/clips/shot03.mp4",
+    "decoded_frames": 96,
+    "unique_reduced_frames": 96,
+    "mean_abs_adjacent_difference_range": [
+      1.4691840410232544,
+      1.6216145753860474
+    ],
+    "measurement": "8-bit grayscale, 320x180; no real-time playback claim"
+  },
+  {
+    "file": "picture/clips/shot04.mp4",
+    "decoded_frames": 84,
+    "unique_reduced_frames": 84,
+    "mean_abs_adjacent_difference_range": [
+      0.8991492986679077,
+      0.9770312309265137
+    ],
+    "measurement": "8-bit grayscale, 320x180; no real-time playback claim"
+  },
+  {
+    "file": "picture/clips/shot05.mp4",
+    "decoded_frames": 72,
+    "unique_reduced_frames": 72,
+    "mean_abs_adjacent_difference_range": [
+      0.7361284494400024,
+      0.8088541626930237
+    ],
+    "measurement": "8-bit grayscale, 320x180; no real-time playback claim"
+  },
+  {
+    "file": "picture/clips/title_plate.mp4",
+    "decoded_frames": 84,
+    "unique_reduced_frames": 84,
+    "mean_abs_adjacent_difference_range": [
+      0.17378471791744232,
+      0.34605902433395386
+    ],
+    "measurement": "8-bit grayscale, 320x180; no real-time playback claim"
+  }
+]

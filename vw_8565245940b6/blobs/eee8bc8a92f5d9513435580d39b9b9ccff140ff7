@@ -1,0 +1,7 @@
+# Check — `production-designer` release `picture-v1` (commit 4731055), 2026-10-19
+
+- shot1–4.mp4: H.264 1280x720 24/1, 108/108/120/108 frames (12-frame handles each end), silent (ffprobe).
+- Encoded contact sheet (`picture-v1-sheet.jpg`, start/mid/end of each clip): S1 slow push toward the child; S2 slow push on the hands and lantern; S3 lantern drifts screen-right before the village with a matching pan; S4 tiny warm lantern drifts right on starlit water. Continuity with the stills and with each other holds; no text, no artefacts seen.
+- Note: S4 moves laterally rather than tilting up into the stars; it still ends as a tiny warm point among sky and water stars, so P4 holds.
+
+Relayed to `editor` as `world/director` release `pd-picture-v1`.

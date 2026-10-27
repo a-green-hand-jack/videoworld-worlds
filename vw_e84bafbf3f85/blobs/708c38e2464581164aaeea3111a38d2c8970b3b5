@@ -1,0 +1,27 @@
+# Shot list — "The Paper Lantern"
+
+Timeline target 20.0 s at 24 fps (480 frames). Times are targets; the editor may shift cuts by up to ~0.5 s for rhythm as long as the total stays 18–22 s (aim 19.5–20.5 s). Transitions: short dissolves (~0.5 s) or fades; no hard flashes.
+
+| # | In–Out (s) | Dur | Content (what the frame must show) | Camera move on the still | Sound |
+|---|---|---|---|---|---|
+| T | 0.0–2.5 | 2.5 | Opening title "The Paper Lantern" over dusk sky (from shot 1's still, darkened/blurred, or a plain dusk gradient) | slow fade in/out of the title | water + evening ambience fade in |
+| 1 | 2.5–6.0 | 3.5 | Wide: calm river at dusk, orange→indigo sky, village of low houses with a few lit windows on far bank, reeds foreground | slow pan right (~5–8% of frame width) | ambience; music cue begins |
+| 2 | 6.0–9.5 | 3.5 | Medium: the child kneeling at the river's edge holding the lit paper lantern; amber glow on face and hands | slow push in (~8–10% scale) | ambience, music |
+| 3 | 9.5–12.5 | 3.0 | Close: the child's hands releasing the lantern onto the water; ripples; glow reflected | gentle push/drift toward the lantern | soft water touch, music |
+| 4 | 12.5–15.5 | 3.0 | Wide-medium: lantern small, floating mid-river past the village; lit windows reflected in the water | slow pan following the drift | ambience, music opens up |
+| 5 | 15.5–18.0 | 2.5 | Wide: river to horizon at night, starry sky; lantern a tiny warm point among/near the stars | slow tilt up or pull out | music resolves |
+| E | 18.0–20.0 | 2.0 | End card "The Paper Lantern" on night blue | hold, fade to black on last frames | ambience and music fade out by the end |
+
+## Continuity (must hold across shots) — look settled with `production-designer` (director#3)
+
+- **Lantern:** one design everywhere — cuboid ivory paper lantern with thin dark ribs, on a small floating wooden base, warm amber candle light inside. Same shape, colour and glow in shots 2, 3, 4, 5 (in 5 it is only a point of that same amber).
+- **Child:** one design everywhere — about seven, dark bobbed hair, rust-red coat, blue trousers; same age and proportions in shots 2 and 3 (hands/sleeves in 3 match the rust-red coat of shot 2). The child may also appear small in shot 1.
+- **Style:** textured storybook gouache throughout, one palette: amber lantern and windows against indigo/rose dusk turning to blue-black night. Light gets darker from shot 1 to shot 5 (dusk → night).
+- **Geography:** the river flows the same screen direction in shots 1, 3, 4 (left → right), and the village is on the far bank.
+- **No text** in any shot picture (no lettering, signatures or watermarks); the title and end card are set by the editor.
+
+## Who makes what
+
+- `production-designer`: a source still per shot (1280x720 or larger) and a **finished silent shot clip per shot**, 1280x720, 24 fps, at least the listed duration + 0.5 s handle on each side for dissolves, with the camera move applied; optionally a background still for the title and end card (no text, leave the central 80% calm for type). Shot log naming each shot's content and move. Published as releases / committed in its repository for the editor to pick up.
+- `editor`: title and end-card typography, dissolves, all sound (ambience, music cue, mix), timeline and the rendered cut `film/paper-lantern.mp4`.
+- Sound direction: river lapping close in shots 2–3, wider and softer in 4–5; crickets and a faint evening bird early, crickets only later; music a soft, slow cue (e.g. warm felt-piano or music-box notes over a quiet pad, pentatonic, ~60–70 bpm feel), entering in shot 1, lifting gently in shot 4, resolving on a held note into the end card.

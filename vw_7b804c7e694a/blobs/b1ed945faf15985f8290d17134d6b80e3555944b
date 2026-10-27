@@ -1,0 +1,38 @@
+# Script — "The Little Match Girl" (after H. C. Andersen, 1845)
+
+Running time 120 s (window 115–125 s). Narration is the main voice; four short lines of dialogue (the girl three, a passer-by one).
+About 205 spoken words. **Pace:** a natural audiobook storyteller's pace, warm and clear but not slow: aim for **~2.3–2.5 words/s** (≈140–150 wpm) in the read itself. Speeding up the take is allowed, up to 1.10× (atempo, pitch kept); beyond that it sounds hurried. 
+The timeline (shot in/outs, line starts) belongs to the editor's animatic and EDL; the shot column says which shot each line plays over.
+The words are adapted closely from the Gutenberg #1597 text in `/initial-state/inputs/0/`.
+
+| # | Shot | Speaker | Line |
+|---|------|---------|------|
+| 1 | 1 | NARRATOR | Bitter cold, almost dark: the last evening of the year. |
+| 2 | 2 | NARRATOR | A poor girl shuffled along in her mother's big slippers. |
+| 3 | 3 | NARRATOR | Carriages raced by; she lost them, and went on barefoot. |
+| 4 | 4 | GIRL (small, hopeful, to passers-by) | Matches… who'll buy my matches? |
+| 5 | 4 | NARRATOR | No one had bought a single match. |
+| 6 | 5 | NARRATOR | Candles gleamed in the windows; it smelled of roast goose. |
+| 7 | 6 | NARRATOR | She huddled in a corner, afraid to go home to her father. |
+| 8 | 7 | NARRATOR | Her hands were numb. If she dared strike just one… |
+| — | 7 | SFX | The strike — "Ritsch!" — and the flame blooms. |
+| 9 | 8 | NARRATOR | How it blazed! A warm iron stove seemed to stand before her. |
+| 10 | 8 | NARRATOR | Then it went out. |
+| 11 | 9 | NARRATOR | A second: the wall became a veil, and inside, a roast goose steamed. |
+| 12 | 10 | NARRATOR | It hopped down and waddled toward her — then darkness. |
+| 13 | 11 | NARRATOR | A third: she sat beneath a Christmas tree ablaze with candles. |
+| 14 | 12 | NARRATOR | Out it went. The lights rose and became stars. One fell. |
+| 15 | 12 | GIRL (soft, knowing) | Someone is dying. |
+| 16 | 13a | NARRATOR | Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God. |
+| 17 | 13b | NARRATOR | A fourth — and there stood Grandmother, shining and kind. |
+| 18 | 14 | GIRL (urgent, tearful) | Grandmother! Take me with you! |
+| 19 | 15 | NARRATOR | She struck the whole bundle, to keep her near. |
+| 20 | 16 | NARRATOR | Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear. |
+| 21 | 17 | NARRATOR | At dawn she sat there still, rosy-cheeked and smiling — frozen to death. |
+| 22 | 18 | PASSER-BY (a woman, quietly) | She wanted to warm herself. |
+| 23 | 19 | NARRATOR | No one knew the beautiful things she had seen, or the joy she had gone to. |
+| — | end | — | Title on black: "The Little Match Girl" / "after Hans Christian Andersen". Music resolves. |
+
+**If the cut still runs long:** first tighten pauses and shot lengths; then drop ", to keep her near" (19) and "still" (21); then ask the director, who cuts words, never beats.
+
+The five strikes, for every position: 1 stove (lines 8–10, shots 7–8), 2 roast goose (11–12, shots 9–10), 3 Christmas tree → stars (13–15, shots 11–12), 4 grandmother (16–18, shots 13a–14), 5 the whole bundle (19–20, shots 15–16).

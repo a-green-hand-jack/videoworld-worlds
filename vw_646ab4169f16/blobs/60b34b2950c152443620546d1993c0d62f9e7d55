@@ -1,0 +1,53 @@
+"""Rank candidate takes of one-word shouts by whisper small.en on the line's window of the real v2 bed (mix minus dialogue stem) with the candidate laid in.
+usage: sweep_shouts.py MIX.wav DIALOGUE.wav ID ...   writes /hutian/work/sweep/<ID>_<n>.flac and prints a ranked table"""
+import json, re, sys, numpy as np, soundfile as sf
+from scipy.signal import resample_poly
+import dialogue
+from common import *
+from faster_whisper import WhisperModel
+m = WhisperModel("/hutian/.home/.cache/huggingface/hub/models--Systran--faster-whisper-small.en/snapshots/d1d751a5f8271d482d14ca55d9e2deeebbae577f", device="cpu", compute_type="int8", cpu_threads=4)
+mix, _ = sf.read(sys.argv[1]); dlg, _ = sf.read(sys.argv[2])
+lines = {l["id"]: l for l in json.load(open(f"{ROOT}/dialogue/lines.json"))["lines"]}
+norm = lambda s: re.findall(r"[a-z']+", s.lower())
+OK = {"pulp": {"pulp"}, "now": {"now"}, "emo": {"emo", "eemo", "amo", "imo", "emmo"}}
+CARR = ["{}", "Ground to a {}", "I said, {}", "Come on, {}", "Say {}", "It was {}", "Right {}", "Just {}", "Look, {}", "Turn it to {}", "Make it {}", "What? {}"]
+def asr(x):
+    seg, _ = m.transcribe(resample_poly(x, 1, 3).astype(np.float32), beam_size=5, condition_on_previous_text=False, language="en")
+    return " ".join(s.text for s in seg).strip()
+for ID in sys.argv[3:]:
+    L = lines[ID]; sp = L["speaker"]; word = norm(L["text"])[0]; slot = L["end"] - L["start"]
+    t0 = L["start"]; a = int((t0 - 1.0) * SR); b = int((t0 + slot + 1.5) * SR)
+    bed = (mix[a:b] - dlg[a:b]).mean(1)
+    seg_old = dlg[int(t0 * SR):int((t0 + slot) * SR)].mean(1)
+    f = np.abs(seg_old).max() / 0.7  # level of a take normalised to 0.7 as it sits in the stem
+    res = []
+    n = 0
+    for c in CARR:
+        for ls in (0.8, 1.0, 1.3, 1.6, 2.0):
+            for ns in (0.5, 0.75, 1.0):
+                for punct in ("!", ".", "?"):
+                    txt = c.format(word.capitalize() + punct)
+                    x = dialogue.say(sp, txt, dialogue.VOICES[sp]["ls"] * ls, ns); x = x / (np.abs(x).max() + 1e-9)
+                    if c != "{}":
+                        y = resample_poly(x, 1, 3).astype(np.float32)
+                        seg, _ = m.transcribe(np.concatenate([np.zeros(6400, np.float32), y, np.zeros(6400, np.float32)]), beam_size=5, condition_on_previous_text=False, language="en", word_timestamps=True)
+                        hit = [w for s in seg for w in s.words if norm(w.word) == [word]]
+                        if not hit: continue
+                        x = x[max(int((hit[-1].start - 0.4) * SR) - int(.03 * SR), 0):]
+                    y = dialogue.trim(x); d = len(y) / SR
+                    if d > slot + 0.5 or d < 0.25: continue
+                    y = hp(y, 70); y = y / (np.abs(y).max() + 1e-9) * 0.7
+                    k = int(.01 * SR); y[:k] *= np.linspace(0, 1, k); y[-k:] *= np.linspace(1, 0, k)
+                    sc = []
+                    for pad in (0.3, 1.0):
+                        w = bed.copy(); i = int(1.0 * SR); w[i:i + len(y)] += y * f
+                        h = asr(w[int((1.0 - pad) * SR):i + len(y) + int(pad * SR)])
+                        sc.append((norm(h) in ([word], *[[o] for o in OK[word]]), h))
+                    n += 1
+                    res.append((sum(s[0] for s in sc), -abs(d - 0.7 * slot), txt, ls, ns, d, sc, y))
+                    print(ID, txt, ls, ns, round(d, 2), [s[1] for s in sc], flush=True)
+    res.sort(key=lambda r: (r[0], r[1]), reverse=True)
+    for j, r in enumerate(res[:5]):
+        sf.write(f"/hutian/work/sweep/{ID}_{j}.flac", r[7], SR, subtype="PCM_16")
+        print("TOP", ID, j, r[:6], [s[1] for s in r[6]], flush=True)
+print("HUTIAN_WAKE: sweep done", flush=True)

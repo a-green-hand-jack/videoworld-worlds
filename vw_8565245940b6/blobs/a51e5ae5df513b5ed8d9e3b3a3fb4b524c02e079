@@ -1,0 +1,41 @@
+# Screening: The Paper Lantern, `screen-cut-v1` (director release, asset `paper-lantern-cut-v1.mp4`, editor cut-v1 @7bb397b)
+
+## How I watched
+- Downloaded the asset; ffprobe: H.264 1280x720 24 fps + AAC stereo, 20.000 s.
+- Picture: I looked at one frame per second (contact sheet) plus 4 fps strips around the title (1.5-4.0 s) and the shot 3→4 change (9.0-11.0 s), and full-size frames at 6.5 s and 9.0 s. I did not play it in real time, so motion smoothness of the camera moves is NOT judged.
+- Sound: I did not hear it. The listening service was out of quota, so I measured the audio (ebur128, per-second RMS/spectrum, stereo correlation, sample-jump scan, tonal peaks) and ran faster-whisper `tiny` for voices. What follows for sound is inferred from measurements, not from hearing.
+
+## The experience, timecoded (as a first-time viewer)
+Shot boundaries were measured from frame differences at 24 fps (dissolves at 02.3-02.7, 05.8-06.2, 09.3-09.7, 13.3-13.7, and a slow one ~16.5-17.1; end card from ~17.5). The first draft of these notes had some timecodes ~0.5 s early; this is the corrected version.
+- 00:00-00:01 Fades up from dark onto a dusk sky over a river and a hillside village with a few lit windows. Quiet, inviting.
+- 00:01-00:02.3 Title "The Paper Lantern" in warm cream serif over the empty river. Readable at once, but it is on screen only about 1.5 s before dissolving away (fade-in 0-0.9, out from ~02:00). Fine for three words, no more time than that.
+- 00:02.7-00:05.8 Child crouched on the bank under a willow (red scarf, grey-blue jacket, dark hair), a glowing paper lantern at the water's edge, slow push in. **Understood here**: a child and a lantern, about to let it go. First point where I was held; warm and tender.
+- 00:06.2-00:09.3 Close-up: the child's hands open over the lantern, drops falling from the fingers, ripples around its base. This is the "letting go" moment and it works, but I read the lantern as already floating and the hands leaving it, not pushing it away; the release is implied, not seen. Held attention best here: big warm glow against the blue water.
+- ~00:09.3-09.7 Dissolve to the wide river. For these ~0.4 s two lanterns overlap (large close-up one and small distant one) and for a moment it looks like two lanterns; the only "what was that?" moment.
+- 00:09.7-00:13.3 Lantern small on the water, village on the bank with spire, bridge and lit windows, reflections; the camera drifts. **Understood**: it is drifting away past the village. A calm ~3.5 s; I never got bored.
+- 00:13.7-00:16.5 Darker, wider river, village now a few far lights, first stars; lantern small. Reads as further away and later. This and the previous shot have a similar layout, so the middle of the film (09.7-16.5, ~7 s) is the slowest stretch, but it is moving visually and the light is changing.
+- ~00:16.5-00:17 The lantern is a tiny glow low on a wide starry river. **Story lands**: "a small light among the stars". Beautiful, quiet.
+- ~00:17.1-00:17.7 Dissolve to a pure starfield with no lantern. I briefly lost the light; it would read better if the tiny lantern were still visible when the end card arrives.
+- 00:17.5-00:20 "The End", same cream serif, centred on the starfield. Fades in ~17.5-18.2, fully bright ~18.2-19.2 (about 1 s), then fades with the picture to black by ~19.9. Legible, but only about a second at full strength. The film ends cleanly, no cut-off.
+
+## What I understood
+Child at a river at dusk sets a paper lantern on the water, watches it go, it floats past the village, shrinks, and ends up a tiny light under the stars. Mood: tender, calm, wistful. No confusion about who or what; no words needed.
+
+## Your questions
+- **Story without words?** Yes, clearly: who (child), what (lantern released), how it ends (a light among stars). Each shot moves the lantern further away, as intended.
+- **Title readable long enough?** Yes, but short (~1.5 s fully visible, three words).
+- **Child and lantern consistent?** Child appears only in shots 2-3 (00:03-00:09); same child (scarf, jacket, hair) in both, same face tone. The lantern is the same square paper-and-wood-frame lantern with warm glow in every shot, including the tiny ones at the end. The wide close-up lantern looks larger and more detailed (visible wooden frame and paper texture) than in the distance, which is natural. The child's hands in the close-up are slightly larger and more detailed than the child's body in the previous shot; I did not find it jarring. The child never reappears after release (no reaction shot): not wrong, just a choice.
+- **Sound** (measured, not heard): 
+  - Integrated -16.1 LUFS, loudness range 2 LU, true peak -3.7 dBFS, sample peak 0.65: no clipping; no sample-jump click (largest sample step 0.094 at 03.9 s, not a click-sized jump).
+  - Fades in from silence (-62 dB at 0.0 s) and out over the last ~1.5 s to silence (-72 dB at the end): no abrupt start/end.
+  - Bed is a continuous noise with broad energy 0-4 kHz and a roll-off above 4 kHz (energy at 4-8 kHz ~9 dB and at 8-16 kHz ~20 dB below the 0-4 kHz bands), so not hissy by the numbers. Stereo channels almost uncorrelated (corr ≈ 0 each second), a wide, diffuse image; it will read as spacious on speakers but could feel slightly unfocused/phasey in mono. Level swells gently by about ±3 dB every ~4 s (like lapping water).
+  - Music: sustained pitched notes are present throughout (strongest around 370, 587, 880 Hz, i.e. F#4, D5, A5, later ~110 and ~330 Hz and 740 Hz: consistent with D-major-ish plucked/bell tones), 10-16x above the local noise floor, steady with no loud peaks. So a soft cue exists; whether it sounds pleasant or "soft" I cannot say without hearing it.
+  - Voices: faster-whisper tiny found no speech (a single "." segment, no_speech_prob 0.38). 
+  - The water noise bed is quite constant in level for the whole 20 s: nothing marks the change from dusk to night (no crickets I can show by measurement, no rise in the music at the star shot). Worth an ear from someone who can hear.
+
+## Notes for the lock (things that confused, dragged, or looked wrong)
+1. 00:09.3-00:09.7: two-lantern overlap in the dissolve between the close-up and the wide shot (visible in the 4 fps strip). A shorter dissolve or a cut would remove it.
+2. 00:17.1-00:17.7: the tiny lantern is gone in the starfield before "The End" (I lost the light for ~0.6 s); better kept visible until the card, or a deliberate beat.
+3. "The End" is only fully bright for ~1 s and fades with the picture; the title is on screen only ~1.5 s. Consider holding either a little longer.
+4. 00:09.7-00:16.5 is the slowest stretch (two similar wide village shots).
+5. Sound: I could not hear it; the numbers show no clipping, hiss or voice. A listen when the service is back would be wise before lock.

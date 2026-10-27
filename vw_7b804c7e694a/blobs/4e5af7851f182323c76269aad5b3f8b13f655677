@@ -1,0 +1,64 @@
+# cut-v2 — timeline for the mix (current script, recorded voice)
+
+Timing: `tools/timeline.py --cues --keyframes` against director fb1a5b49dd17 (script + shot list) and sound-designer
+`lines-v2` (lines/ at 087bdf005d6e; text checked line by line against the script: all 23 match, L04 spoken "who will").
+Speech 100.19 s; total **120.042 s** (2881 frames at 24 fps). Picture: dp key frames (ed1556d) with slow push-ins until the
+moving shots land; end title final. Sound: voice only (`tools/lay_lines.py`, unity gain). Subtitles burned from the spoken text.
+
+**This timeline is what the mix is laid to.** Line starts below are fixed for the mix; when the finished shots replace the
+key frames, shot in/outs stay as they are unless a later cut's changelog says otherwise. Strike 1 lands in the last ~1 s of
+s07 (after L08 ends at 00:36.865, before s08 at 00:38.167; strike at about 00:37.2).
+
+## Shots (record in/out)
+
+| shot | in | out | dur s | lines | source |
+|---|---|---|---|---|---|
+| s01 | 00:00.000 | 00:05.875 | 5.875 | 1 | /hutian/dp/keyframes/s01.png |
+| s02 | 00:05.875 | 00:10.542 | 4.667 | 2 | /hutian/dp/keyframes/s02.png |
+| s03 | 00:10.542 | 00:15.458 | 4.917 | 3 | /hutian/dp/keyframes/s03.png |
+| s04 | 00:15.458 | 00:21.750 | 6.292 | 4, 5 | /hutian/dp/keyframes/s04.png |
+| s05 | 00:21.750 | 00:27.083 | 5.333 | 6 | /hutian/dp/keyframes/s05.png |
+| s06 | 00:27.083 | 00:32.208 | 5.125 | 7 | /hutian/dp/keyframes/s06.png |
+| s07 | 00:32.208 | 00:38.167 | 5.958 | 8 | /hutian/dp/keyframes/s07.png |
+| s08 | 00:38.167 | 00:46.500 | 8.333 | 9, 10 | /hutian/dp/keyframes/s08.png |
+| s09 | 00:46.500 | 00:53.500 | 7.000 | 11 | /hutian/dp/keyframes/s09.png |
+| s10 | 00:53.500 | 00:58.417 | 4.917 | 12 | /hutian/dp/keyframes/s10.png |
+| s11 | 00:58.417 | 01:04.250 | 5.833 | 13 | /hutian/dp/keyframes/s11.png |
+| s12 | 01:04.250 | 01:12.250 | 8.000 | 14, 15 | /hutian/dp/keyframes/s12.png |
+| s13a | 01:12.250 | 01:20.417 | 8.167 | 16 | /hutian/dp/keyframes/s13a.png |
+| s13b | 01:20.417 | 01:25.875 | 5.458 | 17 | /hutian/dp/keyframes/s13b.png |
+| s14 | 01:25.875 | 01:29.333 | 3.458 | 18 | /hutian/dp/keyframes/s14.png |
+| s15 | 01:29.333 | 01:33.750 | 4.417 | 19 | /hutian/dp/keyframes/s15.png |
+| s16 | 01:33.750 | 01:41.792 | 8.042 | 20 | /hutian/dp/keyframes/s16.png |
+| s17 | 01:41.792 | 01:48.958 | 7.167 | 21 | /hutian/dp/keyframes/s17.png |
+| s18 | 01:48.958 | 01:51.542 | 2.583 | 22 | /hutian/dp/keyframes/s18.png |
+| s19 | 01:51.542 | 01:57.042 | 5.500 | 23 | /hutian/dp/keyframes/s19.png |
+| end | 01:57.042 | 02:00.042 | 3.000 |  | title card |
+
+## Lines
+
+| # | shot | speaker | start | end | dur s | timing | text |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | NARRATOR | 00:00.300 | 00:05.093 | 4.79 | measured | Bitter cold, almost dark: the last evening of the year. |
+| 2 | 2 | NARRATOR | 00:06.175 | 00:10.068 | 3.89 | measured | A poor girl shuffled along in her mother's big slippers. |
+| 3 | 3 | NARRATOR | 00:10.842 | 00:15.152 | 4.31 | measured | Carriages raced by; she lost them, and went on barefoot. |
+| 4 | 4 | GIRL | 00:15.758 | 00:18.786 | 3.03 | measured | Matches… who will buy my matches? |
+| 5 | 4 | NARRATOR | 00:19.086 | 00:21.450 | 2.36 | measured | No one had bought a single match. |
+| 6 | 5 | NARRATOR | 00:22.050 | 00:26.507 | 4.46 | measured | Candles gleamed in the windows; it smelled of roast goose. |
+| 7 | 6 | NARRATOR | 00:27.383 | 00:31.504 | 4.12 | measured | She huddled in a corner, afraid to go home to her father. |
+| 8 | 7 | NARRATOR | 00:32.508 | 00:36.865 | 4.36 | measured | Her hands were numb. If she dared strike just one… |
+| 9 | 8 | NARRATOR | 00:38.467 | 00:43.956 | 5.49 | measured | How it blazed! A warm iron stove seemed to stand before her. |
+| 10 | 8 | NARRATOR | 00:44.256 | 00:45.879 | 1.62 | measured | Then it went out. |
+| 11 | 9 | NARRATOR | 00:46.800 | 00:53.191 | 6.39 | measured | A second: the wall became a veil, and inside, a roast goose steamed. |
+| 12 | 10 | NARRATOR | 00:53.800 | 00:57.616 | 3.82 | measured | It hopped down and waddled toward her — then darkness. |
+| 13 | 11 | NARRATOR | 00:58.717 | 01:03.849 | 5.13 | measured | A third: she sat beneath a Christmas tree ablaze with candles. |
+| 14 | 12 | NARRATOR | 01:04.550 | 01:10.274 | 5.72 | measured | Out it went. The lights rose and became stars. One fell. |
+| 15 | 12 | GIRL | 01:10.574 | 01:11.945 | 1.37 | measured | Someone is dying. |
+| 16 | 13a | NARRATOR | 01:12.550 | 01:20.111 | 7.56 | measured | Her grandmother, the only one who had loved her, had said: a falling star is a soul going to God. |
+| 17 | 13b | NARRATOR | 01:20.717 | 01:25.575 | 4.86 | measured | A fourth — and there stood Grandmother, shining and kind. |
+| 18 | 14 | GIRL | 01:26.175 | 01:28.789 | 2.61 | measured | Grandmother! Take me with you! |
+| 19 | 15 | NARRATOR | 01:29.633 | 01:33.192 | 3.56 | measured | She struck the whole bundle, to keep her near. |
+| 20 | 16 | NARRATOR | 01:34.050 | 01:41.511 | 7.46 | measured | Grandmother took her in her arms, and they flew up, where there is no cold, no hunger, no fear. |
+| 21 | 17 | NARRATOR | 01:42.092 | 01:48.676 | 6.58 | measured | At dawn she sat there still, rosy-cheeked and smiling — frozen to death. |
+| 22 | 18 | PASSER-BY | 01:49.258 | 01:51.045 | 1.79 | measured | She wanted to warm herself. |
+| 23 | 19 | NARRATOR | 01:51.842 | 01:56.737 | 4.89 | measured | No one knew the beautiful things she had seen, or the joy she had gone to. |

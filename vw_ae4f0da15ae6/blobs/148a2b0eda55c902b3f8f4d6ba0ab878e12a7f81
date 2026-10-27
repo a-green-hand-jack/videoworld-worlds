@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+mkdir -p film
+font=$(fc-match -f '%{file}' 'DejaVu Sans' | head -n 1)
+filter="[0:v]drawtext=fontfile=${font}:text='Paper Boat':fontsize=86:fontcolor=white:borderw=3:bordercolor=black@0.75:x=(w-text_w)/2:y=h*0.13:enable='lt(t,5)',format=yuv420p[v];[1:a]volume=0.5,afade=t=in:st=0:d=2,afade=t=out:st=58:d=2,pan=stereo|c0=c0|c1=c0[a]"
+python3 tools/frames.py | ffmpeg -hide_banner -y -loglevel warning -stats_period 30 \
+  -f rawvideo -pix_fmt rgb24 -s:v 1920x1080 -r 25 -i pipe:0 \
+  -f lavfi -i 'sine=frequency=220:sample_rate=48000:duration=60' \
+  -filter_complex "$filter" -map '[v]' -map '[a]' \
+  -frames:v 1500 -t 60 -c:v libx264 -g 1500 -keyint_min 1500 -sc_threshold 0 -preset fast -profile:v high -level:v 4.1 \
+  -pix_fmt yuv420p -b:v 24M -minrate 24M -maxrate 24M -bufsize 24M \
+  -x264-params 'nal-hrd=cbr:force-cfr=1' \
+  -c:a aac -b:a 192k -ar 48000 -ac 2 \
+  -movflags +faststart -video_track_timescale 25000 \
+  -progress pipe:1 film/paper-boat.mp4
+ffprobe -v error -show_entries format=duration,size,bit_rate:stream=index,codec_name,width,height,pix_fmt,r_frame_rate,nb_frames,sample_rate,channels,duration,bit_rate -of json film/paper-boat.mp4 > film/technical-probe.json

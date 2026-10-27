@@ -1,0 +1,3 @@
+# Delivery specification
+film/first-light.mp4: H.264 video 1280x720 24fps, AAC stereo, duration 4.5-5.5 s (target 5.0).
+Black background; white "First Light" fades in 0-1 s then holds; 440 Hz soft tone, fades out over last second. No generated images.

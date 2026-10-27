@@ -1,0 +1,8 @@
+# Lock record: PR editor#5 into release, head ba2eabb490f5
+Checked film/first-light.mp4 against SPEC.md: h264 1280x720 24fps, aac stereo, 5.0 s.
+Frames: 0 s black; 0.5 s partial fade (max 145); 1.2 s and 4.9 s full white text.
+Audio: 440 Hz peak, steady RMS 0.0177 through 3.9 s, fades to 0.001 by 4.9 s, no clipping (peak 0.027).
+Result: meets spec. Approved for release. Final lock still needs test-audience's report on the released version.
+
+# PR editor#10 into release, head 190326125041
+h264 1280x720 24fps, aac stereo, 5.0 s. Text fades in (0.5 s max 145, 4.9 s 255). Tone 440 Hz, RMS 0.088 (-21 dB), peak 0.130 (-18 dB), fades to 0.005 by 4.9 s. Meets spec; approved for release. editor#7/#6 changes-requests superseded by this cut. Final lock still waits for test-audience's report on this released version.

@@ -1,0 +1,165 @@
+# Edit — timeline of the Elephants Dream remake
+
+`edit/timeline.json` is the film's timeline: every shot's frame range on the delivery grid
+(1024x576, **24 fps constant**, frame 0 = 00:00:00:00), total **15800 frames = 10:58.33**.
+Version **v1** (`edit/tools/retime.py`): the **127 shot IDs and frame boundaries of v0, which the director adopted**
+(`direction/shotlist.csv` at `b646947`, release `direction-v3`; S127 = end credits). Each shot carries the director's scene,
+framing, camera and content, and the script lines (`direction/script.csv`) the script places in it.
+
+- `beats`: an event inside a shot, at an exact frame, found by eye on frame strips of the original: `cut` (the original cuts
+  there; the shot's picture may cut there too, keeping the shot's frame count), `fade`, `morph` or `event` (no cut).
+- `gain` (S028, S029, S126): edit fades as `[frame in shot, gain]` keys, linearly interpolated and applied by
+  `edit/tools/assemble.py` to the shot's picture. The keys are measured on the original's luma: S028 is held black
+  for 58 frames and then fades up over 32; S029 dips to black at frames 48 and 98 (6 frames down, 7 up); S126 is a slow
+  fade to black, reaching black at frame 509.
+- `enters_by: continuous` (S027, S056, S070): the original has no cut at that boundary; picture should join the previous
+  shot without a visible jump.
+- `edit/timeline-v0-reference.json` keeps v0 as measured.
+
+How it was measured: ffmpeg `scdet` scene scores plus frame/histogram differences on every frame of
+the frozen original (pts time), each candidate cut checked by eye on before/after frames
+(3 strong candidates rejected as lighting flashes, 9 low-score cuts added: a dissolve at 36.75 s,
+whip-cuts at 113.79/127.25/130.67/132.54/134.12 s, the black at 149.88 s, cuts at 340.75/345.42 s,
+credits at 565.75 s); re-checked by eye for v1 against the director's shot list: 6 cuts the detector missed lie inside shots and are listed as beats (dips to black at 161.17/163.25 s in S029, whip-cuts at 315.13/317.79 s in S066 and 327.08 s in S069, a cut at 399.46 s in S086), and 3 v0 boundaries are not cuts in the original (S027, S056, S070 join their previous shot). The reference contact sheet (one frame per shot) and a 512 px copy of the original
+with each shot ID and frame number burnt in are in the release `reference-timeline-v1` of this repository —
+reference only, never picture for the film.
+
+## Handoff interface
+
+- **Picture (dp):** one file per shot, `<shot id>.mp4` (H.264 yuv420p, 1024x576, 24 fps CFR) or a PNG
+  sequence, with exactly `frames` frames (no handles needed; if you add handles, say how many at each end in
+  the shot log). Publish them in a release or under a path of your repository and name the revision.
+- **Sound (sound-designer):** full-length 48 kHz stereo WAV starting at frame 0, 10:58.33 long, plus D/M/E
+  stems, made to the timeline version you name.
+- **Film (editor):** `index.html` + `film/` at this repository's root, per `direction/delivery-spec.md` of `director`.
+
+## Timeline v1 (24 fps frames, out exclusive)
+| shot | scene | frames in–out | frames | seconds | tc in (mm:ss:ff) | lines | note |
+|---|---|---|---|---|---|---|---|
+| S001 | SC01 | 0–619 | 619 | 25.792 | 00:00:00 | L01,L02 | title overlays (edit): a VideoWorld film production presents 1.0-9.0 s; elephants dream 10.0-19.0 s |
+| S002 | SC02 | 619–654 | 35 | 1.458 | 00:25:19 |  |  |
+| S003 | SC02 | 654–723 | 69 | 2.875 | 00:27:06 | L03 |  |
+| S004 | SC02 | 723–747 | 24 | 1.000 | 00:30:03 |  |  |
+| S005 | SC02 | 747–753 | 6 | 0.250 | 00:31:03 |  |  |
+| S006 | SC02 | 753–882 | 129 | 5.375 | 00:31:09 |  |  |
+| S007 | SC02 | 882–1200 | 318 | 13.250 | 00:36:18 | L04 | enters by a dissolve from S006 (about 36.6-37.1 s); cut point set mid-dissolve |
+| S008 | SC02 | 1200–1321 | 121 | 5.042 | 00:50:00 | L05 |  |
+| S009 | SC02 | 1321–1518 | 197 | 8.208 | 00:55:01 | L06,L07,L08 |  |
+| S010 | SC02 | 1518–1673 | 155 | 6.458 | 01:03:06 | L09,L10 |  |
+| S011 | SC03 | 1673–1933 | 260 | 10.833 | 01:09:17 | L11 |  |
+| S012 | SC03 | 1933–2103 | 170 | 7.083 | 01:20:13 |  |  |
+| S013 | SC03 | 2103–2355 | 252 | 10.500 | 01:27:15 | L12,L13 |  |
+| S014 | SC03 | 2355–2427 | 72 | 3.000 | 01:38:03 |  |  |
+| S015 | SC03 | 2427–2524 | 97 | 4.042 | 01:41:03 |  |  |
+| S016 | SC03 | 2524–2663 | 139 | 5.792 | 01:45:04 |  |  |
+| S017 | SC03 | 2663–2731 | 68 | 2.833 | 01:50:23 |  |  |
+| S018 | SC03 | 2731–2893 | 162 | 6.750 | 01:53:19 |  |  |
+| S019 | SC03 | 2893–3054 | 161 | 6.708 | 02:00:13 |  |  |
+| S020 | SC03 | 3054–3136 | 82 | 3.417 | 02:07:06 |  |  |
+| S021 | SC03 | 3136–3181 | 45 | 1.875 | 02:10:16 | L14 |  |
+| S022 | SC03 | 3181–3219 | 38 | 1.583 | 02:12:13 |  |  |
+| S023 | SC03 | 3219–3244 | 25 | 1.042 | 02:14:03 |  |  |
+| S024 | SC03 | 3244–3341 | 97 | 4.042 | 02:15:04 | L15 |  |
+| S025 | SC03 | 3341–3432 | 91 | 3.792 | 02:19:05 | L16 |  |
+| S026 | SC04 | 3432–3493 | 61 | 2.542 | 02:23:00 |  |  |
+| S027 | SC04 | 3493–3597 | 104 | 4.333 | 02:25:13 |  | **joins the previous shot without a cut**: no cut at 145.54 s: the flight past the receivers goes on |
+| S028 | SC04 | 3597–3820 | 223 | 9.292 | 02:29:21 |  | fade at frame 3655 (+58): held black ends, fade up to the red room begins (152.30 s); opens on black (149.9-152.4 s held in the original), fades up to the red room |
+| S029 | SC04 | 3820–3976 | 156 | 6.500 | 02:39:04 |  | cut at frame 3868 (+48): dip to black, cut to Proog red-lit (161.17 s); cut at frame 3918 (+98): dip to black, cut to Emo red-lit (163.25 s); enters through a 2-frame dip to black at 159.1 s |
+| S030 | SC04 | 3976–4024 | 48 | 2.000 | 02:45:16 |  |  |
+| S031 | SC04 | 4024–4043 | 19 | 0.792 | 02:47:16 | L17 |  |
+| S032 | SC04 | 4043–4082 | 39 | 1.625 | 02:48:11 |  |  |
+| S033 | SC04 | 4082–4184 | 102 | 4.250 | 02:50:02 | L18 |  |
+| S034 | SC04 | 4184–4279 | 95 | 3.958 | 02:54:08 | L19 |  |
+| S035 | SC04 | 4279–4379 | 100 | 4.167 | 02:58:07 | L20 |  |
+| S036 | SC04 | 4379–4554 | 175 | 7.292 | 03:02:11 | L21,L22 |  |
+| S037 | SC04 | 4554–4666 | 112 | 4.667 | 03:09:18 | L23 |  |
+| S038 | SC04 | 4666–5114 | 448 | 18.667 | 03:14:10 | L24 |  |
+| S039 | SC04 | 5114–5198 | 84 | 3.500 | 03:33:02 |  |  |
+| S040 | SC04 | 5198–5308 | 110 | 4.583 | 03:36:14 |  |  |
+| S041 | SC04 | 5308–5376 | 68 | 2.833 | 03:41:04 |  |  |
+| S042 | SC05 | 5376–5596 | 220 | 9.167 | 03:44:00 |  |  |
+| S043 | SC05 | 5596–5733 | 137 | 5.708 | 03:53:04 |  |  |
+| S044 | SC05 | 5733–5829 | 96 | 4.000 | 03:58:21 |  |  |
+| S045 | SC05 | 5829–5868 | 39 | 1.625 | 04:02:21 |  |  |
+| S046 | SC05 | 5868–5916 | 48 | 2.000 | 04:04:12 |  |  |
+| S047 | SC05 | 5916–5929 | 13 | 0.542 | 04:06:12 |  |  |
+| S048 | SC05 | 5929–5977 | 48 | 2.000 | 04:07:01 |  |  |
+| S049 | SC05 | 5977–5981 | 4 | 0.167 | 04:09:01 |  |  |
+| S050 | SC05 | 5981–5995 | 14 | 0.583 | 04:09:05 |  |  |
+| S051 | SC05 | 5995–6190 | 195 | 8.125 | 04:09:19 |  |  |
+| S052 | SC05 | 6190–6304 | 114 | 4.750 | 04:17:22 |  |  |
+| S053 | SC05 | 6304–6464 | 160 | 6.667 | 04:22:16 | L25 |  |
+| S054 | SC05 | 6464–6560 | 96 | 4.000 | 04:29:08 | L26,L27 |  |
+| S055 | SC05 | 6560–6574 | 14 | 0.583 | 04:33:08 |  |  |
+| S056 | SC05 | 6574–6650 | 76 | 3.167 | 04:33:22 | L28 | **joins the previous shot without a cut**: no cut at 273.92 s: a light flares in the same shot |
+| S057 | SC05 | 6650–6723 | 73 | 3.042 | 04:37:02 |  |  |
+| S058 | SC05 | 6723–6771 | 48 | 2.000 | 04:40:03 |  |  |
+| S059 | SC05 | 6771–6891 | 120 | 5.000 | 04:42:03 | L29 |  |
+| S060 | SC05 | 6891–7019 | 128 | 5.333 | 04:47:03 | L30,L31 |  |
+| S061 | SC06 | 7019–7338 | 319 | 13.292 | 04:52:11 |  |  |
+| S062 | SC06 | 7338–7383 | 45 | 1.875 | 05:05:18 |  |  |
+| S063 | SC06 | 7383–7402 | 19 | 0.792 | 05:07:15 |  |  |
+| S064 | SC06 | 7402–7437 | 35 | 1.458 | 05:08:10 |  |  |
+| S065 | SC06 | 7437–7497 | 60 | 2.500 | 05:09:21 |  |  |
+| S066 | SC06 | 7497–7635 | 138 | 5.750 | 05:12:09 |  | cut at frame 7563 (+66): hard cut: bursting through cables, capsule tumbles (315.13 s); cut at frame 7627 (+130): hard cut: capsule flash close-up, 8 frames (317.79 s) |
+| S067 | SC06 | 7635–7680 | 45 | 1.875 | 05:18:03 |  |  |
+| S068 | SC06 | 7680–7833 | 153 | 6.375 | 05:20:00 |  |  |
+| S069 | SC06 | 7833–7861 | 28 | 1.167 | 05:26:09 |  | cut at frame 7850 (+17): hard cut from the iris ring to Proog swinging by (327.08 s); the shot list puts this beat in S070 |
+| S070 | SC06 | 7861–7910 | 49 | 2.042 | 05:27:13 |  | **joins the previous shot without a cut**: no hard cut at 327.54 s: Proog's coat swings across the lens (body wipe) into this shot |
+| S071 | SC06 | 7910–8010 | 100 | 4.167 | 05:29:14 |  |  |
+| S072 | SC06 | 8010–8057 | 47 | 1.958 | 05:33:18 |  |  |
+| S073 | SC06 | 8057–8178 | 121 | 5.042 | 05:35:17 |  |  |
+| S074 | SC06 | 8178–8290 | 112 | 4.667 | 05:40:18 | L32,L33 | event at frame 8190 (+12): Proog lunges at the lever (341.25 s, no cut) |
+| S075 | SC06 | 8290–8461 | 171 | 7.125 | 05:45:10 |  | event at frame 8311 (+21): background starts streaking white behind Proog (346.29 s, no cut) |
+| S076 | SC07 | 8461–8605 | 144 | 6.000 | 05:52:13 |  |  |
+| S077 | SC07 | 8605–8714 | 109 | 4.542 | 05:58:13 | L34,L35 |  |
+| S078 | SC07 | 8714–8754 | 40 | 1.667 | 06:03:02 |  |  |
+| S079 | SC07 | 8754–8875 | 121 | 5.042 | 06:04:18 | L36,L37,L38,L39 |  |
+| S080 | SC07 | 8875–8945 | 70 | 2.917 | 06:09:19 | L40 |  |
+| S081 | SC07 | 8945–9118 | 173 | 7.208 | 06:12:17 | L41 | event at frame 9058 (+113): white light floods up from below as the platform drops (377.42 s, no cut) |
+| S082 | SC08 | 9118–9245 | 127 | 5.292 | 06:19:22 |  |  |
+| S083 | SC08 | 9245–9256 | 11 | 0.458 | 06:25:05 |  | white flash (pure white) between S082 and S084 |
+| S084 | SC08 | 9256–9295 | 39 | 1.625 | 06:25:16 |  | fades in from white |
+| S085 | SC08 | 9295–9514 | 219 | 9.125 | 06:27:07 |  |  |
+| S086 | SC08 | 9514–9722 | 208 | 8.667 | 06:36:10 | L42 | cut at frame 9587 (+73): hard cut to the amber room (399.46 s) |
+| S087 | SC08 | 9722–9797 | 75 | 3.125 | 06:45:02 | L43,L44,L45 |  |
+| S088 | SC08 | 9797–9833 | 36 | 1.500 | 06:48:05 | L46 |  |
+| S089 | SC08 | 9833–9964 | 131 | 5.458 | 06:49:17 | L47,L48,L49 |  |
+| S090 | SC08 | 9964–9989 | 25 | 1.042 | 06:55:04 |  |  |
+| S091 | SC08 | 9989–10099 | 110 | 4.583 | 06:56:05 | L50,L51,L52 | morph at frame 10061 (+72): the room behind them changes from the door to the green tiled room while they stay in frame (419.21 s, no cut) |
+| S092 | SC09 | 10099–10159 | 60 | 2.500 | 07:00:19 |  |  |
+| S093 | SC09 | 10159–10238 | 79 | 3.292 | 07:03:07 | L53 |  |
+| S094 | SC09 | 10238–10276 | 38 | 1.583 | 07:06:14 |  |  |
+| S095 | SC09 | 10276–10576 | 300 | 12.500 | 07:08:04 | L54,L55,L56,L57 | opens on ~0.4 s black, then the green room |
+| S096 | SC09 | 10576–10655 | 79 | 3.292 | 07:20:16 |  |  |
+| S097 | SC09 | 10655–10828 | 173 | 7.208 | 07:23:23 | L58,L59 |  |
+| S098 | SC09 | 10828–10959 | 131 | 5.458 | 07:31:04 | L60 |  |
+| S099 | SC09 | 10959–11048 | 89 | 3.708 | 07:36:15 |  |  |
+| S100 | SC09 | 11048–11056 | 8 | 0.333 | 07:40:08 |  |  |
+| S101 | SC09 | 11056–11076 | 20 | 0.833 | 07:40:16 |  |  |
+| S102 | SC09 | 11076–11205 | 129 | 5.375 | 07:41:12 | L61 |  |
+| S103 | SC09 | 11205–11255 | 50 | 2.083 | 07:46:21 | L62 |  |
+| S104 | SC09 | 11255–11333 | 78 | 3.250 | 07:48:23 |  |  |
+| S105 | SC09 | 11333–11397 | 64 | 2.667 | 07:52:05 | L63 |  |
+| S106 | SC09 | 11397–11448 | 51 | 2.125 | 07:54:21 | L64 |  |
+| S107 | SC10 | 11448–11550 | 102 | 4.250 | 07:57:00 | L65 |  |
+| S108 | SC10 | 11550–11628 | 78 | 3.250 | 08:01:06 | L66 |  |
+| S109 | SC10 | 11628–11687 | 59 | 2.458 | 08:04:12 | L67 |  |
+| S110 | SC10 | 11687–11885 | 198 | 8.250 | 08:06:23 | L68,L69,L70 |  |
+| S111 | SC10 | 11885–11914 | 29 | 1.208 | 08:15:05 | L71 |  |
+| S112 | SC10 | 11914–12041 | 127 | 5.292 | 08:16:10 | L72,L73,L74 |  |
+| S113 | SC10 | 12041–12195 | 154 | 6.417 | 08:21:17 |  |  |
+| S114 | SC10 | 12195–12260 | 65 | 2.708 | 08:28:03 |  |  |
+| S115 | SC10 | 12260–12288 | 28 | 1.167 | 08:30:20 |  |  |
+| S116 | SC10 | 12288–12382 | 94 | 3.917 | 08:32:00 |  |  |
+| S117 | SC10 | 12382–12450 | 68 | 2.833 | 08:35:22 |  |  |
+| S118 | SC10 | 12450–12480 | 30 | 1.250 | 08:38:18 |  |  |
+| S119 | SC10 | 12480–12497 | 17 | 0.708 | 08:40:00 |  |  |
+| S120 | SC10 | 12497–12517 | 20 | 0.833 | 08:40:17 |  |  |
+| S121 | SC10 | 12517–12526 | 9 | 0.375 | 08:41:13 |  |  |
+| S122 | SC10 | 12526–12581 | 55 | 2.292 | 08:41:22 |  |  |
+| S123 | SC10 | 12581–12755 | 174 | 7.250 | 08:44:05 | L75 |  |
+| S124 | SC10 | 12755–12793 | 38 | 1.583 | 08:51:11 |  |  |
+| S125 | SC11 | 12793–13063 | 270 | 11.250 | 08:53:01 |  |  |
+| S126 | SC11 | 13063–13578 | 515 | 21.458 | 09:04:07 |  | ends with a fade to black about 564-565.7 s |
+| S127 | SC12 | 13578–15800 | 2222 | 92.583 | 09:25:18 |  | credits on black; the remake's own credits + CC BY 2.5 attribution go here (spec D2) |

@@ -1,0 +1,332 @@
+{
+  "schema": 1,
+  "lock": "production-designer/design/characters.md section Costume continuity lock at 9ba440ff60225d40165f6100b94fdc9f64dd0cb4",
+  "audited_ids": [
+    "S078",
+    "S079",
+    "S080",
+    "S081",
+    "S082",
+    "S083",
+    "S084",
+    "S085",
+    "S086",
+    "S087",
+    "S088",
+    "S089",
+    "S090",
+    "S091",
+    "S092",
+    "S093",
+    "S094",
+    "S095",
+    "S096",
+    "S097",
+    "S098",
+    "S099",
+    "S100",
+    "S101",
+    "S102",
+    "S103",
+    "S104",
+    "S105",
+    "S106",
+    "S107",
+    "S108",
+    "S109",
+    "S110",
+    "S111",
+    "S112",
+    "S113",
+    "S114",
+    "S115",
+    "S116",
+    "S117",
+    "S118",
+    "S119",
+    "S120",
+    "S121",
+    "S122",
+    "S123",
+    "S124",
+    "S125",
+    "S126"
+  ],
+  "visual_method": "Full-resolution key inspection plus contact sheet; the contact sheet is a diagnostic overview, not source picture.",
+  "contact_sheet": "evidence/costume-audit-s078-s126-v7.jpg",
+  "pre_revision_finding": {
+    "forbidden_garment_ids": [
+      "S078"
+    ],
+    "description": "S078 showed a collared button-neck garment with a horizontal toggle/placket."
+  },
+  "audit_finding": {
+    "remaining_visible_emo_keys": "S079-S126 show the plain fitted grey-green crew-neck shirt or no visible Emo garment; no additional collar, henley/placket, suspenders, shoulder strap, or bag was found. Proog remains in the locked long dark olive/sage coat over the wine/maroon chest panel in the visible representatives.",
+    "representative_ids": [
+      "S079",
+      "S080",
+      "S082",
+      "S084",
+      "S088",
+      "S089",
+      "S092",
+      "S094",
+      "S098",
+      "S107",
+      "S125",
+      "S126"
+    ]
+  },
+  "correction": {
+    "id": "S078",
+    "key": "working/shot-keys-v6/S078.png",
+    "description": "Plain fitted washed-out grey-green crew-neck shirt with subtle dark stitched horizontal chest seam; no collar, buttons, vertical placket, henley, suspenders, shoulder strap, or bag."
+  },
+  "key_records": [
+    {
+      "id": "S078",
+      "key": "working/shot-keys-v6/S078.png",
+      "sha256": "5f1c92aff503180eb3d355261ae0399fc81ab8d9aefdb54566bd61e17c2b7e26"
+    },
+    {
+      "id": "S079",
+      "key": "working/shot-keys-v5/S079.png",
+      "sha256": "c724fcd5310d396d72c78b70c79c65df757ad708e5039f12d18a7c775b5c86dd"
+    },
+    {
+      "id": "S080",
+      "key": "working/shot-keys-v5/S080.png",
+      "sha256": "e3f33aff162fe836df5d217fa2c1dac96ab38a235c98eb1f6887cd072f81f93f"
+    },
+    {
+      "id": "S081",
+      "key": "working/shot-keys-v5/S081.png",
+      "sha256": "a3d52a892c6ef6cb03425ac13f2809faa896a3b1ca6291e434d8e239017e71dc"
+    },
+    {
+      "id": "S082",
+      "key": "working/shot-keys-v5/S082.png",
+      "sha256": "18da84ff22597bc85302ea88fd29d131af408fe4e41b4e27ca5373149402eff1"
+    },
+    {
+      "id": "S083",
+      "key": "working/shot-keys-v5/S083.png",
+      "sha256": "242acacdc69787f2dbacd3a9d2026d29ffcc044401753ad0202c2e6e027273dc"
+    },
+    {
+      "id": "S084",
+      "key": "working/shot-keys-v5/S084.png",
+      "sha256": "f3a00dae709b661016ee41352df2493e75fb7676154bf9bc0785bc41a0137d42"
+    },
+    {
+      "id": "S085",
+      "key": "working/shot-keys-v5/S085.png",
+      "sha256": "3f300a34bcaff7a23f777f9b2c6e9db7199380251f3596342f2769ce7f4eb290"
+    },
+    {
+      "id": "S086",
+      "key": "working/shot-keys-v5/S086.png",
+      "sha256": "caf54c027e0277dad0e5e0d9d898bef4a136f28a272eb9ffde504254feb3ec44"
+    },
+    {
+      "id": "S087",
+      "key": "working/shot-keys-v5/S087.png",
+      "sha256": "14ae5ab37aa6b04840c214af56a50d09f17f1d505cde06804b2cf53f6534c98a"
+    },
+    {
+      "id": "S088",
+      "key": "working/shot-keys-v5/S088.png",
+      "sha256": "e26303cf174d5e66a2601fef3818495dc095dd2676a9be9dc85f15ea3cd7f69b"
+    },
+    {
+      "id": "S089",
+      "key": "working/shot-keys-v5/S089.png",
+      "sha256": "5e890fe5a305dfe819656afb4bc54968439d8c72490483204d882c01dceaf9d6"
+    },
+    {
+      "id": "S090",
+      "key": "working/shot-keys-v5/S090.png",
+      "sha256": "3d447c5e16db0112d3b5533647404b6f4b6fab4f434c6863843349d658bf3993"
+    },
+    {
+      "id": "S091",
+      "key": "working/shot-keys-v5/S091.png",
+      "sha256": "5b404eabc74bd70cb69ed7ee63a0c7a966cc32d94aab3f313a4b54331b7e064c"
+    },
+    {
+      "id": "S092",
+      "key": "working/shot-keys-v5/S092.png",
+      "sha256": "7a201fda69f62c7c420da23c6b93fc7edc642a841049d2953081be489639d23b"
+    },
+    {
+      "id": "S093",
+      "key": "working/shot-keys-v5/S093.png",
+      "sha256": "79aa0ebe52448574d3332709c7db85eef580316def9770f919886600be36f130"
+    },
+    {
+      "id": "S094",
+      "key": "working/shot-keys-v5/S094.png",
+      "sha256": "c6624b772204501deb30712fa0feba746eb6497cb63eb0d389e6ae88264c40e9"
+    },
+    {
+      "id": "S095",
+      "key": "working/shot-keys-v5/S095.png",
+      "sha256": "6ce479a750f4622503d4d432d426b60d204fa7049a29ffb013d1092d50fc9916"
+    },
+    {
+      "id": "S096",
+      "key": "working/shot-keys-v5/S096.png",
+      "sha256": "07811aa9c8edeee6307f0fcc42563b8c3df9adeb85c03af99b523d107452c31a"
+    },
+    {
+      "id": "S097",
+      "key": "working/shot-keys-v5/S097.png",
+      "sha256": "416153090d6614245e66548109898539631ec4fea2b0d0ed4540eb007127dfda"
+    },
+    {
+      "id": "S098",
+      "key": "working/shot-keys-v5/S098.png",
+      "sha256": "8324e3cc80d66de7210e4cbe7f9efa06569e8d62c15937bc6d0f754799f04e99"
+    },
+    {
+      "id": "S099",
+      "key": "working/shot-keys-v5/S099.png",
+      "sha256": "a062617f8d6e1b5e81eb3957df4895aa70af5c4c52339dfbf1a2a1d4ab07fd65"
+    },
+    {
+      "id": "S100",
+      "key": "working/shot-keys-v5/S100.png",
+      "sha256": "6725cd301a900f40816d00207ddd89e98b7ac4c49afb18573e4cfac958d6767b"
+    },
+    {
+      "id": "S101",
+      "key": "working/shot-keys-v5/S101.png",
+      "sha256": "ab17a6773d422221f66aab693938c714a657b539df594b99423a4198813cb869"
+    },
+    {
+      "id": "S102",
+      "key": "working/shot-keys-v5/S102.png",
+      "sha256": "c6398a121c92d14a40046cfae27943891037d2507dbea66c6613d6aa09653814"
+    },
+    {
+      "id": "S103",
+      "key": "working/shot-keys-v5/S103.png",
+      "sha256": "fcc72acf4e534feb76a1bfe8e238b0052f4a151b07057900153b82b46130a4d3"
+    },
+    {
+      "id": "S104",
+      "key": "working/shot-keys-v5/S104.png",
+      "sha256": "d7e470a8c03eb25c9ac36916eaca431c361aa267fdcc1fb53688ab76d9f43be7"
+    },
+    {
+      "id": "S105",
+      "key": "working/shot-keys-v5/S105.png",
+      "sha256": "a79b4e7104b248874258a8146ae180df8caf42d0307b31ef5cf1e47d81e03f7c"
+    },
+    {
+      "id": "S106",
+      "key": "working/shot-keys-v5/S106.png",
+      "sha256": "ed8ed3c0635ada6ead760d4fcc0927cd52914ccae38a7bb9f56ea68da1d57321"
+    },
+    {
+      "id": "S107",
+      "key": "working/shot-keys-v5/S107.png",
+      "sha256": "754296ccffad3177b70b9395a2a394f320c060d83f104aed5bd06b6c1005bd67"
+    },
+    {
+      "id": "S108",
+      "key": "working/shot-keys-v5/S108.png",
+      "sha256": "2e11026579ae91c5c4d2db25f59327a4e7dcc85aa8b856e72d5a785ffd0b0a97"
+    },
+    {
+      "id": "S109",
+      "key": "working/shot-keys-v5/S109.png",
+      "sha256": "cc7b1ee22e63781b1ce042c209723157877f54ef62ad0b7ad3bd22718c326400"
+    },
+    {
+      "id": "S110",
+      "key": "working/shot-keys-v5/S110.png",
+      "sha256": "40fe4a6eab70509987de18b245d4d47447c4ae50cb0e20cae71a072e1610f84c"
+    },
+    {
+      "id": "S111",
+      "key": "working/shot-keys-v5/S111.png",
+      "sha256": "ddaeec7596f9d355ec484ef6fa2458b89b7837693b498aeddc5ab668be6338a5"
+    },
+    {
+      "id": "S112",
+      "key": "working/shot-keys-v5/S112.png",
+      "sha256": "6e9cb4ca33c6e4e4b43985efe0a596311a35de996993784a4cb45d94c118bf03"
+    },
+    {
+      "id": "S113",
+      "key": "working/shot-keys-v5/S113.png",
+      "sha256": "0575ef5e6dfab835a04131be3b2fca47f3f2ed0de23a1f5a32a7b347398ac1c9"
+    },
+    {
+      "id": "S114",
+      "key": "working/shot-keys-v5/S114.png",
+      "sha256": "602d3cb77b55e7ef779c7ce8ae903c07e596f90a52e26a236c41fcf4122269ab"
+    },
+    {
+      "id": "S115",
+      "key": "working/shot-keys-v5/S115.png",
+      "sha256": "488b76e9150dab9152ae20dd09bd17a7b63dcca4ab185ead88b99641dc0413c9"
+    },
+    {
+      "id": "S116",
+      "key": "working/shot-keys-v5/S116.png",
+      "sha256": "d72fe2178256a38af4b26b69b0c797260ab99ea9d62cc82b667d6f9999df8e18"
+    },
+    {
+      "id": "S117",
+      "key": "working/shot-keys-v5/S117.png",
+      "sha256": "e9776da82e0f0fcf7078e3adf7211d1a6fcfc79eb7d5dc40b64a573e5c04776a"
+    },
+    {
+      "id": "S118",
+      "key": "working/shot-keys-v5/S118.png",
+      "sha256": "dce96daef2bfcc2ce06e4813651b382a8142d5cb4768fd3dd68f4eeb190b1d9e"
+    },
+    {
+      "id": "S119",
+      "key": "working/shot-keys-v5/S119.png",
+      "sha256": "fa4fcaec0173a417d697f791addefdc858f1a6b3179d4d156a68df728790b3be"
+    },
+    {
+      "id": "S120",
+      "key": "working/shot-keys-v5/S120.png",
+      "sha256": "77ca0973b4300fd23d64082a9eb0cd493ad0c28c9c8e35e8a7fd206c9606bcbd"
+    },
+    {
+      "id": "S121",
+      "key": "working/shot-keys-v5/S121.png",
+      "sha256": "7e7ff3ce9d2229fe8fb73438805d8b6b85af547bedaf99c62cadc48f45ae27d8"
+    },
+    {
+      "id": "S122",
+      "key": "working/shot-keys-v5/S122.png",
+      "sha256": "450e7a9352689f3854c320e0aaf7b72ff2dcd194e88fd3751ef1220b595b4847"
+    },
+    {
+      "id": "S123",
+      "key": "working/shot-keys-v5/S123.png",
+      "sha256": "560e585d43bed56e947989dbfec4547489f28bc57ca9573b2ef46f79f54fce2d"
+    },
+    {
+      "id": "S124",
+      "key": "working/shot-keys-v5/S124.png",
+      "sha256": "37a5310e75fad945a40984ddb64f62095c3f57243eea56fbd7e237084daed080"
+    },
+    {
+      "id": "S125",
+      "key": "working/shot-keys-v5/S125.png",
+      "sha256": "62d74cfd4199cf05597e9f603863248c0cdac24fa9d89a625b049257671b98f1"
+    },
+    {
+      "id": "S126",
+      "key": "working/shot-keys-v5/S126.png",
+      "sha256": "5bc949e945d87938626062518fc5dc35cfb08d78d7987801477d9cb3ee00d7fc"
+    }
+  ]
+}

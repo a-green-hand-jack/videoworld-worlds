@@ -1,0 +1,7 @@
+# Resource probe (editor)
+- video-generation: HTTP 200, video/mp4, ffprobe 3.008 s (H.264/AAC)
+- image-generation: HTTP 503, `resource unavailable`: served on the model route of a worker whose provider speaks openai-responses; this worker speaks anthropic (not retried)
+- speech: HTTP 200, audio/wav, 2.48 s
+- music: HTTP 200, audio/mpeg, 62.77 s (asked for 10 s; length not honored)
+- sound-effects: HTTP 200, audio/mpeg, 1.04 s
+- film-understanding (gemini-3.8-flash): HTTP 200, answer: "A close-up, slow-motion shot of a lit matchstick burning while snowflakes fall gently in the background."

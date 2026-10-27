@@ -1,0 +1,9 @@
+# usage: python3 tools/listen.py SOUND 'question'  -- asks audio-understanding (see ht-resource describe)
+import base64, json, os, subprocess, sys, urllib.request
+url = subprocess.check_output(['ht-resource', 'url', 'audio-understanding'], text=True).strip()
+mime = 'audio/wav' if sys.argv[1].endswith('.wav') else 'audio/mp3'
+body = {'model': 'gemini-3.8-flash', 'input': [{'type': 'text', 'text': sys.argv[2]}, {'type': 'audio', 'mime_type': mime, 'data': base64.b64encode(open(sys.argv[1], 'rb').read()).decode()}]}
+req = urllib.request.Request(url + '/v1beta/interactions', json.dumps(body).encode(), {'Content-Type': 'application/json', 'x-goog-api-key': os.environ['HT_RESOURCE_TOKEN']})
+ans = json.load(urllib.request.urlopen(req, timeout=900))
+items = ans.get('outputs') or [c for st in ans.get('steps', []) if st.get('type') == 'model_output' for c in st.get('content', [])]
+print(''.join(i.get('text', '') for i in items if i.get('type', 'text') == 'text'))

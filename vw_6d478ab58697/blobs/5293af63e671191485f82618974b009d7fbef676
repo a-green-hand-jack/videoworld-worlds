@@ -1,0 +1,11 @@
+# Tone, Rain, Clip — title design
+
+One static title, no other scenery, characters or props. Center the exact text “Tone, Rain, Clip” in white (#FFFFFF) DejaVu Sans Book, 80 px, on deep navy (#101B2B). The text ink bounds are centered horizontally and vertically. RGB canvas: 1280×720. No fades, overlays or animation.
+
+Reference and editorial source: title.png in this directory. The editor holds this card throughout 240 frames at 24 fps, from 00:00 through 00:10. The title is intentionally independent of the four sound phases.
+
+Regeneration: python3 picture/make_title.py, using Pillow and the system DejaVu Sans font.
+
+## Accepted encoded variant
+
+Editor revision 211482d027d4eb210a0a9a76306a668147415ec8 uses larger white type and a slightly different navy. encoded-reference.png records its decoded frame at 00:05. The designer accepts this variant: it preserves exact text, centered composition and the plain title-card requirement. title.png remains the original supplied design.

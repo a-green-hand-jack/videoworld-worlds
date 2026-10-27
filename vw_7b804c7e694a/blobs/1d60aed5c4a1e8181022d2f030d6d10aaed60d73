@@ -1,0 +1,4 @@
+#!/bin/bash
+# sheet.sh OUT.jpg shot.mp4... : 4 frames per shot, one row per shot
+args=(); n=0
+for f in "$@"; do args+=(-i $f); n=$((n+1)); done

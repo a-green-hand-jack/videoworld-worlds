@@ -1,0 +1,57 @@
+[
+  {
+    "shot": 1,
+    "frames": 108,
+    "duration": 4.5,
+    "format_checked": true,
+    "mean_frame_change_range_8bit": [
+      0.010978009259259259,
+      1.3156712962962962
+    ],
+    "decoded_without_error": true
+  },
+  {
+    "shot": 2,
+    "frames": 108,
+    "duration": 4.5,
+    "format_checked": true,
+    "mean_frame_change_range_8bit": [
+      0.013188657407407408,
+      0.8758854166666666
+    ],
+    "decoded_without_error": true
+  },
+  {
+    "shot": 3,
+    "frames": 108,
+    "duration": 4.5,
+    "format_checked": true,
+    "mean_frame_change_range_8bit": [
+      0.025243055555555557,
+      1.5000173611111112
+    ],
+    "decoded_without_error": true
+  },
+  {
+    "shot": 4,
+    "frames": 96,
+    "duration": 4.0,
+    "format_checked": true,
+    "mean_frame_change_range_8bit": [
+      0.032690972222222225,
+      0.8619791666666666
+    ],
+    "decoded_without_error": true
+  },
+  {
+    "shot": 5,
+    "frames": 72,
+    "duration": 3.0,
+    "format_checked": true,
+    "mean_frame_change_range_8bit": [
+      0.024403935185185185,
+      0.6017881944444444
+    ],
+    "decoded_without_error": true
+  }
+]

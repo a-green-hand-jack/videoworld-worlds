@@ -1,0 +1,26 @@
+import json, os, subprocess, urllib.request
+url = subprocess.check_output(["ht-resource","url","sound-effects"],text=True).strip()
+tok = os.environ["HT_RESOURCE_TOKEN"]
+SFX = {
+ "wind_snow_loop": ("Cold winter wind howling softly over empty snowy street at night, distant, steady ambience, no voices", 10),
+ "carriage_fast": ("Two horse-drawn carriages rattling fast past on a cobblestone street in snow, hooves and wheels, passing from left to right", 5),
+ "snow_footsteps": ("Small bare footsteps scuffling on snow, slow, hesitant, quiet crunch", 5),
+ "match_strike": ("A single wooden match striking on rough stone wall, scratch and flare ignition", 2),
+ "flame_crackle": ("Small warm match flame burning softly with gentle fizz and tiny crackle, close", 5),
+ "flame_out": ("A match flame going out with a small puff and faint hiss", 1.5),
+ "stove_fire": ("Warm iron stove with fire crackling and ticking, cozy, close", 5),
+ "goose_table": ("Roast goose steaming and sizzling on a dinner table, soft clinks of porcelain plates, cutlery", 5),
+ "tree_shimmer": ("Magical shimmering twinkle of tiny bells and glass chimes, ethereal, rising, a Christmas tree lighting up", 5),
+ "falling_star": ("A soft magical descending whoosh and chime of a shooting star falling", 3),
+ "bundle_blaze": ("A whole bundle of matches igniting at once into a large bright blaze, whoosh and roaring flame", 4),
+ "ascent_airy": ("Ethereal airy rising shimmer, soft wind and gentle choir-like pad, ascending to heaven", 6),
+ "morning_town": ("Quiet cold winter morning in a snowy town, distant church bells on New Year's morning, faint wind, a few distant footsteps", 8),
+ "new_year_bells": ("Distant church bells ringing in the New Year at midnight, muffled by snow", 6),
+}
+for k,(t,d) in SFX.items():
+    out=f"sfx/{k}.mp3"
+    if os.path.exists(out): continue
+    req=urllib.request.Request(url+"/v1/sound-generation", json.dumps({"text":t,"duration_seconds":d}).encode(), {"xi-api-key":tok,"Content-Type":"application/json"})
+    try:
+        open(out,"wb").write(urllib.request.urlopen(req,timeout=120).read()); print(k,"ok")
+    except Exception as e: print(k,"ERR",e)

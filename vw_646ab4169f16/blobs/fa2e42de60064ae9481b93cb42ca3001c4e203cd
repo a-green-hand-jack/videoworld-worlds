@@ -1,0 +1,35 @@
+# QC report: cut-v2 (release of world/editor; film = editor@2bdabad)
+
+Checked against `direction/delivery-spec.md`, `script.csv`, `shotlist.csv` (director 137f8d6 / direction-v3).
+Method: downloaded `cut-v2-elephants-dream.mp4` and `.en.vtt` from the release; sha256 of the mp4 235ffd57…8611f equals editor `film/elephants-dream.mp4`; the vtt is byte-identical. ffmpeg 7.0.2 (decode, ebur128, volumedetect, silencedetect, frame grabs), numpy sample analysis, whisper small.en (faster-whisper, int8, CPU; transcript in `evidence/cut-v2/asr-whisper-small-en.json`) for what is audible where. I did not play the file in a browser or listen with ears; "intelligible" below is judged by a speech recogniser, which is a proxy.
+
+**Recommendation: FIX, not lockable.** Sound is now present and meets the mix numbers; S001–S003 pass picture review with one artefact. What decides it: F1 (S004–S126 are still slates, 98 % of the running time) and F2 (several short exclamations the recogniser cannot recognise).
+
+## Decisive faults
+| # | Spec | Where | Observed | Owner |
+|---|---|---|---|---|
+| F1 | D3, D2 | 00:30.12–10:51 (S004–S126) | Still "MISSING PICTURE" slates (e.g. S004 at 30.2 s). Only 00:00–00:30.12 has film picture. | dp |
+| F2 | D4 intelligibility | 00:25.2 L02 "Emo? Emo!"; 00:46.3 L04 "Are you hurt?"; 00:55.3 L06 "I'm OK."; 02:10.8 L14 "Hurry, Emo!"; 04:51 L31 "Pulp!"; 05:44.5 L33 "Now!" | In a run on the cut and again on each line isolated (with ±1.5 s of context, normalised) the recogniser hears something else at the right time: L02 "He ate for the great gold" / "8 for the 3rd floor"; L04 "Oh, he's hurt"; L06 "One. Okay."; L14 "Three. Four."; L31 "Hope it."; L33 "Pretty much." Speech is present at the script time (energy and word onsets within about 0.5 s), so placement is fine; the words are not clear. Short exclamations over music are the pattern. Needs a listen by a person; if confirmed, re-voice or lift these lines. | sound-designer |
+
+## Minor faults
+| # | Spec | Where | Observed | Owner |
+|---|---|---|---|---|
+| F3 | D3 artefact, S002 held 1.46 s | cut frames 639–649 (26.6–27.05 s) | A second soft profile (far cheek/nose edge) is ghosted at the right of Proog's face; frames 20–30 of S002, as the editor's `edit/checks/s002-frames-20-30.png` already shows. Crop: `evidence/cut-v2/s002-ghost-cheek-27.0s.png`. Cleaner than the doubled-head take, but still visible at full size. | dp |
+| F4 | D4 sync note | 00:25.2 (L02) vs picture | The line starts 0.6 s before S002 picture begins (S001 runs to 25.79 s), because the script places L02 in S001. Follows the script; no fault unless the director wants it moved. | director |
+
+## Passes (observed)
+- D1 file: MP4, moov before mdat, H.264 High yuv420p 1024x576 SAR 1:1, 24 fps, 15800 frames; AAC-LC 48 kHz stereo 194 kb/s (spec 160–256). Full decode prints nothing. 10:58.33 (original 10:58.32).
+- D4 mix numbers (measured on the delivered mp4): integrated −20.6 LUFS (spec −16…−23), LRA 8.3 LU, max sample −1.5 dBFS (0 samples ≥ 0.999; true peak printed as −1.4 by the editor, I measured sample peak only), no silent stretch longer than 1.5 s below −50 dB and no second below −60 dB, no sample-to-sample jump above 0.3 full scale (so no click-type pops by that test). Stereo L/R correlation 0.55 (real stereo, not dual mono).
+- D4 no original audio: 3-4 s windows every 20 s of the cut's audio cross-correlated against the original's soundtrack within ±3 s: maximum normalised peak 0.13 (a copy gives ≈ 1), so none of those 31 windows contains the original's audio. This is a sampling test, not a proof for the whole film.
+- D4 dialogue placement: all 75 script lines are present in the cut's audio near their times; the recogniser transcript matches the script text for 44 of 75 lines at ≥ 0.6 similarity in the full-film pass, and the isolated passes found the remainder (e.g. L32 "Emo, close your eyes" at 341.1 s, L56 "why can't you see the beauty of this place" at 429 s, L57 at 438.2 s, L63 "No, no, it's a trap" at 472.1 s). L01 and L03 match the script text closely at 14.8 s and 28.5 s. Recogniser word times are coarse (±1 s with music); I have no stem, so exact onset sync I take from the editor's stem measurement (every cue start within 0.09 s) and have not repeated it.
+- D5 subtitles: 75 cues, one per script line; cue starts equal the script's start for all 75 lines; no overlapping cues (checked on the cut-v2 vtt). Cue text not compared word for word with the audio beyond the above.
+- D3 S002 (00:25.79–27.25): CU of Proog swinging round, alarmed, bald with grey side hair and sideburns, olive-brown coat, dark red vest, warm dark machine background, camera low, motion present. Matches shot-list row S002 and production-designer `design/characters.md`. Not a copy: SSIM against the original's frames at 25.9/26.4/26.9/27.2 s = 0.35–0.42, PSNR 13.8–14.4 dB; side-by-side `evidence/cut-v2/s002-vs-original-26.4s.png`.
+- D3 S003 (27.25–30.12): wide of a teal machine wall, rusted catwalk, black cables whipping across frame, Emo (dark hair, grey shirt) running then knocked down with Proog (olive coat) reaching; cable motion and camera move present; no melted figures at the frames I sampled (28.5, 29.5, 29.9 s). Hard cut S002→S003 at cut frame 654 and S003→S004 at 723 (frame-exact per the editor; I saw the cut at 27.2→27.3 s and the slate from 30.2 s).
+- Title and credits as in the cut-v1 report (S001 title legible 3.5–16.5 s; credits with attribution).
+- Emo's hair: delivery-spec says "red-brown", the production design and the shot list say dark chestnut / dark; S003 shows dark brown. The spec wording is looser than the design; I treat the design as the law (`design/characters.md`).
+
+## Not checked
+Voice distinctness of Proog vs Emo (pitch tracking was swamped by the music's 70 Hz drone, so no measurement); voice quality and emotion; music/effects following the original's events (not heard by a person); boundary pops by ear; D3 for S004–S126 (slates); a real-browser playback.
+
+## For the next cut
+When dp's further shots arrive I will check each against `shotlist.md` and the design references, S002-style artefacts, and motion; when sound-v2 arrives, loudness again and the F2 lines.

@@ -1,0 +1,13 @@
+Wan takes over the range each cut uses: alt2 (director's cadence measure), mean Laplacian variance at 640x360, odd/even sharpness ratio
+shot     take           | cut-v6c source           | shots-b7 (dp 96aaa99)
+s04      s04_wan1.mp4   | alt2 0.11 sharp  2376 o/e 1.00 | alt2 0.06 sharp  2081 o/e 1.00  
+s10      s10_wan1.mp4   | alt2 0.16 sharp  1312 o/e 0.99 | alt2 0.06 sharp   529 o/e 0.95  
+s12      s12_wan1.mp4   | alt2 0.06 sharp  1186 o/e 0.99 | alt2 0.05 sharp   565 o/e 0.99  
+s13a     s13a_wan2.mp4  | alt2 0.09 sharp   706 o/e 1.00 | alt2 0.03 sharp   548 o/e 0.98  
+s14      s14b_wan1.mp4  | alt2 0.01 sharp   974 o/e 0.79 | alt2 0.04 sharp   291 o/e 0.92  (rebuilt h0)
+s15      s15_wan2.mp4   | alt2 0.12 sharp  1345 o/e 1.00 | alt2 0.06 sharp   671 o/e 0.95  
+s16      s16_wan1.mp4   | alt2 0.17 sharp  1698 o/e 1.00 | alt2 0.05 sharp   972 o/e 0.98  
+s17      s17_wan1.mp4   | alt2 0.05 sharp  1091 o/e 0.99 | alt2 0.04 sharp   898 o/e 0.98  
+s17      s17b_wan1.mp4  | alt2 0.05 sharp  1385 o/e 1.00 | alt2 0.13 sharp  1380 o/e 1.00  
+s18-s19  s18b_wan1.mp4  | alt2 0.12 sharp  1467 o/e 0.92 | alt2 0.03 sharp  1318 o/e 0.99  (rebuilt h0)
+s18-s19  s19_wan1.mp4   | alt2 0.09 sharp   191 o/e 1.00 | alt2 0.07 sharp    61 o/e 0.93  

@@ -1,0 +1,28 @@
+# Delivery specification — what each cut is judged against
+
+Source: the Film objective (`director`#1). Items marked (input) are quoted requirements; items marked (direction) are the standard this direction sets so that the input's requirements are met for a viewer in a web browser.
+
+## File and container
+1. (input) Path `film/paper-lantern.mp4` in the assembled delivery, nonempty.
+2. (direction) MP4 container that plays in a standard web browser; `moov` atom at the front (faststart).
+
+## Video
+3. (input) H.264 video. (direction) yuv420p, High or Main profile.
+4. (input) 1280x720 frame size; (direction) square pixels (SAR 1:1).
+5. (input) 24 fps; (direction) constant frame rate 24/1.
+6. (input) Duration 18–22 s (both streams). (direction) target 20 s.
+7. (input) Four to six shots made from still images, with camera moves such as slow pans and pushes — counted excluding the title and end card. (direction) the five shots of `direction/shot-list.md`.
+8. (input) Consistent in style and in how the lantern and the child look, across all shots.
+9. (input) An opening title and an end card. (direction) title reads *The Paper Lantern*; both legible.
+10. (input) Story: at dusk a child lets a paper lantern go on a river, and it drifts past the village until it is a small light among the stars — each beat visible.
+11. (direction) No frozen/black gaps other than intended fades, no visible image edges during moves, no jitter, no artifacts (banding, blockiness) that a viewer would notice, no watermarks or stray text.
+
+## Audio
+12. (input) AAC, stereo (2 channels). (direction) 48 kHz (44.1 kHz accepted).
+13. (input) Ambience of water and evening, with a soft musical cue.
+14. (input) No dialogue (direction: no voice of any kind).
+15. (direction) Sound present from start to end of the picture (audio stream duration within 0.1 s of video); integrated loudness about −16 LUFS (−20 to −14 accepted); true peak ≤ −1 dBTP; no clipping, clicks or dropouts.
+
+## How it is checked
+- ffprobe for 1–6, 12; frame extraction at every shot and at cut points for 7–11; loudness/peak with ffmpeg `ebur128`/`loudnorm` analysis and listening via `audio-understanding` for 13–15; whole-film viewing start to end.
+- Every fault is reported with the cut (release tag) and timecode to the owner of the affected part.

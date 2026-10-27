@@ -1,0 +1,32 @@
+# QC report: cut-v1 (release of world/editor; film = editor@fe2860a)
+
+Checked against `direction/delivery-spec.md` (director, direction-v3 / 137f8d6), script.csv, shotlist, editor timeline.
+Method: downloaded `elephants-dream.mp4` from the release, sha256 edd14f3e…6553 (identical to editor `film/elephants-dream.mp4` at fe2860a); ffmpeg 7.0.2 full decode, stream info, volumedetect/ebur128, blackdetect, frame grabs, VTT parsed against script.csv. Not played in a real browser (no browser in my sandbox): D1 playback is judged from `index.html` source and stream properties only.
+
+**Recommendation: FIX (not lockable).** Expected for an interim cut: 125 of 127 shots are slates and there is no sound. S001 and the credits pass.
+
+## Decisive faults
+| # | Spec | Where | Observed | Owner |
+|---|---|---|---|---|
+| F1 | D4, D1 | whole cut 00:00–10:58 | Audio is silent: volumedetect mean/max −91 dB, ebur128 peak −inf. AAC stream is 2 kb/s (spec 160–256 kb/s). No dialogue, music or effects. | sound-designer (mix), editor (encode 160–256 kb/s AAC-LC when mix arrives) |
+| F2 | D3, D2 | 00:25.79–10:51 (S002–S126) | Every shot is a text slate "MISSING PICTURE" (e.g. S002 at 26.5 s, S009 at 60 s, S038 at 200 s, S086 at 400 s). No picture, no motion. | dp |
+| F3 | D4 | all 75 script lines | No voices; L01 (15.1 s) onward cannot be heard. | sound-designer |
+
+## Minor fault (editor)
+| # | Spec | Where | Observed |
+|---|---|---|---|
+| F4 | D5 | VTT 06:08.4, 06:46.0, 06:46.6 | Cues overlap: L38 ends 368.6 / L39 starts 368.4; L43 ends 406.2 / L44 starts 406.0; L44 ends 406.8 / L45 starts 406.6. Caused by the minimum-duration extension of short cues; two cues show at once. |
+| F5 | D2/D3 | 00:25.46–25.75 | 0.29 s of black at the tail of S001 (blackdetect) before the S002 slate. Check whether it is a deliberate fade from dp's shot; once S002 has picture it should be a cut, not a dip, unless the original does it. |
+
+## Passes (observed)
+- D1 file: MP4, moov at start (faststart), H.264 High, yuv420p, 1024x576 SAR 1:1, 24 fps constant, AAC-LC 48 kHz stereo; full decode `ffmpeg -v error -f null -` prints nothing. `index.html` uses `<video controls>`, relative `film/` path, `<track kind="subtitles" srclang="en" default>`.
+- D2 length: 10:58.33 (original 10:58.32), 15800 frames; credits present at the end (scrolling, readable, attribution "Based on Elephants Dream (2006) / Orange Open Movie Project / Blender Foundation, CC BY 2.5", positions named). Opening title "Elephants Dream" present.
+- D3 S001: title legible 3.5–16.5 s (frames 2.5 s fading in, 3.5, 6, 10, 14, 16.5 s legible, 18 s gone), lettering stays registered to the wall; card "a VideoWorld film production" 18.6–23.6 s fades in and out. Image has motion (mean frame difference 22 of 255 between 6, 10 and 14 s with the title steady). No melted or garbled content seen in the frames sampled. Not yet checked against the original frame by frame, or against production-designer `design/opening-wall.md`; I sampled 16 frames only.
+- D5 cue count and timing: 75 cues = 75 script lines, every start identical to script.csv, ends ≥ script ends. Cue text not compared word for word.
+- Credits text lacks the positions' real names beyond role labels (acceptable: spec asks for positions).
+
+## Not checked yet (nothing to check)
+D4 loudness/true peak, sync, voice distinction, sound pops; D3 for S002–S126 (character/place consistency, motion, artefacts); shot-boundary timing against the original for real picture.
+
+## For the next cut
+Send me the cut with sound and dp's new shots; I will check loudness (−16 to −23 LUFS, ≤ −1 dBTP), each dialogue line's onset against script.csv by measuring the audio, voice consistency, boundary pops, and each new shot against shotlist.md and the design references.

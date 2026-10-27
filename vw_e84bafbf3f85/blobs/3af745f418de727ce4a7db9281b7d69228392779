@@ -1,0 +1,98 @@
+"""Render the Paper Lantern cut: stills + camera moves + title/end card + soundtrack -> mp4.
+usage: render.py STILLS_DIR  (clipN.mp4 preferred over shotN.png)
+ OUT.mp4 [MOVES.json]
+Shots are looked up as STILLS_DIR/shotN.(png|jpg). Stills should be >=1.15x of 1280x720 so moves have room."""
+import sys, json, glob, subprocess, numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+W,H,FPS=1280,720,24
+stills,out=sys.argv[1],sys.argv[2]
+moves=json.load(open(sys.argv[3] if len(sys.argv)>3 else 'tools/moves.json'))
+FADE=0.5
+# timeline from shotlist.md: key -> (start,end)
+TL=moves['timeline']
+TOTAL=moves['total']
+def find(n):
+    for e in('png','jpg','jpeg'):
+        g=glob.glob(f'{stills}/{n}.{e}')
+        if g: return g[0]
+    raise SystemExit('missing '+n)
+def load(n):
+    return Image.open(find(n)).convert('RGB')
+def ease(p): return p*p*(3-2*p)
+def view(img,m,p):
+    """crop+resize img: m has start/end (cx,cy,zoom) in fractions of image; zoom 1 = fit to cover."""
+    iw,ih=img.size
+    cx0,cy0,z0=m['from']; cx1,cy1,z1=m['to']
+    q=ease(p); cx=cx0+(cx1-cx0)*q; cy=cy0+(cy1-cy0)*q; z=z0+(z1-z0)*q
+    cover=max(W/iw,H/ih)
+    vw,vh=W/(cover*z),H/(cover*z)
+    x=min(max(cx*iw-vw/2,0),iw-vw); y=min(max(cy*ih-vh/2,0),ih-vh)
+    return img.resize((W,H),Image.LANCZOS,box=(x,y,x+vw,y+vh))
+def font(sz,bold=False):
+    return ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSerif%s.ttf'%('-Bold' if bold else ''),sz)
+def text_layer(base,lines):
+    im=base.copy(); d=ImageDraw.Draw(im)
+    y=H//2-40
+    for txt,sz,col,dy in lines:
+        f=font(sz); w=d.textlength(txt,font=f)
+        d.text(((W-w)/2+2,y+dy+2),txt,font=f,fill=(0,0,0)); d.text(((W-w)/2,y+dy),txt,font=f,fill=col)
+    return im
+GOLD=(255,214,140)
+import os, tempfile
+HANDLE=moves.get('handle',0.5)  # seconds of extra picture before the nominal in-point of each supplied clip
+shots={}; clips={}
+tmp=tempfile.mkdtemp(prefix='clips',dir='/tmp')
+for k in('1','2','3','4','5'):
+    c=f'{stills}/clip{k}.mp4'
+    if os.path.exists(c):  # finished clip from production-designer: decode to a raw memmap, scaled to 1280x720
+        r=f'{tmp}/c{k}.raw'
+        subprocess.run(['ffmpeg','-y','-loglevel','error','-i',c,'-vf',f'scale={W}:{H}:flags=lanczos,fps={FPS}','-pix_fmt','rgb24','-f','rawvideo',r],check=True)
+        clips[k]=np.memmap(r,dtype=np.uint8,mode='r').reshape(-1,H,W,3)
+        shots[k]=Image.fromarray(np.array(clips[k][len(clips[k])//2]))
+    else:
+        shots[k]=load('shot'+k)
+# title background: shot 1 darkened + blurred; end card: night blue gradient
+t1=shots['1'].resize((W,H)).filter(ImageFilter.GaussianBlur(6))
+t1=Image.eval(t1,lambda v:int(v*0.5))
+title_bg=text_layer(t1,[('The Paper Lantern',72,GOLD,0)])
+grad=np.zeros((H,W,3),np.float32)
+for yy in range(H):
+    a=yy/H; grad[yy,:]=(10+8*a,16+14*a,44+22*a)
+end_bg=text_layer(Image.fromarray(grad.astype(np.uint8)),[('The Paper Lantern',64,GOLD,0),('a short film',26,(170,180,210),90)])
+seq=[('T',None),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('E',None)]
+def raw(key,t):
+    s,e=TL[key]; p=min(max((t-s)/(e-s),0),1)
+    if key=='T': return title_bg
+    if key=='E': return end_bg
+    if key in clips:
+        c=clips[key]; i=int(round((t-(s-HANDLE))*FPS)); i=min(max(i,0),len(c)-1)
+        return Image.fromarray(np.array(c[i]))
+    return view(shots[key],moves['moves'][key],p)
+def frame(t):
+    # which segments are active, with FADE-long dissolves centred on each cut
+    cur=None
+    for i,(k,_) in enumerate(seq):
+        s,e=TL[k]
+        if s<=t<e+1e-9: cur=i
+    if cur is None: cur=len(seq)-1
+    k=seq[cur][0]; s,e=TL[k]
+    img=np.asarray(raw(k,t),np.float32)
+    # dissolve in from previous (first FADE/2 after cut) and out to next (last FADE/2): cross-blend
+    if cur>0 and t<s+FADE/2:
+        pk=seq[cur-1][0]; a=0.5+(t-s)/FADE
+        img=img*a+np.asarray(raw(pk,t),np.float32)*(1-a)
+    elif cur<len(seq)-1 and t>e-FADE/2:
+        nk=seq[cur+1][0]; a=0.5-(e-t)/FADE
+        img=img*(1-a)+np.asarray(raw(nk,t),np.float32)*a
+    # fades: from black at start, to black at end; title text fades in
+    if t<0.8: img*=t/0.8
+    if t>TOTAL-0.6: img*=max((TOTAL-t)/0.6,0)
+    return np.clip(img,0,255).astype(np.uint8)
+n=int(round(TOTAL*FPS))
+cmd=['ffmpeg','-y','-loglevel','error','-f','rawvideo','-pix_fmt','rgb24','-s',f'{W}x{H}','-r',str(FPS),'-i','-',
+     '-i','sound/paper-lantern-mix.wav','-map','0:v','-map','1:a','-t',str(TOTAL),
+     '-c:v','libx264','-preset','slow','-crf','17','-pix_fmt','yuv420p','-r',str(FPS),'-vsync','cfr',
+     '-c:a','aac','-b:a','192k','-ar','48000','-ac','2','-movflags','+faststart',out]
+p=subprocess.Popen(cmd,stdin=subprocess.PIPE)
+for i in range(n): p.stdin.write(frame(i/FPS).tobytes())
+p.stdin.close(); p.wait()

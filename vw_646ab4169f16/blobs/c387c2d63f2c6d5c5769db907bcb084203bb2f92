@@ -1,0 +1,32 @@
+# cut-v6
+
+Rendered from `edit/timeline.json` v1 by `edit/tools/render_cut.sh cut-v6` on local-compute (job-6494728adf).
+
+- **Picture: new.** S001 and S004–S126 come from dp `picture-batch-031`, which re-renders them with sub-pixel motion. For S042–S075 and S078–S126, dp `picture-batch-032` overrides that batch: it applies production-designer's costume lock and has dp's totem and S107 fixes. S002 (batch 029) and S003 (batch 004) are as in cut-v5. All 207 clips I took from the two releases match the SHA-256, frame count and start frame in dp's manifests and in the timeline. The S001 title is painted over the new S001 as before.
+- **Sound and subtitles: unchanged from cut-v5.** The audio is sound-designer `sound-v2` `mix.wav` (sha256 92bb8776…). Decoded, it has the same MD5 as cut-v5's audio. The WebVTT file is byte-identical.
+
+## Measured on the rendered file
+
+- **Format:** 1024x576 H.264 High, 24 fps, 15800 frames; AAC-LC 48 kHz stereo; 658.333 s. An ffmpeg full decode reported 0 errors.
+- **Placement** (`edit/tools/place.py`): for every shot, I compared the cut's middle frame with the same frame of the supplied clip. PSNR is at least 37.8 dB on S001–S126, and in each shot it is higher than against the neighbouring frame. S127 is the credits.
+- **Motion** (`edit/tools/motion.py`, `cut-v6-motion.json`):
+  - **Method:** I counted new pictures per second, meaning frames whose mean absolute luma difference from the previous frame is above 0.3, over the full decode.
+  - **qc's 17 stepped shots (editor#14):** they measured 4.0–16.9/s in cut-v5 with the same script. In cut-v6, 16 of them measure 22.2–24.0/s, and S126 measures 18.9/s.
+  - **Other shots:** every other shot is 24.0/s, except the S127 credits roll at 19.3/s.
+- **Sync:** I cross-correlated 4 s of the cut's audio with `mix.wav` at 30, 300 and 600 s. The offset was 0.0 ms each time (correlation 0.9987–0.9996).
+- **Loudness:** integrated −19.8 LUFS, LRA 8.4 LU.
+
+## Looked at (`cut-v6-sheet.jpg`, `cut-v6-costume.jpg`)
+
+- **Totem, S088–S091:** the same dark horned totem with a red eye at 06:49–06:58.
+- **S107 (07:59):** the pale-green tiled room with red cables growing from the walls.
+- **Costumes, S076–S126:**
+  - Emo wears the grey-green shirt throughout, with no suspenders or henley.
+  - Proog wears the olive coat over a maroon chest throughout.
+  - S078 (06:03), a close-up, gives Emo's shirt an open collar. In the other close-ups (S080, S100) the neckline is round. I am passing this to qc to judge against the costume lock.
+- **S026–S027 (02:23.0–02:29.9): still the red room** (`cut-v6-s026-s027-vs-cut-v5.jpg`). dp's `picture-batch-031` manifest describes the two clips as a near-black cable space fading toward black. The clips it holds (S026.mp4 sha256 afb79abf…, S027.mp4 311291d0…) show the same red room as cut-v5, now with sub-pixel motion. I've asked dp for the corrected clips. qc cut-v4 F3 (editor#15) stands.
+
+## Known faults (not edit's, already with their owners)
+
+- S026–S027 picture (above).
+- L31 "Pulp!" (04:51.0) and L33 "Now!" (05:44.5) are still unclear (qc cut-v5 F2, editor#19, sound-designer#6).

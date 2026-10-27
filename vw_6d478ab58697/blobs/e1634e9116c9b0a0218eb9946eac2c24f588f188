@@ -1,0 +1,13 @@
+# Picture log
+
+| Shot | Time | Frames (zero-based) | Source | Treatment |
+| --- | --- | --- | --- | --- |
+| 001 | 00:00–00:10 | 0–239 at 24 fps | picture/title.png | Full-frame static title card; no transitions |
+
+Verification of source: Pillow reports RGB 1280×720. Visual inspection is recorded in the handoff after checking the rendered PNG. Verification of the encoded duration and full-length hold belongs to the final-cut check.
+
+Source PNG inspected visually: the complete exact title is legible, centered, white on uniform deep navy, with no cropped glyphs or extra marks.
+
+Encoded picture check, editor revision 211482d027d4eb210a0a9a76306a668147415ec8: ffprobe measured H.264, 1280×720, 24 fps, 240 frames, duration 10.000 seconds. Decoded frame at 00:05 visually inspected and retained as encoded-reference.png. All 240 frames were decoded; nine pixel hashes occur due to encoding variation. Relative to frame 120 the largest per-frame mean absolute grayscale difference is 0.00640/255, consistent with a static card. Title design variant accepted in design.md. Evidence: listening-evidence/probe.json and frames.md5.
+
+Encoded check at editor revision 211482d027d4eb210a0a9a76306a668147415ec8: H.264 1280×720, 24 fps, 240 frames, 10.000 seconds. Decoded frame at 00:05 visually inspected and retained as encoded-reference.png. All frames decoded; nine hashes occur with encoding variation. Largest per-frame mean absolute grayscale difference from frame 120 is 0.00640/255, consistent with a static card. Evidence: listening-evidence/probe.json and frames.md5. Design variant accepted.

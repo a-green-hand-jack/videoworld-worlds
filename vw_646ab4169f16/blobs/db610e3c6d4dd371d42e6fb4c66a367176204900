@@ -1,0 +1,14 @@
+"""cue sheet: cues/cue_sheet.json from mix_report.json + cues/effects_events.json. usage: cuesheet.py REPORT RELEASE_TAG"""
+import json, sys, os
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+rep = json.load(open(sys.argv[1])); tag = sys.argv[2]
+tc = lambda s: "%02d:%02d:%02d:%02d" % (s // 3600, s % 3600 // 60, int(s % 60), int(round((s % 1) * 24)) % 24)
+cues = []
+for l in rep["dialogue_lines"]:
+    cues.append(dict(start=l["start"], end=l["end"], tc_in=tc(l["start"]), stem="dialogue", kind="line", id=l["id"], speaker=l["speaker"], text=l["text"], script_start=None, release=tag, asset="dialogue.wav"))
+for e in json.load(open(f"{ROOT}/cues/effects_events.json"))["events"]:
+    cues.append(dict(start=e["t"], tc_in=tc(e["t"]), stem="effects", kind=e["type"], cue=e.get("cue"), release=tag, asset="effects.wav"))
+cues.append(dict(start=0, end=rep["duration_s"], tc_in=tc(0), stem="music", kind="score", cue="drone + pad + pulse; intensity follows the mood curve of reference/original_energy.json", release=tag, asset="music.wav"))
+cues.sort(key=lambda c: c["start"])
+json.dump(dict(timeline=rep["timeline"], release=tag, duration_s=rep["duration_s"], integrated_lufs=rep["integrated_lufs"], true_peak_dbtp=rep["true_peak_dbtp"], cues=cues), open(f"{ROOT}/cues/cue_sheet.json", "w"), indent=1)
+print(len(cues), "cues")

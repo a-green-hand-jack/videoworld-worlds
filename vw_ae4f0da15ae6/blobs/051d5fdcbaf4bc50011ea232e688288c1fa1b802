@@ -1,0 +1,6 @@
+Paper Boat cut-v2 motion check (editor)
+Decode all 1500 frames with ffmpeg scale=480:270,format=gray.
+For every consecutive pair after frame 150, calculate mean(abs(current - previous)) over 480*270 8-bit pixels.
+Post-title pairs: 1349; minimum: 0.06930; median: 0.08051; maximum: 0.09650.
+Pairs below 0.05: 0. Pairs below 0.01: 0.
+The motion is generated from one fixed image using a centered affine bicubic transform with floating-point source coordinates. A single GOP removes visual quantization resets at periodic keyframes.

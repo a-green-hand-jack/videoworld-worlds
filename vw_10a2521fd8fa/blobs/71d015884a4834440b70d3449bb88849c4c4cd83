@@ -1,0 +1,47 @@
+# QC report — cut-v6a (editor release `cut-v6a`, `film.mp4` at editor 2c4a8ef) — qc#9
+
+Checked: release asset `cut-v6a.mp4` is byte-identical to `film.mp4` at editor 2c4a8ef (cmp). Compared with cut-v5d (editor f2b9a87).
+Method: ffprobe/ebur128/ffmpeg decode, `tools/judder.py` (all shots; `segments.md`, `frames.csv`), `tools/gapspeed.py` (slow moves over
+a 6-frame gap), frame contact sheet (`frames-stills-sheet.png`), audio PCM md5 and per-frame luma difference against cut-v5d.
+
+## Technical (delivery spec 1–6, 11–12) — observed, all pass
+H.264 High yuv420p 1280×720 24 fps; AAC-LC 48 kHz stereo; 121.959 s; moov before mdat (faststart); decodes end to end without
+error; -16.1 LUFS, sample peak -1.8 dBFS (editor's `verify.txt`: true peak -1.8 dBTP). Black 45.75–46.4 (s08 match-out into s09) and
+the end title 118.9–121.9 are the intended ones.
+Unchanged vs cut-v5d: the audio track is bit-identical (PCM md5 `e5b45fd7…` both); every shot of the EDL is identical (picture
+luma difference to cut-v5d 0.000 in s01–s07, s09 first 5 s, s11, the s13b/end title; the differences are the still moves and two
+subtitles, plus ≤ 1.3 luma at 0:51.5–0:53.3 where s10's dissolve begins, with no shift between the frames (phase correlation 0.01 px)).
+Subtitles: only cues 12 (0:40.8) and 18 re-wrapped ("A warm iron stove seemed / to stand before her.", "The lights rose and became
+stars. / One fell."), seen burned in on frames 0:41 and 1:08; text and timing unchanged; two lines each, none over ~42 characters.
+
+## Spec 17 (no judder) — measured
+| Move | cut-v5d | cut-v6a |
+|---|---|---|
+| s17 1:43–1:49 (6-frame-gap speed) | 0.298 px/f, sd/mean 0.154, held frames 25 | 0.272 px/f, **sd/mean 0.029** (0.255–0.291), held frames 0 |
+| s18 1:50.2–1:52.8 | 0.598, sd/mean 0.146, 13 held frames, 1 px jumps | 0.62 steady until the eased stop at ~1:52.6; 0 held frames, 0 jumps |
+| s19 sky tail 1:57.2–1:58.6 | ripple 0.21, 0.69 px/f | 0.448 px/f, sd/mean 0.044 |
+| s12.1 1:04.3–1:05.4 | ripple 0.088 | 0.673 px/f, sd/mean 0.010 |
+| s14.2 1:28.5–1:29.4 | ripple 0.112 | 0.636 px/f, sd/mean 0.015 |
+Single-frame speed ripple of every still segment: ≤ 0.02 for s10.2, s10.3, s12.2, s12.3, s12.4, s14.1, s15.1, s15.2, s16.1–s16.3
+(cut-v5d 0.10–0.27 for several); **no held frame in any still segment** (v5d: s17 25, s18 13) and no jump event. Segments above 0.05
+are all slow moves where single-frame phase correlation is noise-limited (< 0.5 px/f): s12.1 0.094, s14.2 0.062, s17 0.136 (speed
+0.17), s19 sky 0.086, s18 0.052; the gap-6 measurement of s17, s18, s19 sky, s12.1, s14.2 above shows each is even. s13a (1:12–1:20,
+2.4 px/f): ripple 0.059 against 0.073, 34% of frames >10% off — a mild period-3 residue, not a step; watched as smooth on frames, no held frame.
+**s09 at 0:48–0:51** is unchanged from cut-v5d (identical frames): ripple 0.021, no held frame; the ~10% speed dip every 4th frame
+is the take's own cadence (dp's file). Not whole-pixel judder; director's call whether it is acceptable.
+
+## Faults and notes
+1. **[editor, conform, should-fix]** Retimed model shots still hold frames: s04 (0:15.5–0:21.3, `speed` 0.76/0.77) 10 + 18 held
+   frames, s05 (0:21.5–0:26.9, 0.96) 5, s03 (0.98) 2, s07 2 jump events. Spec 17 says "no repeated frames"; at these speeds the
+   picture is slow and I see no visible stutter in the measured series, so this is not decisive. Filed in editor.
+2. **[dp, shot, known]** s09 4-frame cadence dip (above); s10.4 (0:57.5), s13a_strike (1:20.1) ripple 0.10–0.15 at < 0.8 px/f, one held frame each.
+3. **Spec 16 is not met by this cut and is not claimed to be**: s14, s15, s16, s17, s18 (and s10/s12/s13a) are still moving key frames
+   (smooth now); the ending is a still push. These wait for dp's moving shots (editor's cut-v6b and after).
+
+## Recommendation: not a lock for round 2 — FIX is dp's moving shots; as a smoothness change, cut-v6a PASSES
+- Spec 17 (judder): met on every move on a still; s17 and s18, the objective's 1:50 case, are smooth (0.029 / even at 0.62 px/f).
+  Nothing in cut-v6a is worse than cut-v5d.
+- Spec 16 (ending and climax in moving pictures): open — owner dp (dp#8, director#23). Decides the round-2 lock.
+- Spec 18 (kept from cut-v5d): met — audio identical, shots identical, length 121.959 s, subtitles burned in.
+- As a fallback lock (if no moving shots arrive), cut-v6a is better than cut-v5d and I would lock it as the smooth still-based cut,
+  with the choice recorded as the director's priority-C note requires.

@@ -1,0 +1,13 @@
+# Director Probe Results
+
+## film-understanding
+- **Status:** HTTP 200
+- **Answer:**
+Here is what is in the video:
+* **Visual:** A colorful television test pattern/card display with vertical color bars set inside a circular frame, a digital counter showing "0" on the right, and a horizontal color gradient bar shifting along the lower third.
+* **Audio:** A continuous, high-pitched 1 kHz test tone (standard broadcast alignment tone/beep).
+
+## audio-understanding
+- **Status:** HTTP 200
+- **Answer:**
+The audio features a series of repetitive, high-pitched electronic beeps, similar to the sound of a reverse parking sensor, medical monitor, or an electronic timer/alarm.

@@ -1,0 +1,23 @@
+{
+  "tag": "picture-batch-003",
+  "id": "S002",
+  "asset": "S002.mp4",
+  "supersedes": "picture-batch-002",
+  "sha256": "e9c6a62adb8d2bab1d79807d2af01c44f704d9cea7a9495ab2e8890cd5e51924",
+  "frames": 35,
+  "frame_in": 619,
+  "frame_out_exclusive": 654,
+  "fps": 24,
+  "size": "1024x576",
+  "source_artwork": [
+    "working/s002-proog-turn-start.png",
+    "working/s002-proog-mid.png",
+    "working/s002-proog-revised.png"
+  ],
+  "designer_approval": "production-designer#5 comment 94; production-designer release design-character-v1",
+  "direction": "director direction-v3 S002",
+  "timeline": "editor edit/timeline.json v1 at 6027c4210a0c",
+  "sound": "none in this picture clip; editor synchronizes separate mix",
+  "action": "Flow-warped in-betweens across three DP-generated Proog keys produce a single-head sharp turn and restrained push-in; no cross-dissolve or double exposure.",
+  "source_policy": "No original-film pixels used; source midpoint was reference-only for composition and timing."
+}

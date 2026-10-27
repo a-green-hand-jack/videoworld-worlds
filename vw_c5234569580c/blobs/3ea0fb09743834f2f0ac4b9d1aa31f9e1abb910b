@@ -1,0 +1,44 @@
+# Shot list — "The Paper Lantern"
+
+Timings are targets for 20.0 s at 24 fps; the editor may move any cut by up to ±0.5 s for rhythm as long as the total stays 19.0–21.0 s and every beat keeps at least the minimum shown. Each picture shot is one still image (or a still with a separate layer) animated with a slow camera move. Direction of travel: the lantern moves **left to right** across frame in shots 2–4 (and away from camera into depth in 4–5), so the drift reads as one journey.
+
+| # | In–Out (s) | Dur | Min | Content | Framing | Camera move |
+|---|---|---|---|---|---|---|
+| T | 0.0–2.5 | 2.5 | 2.0 | Title "The Paper Lantern" over a dusk sky (may be the sky from shot 1) | — | very slow push or static; text fades in/out |
+| 1 | 2.5–6.0 | 3.5 | 3.0 | Child kneeling at the riverbank, holding the lit lantern; dusk sky, village lights in background | wide / medium-wide, child about 1/3 frame height | slow push in toward child and lantern |
+| 2 | 6.0–9.5 | 3.5 | 3.0 | Child's hands releasing the lantern onto the water; lantern glow on the hands and ripples | close / medium-close; the child's sleeves/hands match shot 1 | slow push toward the lantern, or slight pan right following it |
+| 3 | 9.5–13.0 | 3.5 | 3.0 | Lantern drifting on the river past the village: houses with warm windows, reflections | medium-wide, lantern small-to-medium in lower third | slow pan left→right with the lantern |
+| 4 | 13.0–16.0 | 3.0 | 2.5 | River widening to open water / horizon, first stars; lantern small, far | wide | slow pull back or tilt up toward the sky |
+| 5 | 16.0–18.0 | 2.0 | 1.5 | Lantern a tiny warm point among stars in sky and their reflection | extreme wide | very slow push into the sky / hold |
+| E | 18.0–20.0 | 2.0 | 1.5 | End card: "The End" on night sky | — | static; fade to black at the tail |
+
+Transitions: short dissolves (6–12 frames) or straight cuts; fade from black at the head (≤0.5 s), fade to black at the tail (≤1.0 s).
+
+## Picture direction
+
+- One style across every shot, title and end card. The palette moves from warm dusk (orange/violet) in shot 1 to deep blue night in shot 5; the lantern stays the same warm amber throughout and is the brightest warm point in frame from shot 2 on.
+- The child and the lantern must be recognisably the same in shots 1–2 (and the lantern in 3–5): same shape, colour, size relative to the child, same clothes and hair on the child. The production designer fixes the look in a design sheet; every still follows it.
+- Camera moves are slow and smooth (no visible stepping/jitter; push in no more than about 10–15 % scale over a shot; pans that do not reveal image edges). Source stills must be large enough for the move without upscaling blur (for a 1280x720 frame with a 15 % push: at least ~1472x828).
+- Text: title and end card legible (cap height ≥ 4 % of frame height), in a type that fits the storybook mood, inside title-safe (10 % margin).
+
+## Picture supply (production-designer → editor)
+
+The editor cannot read the production-designer's repository, so the picture travels through the delivery path `picture/` (assignment.json); the editor reads it with `ht-role delivery --into DIR`. Layout:
+
+- `picture/shots/shot1.mp4` … `shot5.mp4` — finished shots with their camera move: 1280x720, SAR 1:1, 24 fps CFR, H.264 yuv420p (high quality, CRF ≤ 18), silent. Each clip runs its shot-list duration **plus 12 frames (0.5 s) of handle at head and tail** for dissolves: shot1 4.5 s, shot2 4.5 s, shot3 4.5 s, shot4 4.0 s, shot5 3.0 s. The move continues smoothly through the handles.
+- `picture/stills/shot1.png` … `shot5.png` — the source stills each clip was made from.
+- `picture/cards/title_bg.png`, `picture/cards/end_bg.png` — 1280x720 backgrounds for the title (dusk sky) and end card (night sky) in the film's style, with calm space for text in the centre. No lettering on them; the editor sets the type.
+- `picture/shot-log.md` — what each shot is: still, move (start/end framing), duration, frame count, and anything the editor must know.
+
+## Title and end card (editor)
+
+- Title: **The Paper Lantern**; end card: **The End**. No other text.
+- Type: a humanist storybook serif (e.g. EB Garamond or Cormorant Garamond, free from Google Fonts), warm cream close to the lantern's colour, a soft shadow for legibility, centred, cap height ≥ 4 % of frame height, inside title-safe. Fade in/out over the background (title may dissolve into shot 1; end card fades from shot 5).
+
+## Sound direction
+
+- **Ambience** under the whole film: gentle river water (lapping, slow flow), evening air (crickets or soft insects, a distant bird early that stops as night falls). Fades in under the title, fades out on the end card.
+- **Musical cue**: soft and sparse (e.g. music box, celesta, felt piano or warm pad), entering on the release (around 6–7 s), growing gently through the drift, reaching its quiet peak as the lantern becomes a light among the stars (about 16–18 s), and resolving on the end card.
+- Optional small sync touch: a soft water touch/ripple as the lantern meets the water in shot 2.
+- Music: tender, slightly wistful; slow (about 60–70 bpm, free and rubato is fine), a simple pentatonic or major-key line (e.g. D major) of a few notes on music box/celesta or felt piano over a warm soft pad; enters around 6.0–6.5 s as the hands let go, adds the pad through shots 3–4, a gentle high peak at about 16–17 s, and resolves to a held tonic chord on the end card.
+- No dialogue, no voice, no lyrics. Stereo with some width in the ambience; music sits above ambience but never loud.

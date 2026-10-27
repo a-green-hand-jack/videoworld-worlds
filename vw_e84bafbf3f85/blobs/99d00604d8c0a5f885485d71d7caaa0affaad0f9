@@ -1,0 +1,9 @@
+# Usage: python3 qc/whisper.py FILM.mp4 — prints any speech faster-whisper finds (spec: no dialogue)
+import sys
+from faster_whisper import WhisperModel
+m = WhisperModel("small", device="cpu", compute_type="int8")
+segs, info = m.transcribe(sys.argv[1], vad_filter=False)
+n = 0
+for s in segs:
+    n += 1; print(f"{s.start:6.2f}-{s.end:6.2f} p_nospeech={s.no_speech_prob:.2f} {s.text!r}")
+print("segments:", n, "lang:", info.language, round(info.language_probability, 2))

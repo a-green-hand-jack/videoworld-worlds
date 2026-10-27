@@ -1,0 +1,243 @@
+{
+ "s17": [
+  {
+   "task": "c93e08a6-9c37-49b0-a5fc-313e106c9f5c",
+   "prompt": "A calm tender dawn in the snowy corner: the little girl rests against the wall with her eyes gently closed and a small contented smile, as if asleep, a dusting of snow on her curls; snowflakes drift down softly, pale grey-rose morning light slowly grows. Very slow gentle push-in. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s17",
+   "last": null,
+   "dur": 8,
+   "done": true,
+   "file": "shots/s17_wan1.mp4"
+  }
+ ],
+ "s18": [
+  {
+   "task": "e52e723e-462b-4b43-b3fb-bd7f92cfd3db",
+   "prompt": "Pale dawn light, snow falling gently. From behind them, a few townspeople in winter coats stand quietly in the foreground looking toward the small girl resting at the foot of the wall; the woman in the dove-grey bonnet slowly turns her head and speaks softly. Slow gentle push-in over their shoulders. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s18",
+   "last": null,
+   "dur": 6,
+   "done": true,
+   "file": "shots/s18_wan1.mp4"
+  }
+ ],
+ "s10": [
+  {
+   "task": "1003ca72-e42a-4bbc-b593-0b02535febb0",
+   "prompt": "The cooked golden-brown roast goose, a knife and fork stuck in its back, hops off its dish and waddles comically across the white tablecloth on its small roasted legs toward the camera, steam rising, candle flames flickering. Camera slowly pushes in. Whimsical, warm amber light. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s10_a",
+   "last": "s10_c",
+   "dur": 6,
+   "done": true,
+   "file": "shots/s10_wan1.mp4"
+  }
+ ],
+ "s12": [
+  {
+   "task": "3aae5741-4433-46ce-b9c1-cd30bfa67cee",
+   "prompt": "Camera tilts up from the girl's upturned face. The candle lights of the great dark fir rise higher and higher into the deep-blue night sky and become twinkling stars over the snowy rooftops; then one bright star falls across the sky with a long trail of golden fire while the camera settles back on her face, softly lit, watching. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s12_a",
+   "last": "s12_d",
+   "dur": 9,
+   "done": true,
+   "file": "shots/s12_wan1.mp4"
+  }
+ ],
+ "s13a": [
+  {
+   "task": "14bb7fa4-64ec-4f72-8df8-7c38eb7e4d0c",
+   "prompt": "The girl's face in the cold dark night, eyes wet and distant, a burnt black match in her fingers, snowflakes drifting. Slowly a faint translucent memory-glow of her grandmother's smiling face fades in beside her, then the camera gently pulls back. Gentle, hushed, no fire. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s13a",
+   "last": null,
+   "dur": 9,
+   "done": true,
+   "file": "shots/s13a_wan1.mp4"
+  },
+  {
+   "task": "71fdead1-031f-4b34-a9a7-aa47ea30a553",
+   "prompt": "The girl sits in the cold dark night, barefoot, her bare red feet tucked under her dress on the stone step, eyes wet and distant, a burnt black match resting dark and cold between her fingers (no flame, no glow at her hands). Only snow drifts and a faint translucent memory-glow of her grandmother's smiling face fades in beside her and fades out again. Gentle, hushed, nothing is lit. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s13a",
+   "last": null,
+   "dur": 9,
+   "done": true,
+   "file": "shots/s13a_wan2.mp4"
+  },
+  {
+   "task": "b918c385-e1b7-453b-9fd6-85aa5d7f179b",
+   "prompt": "The girl sits in the cold dark night, barefoot, her bare red feet tucked under her dress on the stone step, eyes wet and distant, a burnt black match resting dark and cold between her fingers (no flame, no glow at her hands). Only snow drifts and a faint translucent memory-glow of her grandmother's smiling face fades in beside her and fades out again. Gentle, hushed, nothing is lit. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s13a",
+   "last": null,
+   "dur": 9,
+   "done": true,
+   "file": "shots/s13a_wan3.mp4"
+  }
+ ],
+ "s14": [
+  {
+   "task": "667687bf-984a-4f6c-a2cc-ac466e346500",
+   "prompt": "Close-up of the girl, tears shining on her cheeks, her hand reaching out toward a warm white-gold glow, calling out to her grandmother; the radiant glowing figure of the grandmother grows beside her. Warm light on her face, snowflakes drifting. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s14",
+   "last": "s14_b",
+   "dur": 5,
+   "done": true,
+   "file": "shots/s14_wan1.mp4"
+  }
+ ],
+ "s15": [
+  {
+   "task": "0d59a669-3639-490c-bb9d-2473c94058d5",
+   "prompt": "Small hands hold the whole bundle of matches against the cold wall; the bundle is struck and a great blaze erupts, brilliant white-gold light flooding the corner, brighter than day, as the camera pulls back and the light fills everything. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s15",
+   "last": "s15_c",
+   "dur": 5,
+   "done": true,
+   "file": "shots/s15_wan1.mp4"
+  },
+  {
+   "task": "9997a0c2-baa2-4a40-ae34-a377ba07798d",
+   "prompt": "Small hands hold the whole bundle of matches against the cold wall; the bundle is struck and a great blaze erupts, brilliant white-gold light flooding the corner, brighter than day, as the camera pulls back and the light fills everything. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s15",
+   "last": "s15_c",
+   "dur": 6,
+   "done": true,
+   "file": "shots/s15_wan2.mp4"
+  }
+ ],
+ "s16": [
+  {
+   "task": "f892990a-5833-4b40-8eef-a62a8d3e626f",
+   "prompt": "The grandmother holds the girl in her arms and they rise together past snowy gabled rooftops into a glowing cream-gold sky, snow swirling in the light, the little town shrinking below. Serene joy. The camera rises with them. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s16_a",
+   "last": "s16_c",
+   "dur": 10,
+   "done": true,
+   "file": "shots/s16_wan1.mp4"
+  }
+ ],
+ "s19": [
+  {
+   "task": "dfe4e48f-746a-40ff-8eda-dcee40b41329",
+   "prompt": "Snowy rooftops of the town far below under a hushed morning sky that turns slowly golden; snow drifts gently down; the camera continues its slow drift upward toward the glowing sky. Peaceful, still, hopeful. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s19_end",
+   "last": null,
+   "dur": 6,
+   "done": true,
+   "file": "shots/s19_wan1.mp4"
+  }
+ ],
+ "s14b": [
+  {
+   "task": "c4701eb2-7964-44b8-bcab-ed59703c9426",
+   "prompt": "Close-up of the girl, tears shining on her cheeks, reaching her hand toward a warm glow and calling out softly. In the glow the small old grandmother appears beside her, seen in three-quarter view: kind lined smiling face, white linen cap, lilac-grey dress, dark plum shawl, radiant soft white-gold light around her. Warm light grows on the girl's face, snowflakes drift. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s14",
+   "last": null,
+   "dur": 5,
+   "done": true,
+   "file": "shots/s14b_wan1.mp4"
+  }
+ ],
+ "s17b": [
+  {
+   "task": "374132a3-3a2f-4c76-ba2c-20f586c0a7b9",
+   "prompt": "Pale grey-rose dawn light slowly grows over the snowy step; snowflakes drift down and settle on the spent burnt matches in the snow and on the folded hands and apron hem beside them; nothing else moves. A faint sunbeam slowly reaches the matches. Quiet, tender, still. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "end_girl_hand_matches_crop",
+   "last": null,
+   "dur": 5,
+   "done": true,
+   "file": "shots/s17b_wan1.mp4"
+  }
+ ],
+ "s18b": [
+  {
+   "task": "88a78d2c-babc-4774-ac71-364d4d2b9076",
+   "prompt": "Pale dawn light, snow falling gently. Three or four townspeople in winter coats, seen from behind, stop at the mouth of the snowy corner and look down with sorrow. The woman in the dove-grey bonnet lifts a hand to her mouth, turns to the man beside her and speaks quietly; breath mist in the cold air. Slow gentle push-in over their shoulders. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s18",
+   "last": null,
+   "dur": 6,
+   "done": true,
+   "file": "shots/s18b_wan1.mp4"
+  }
+ ],
+ "s18c": [
+  {
+   "task": "42b42966-88ec-4357-acd6-cd4535e58f92",
+   "prompt": "Dawn in the snowy corner. Three townspeople in 1840s winter coats and top hats, seen from behind, walk in from the foreground and stop at the corner's mouth, looking down toward the foot of the wall below the frame edge; the woman in a dove-grey bonnet bows her head and speaks quietly in profile. Snow falling gently, pale grey-rose light, breath mist. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "corner_dawn",
+   "last": null,
+   "dur": 7,
+   "done": true,
+   "file": "shots/s18c_wan1.mp4"
+  }
+ ],
+ "s09": [
+  {
+   "task": "682f27d7-0fd6-4355-9993-41cf92227e60",
+   "prompt": "Over the girl's shoulder: she strikes a match and it flares; the wall where its light falls becomes a glowing transparent veil, and through it a warm candle-lit room appears, candles flickering, steam rising from the roast goose on the white tablecloth. Slow, steady, gentle push-in at constant speed. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s09",
+   "last": null,
+   "dur": 8,
+   "done": true,
+   "file": "shots/s09_wan1.mp4"
+  },
+  {
+   "task": "5f6bc58d-fffc-4f15-acfd-a0cf3733123c",
+   "prompt": "Over the girl's shoulder: she strikes a match and it flares; the wall where its light falls becomes a glowing transparent veil, and through it a warm candle-lit room appears, candles flickering, steam rising from the roast goose on the white tablecloth. Slow, steady, gentle push-in at constant speed. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s09",
+   "last": null,
+   "dur": 8,
+   "done": true,
+   "file": "shots/s09_wan2.mp4"
+  }
+ ],
+ "s04": [
+  {
+   "task": "c80e6c7e-7d16-4573-9972-dfacad7ed653",
+   "prompt": "The barefoot girl in the foreground holds out her bundle of matches and mouths a hopeful plea; two tall passers-by in long dark coats and top hats stride past one after the other, always clearly separate from each other, not looking at her; the background is calm and empty with falling snow. She slowly lowers her hand a little, disappointed. Steady camera. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s04",
+   "last": null,
+   "dur": 8,
+   "done": true,
+   "file": "shots/s04_wan1.mp4"
+  },
+  {
+   "task": "e86ab422-6008-4093-be6d-84ad91a6bd8c",
+   "prompt": "The barefoot girl in the foreground holds out her bundle of matches and mouths a hopeful plea; two tall passers-by in long dark coats and top hats stride past one after the other, always clearly separate from each other, not looking at her; the background is calm and empty with falling snow. She slowly lowers her hand a little, disappointed. Steady camera. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s04",
+   "last": null,
+   "dur": 8,
+   "done": true,
+   "file": "shots/s04_wan2.mp4"
+  }
+ ],
+ "s18d": [
+  {
+   "task": "ab918665-0257-47a4-a860-00b27163032e",
+   "prompt": "Pale dawn light, snow falling gently. Three or four townspeople in winter coats stand almost still in the foreground, seen from behind, looking down toward the corner with sorrow; only slow small movements: breath mist rising, snow drifting, the woman in the dove-grey bonnet slowly lifts a hand to her mouth and slowly turns her head toward the man beside her. Static camera, slow smooth motion at an even pace. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s18",
+   "last": null,
+   "dur": 6,
+   "done": true,
+   "file": "shots/s18d_wan1.mp4"
+  },
+  {
+   "task": "554a7223-cad5-48ae-952c-6d6794bafca6",
+   "prompt": "Pale dawn light, snow falling gently. Three or four townspeople in winter coats stand almost still in the foreground, seen from behind, looking down toward the corner with sorrow; only slow small movements: breath mist rising, snow drifting, the woman in the dove-grey bonnet slowly lifts a hand to her mouth and slowly turns her head toward the man beside her. Static camera, slow smooth motion at an even pace. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s18",
+   "last": null,
+   "dur": 6,
+   "done": true,
+   "file": "shots/s18d_wan2.mp4"
+  }
+ ],
+ "s14c": [
+  {
+   "task": "ef7877e9-6ca8-4118-8c34-33218f57d166",
+   "prompt": "Close-up of the girl, tears shining on her cheeks, her hand slowly reaching toward a warm glow at the edge of the frame; warm white-gold light slowly grows on her face; the small old grandmother (white linen cap, lilac-grey dress, dark plum shawl) slowly appears in the glow beside her. Static camera, slow smooth motion at an even pace, snowflakes drifting. Style: soft gouache and watercolour storybook illustration, painterly with visible paper grain, not photoreal, no text or lettering. No cuts.",
+   "first": "s14",
+   "last": null,
+   "dur": 5,
+   "done": true,
+   "file": "shots/s14c_wan1.mp4"
+  }
+ ]
+}

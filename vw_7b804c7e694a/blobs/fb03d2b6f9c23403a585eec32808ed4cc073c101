@@ -1,0 +1,24 @@
+# Director's review — cut-v5d (editor f2b9a87, `film.mp4` in the assembled delivery), 2026-10-22 20:30 UTC
+
+Status: **lock candidate.** Approval waits only on test-audience's screening of `screen-cut-v5d` (test-audience#5).
+Delivery digest at review: b225e64584a66b2b7632fd5481ab67cc7a2a2bb67d845d587489133b3ad9b72b (`ht-role approve`, dry run): film.mp4 53,603,702 bytes from editor f2b9a87.
+
+## How I checked
+- cut-v5b was watched whole with sound (gemini-4-argon, `cut-v5b-film-understanding-argon.txt`), on my frames (`cut-v5b-review.md`), and screened by test-audience (1b3ff1d): it follows and moves.
+- For cut-v5d, film-understanding returned HTTP 402 (upstream credit exhausted) for both argon and flash, so I measured the difference from cut-v5b myself:
+  - **Sound:** both decoded to 16 kHz mono and compared in 1 s windows. They are identical (corr ≥ 0.989, same RMS) everywhere except 80–82 s (corr 0.92/0.885), which is the strike-4 retime (mix-cut-v5c). The narration at 82–94 s is unchanged (corr ≥ 0.997).
+  - **Picture:** frame-difference scan 71–80.5 s finds hard cuts only at 72.0 (entry) and 79.96 (strike cut-in), so the memory is one continuous move with the match unlit (frames 72, 75, 78.5). The flare is on "A fourth" (80.3→80.9). She keeps her place s17→s18 (105, 110, 112). Subtitles split per sentence (33 "Her hands were numb.", 35 "If she dared strike just one…", 86.6 "Grandmother!", 88 "Take me with you!"). End title at 120 s. `cut-v5d-frames.jpg`.
+  - **Format** (ffprobe): H.264 High yuv420p 1280x720 24 fps, AAC-LC 48 kHz stereo, 121.959 s.
+- qc (0828e73, `qc/cut-v5d/report.md`): **LOCK-READY**. Format, loudness (−16.1 LUFS, TP −1.8), black and freeze, the four changes and 30 subtitle cues all pass.
+
+## Against the delivery specification
+1–6 file, format, duration, burned subtitles: pass (qc, mine). 7 every beat in order: pass (argon on v5b; screening retelling correct). 8 follows and moved: screening of v5b yes. 9–12 sound: pass (qc). 13 consistency: one girl and one style, accepted with the corner's drift and the grandmother's white ascent costume. 14 generation faults: open dp-side minor faults accepted (below). 15 tone: pass.
+
+## Accepted, not fixed (each needs the video model, capped until 07:00 UTC, beyond this world's reach)
+s02 is closer to daylight than dusk (0:06–0:10); s03's carriage and horse pass through the girl, and the slipper lands from nowhere (0:10–0:12); s04's passers-by overlap (0:17–0:18); the corner's geography drifts and s13b is in a street; the grandmother's shawl gives way to a white gown in the ascent; the climax characters are static paintings with moves (the screening: one of two viewers minded, "worth fixing only if cheap"); the "Someone is dying" whisper split the listeners.
+
+## Lock — 2026-10-22, conclusion: **LOCKED**
+- **Screening:** test-audience 3a1bb6d (`screening/screen-cut-v5d.md`) could not watch v5d in full: film-understanding and audio-understanding answer HTTP 402 ("prepayment credits are depleted") to every position. From frames and measurements: the memory has no jump, she holds her place s17→s18, the flare and the "A fourth" subtitle land together, the format matches, and **nothing is new or worse than in v5b**. Its last full watch, screen-cut-v5b (1b3ff1d): a first-time viewer follows the film start to end and is moved. Its main weakness, static characters from 1:08, is unchanged and accepted above.
+- **Why this lock is supported:** v5d equals the screened v5b in sound except the strike-4 retime (80–82 s, my waveform comparison) and in picture except the four edit changes, each checked on frames by me, by qc (0828e73, LOCK-READY) and by test-audience. The watching services cannot come back within this world, and the remaining faults need the video model, which is capped until 07:00 UTC.
+- **Final checks on the approved file:** film.mp4 from editor f2b9a87, sha256 09f137f6a93713f9edea1061b7a069448c21d4fc7196e079055065a5e61c2daa, 121.959 s, H.264 High yuv420p 1280x720 24 fps + AAC-LC 48 kHz stereo, moov at byte 36 (before mdat at 85670, plays progressively in a browser), full ffmpeg decode without error. Burned-in English subtitles, plus a sidecar film.srt at the editor root.
+- **Revisions at lock:** editor f2b9a87, dp 7028c18, sound-designer 3216af2, production-designer 72770d3, qc 0828e73, test-audience 3a1bb6d.

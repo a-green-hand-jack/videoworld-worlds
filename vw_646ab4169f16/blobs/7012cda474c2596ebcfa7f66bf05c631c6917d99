@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+"""Render exact-length clips from the locked costume key-frame batch."""
+
+import json
+import subprocess
+from pathlib import Path
+
+
+MOTIONS = ("pan-right", "pan-left", "tilt-up", "tilt-down", "push-in", "pull-back-drift", "pull-back")
+AFFECTED = {f"S{number:03d}" for number in (*range(42, 76), *range(78, 127))}
+
+
+def main() -> None:
+    shots = json.loads(Path("picture/shot-log.json").read_text())["shots"]
+    output_dir = Path("working/rendered-shots-v5")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    for shot in shots:
+        if shot["id"] not in AFFECTED:
+            continue
+        motion = next((name for name in MOTIONS if name in shot["motion"]), None)
+        if motion is None:
+            raise ValueError(f"No supported motion for {shot['id']}: {shot['motion']}")
+        output = output_dir / f"{shot['id']}.mp4"
+        command = [
+            "python3",
+            "tools/render_shot.py",
+            "--image",
+            f"working/shot-keys-v5/{shot['id']}.png",
+            "--frames",
+            str(shot["frames"]),
+            "--motion",
+            motion,
+            "--output",
+            str(output),
+        ]
+        subprocess.run(command, check=True)
+        print(f"HUTIAN_COSTUME: {shot['id']} {shot['frames']} frames", flush=True)
+    print("HUTIAN_WAKE: costume lock render complete", flush=True)
+
+
+if __name__ == "__main__":
+    main()

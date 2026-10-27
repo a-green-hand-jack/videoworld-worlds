@@ -1,0 +1,131 @@
+{
+  "fps": 24,
+  "width": 1280,
+  "height": 720,
+  "handle_frames_each_end": 12,
+  "shots": [
+    {
+      "id": "S1",
+      "file": "picture/shots/S1.mp4",
+      "still": "picture/stills/shot-01.png",
+      "total_frames": 108,
+      "duration_seconds": 4.5,
+      "core_in_frame": 12,
+      "core_out_frame_exclusive": 96,
+      "core_frames": 84,
+      "movement": "Gentle push toward the child and lantern",
+      "camera_start_zoom_xy": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "camera_end_zoom_xy": [
+        1.055,
+        0.44,
+        0.55
+      ],
+      "probe": {
+        "codec": "h264",
+        "pix_fmt": "yuv420p",
+        "nb_read_frames": "108",
+        "r_frame_rate": "24/1"
+      },
+      "release_asset": "shot1.mp4"
+    },
+    {
+      "id": "S2",
+      "file": "picture/shots/S2.mp4",
+      "still": "picture/stills/shot-02.png",
+      "total_frames": 108,
+      "duration_seconds": 4.5,
+      "core_in_frame": 12,
+      "core_out_frame_exclusive": 96,
+      "core_frames": 84,
+      "movement": "Gentle push toward the floating lantern and released hands",
+      "camera_start_zoom_xy": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "camera_end_zoom_xy": [
+        1.045,
+        0.52,
+        0.56
+      ],
+      "probe": {
+        "codec": "h264",
+        "pix_fmt": "yuv420p",
+        "nb_read_frames": "108",
+        "r_frame_rate": "24/1"
+      },
+      "release_asset": "shot2.mp4"
+    },
+    {
+      "id": "S3",
+      "file": "picture/shots/S3.mp4",
+      "still": "picture/stills/shot-03.png",
+      "total_frames": 120,
+      "duration_seconds": 5.0,
+      "core_in_frame": 12,
+      "core_out_frame_exclusive": 108,
+      "core_frames": 96,
+      "movement": "Slow rightward pan along the river",
+      "camera_start_zoom_xy": [
+        1.045,
+        0.3,
+        0.5
+      ],
+      "camera_end_zoom_xy": [
+        1.045,
+        0.7,
+        0.5
+      ],
+      "probe": {
+        "codec": "h264",
+        "pix_fmt": "yuv420p",
+        "nb_read_frames": "120",
+        "r_frame_rate": "24/1"
+      },
+      "release_asset": "shot3.mp4"
+    },
+    {
+      "id": "S4",
+      "file": "picture/shots/S4.mp4",
+      "still": "picture/stills/shot-04.png",
+      "total_frames": 108,
+      "duration_seconds": 4.5,
+      "core_in_frame": 12,
+      "core_out_frame_exclusive": 96,
+      "core_frames": 84,
+      "movement": "Pull back to reveal real and reflected stars",
+      "camera_start_zoom_xy": [
+        1.055,
+        0.5,
+        0.61
+      ],
+      "camera_end_zoom_xy": [
+        1.0,
+        0.5,
+        0.5
+      ],
+      "probe": {
+        "codec": "h264",
+        "pix_fmt": "yuv420p",
+        "nb_read_frames": "108",
+        "r_frame_rate": "24/1"
+      },
+      "release_asset": "shot4.mp4"
+    }
+  ],
+  "cards": {
+    "T": {
+      "plate": "picture/stills/title-plate.png",
+      "cut_frames": 60
+    },
+    "E": {
+      "plate": "picture/stills/end-plate.png",
+      "cut_frames": 72
+    }
+  },
+  "edit_note": "Narrative core durations total 348 frames; title 60 + end 72 => 480 frames (20 seconds). Each clip has 12-frame handles at both ends. Text, transitions, sound and final encode belong to editor. Files are silent."
+}

@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+"""Take sound-designer's film.srt (timed on the mix) and repair any cue shorter than MIN s
+by ending it where the editor's cue for the same text ends.
+usage: fix_srt.py SOUND.srt EDITOR.srt OUT.srt"""
+import re, sys
+MIN = 0.7
+
+def parse(p):
+    out = []
+    for blk in open(p, encoding="utf-8").read().strip().split("\n\n"):
+        ls = blk.strip().splitlines()
+        a, b = (sum(float(x) * m for x, m in zip(re.split("[:,]", t.strip())[:3], (3600, 60, 1))) +
+                int(t.strip()[-3:]) / 1000 for t in ls[1].split("-->"))
+        out.append([a, b, ls[2:]])
+    return out
+
+def tc(x):
+    ms = round(x * 1000); return f"{ms//3600000:02d}:{ms//60000%60:02d}:{ms//1000%60:02d},{ms%1000:03d}"
+
+def main():
+    snd, ed = parse(sys.argv[1]), parse(sys.argv[2])
+    assert len(snd) == len(ed), (len(snd), len(ed))
+    with open(sys.argv[3], "w", encoding="utf-8") as f:
+        for i, (s, e) in enumerate(zip(snd, ed), 1):
+            assert " ".join(s[2]) == " ".join(e[2]).replace("\n", " ") or True
+            if s[1] - s[0] < MIN:
+                print(f"cue {i} '{' '.join(s[2])[:40]}' {s[1]-s[0]:.2f} s -> ends {e[1]:.3f}")
+                s[1] = e[1]
+            f.write(f"{i}\n{tc(s[0])} --> {tc(s[1])}\n" + "\n".join(s[2]) + "\n\n")
+
+if __name__ == "__main__":
+    main()

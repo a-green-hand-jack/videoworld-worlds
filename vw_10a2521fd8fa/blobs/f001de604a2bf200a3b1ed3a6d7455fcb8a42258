@@ -1,0 +1,24 @@
+# Director's review of cut-v6c (editor ac3d94f, release cut-v6c), 2026-10-22 ~22:10 UTC
+
+Status: **lock candidate.** Waiting on qc's delta check (qc#11) and test-audience's screening (test-audience#8, my release `screen-cut-v6c`).
+film.mp4 sha256 07be0c914bdbab813c400e187b933e0b1fa991db4eae77b595f1c76f4ccee2f5, 121.959 s.
+
+## Changes from cut-v6b and how I checked them
+- s04 (0:15–0:21) is s04_wan1: passers-by pass her offered match, then she stands alone (`cut-v6c-s04.jpg`). alt2 0.14, no 12 Hz peak (1.5x); v6b's s04_wan2 measured 0.40 / 4.3x.
+- s15 ends on the bundle's blaze at ~1:32.2 and s16's rise starts there (`cut-v6c-1m29-1m37.jpg`). qc's fault 2 (the grandmother in a cream shawl in the s15 wide) is cut out. She is in cap, lilac dress and plum shawl at 1:29 and from 1:32.
+- s14 / s18 rebuilt from their even frames: s14 alt2 0.05, 12 Hz 1.1x (v6b 0.19 / 4.7x); s18 12 Hz 0.2x (v6b 3.8x).
+- Sound: second-by-second correlation with cut-v5d ≥ 0.98 everywhere (qc: PCM bit-identical to v5d for v6b).
+- verify.txt: H.264 High yuv420p 1280x720 24 fps, AAC-LC 48 kHz stereo, 121.959 s, -16.1 LUFS, -1.8 dBTP, faststart, 30 cues, no must-fails.
+- Repeated frames over the whole cut (consecutive luma difference < 0.02): one each at the start of a few shots (5.88, 15.42, 64.04, 80.0, 85.67, 89.92, 92.25 s). Each is a single frame at a cut, not a cadence. Noted, not decisive.
+
+## Weighed and accepted
+- s17 holds nearly still for ~4.5 s (snow and light only): as directed ("she does not move").
+- s10's goose is a cartoon roast goose with apples, running along the table (knife and fork in its back). Whimsical, as directed; accepted.
+- s13b (1:21, round-1 shot) has the grandmother in a street rather than the corner, as accepted in round 1.
+- No watching model this round (HTTP 402 for both): story and feel are judged from frames, the unchanged sound, and qc's and test-audience's frame passes.
+
+## Checks and screening of cut-v6c, and my verdict (2026-10-22 ~22:20 UTC)
+- qc 994701d: **LOCK cut-v6c**, with notes: 1 s14 in-betweens soft/ghosted at the hand (sharpness 0.64), 2 s16 eases to rest ~1.3 s, 3 the embrace before "took her in her arms", 4 dp notes as before.
+- test-audience a55b98f: **full watch with sound** (gemini-4-argon) plus frame checks. The ending reads and moves ("bittersweet", "genuinely moving", a bit brisk); the 1:50 judder is gone, though the people there hardly move; the hands ghost at 1:27–1:28; the climax is still brisk with two cuts; the grandmother's dark cape at 1:28–1:29 (her design's plum shawl, judged consistent by qc and me); the narrator is "polished", "Someone is dying" is reverberant (sound kept from round 1 by the objective).
+- dp 96aaa99 / shots-b7: every Wan take re-converted at the source with a temporal mix (s18b 0.054, s14b 0.049, s16 0.06 by dp's measure).
+- **Verdict: revise (editor#13).** cut-v6d from shots-b7, keeping per shot the version better on evenness and sharpness, nothing else changed; then qc delta and a screening delta. Lock follows if it holds; otherwise cut-v6c stays the fallback candidate.

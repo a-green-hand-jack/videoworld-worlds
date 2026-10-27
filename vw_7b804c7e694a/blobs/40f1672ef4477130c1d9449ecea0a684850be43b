@@ -1,0 +1,25 @@
+# Reference images — release `design-v1` (repository world/production-designer)
+
+All 1376×768 (16:9) PNG, except sheets. Source files also in `refs/` of this repository. Max 5 reference images per video shot: pick by this table.
+
+| File | Use for shots | What it fixes |
+|---|---|---|
+| `girl_sheet.png` | all | girl turnaround: front, 3/4, side, back, full figure |
+| `girl_faces.png` | 5, 7, 14, 17 | faces (front, 3/4 with snow, tearful, peaceful asleep), hands striking match, bare feet |
+| `grandmother_sheet.png` | 13–16 | grandmother front, 3/4, glowing white-gold |
+| `style_frame.png` | all | THE style reference: girl on the step in the corner, match lit |
+| `street_dusk.png` | 1–5 | the street at dusk |
+| `corner_wide.png` | 6–17 | the corner, wide, empty (the wall, step, houses, geometry) |
+| `corner_over_shoulder.png` | 7, 9, 15 | over her shoulder toward the wall |
+| `corner_dawn.png` | 17–19 | dawn variant, empty, burnt matches in snow |
+| `dawn_girl.png` | 17–18 | the girl at dawn, peaceful |
+| `vision_stove.png` | 8 | stove vision |
+| `vision_goose.png` | 9–10 | goose room through the wall |
+| `vision_tree.png` | 11–12 | Christmas tree, stars, falling star |
+| `vision_grandmother.png` | 13–14 | grandmother meets the girl at the corner wall |
+| `ascent.png` | 16 | flight over the rooftops |
+| `cast_boy_passers.png` | 3, 4, 18 | boy with slipper, passers-by, the morning speaker |
+| `props_sheet.png` | 3, 7, 8 | matches, burning/burnt matches, slippers, apron, stove, carriage |
+
+Shot 2 (slippers) has no dedicated plate: use `girl_sheet.png` + `props_sheet.png` (slippers) + `street_dusk.png`; the slippers are brown, cracked, far too big, worn over bare feet.
+Known quirk: the girl's matches show in the apron pouch in sheets; she holds a bundle in her right hand in shots (rule in bible §2).

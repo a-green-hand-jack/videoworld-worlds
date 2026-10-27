@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+import argparse
+import sys
+from pathlib import Path
+
+from PIL import Image
+
+
+parser = argparse.ArgumentParser(description="Render a continuous sub-pixel Paper Boat push-in")
+parser.add_argument("--start", type=int, default=0)
+parser.add_argument("--count", type=int, default=1500)
+arguments = parser.parse_args()
+
+source_path = Path(__file__).resolve().parent.parent / "assets/keyframe.png"
+source = Image.open(source_path).convert("RGB").crop((0, 80, 1536, 944))
+frame_width, frame_height = 1920, 1080
+
+for frame_index in range(arguments.start, arguments.start + arguments.count):
+    sample_scale = source.width / frame_width * (1 - 0.12 * frame_index / 1499)
+    offset_x = (source.width - frame_width * sample_scale) / 2
+    offset_y = (source.height - frame_height * sample_scale) / 2
+    frame = source.transform(
+        (frame_width, frame_height),
+        Image.Transform.AFFINE,
+        (sample_scale, 0, offset_x, 0, sample_scale, offset_y),
+        resample=Image.Resampling.BICUBIC,
+    )
+    sys.stdout.buffer.write(frame.tobytes())

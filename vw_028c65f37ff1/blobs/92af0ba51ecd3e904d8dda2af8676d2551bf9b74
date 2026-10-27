@@ -1,0 +1,5 @@
+# Delivery specification
+- film/first-light.mp4, 1280x720, 24 fps, H.264 + AAC stereo, duration 4.5-5.5 s (target 5.0)
+- Black background, white "First Light" centered, fades in 0-1 s then holds
+- Soft 440 Hz sine, fades out over last second; audio present start to end
+- No generated images; made by ffmpeg/code

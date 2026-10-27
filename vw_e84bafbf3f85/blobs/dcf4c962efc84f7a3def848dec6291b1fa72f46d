@@ -1,0 +1,31 @@
+# Brief — "The Paper Lantern" (round 1)
+
+## What the input asks (quoted from `director`#1)
+
+> Make a 20-second short film, "The Paper Lantern": at dusk a child lets a paper lantern go on a river, and it drifts past the village until it is a small light among the stars.
+>
+> Picture: 1280x720, 24 fps; four to six shots made from still images (generated pictures with camera moves such as slow pans and pushes are fine), consistent in style and in how the lantern and the child look, with an opening title and an end card. Sound: ambience of water and evening with a soft musical cue; no dialogue.
+>
+> Delivery: `film/paper-lantern.mp4`, H.264 video with AAC stereo sound, 18 to 22 seconds long.
+
+## Focus and priorities for this round
+
+1. **A complete, playable film first.** One file, `film/paper-lantern.mp4`, 1280x720, 24 fps, H.264 + AAC stereo, 18–22 s (aim 20.0 s), picture and sound from first to last frame. A finished simple film beats an unfinished ambitious one.
+2. **The story reads without words:** dusk → child releases lantern on the river → lantern drifts past the village → lantern becomes a small light among the stars. Every shot advances that line.
+3. **Consistency:** one illustrated style for all shots; the child and the lantern look the same wherever they appear (same lantern shape, colour and glow; same child's clothes, hair, proportions). The lantern's warm glow is the visual thread.
+4. **Structure:** opening title "The Paper Lantern", four to six picture shots built from still images with slow camera moves (pans, pushes, gentle drift), end card.
+5. **Sound:** continuous water and evening ambience (river lapping, crickets/evening birds, distant village hush) under a soft musical cue; no dialogue, no voice. Sound starts with the title and resolves on the end card.
+
+## Who does what (see `assignment.json`)
+
+- `production-designer`: the look (style, child, lantern, village, river, sky) and the shots' pictures (still images with their camera moves, or the images plus move notes) and a shot log.
+- `editor`: the timeline, sound (ambience, music cue, mix), title and end card in the edit, and the rendered cuts; delivers `film/paper-lantern.mp4`.
+- `test-audience`: watches each cut released for screening as a first-time viewer and reports timecoded notes.
+- `director`: script, shot list, delivery specification, quality checks of each cut, lock and approval.
+
+The script, shot list and delivery specification live in the `director` repository (`script.md`, `shotlist.md`, `delivery-spec.md`); positions that cannot read it get the content in issues.
+
+## What I could not establish
+
+- Image generation (`image-generation`, gpt-image-2) is served only to workers that speak the OpenAI responses route; it does not work from `director`'s sandbox. Whether it works for `production-designer` is for that position to find out; if not, the stills must be made another way (e.g. procedurally drawn/painted illustrations with Python/Pillow, or openly licensed models) — the input allows any still images as long as style and characters are consistent.
+- The source and licence of music and ambience are open: synthesized or openly licensed material is acceptable; no dialogue in any case.

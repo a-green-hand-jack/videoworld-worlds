@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+"""Even out a model take's frame-to-frame cadence (e.g. a 6 Hz dip every 4th frame) by re-placing each frame on an
+even path of the camera move.
+
+The global motion of each frame pair (translation + zoom, from qc's judder.py csv: tx, ty, s) gives the cumulative
+displacement of the move; its 1 s Savitzky-Golay trend is the even path (the slow speed profile is kept). Output
+frame k shows the source frame nearest the time where the move reaches the path's k-th value, warped sub-pixel by
+the remaining fraction of that pair's global motion: no frame blending, no ghosting, only the ripple goes.
+usage: even_motion.py SRC.mp4 FRAMES.csv OUT.mp4
+"""
+import csv, subprocess, sys
+import numpy as np, cv2
+from scipy.signal import savgol_filter
+
+src, frames_csv, out = sys.argv[1:4]
+W, H, FPS, CY = 1280, 720, 24, 576 / 2
+rows = list(csv.DictReader(open(frames_csv)))
+tx, ty, s, M = (np.array([float(r[k]) for r in rows]) for k in ("tx", "ty", "s", "M"))  # row i: frame i -> i+1
+raw = subprocess.run(["ffmpeg", "-v", "error", "-i", src, "-vsync", "0", "-f", "rawvideo", "-pix_fmt", "bgr24", "-"],
+                     capture_output=True, check=True).stdout
+fr = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 3)
+n = len(fr)
+D = np.concatenate([[0], np.cumsum(M)])[:n]           # cumulative displacement at each source frame
+target = savgol_filter(D, 25, 3)                       # the even path
+target = np.clip(target, D[0], D[-1])
+tau = np.interp(target, D, np.arange(n))               # source time where the move reaches the path
+
+def warp(img, f, k):
+    """img moved by fraction f of pair k's motion (pair k: frame k -> k+1)."""
+    a = np.array([[1 + f * s[k], 0, f * (tx[k] - s[k] * W / 2)], [0, 1 + f * s[k], f * (ty[k] - s[k] * CY)]])
+    return cv2.warpAffine(img, a, (W, H), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
+
+# sign of the csv's motion: warping frame j by +1 of pair j+1 should land on frame j+1
+j = n // 2
+e = [np.abs(warp(fr[j], sg, j).astype(float)[60:600, 80:1200] - fr[j + 1][60:600, 80:1200]).mean() for sg in (1, -1)]
+sign = 1 if e[0] <= e[1] else -1
+p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS),
+                      "-i", "-", "-c:v", "libx264", "-preset", "slow", "-crf", "12", "-pix_fmt", "yuv420p", out],
+                     stdin=subprocess.PIPE)
+for k in range(n):
+    j = int(round(tau[k])); f = tau[k] - j
+    if abs(f) < 1e-3:
+        img = fr[j]
+    elif f > 0:
+        img = warp(fr[j], sign * f, min(j, len(M) - 1))
+    else:
+        img = warp(fr[j], sign * f, max(j - 1, 0))
+    p.stdin.write(np.ascontiguousarray(img).tobytes())
+p.stdin.close(); p.wait()
+print(f"wrote {out}: {n} frames, motion sign {sign} (warp errors {e[0]:.2f}/{e[1]:.2f}), max offset {np.abs(tau - np.arange(n)).max():.2f} frames")

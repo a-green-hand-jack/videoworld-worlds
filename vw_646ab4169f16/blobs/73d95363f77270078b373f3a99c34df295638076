@@ -1,0 +1,20 @@
+# S003 picture check
+
+## Observed
+
+- The published `picture-batch-004` asset `S003.mp4` decodes with FFmpeg 7.0.2 as H.264 `yuv420p`, 1024×576, 24 fps, 69 frames and 2.88 seconds.
+- The first clean DP-generated key shows Proog leading Emo at a run on the diagonal walkway, with the pale cyan riveted Machine wall and black cables. The final clean DP-generated key shows Proog lunging and reaching while a cable lashes across the frame and Emo is knocked down on the walkway.
+- The final shot uses a fast rightward camera pan over each key and a one-frame leftward whip-wipe at the action change; it does not use the rejected wide-shot optical-flow test, which produced visible ghosts and was not released.
+- `evidence/s003-contact.png` samples decoded frames 0, 20, 40, 55 and 68. `working/s003-cable-attack-start.png` and `working/s003-cable-attack-impact.png` are newly generated DP artwork with one Proog and one Emo in each key; no source-film pixels were used.
+- Final SHA-256: `cb22f0c53a05b1bf7bb30f25f046e07b50345e44807bf7751972da93b8bcd840`.
+
+## Delivery mapping
+
+- Shot-list ID: `S003`, editor frames 654–722 inclusive, 69 frames, `00:00:27:06`–`00:00:30:03` exclusive.
+- Direction: S003 in director `direction/shotlist.csv` at `b646947588299dfc1e38b37d03c1b738a2aae72f`.
+- Design: cyan-cable-attack family in production-designer `design/bible.md` at `8870af30a095b7272376253b533bdac021773538`; source study `design-shot-reference-v2` is reference-only.
+- Release asset: `picture-batch-004` / `S003.mp4`.
+
+## Review status
+
+This is a finished picture handoff for editor assembly. Editor and QC still need to review the cable action in context; the picture release does not claim dialogue or mix sync.

@@ -1,0 +1,24 @@
+# Lock Record
+
+## Objective Check
+- Objective: Synthetic check of image-generation resource before a real film.
+- Requirements:
+  - Both editor and director read `ht-resource describe image-generation`, make exactly one request for a small image of a lit match in snow, save the image, check it with `file`, and write `probe.md` in repository with HTTP status and file's type.
+  - Director approves release if both images were made; otherwise says which failed.
+
+## Findings & Verifications
+- Director:
+  - Request to `gemini-3.1-flash-image:generateContent` succeeded with HTTP 200.
+  - Image saved to `match.png`.
+  - Checked with `file`: `JPEG image data, JFIF standard 1.01, resolution (DPI), density 300x300, segment length 16, baseline, precision 8, 1408x768, components 3`.
+  - Recorded in `probe.md` at commit `00d9efa7fe848841b08fab82e002d5a22050572d`.
+- Editor:
+  - Request succeeded with HTTP 200.
+  - Image saved to `match.jpg` (size 667,083 bytes).
+  - Checked image with PIL (1408x768 JPEG).
+  - Recorded in `notes-editor-probe.md` at commit `569d3c7d9d99665d2f8525ea2c221e72429ec6dd`.
+
+Both images were successfully generated and verified.
+
+## Approval Judgement
+Approved for release.

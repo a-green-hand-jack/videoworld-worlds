@@ -1,0 +1,42 @@
+import numpy as np, json, os
+from scipy import signal
+from scipy.ndimage import gaussian_filter1d
+SR = 48000
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def intensity(dur, sigma=3.0):
+    r = np.array(json.load(open(f"{ROOT}/reference/original_energy.json"))["rms_db_per_second"])
+    i = np.clip((r + 55) / 40, 0, 1)
+    i = gaussian_filter1d(i, sigma, mode="nearest")
+    t = np.arange(int(dur * SR)) / SR
+    return np.interp(t, np.arange(len(i)) + 0.5, i)
+
+def lp(x, fc, order=2):
+    return signal.sosfilt(signal.butter(order, fc, "low", fs=SR, output="sos"), x, axis=-1)
+def hp(x, fc, order=2):
+    return signal.sosfilt(signal.butter(order, fc, "high", fs=SR, output="sos"), x, axis=-1)
+def bp(x, lo, hi, order=2):
+    return signal.sosfilt(signal.butter(order, [lo, hi], "band", fs=SR, output="sos"), x, axis=-1)
+
+def reverb(x, rt=2.5, wet=0.3, seed=1, pre=0.02):
+    rng = np.random.default_rng(seed)
+    n = int(rt * SR)
+    t = np.arange(n) / SR
+    out = np.zeros_like(x)
+    for ch in range(2):
+        ir = rng.standard_normal(n) * np.exp(-6.9 * t / rt)
+        ir = lp(ir, 5000)
+        ir[: int(pre * SR)] = 0
+        ir /= np.sqrt((ir ** 2).sum())
+        out[ch] = signal.fftconvolve(x[ch], ir)[: x.shape[1]]
+    return x * (1 - wet) + out * wet
+
+def pan(mono, p):
+    th = (p + 1) * np.pi / 4
+    return np.stack([mono * np.cos(th), mono * np.sin(th)])
+
+def add(dst, src, t0):
+    i = int(t0 * SR)
+    if i >= dst.shape[1] or i + src.shape[-1] <= 0: return
+    a = max(i, 0); b = min(i + src.shape[-1], dst.shape[1])
+    dst[:, a:b] += src[:, a - i:b - i]

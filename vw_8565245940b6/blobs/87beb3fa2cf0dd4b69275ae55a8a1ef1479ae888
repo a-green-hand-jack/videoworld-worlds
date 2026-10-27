@@ -1,0 +1,18 @@
+# Picture package for the editor
+
+Four narrative source stills in `stills/shot-01.png` to `shot-04.png`, exact 1664×936 (16:9). Text-free `title-plate.png` and `end-plate.png` use the same visual world. Editor sets “The Paper Lantern” and “The End”, with matching typography, fades, transitions, sound and final encode.
+
+Rendered silent files:
+
+| Shot | File | Full clip | Core edit interval | Intended core length |
+| --- | --- | --- | --- | --- |
+| S1 riverbank | `shots/S1.mp4` | 108 frames / 4.5 s | frames 12–95 inclusive | 84 / 3.5 s |
+| S2 release | `shots/S2.mp4` | 108 frames / 4.5 s | frames 12–95 inclusive | 84 / 3.5 s |
+| S3 village | `shots/S3.mp4` | 120 frames / 5.0 s | frames 12–107 inclusive | 96 / 4.0 s |
+| S4 stars | `shots/S4.mp4` | 108 frames / 4.5 s | frames 12–95 inclusive | 84 / 3.5 s |
+
+All clips 1280×720, 24 fps CFR, H.264 yuv420p, silent, with 12 frames (0.5 s) of movement handle on each end. Cards target 2.5 s opening and 3.0 s ending; narrative cores total 14.5 s; sum is 20.0 s. Editor may use handles for dissolves while preserving the intended running time. `shot-log.json` records measured output counts, movement, and release asset names.
+
+The shot-01 master is the continuity anchor. In shot 2 the blue sleeves and red scarf retain costume identity and the hands have separated from the lantern. Shot 3 presents a downstream reverse view of the same village (church and bridge remain design anchors). Shot 4 retains the lantern on water: it is a tiny warm point within real/reflected stars, not a sky lantern. The end-card plate extends shot 4's star field. Please keep the warm point visible until the final dissolve.
+
+Source stills were visually inspected. Encoded clip inspection and full-decode measurements are recorded in `review.md` and `evidence/technical-checks.json`. This picture handoff is not a finished-film approval.

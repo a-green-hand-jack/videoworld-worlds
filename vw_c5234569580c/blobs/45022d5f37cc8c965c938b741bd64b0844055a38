@@ -1,0 +1,5 @@
+{"assignment_schema": 1,
+ "items": [
+  {"owner": "editor", "work": "edit and sound: the rendered, mixed film", "paths": ["film/paper-lantern.mp4"]},
+  {"owner": "production-designer", "work": "picture: finished shot clips, source stills, card backgrounds and shot log (supply to the editor, who cannot read the production-designer's repository)", "paths": ["picture/"]}
+ ]}

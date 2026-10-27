@@ -1,0 +1,43 @@
+# Builds shotlist.csv / shotlist.md from shots_src.py, and contact sheets (first/mid/last frame per shot).
+import csv, sys, os, subprocess
+sys.path.insert(0, os.path.dirname(__file__))
+from shots_src import S
+SC = {"SC01":"Titles","SC02":"The cable attack in the teal hall","SC03":"Through the cable forest",
+      "SC04":"The red telephone room","SC05":"The abyss of floating pedestals","SC06":"The elevator and the button",
+      "SC07":"The void platform: left side, right side","SC08":"The light machine and the forbidden door",
+      "SC09":"The green tiled room: the quarrel","SC10":"Emo's world: Hanging Gardens and Colossus",
+      "SC11":"Proog alone","SC12":"End credits"}
+def tc(t): return f"{int(t//60):02d}:{t%60:05.2f}"
+for a,b in zip(S,S[1:]): assert abs(a[2]-b[1])<1e-6, (a[0],b[0])
+assert S[0][1]==0 and abs(S[-1][2]-658.32)<1e-6
+with open("shotlist.csv","w",newline="") as f:
+    w=csv.writer(f); w.writerow(["shot","scene","in_s","out_s","dur_s","in_tc","out_tc","framing","camera","content","obs"])
+    for s in S: w.writerow([s[0],s[3],f"{s[1]:.2f}",f"{s[2]:.2f}",f"{s[2]-s[1]:.2f}",tc(s[1]),tc(s[2]),s[4],s[5],s[6],s[7]])
+with open("shotlist.md","w") as f:
+    f.write("# Shot list — Elephants Dream remake\n\nTimes are the original's (`/initial-state/inputs/0/elephantsdream-1024-h264-st-aac.mov`, pts seconds); the remake keeps them (spec D2: cuts within ±0.5 s). Shot IDs and boundaries are the editor's timeline (`world/editor` `edit/timeline.json`, 127 shots on the 24 fps grid), which agrees with my own frame-difference cut detection to within 0.25 s everywhere; script lines, shots and the cut share this key. Where I saw dissolves, flash inserts or whip-pans inside one timeline shot, the content gives them as bracketed beats with their times: the remake keeps them as beats inside that shot (a dissolve, a flash), not as separate shots. `obs` lists my observation IDs (`tools/shots_obs131.py`). Contact sheets: release `direction-v2`, `shotlist-sheets.zip`.\n\n")
+    f.write(f"{len(S)} shots, {len(SC)} scenes, 10:58.32.\n")
+    cur=None
+    for s in S:
+        if s[3]!=cur:
+            cur=s[3]; ss=[x for x in S if x[3]==cur]
+            f.write(f"\n## {cur} — {SC[cur]} ({tc(ss[0][1])}–{tc(ss[-1][2])})\n\n| shot | in | out | dur | framing | camera | content |\n|---|---|---|---|---|---|---|\n")
+        f.write(f"| {s[0]} | {tc(s[1])} | {tc(s[2])} | {s[2]-s[1]:.2f} | {s[4]} | {s[5]} | {s[6]} |\n")
+if "--sheets" in sys.argv:
+    import imageio_ffmpeg; from PIL import Image, ImageDraw
+    FF=imageio_ffmpeg.get_ffmpeg_exe(); IN='/initial-state/inputs/0/elephantsdream-1024-h264-st-aac.mov'
+    out=sys.argv[sys.argv.index("--sheets")+1]; os.makedirs(out+"/f",exist_ok=True)
+    from concurrent.futures import ThreadPoolExecutor
+    jobs=[]
+    for s in S:
+        a,b=s[1],s[2]; e=min(0.08,(b-a)/3)
+        for tag,t in (("a",a+e),("m",(a+b)/2),("z",b-e)): jobs.append((s[0],tag,t))
+    def run(j): subprocess.run([FF,'-v','error','-ss',f'{j[2]:.3f}','-i',IN,'-frames:v','1','-vf','scale=320:-1','-y',f'{out}/f/{j[0]}{j[1]}.jpg'])
+    with ThreadPoolExecutor(4) as ex: list(ex.map(run,jobs))
+    for k in range(0,len(S),10):
+        rows=S[k:k+10]; im=Image.new('RGB',(3*320+170,180*len(rows)),(30,30,30)); d=ImageDraw.Draw(im)
+        for r,s in enumerate(rows):
+            y=180*r; d.text((5,y+5),f"{s[0]}  {s[3]}",fill=(255,255,0)); d.text((5,y+22),f"{tc(s[1])}-{tc(s[2])}",fill=(255,255,255)); d.text((5,y+39),f"{s[2]-s[1]:.2f}s {s[4]}",fill=(0,255,0))
+            for i,tag in enumerate("amz"):
+                p=f"{out}/f/{s[0]}{tag}.jpg"
+                if os.path.exists(p): im.paste(Image.open(p).resize((320,180)),(170+320*i,y))
+        im.save(f"{out}/shotlist_{k//10+1:02d}_{rows[0][0]}-{rows[-1][0]}.jpg",quality=82)

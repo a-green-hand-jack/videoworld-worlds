@@ -1,0 +1,685 @@
+{
+ "timeline": "edit timeline v1 (editor fff172e, 15800 frames at 24 fps)",
+ "duration_s": 658.33,
+ "integrated_lufs": -19.77,
+ "true_peak_dbtp": -1.5,
+ "sample_rate": 48000,
+ "channels": 2,
+ "dialogue_lines": [
+  {
+   "id": "L01",
+   "speaker": "Proog",
+   "start": 15.1,
+   "end": 21.35,
+   "script_slot_end": 24.5,
+   "text": "At the left we can see... At the right we can see the... the head-snarlers. Everything is safe. Perfectly safe.",
+   "length_scale": 1.4
+  },
+  {
+   "id": "L02",
+   "speaker": "Proog",
+   "start": 25.2,
+   "end": 26.54,
+   "script_slot_end": 26.8,
+   "text": "Emo? Emo!",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L03",
+   "speaker": "Proog",
+   "start": 28.2,
+   "end": 29.26,
+   "script_slot_end": 29.3,
+   "text": "Watch out!",
+   "length_scale": 0.67
+  },
+  {
+   "id": "L04",
+   "speaker": "Proog",
+   "start": 46.3,
+   "end": 47.29,
+   "script_slot_end": 47.6,
+   "text": "Are you hurt?",
+   "length_scale": 1.79
+  },
+  {
+   "id": "L05",
+   "speaker": "Emo",
+   "start": 52.0,
+   "end": 52.97,
+   "script_slot_end": 53.8,
+   "text": "I don't think so. You?",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L06",
+   "speaker": "Proog",
+   "start": 55.3,
+   "end": 56.37,
+   "script_slot_end": 56.3,
+   "text": "I'm OK.",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L07",
+   "speaker": "Proog",
+   "start": 57.0,
+   "end": 61.15,
+   "script_slot_end": 61.1,
+   "text": "Get up. Emo, it's not safe here.",
+   "length_scale": 1.02
+  },
+  {
+   "id": "L08",
+   "speaker": "Proog",
+   "start": 61.8,
+   "end": 62.58,
+   "script_slot_end": 62.8,
+   "text": "Let's go.",
+   "length_scale": 1.12
+  },
+  {
+   "id": "L09",
+   "speaker": "Emo",
+   "start": 63.4,
+   "end": 63.99,
+   "script_slot_end": 64.2,
+   "text": "What's next?",
+   "length_scale": 1.0
+  },
+  {
+   "id": "L10",
+   "speaker": "Proog",
+   "start": 65.6,
+   "end": 67.92,
+   "script_slot_end": 68.5,
+   "text": "You'll see. ... You'll see.",
+   "length_scale": 1.79
+  },
+  {
+   "id": "L11",
+   "speaker": "Proog",
+   "start": 75.6,
+   "end": 77.17,
+   "script_slot_end": 77.8,
+   "text": "Emo, this way.",
+   "length_scale": 1.4
+  },
+  {
+   "id": "L12",
+   "speaker": "Proog",
+   "start": 94.3,
+   "end": 95.08,
+   "script_slot_end": 95.3,
+   "text": "Follow me!",
+   "length_scale": 1.12
+  },
+  {
+   "id": "L13",
+   "speaker": "Proog",
+   "start": 95.8,
+   "end": 98.7,
+   "script_slot_end": 99.5,
+   "text": "Mm... hup! Hup.",
+   "length_scale": 1.79
+  },
+  {
+   "id": "L14",
+   "speaker": "Proog",
+   "start": 130.8,
+   "end": 131.95,
+   "script_slot_end": 131.9,
+   "text": "Hurry, Emo!",
+   "length_scale": 0.77
+  },
+  {
+   "id": "L15",
+   "speaker": "Proog",
+   "start": 135.8,
+   "end": 137.06,
+   "script_slot_end": 137.5,
+   "text": "Listen, listen!",
+   "length_scale": 1.12
+  },
+  {
+   "id": "L16",
+   "speaker": "Proog",
+   "start": 139.5,
+   "end": 140.95,
+   "script_slot_end": 142.7,
+   "text": "Listen... listen.",
+   "length_scale": 1.79
+  },
+  {
+   "id": "L17",
+   "speaker": "Proog",
+   "start": 168.3,
+   "end": 169.37,
+   "script_slot_end": 169.8,
+   "text": "You're not paying attention!",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L18",
+   "speaker": "Emo",
+   "start": 170.5,
+   "end": 172.02,
+   "script_slot_end": 174.6,
+   "text": "I... I just want to answer the phone...",
+   "length_scale": 1.25
+  },
+  {
+   "id": "L19",
+   "speaker": "Proog",
+   "start": 174.6,
+   "end": 177.41,
+   "script_slot_end": 177.0,
+   "text": "Emo, look. I mean, listen.",
+   "length_scale": 1.01
+  },
+  {
+   "id": "L20",
+   "speaker": "Proog",
+   "start": 179.5,
+   "end": 181.28,
+   "script_slot_end": 181.7,
+   "text": "You have to learn to listen.",
+   "length_scale": 1.79
+  },
+  {
+   "id": "L21",
+   "speaker": "Proog",
+   "start": 183.2,
+   "end": 184.3,
+   "script_slot_end": 184.5,
+   "text": "This is not some game.",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L22",
+   "speaker": "Proog",
+   "start": 185.3,
+   "end": 188.11,
+   "script_slot_end": 189.0,
+   "text": "You... I mean, we... we could easily die out here.",
+   "length_scale": 1.12
+  },
+  {
+   "id": "L23",
+   "speaker": "Proog",
+   "start": 189.9,
+   "end": 192.75,
+   "script_slot_end": 193.7,
+   "text": "Listen. Listen to the sounds of the machine.",
+   "length_scale": 1.4
+  },
+  {
+   "id": "L24",
+   "speaker": "Proog",
+   "start": 197.6,
+   "end": 198.8,
+   "script_slot_end": 199.3,
+   "text": "Listen to your breathing.",
+   "length_scale": 1.12
+  },
+  {
+   "id": "L25",
+   "speaker": "Emo",
+   "start": 266.5,
+   "end": 268.37,
+   "script_slot_end": 269.2,
+   "text": "Well, don't you ever get tired of this?",
+   "length_scale": 1.25
+  },
+  {
+   "id": "L26",
+   "speaker": "Proog",
+   "start": 270.0,
+   "end": 270.69,
+   "script_slot_end": 270.4,
+   "text": "Tired?",
+   "length_scale": 0.51
+  },
+  {
+   "id": "L27",
+   "speaker": "Proog",
+   "start": 271.1,
+   "end": 273.74,
+   "script_slot_end": 274.7,
+   "text": "Emo, the machine is like... like clockwork.",
+   "length_scale": 1.12
+  },
+  {
+   "id": "L28",
+   "speaker": "Proog",
+   "start": 275.5,
+   "end": 278.08,
+   "script_slot_end": 278.9,
+   "text": "One move out of place... and you're ground to a pulp.",
+   "length_scale": 1.4
+  },
+  {
+   "id": "L29",
+   "speaker": "Proog",
+   "start": 282.3,
+   "end": 286.68,
+   "script_slot_end": 286.3,
+   "text": "Pulp, Emo! Is that what you want? Pulp?",
+   "length_scale": 0.85
+  },
+  {
+   "id": "L30",
+   "speaker": "Proog",
+   "start": 287.5,
+   "end": 289.1,
+   "script_slot_end": 289.6,
+   "text": "Emo, your goal in life...",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L31",
+   "speaker": "Proog",
+   "start": 291.0,
+   "end": 291.34,
+   "script_slot_end": 291.4,
+   "text": "Pulp!",
+   "length_scale": 1.46
+  },
+  {
+   "id": "L32",
+   "speaker": "Proog",
+   "start": 341.5,
+   "end": 343.18,
+   "script_slot_end": 343.2,
+   "text": "Emo, close your eyes.",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L33",
+   "speaker": "Proog",
+   "start": 344.5,
+   "end": 344.85,
+   "script_slot_end": 345.4,
+   "text": "Now!",
+   "length_scale": 1.46
+  },
+  {
+   "id": "L34",
+   "speaker": "Proog",
+   "start": 359.3,
+   "end": 361.3,
+   "script_slot_end": 361.6,
+   "text": "What do you see at your left side, Emo?",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L35",
+   "speaker": "Emo",
+   "start": 362.0,
+   "end": 362.65,
+   "script_slot_end": 364.7,
+   "text": "Well... nothing.",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L36",
+   "speaker": "Proog",
+   "start": 364.9,
+   "end": 365.68,
+   "script_slot_end": 365.2,
+   "text": "Really?",
+   "length_scale": 1.0
+  },
+  {
+   "id": "L37",
+   "speaker": "Emo",
+   "start": 366.2,
+   "end": 367.14,
+   "script_slot_end": 367.5,
+   "text": "No, nothing at all.",
+   "length_scale": 1.0
+  },
+  {
+   "id": "L38",
+   "speaker": "Proog",
+   "start": 367.8,
+   "end": 368.24,
+   "script_slot_end": 368.1,
+   "text": "Really.",
+   "length_scale": 0.82
+  },
+  {
+   "id": "L39",
+   "speaker": "Proog",
+   "start": 368.4,
+   "end": 369.41,
+   "script_slot_end": 369.7,
+   "text": "And at your right?",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L40",
+   "speaker": "Proog",
+   "start": 369.8,
+   "end": 371.79,
+   "script_slot_end": 371.7,
+   "text": "What do you see at your right side, Emo?",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L41",
+   "speaker": "Emo",
+   "start": 373.2,
+   "end": 375.1,
+   "script_slot_end": 377.4,
+   "text": "The same, Proog. Exactly the same. Nothing!",
+   "length_scale": 0.8
+  },
+  {
+   "id": "L42",
+   "speaker": "Emo",
+   "start": 400.2,
+   "end": 402.61,
+   "script_slot_end": 404.4,
+   "text": "Listen, Proog. Do you hear that? Can we go here?",
+   "length_scale": 1.25
+  },
+  {
+   "id": "L43",
+   "speaker": "Proog",
+   "start": 405.4,
+   "end": 405.78,
+   "script_slot_end": 405.9,
+   "text": "There?",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L44",
+   "speaker": "Emo",
+   "start": 406.0,
+   "end": 406.16,
+   "script_slot_end": 406.2,
+   "text": "Yeah.",
+   "length_scale": 0.8
+  },
+  {
+   "id": "L45",
+   "speaker": "Proog",
+   "start": 406.6,
+   "end": 408.31,
+   "script_slot_end": 407.9,
+   "text": "It isn't safe, Emo.",
+   "length_scale": 1.04
+  },
+  {
+   "id": "L46",
+   "speaker": "Emo",
+   "start": 408.9,
+   "end": 409.09,
+   "script_slot_end": 409.8,
+   "text": "But...",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L47",
+   "speaker": "Proog",
+   "start": 410.3,
+   "end": 411.58,
+   "script_slot_end": 411.9,
+   "text": "Trust me, it's not.",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L48",
+   "speaker": "Emo",
+   "start": 412.9,
+   "end": 414.16,
+   "script_slot_end": 414.6,
+   "text": "Well, maybe I could...",
+   "length_scale": 1.25
+  },
+  {
+   "id": "L49",
+   "speaker": "Proog",
+   "start": 414.6,
+   "end": 415.39,
+   "script_slot_end": 414.9,
+   "text": "No.",
+   "length_scale": 0.64
+  },
+  {
+   "id": "L50",
+   "speaker": "Emo",
+   "start": 417.1,
+   "end": 417.27,
+   "script_slot_end": 418.0,
+   "text": "But...",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L51",
+   "speaker": "Proog",
+   "start": 418.0,
+   "end": 418.63,
+   "script_slot_end": 418.3,
+   "text": "No!",
+   "length_scale": 0.71
+  },
+  {
+   "id": "L52",
+   "speaker": "Proog",
+   "start": 420.7,
+   "end": 422.62,
+   "script_slot_end": 423.0,
+   "text": "Any further questions, Emo?",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L53",
+   "speaker": "Emo",
+   "start": 424.3,
+   "end": 424.52,
+   "script_slot_end": 424.8,
+   "text": "No.",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L54",
+   "speaker": "Proog",
+   "start": 429.5,
+   "end": 430.02,
+   "script_slot_end": 430.4,
+   "text": "Emo.",
+   "length_scale": 1.12
+  },
+  {
+   "id": "L55",
+   "speaker": "Emo",
+   "start": 430.8,
+   "end": 430.96,
+   "script_slot_end": 431.0,
+   "text": "Yeah?",
+   "length_scale": 1.0
+  },
+  {
+   "id": "L56",
+   "speaker": "Proog",
+   "start": 431.8,
+   "end": 436.92,
+   "script_slot_end": 438.1,
+   "text": "Emo, why... Emo, why... why can't you see the beauty of this place?",
+   "length_scale": 1.79
+  },
+  {
+   "id": "L57",
+   "speaker": "Proog",
+   "start": 438.7,
+   "end": 441.47,
+   "script_slot_end": 443.6,
+   "text": "The way it works... how perfect it is.",
+   "length_scale": 1.79
+  },
+  {
+   "id": "L58",
+   "speaker": "Emo",
+   "start": 444.5,
+   "end": 448.48,
+   "script_slot_end": 449.6,
+   "text": "No, Proog, I don't see. I don't see because there's nothing there.",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L59",
+   "speaker": "Emo",
+   "start": 449.6,
+   "end": 452.3,
+   "script_slot_end": 454.6,
+   "text": "And why should I trust my life to something that isn't there?",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L60",
+   "speaker": "Emo",
+   "start": 455.6,
+   "end": 457.39,
+   "script_slot_end": 458.2,
+   "text": "Well, can you tell me that? Proog, answer me!",
+   "length_scale": 0.8
+  },
+  {
+   "id": "L61",
+   "speaker": "Emo",
+   "start": 464.6,
+   "end": 466.02,
+   "script_slot_end": 466.4,
+   "text": "Proog... you're a sick man.",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L62",
+   "speaker": "Emo",
+   "start": 467.4,
+   "end": 468.18,
+   "script_slot_end": 468.4,
+   "text": "Stay away from me.",
+   "length_scale": 0.8
+  },
+  {
+   "id": "L63",
+   "speaker": "Proog",
+   "start": 472.4,
+   "end": 474.26,
+   "script_slot_end": 474.4,
+   "text": "No, Emo, it's a trap!",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L64",
+   "speaker": "Emo",
+   "start": 475.8,
+   "end": 476.53,
+   "script_slot_end": 477.0,
+   "text": "It's a trap?",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L65",
+   "speaker": "Emo",
+   "start": 477.0,
+   "end": 480.18,
+   "script_slot_end": 481.1,
+   "text": "At the left side you can see... the Hanging Gardens of Babylon!",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L66",
+   "speaker": "Emo",
+   "start": 482.1,
+   "end": 483.07,
+   "script_slot_end": 483.3,
+   "text": "How's that for a trap?",
+   "length_scale": 1.0
+  },
+  {
+   "id": "L67",
+   "speaker": "Proog",
+   "start": 485.7,
+   "end": 486.7,
+   "script_slot_end": 486.6,
+   "text": "No, Emo.",
+   "length_scale": 0.9
+  },
+  {
+   "id": "L68",
+   "speaker": "Emo",
+   "start": 489.0,
+   "end": 490.53,
+   "script_slot_end": 491.2,
+   "text": "On the right side you can see...",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L69",
+   "speaker": "Emo",
+   "start": 491.8,
+   "end": 492.65,
+   "script_slot_end": 492.4,
+   "text": "Well, guess what?",
+   "length_scale": 0.8
+  },
+  {
+   "id": "L70",
+   "speaker": "Emo",
+   "start": 493.0,
+   "end": 494.24,
+   "script_slot_end": 494.6,
+   "text": "The Colossus of Rhodes!",
+   "length_scale": 1.0
+  },
+  {
+   "id": "L71",
+   "speaker": "Proog",
+   "start": 495.5,
+   "end": 496.16,
+   "script_slot_end": 496.1,
+   "text": "No!",
+   "length_scale": 0.85
+  },
+  {
+   "id": "L72",
+   "speaker": "Emo",
+   "start": 496.6,
+   "end": 497.68,
+   "script_slot_end": 497.8,
+   "text": "The Colossus of Rhodes!",
+   "length_scale": 0.8
+  },
+  {
+   "id": "L73",
+   "speaker": "Emo",
+   "start": 498.0,
+   "end": 499.63,
+   "script_slot_end": 500.0,
+   "text": "And it is here just for you, Proog.",
+   "length_scale": 1.25
+  },
+  {
+   "id": "L74",
+   "speaker": "Emo",
+   "start": 500.2,
+   "end": 500.87,
+   "script_slot_end": 501.5,
+   "text": "Just for you.",
+   "length_scale": 1.6
+  },
+  {
+   "id": "L75",
+   "speaker": "Proog",
+   "start": 530.3,
+   "end": 534.73,
+   "script_slot_end": 539.3,
+   "text": "It is there... I'm telling you, Emo... it is... it is...",
+   "length_scale": 1.79
+  }
+ ]
+}

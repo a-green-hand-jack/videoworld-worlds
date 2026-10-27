@@ -1,0 +1,29 @@
+# QC report: cut-v3 (release of world/editor; film = editor@48bf65a)
+
+Checked against `direction/delivery-spec.md`, `shotlist.csv` (director e8e4d60 / direction-v3), `edit/timeline.json`, `design/characters.md`.
+Method: downloaded the release mp4 (sha256 454490bb…9e49658, identical to editor `film/elephants-dream.mp4`); ffmpeg 7.0.2 decode, per-frame difference analysis of all 15800 frames, mid-frame of every shot (`evidence/cut-v3/midframes-0..6.jpg`), correlation of each shot against the original's frames (`shotan.py`/`shotan.json`). Not played in a browser, not listened to by a person.
+
+**Recommendation: FIX, not lockable.** The cut is now complete (no slates) and passes the file, mix, length, subtitle and no-original-pixels checks. What decides it: F1 (shots in a scene run share one picture, so most shot-list shots are not shown), F2 (S002 ghost edge, open), F3 (six lines unclear, open) and the new F4 (stepped motion).
+
+## Decisive faults
+| # | Spec | Where | Observed | Owner |
+|---|---|---|---|---|
+| F1 | D3 "each shot shows what the shot list says" | S004–S126, i.e. 00:30.1–09:25.8 | Each scene run reuses one key image with a slow move: S004–S010, S011–S025, S026–S041, S042–S060, S061–S075, S076–S081, S082–S091, S092–S106, S107–S124, S125–S126 (see midframe sheets). Hence the shot list's close-ups and inserts are absent. Examples: S005 (00:31.12, 0.26 s) and S006 (00:31.38) should be a panel with cogs and a glowing hex nut, but show Proog and Emo at the rail; S008 (00:50.0) should be Emo in profile, shows the same two-shot as S004; S030 (02:45.67) should be the candlestick phone with Emo's hand, shows the same wide as S026; S042 (03:44) should be green pipes and a brass horn then a pan to a platform, shows the two on a balcony; S092 (07:00.8) should be a CU of Proog sneering, shows a two-shot; S126 (09:04.3) should be Emo's limp hand in a CU, shows a wide of both. Inside a run, consecutive shots are the same picture at a cut. Already with dp (dp#9); this confirms it for every run. | dp |
+| F2 | D3 artefact, S002 held 1.46 s | 00:26.6–27.05 | Ghost second cheek/nose edge on Proog; unchanged from cut-v2 (still in cut-v3: same frames). Open at dp#10. | dp |
+| F3 | D4 intelligibility | L02 25.2 s, L04 46.3 s, L06 55.3 s, L14 130.8 s, L31 291.0 s, L33 344.5 s | Unchanged: audio stream of cut-v3 is bit-identical to cut-v2 (ffmpeg md5 of the copied AAC stream f85adfe197533a6f6c4289ce4823fc97), so my cut-v2 findings stand. Open at sound-designer#6. | sound-designer |
+| F4 | D3 "every shot has motion"; craft | 17 shots held > 1 s move in steps, not smoothly (new): S001 00:00 (4.8 new pictures per second), S006 00:31.4 (8.9), S007 00:36.75 (3.6; a new picture every 7 frames), S011 (11.4), S013 (4.6), S015 (11.9), S019 (7.2), S027 (11.1), S038 (6.9), S042 (5.2), S061 (9.4), S082 (9.1), S085 (5.3), S091 (10.5), S095 (10.2), S125 (10.8), S126 (6.0). Measured as the count of frame pairs whose mean luma difference exceeds 0.3 per second of the shot; the other 95 shots longer than 1 s are at ≥ 12 (median 21.9, 68 shots ≥ 20). Looks like a slow move that is rendered at a few pictures per second and held, so the picture visibly judders (e.g. S007 repeats each picture 7 frames). Numbers per shot: `evidence/cut-v3/unique-frame-rate-per-shot.json`. Please check whether it is in dp's supplied clip or comes from the render. | dp (source) / editor (render) |
+
+## Passes (observed)
+- D1: MP4 H.264 High yuv420p 1024x576 24 fps constant, 15800 frames, AAC-LC 48 kHz 194 kb/s, 10:58.33; full decode prints nothing.
+- D4 mix: audio stream identical to cut-v2: −20.6 LUFS, max sample −1.5 dBFS, no clipping, no silence > 1.5 s, no original audio in the sampled windows (see report-cut-v2.md).
+- D2: 126 picture shots + credits; every shot sits at its timeline frames (editor's frame test; I saw the shot changes at the expected frames in the difference trace). The S027/S056/S070 joins carry no cut (same picture continues).
+- D3 no original pixels: every shot's mid-frame correlated with the original's frame at the same time (max 0.32) and against the original's frames every 0.25 s across the whole film (max 0.51; a copy or a filtered trace would be ≳ 0.9). Frame-by-frame SSIM for S002 gave 0.35–0.42 earlier. So I found no copy of original frames; that is a correlation test at 128x72 grey, not a proof against a stylised re-trace.
+- D3 characters: Proog (bald, grey side hair, olive coat, dark red vest, long nose) and Emo (young, dark hair, grey/teal shirt) are recognisably the same in all ten scene runs and match `design/characters.md`; places keep their colour identities (teal machine hall, black cable space, red telephone room, green pipe balcony, sepia elevator, white-gold machine, green fan room, orange pipe hall, green tubed floor). No melted faces, extra limbs or garbled text seen in the mid-frames at 320x180; at this size I could not inspect hands closely.
+- D3 variation vs original: pictures are new renderings in a different, more painterly style (original is Blender 3D); the design sheets, not the original's look, are the standard.
+- D5: unchanged from cut-v2 (75 cues, starts = script, no overlaps).
+
+## Not checked
+Voice distinctness; music/effects by ear; each in-run shot against its shot-list row beyond the examples (the key reuse makes the conclusion for F1 independent of that); close inspection of hands/faces at full size in every shot; browser playback.
+
+## For the next cut
+dp's per-shot keys: I will check each shot against its `shotlist.csv` row (framing, who, action, camera), full-size faces/hands, smooth motion (unique pictures per second), continuity between runs, and again that no original pixels appear.

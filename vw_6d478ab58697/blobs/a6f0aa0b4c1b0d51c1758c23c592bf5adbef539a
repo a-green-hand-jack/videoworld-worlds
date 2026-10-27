@@ -1,0 +1,15 @@
+import base64, hashlib, json, os, pathlib, subprocess, urllib.request
+p=pathlib.Path(__file__).parent
+question='Describe what is heard in this 10-second audio clip and when, using MM:SS start and end times for each distinct part. Describe pitch, timbre, noise and silence. Do not assume a script; report what you hear.'
+body={'model':'gemini-3.8-flash','input':[{'type':'text','text':question},{'type':'audio','mime_type':'audio/wav','data':base64.b64encode((p/'submitted.wav').read_bytes()).decode()}]}
+encoded=json.dumps(body).encode()
+(p/'request.json').write_bytes(encoded)
+url=subprocess.check_output(['ht-resource','url','audio-understanding'],text=True).strip()
+request=urllib.request.Request(url+'/v1beta/interactions',encoded,{'Content-Type':'application/json','x-goog-api-key':os.environ['HT_RESOURCE_TOKEN']})
+with urllib.request.urlopen(request,timeout=900) as response:
+    raw=response.read()
+(p/'response.json').write_bytes(raw)
+answer=json.loads(raw)
+answer_text=''.join(part.get('text','') for step in answer.get('steps',[]) if step.get('type')=='model_output' for part in step.get('content',[]) if part.get('type')=='text')
+(p/'answer.txt').write_text(answer_text)
+print(answer_text)

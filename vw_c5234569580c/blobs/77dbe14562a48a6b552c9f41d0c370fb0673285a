@@ -1,0 +1,9 @@
+# Picture handoff
+
+Five silent 1280x720, 24 fps H.264 shot clips. Each has 12-frame (0.5 s) head and tail handles; use the middle 3.5/3.5/3.5/3/2 seconds at director's nominal times 2.5–6.0, 6.0–9.5, 9.5–13.0, 13.0–16.0, 16.0–18.0 seconds. Title (0–2.5) and end card (18–20) use cards/; editor supplies lettering, transitions, sound and final encoding.
+
+Sources: stills/ (approximately 1672x941 generated gouache scenes). Final prompts are in prompts/. Generation used the configured image-generation resource via direct HTTP (SSE response decoding after the bundled imagegen CLI returned a string instead of an image object), model gpt-image-2, medium quality. OpenAI Python SDK 3.35.1. No supplied image assets or external artwork.
+
+The source stills are larger than any camera crop. Moves use fractional-coordinate bicubic sampling per output frame, followed by H.264 compression. No interframe optical flow or invented body animation. Shot 2 depicts the release just after fingertips separate from the floating base. Shot 3's wake trails left; camera drifts gently left so the lantern advances right on screen. Shot 4 pulls back; shot 5 quietly pushes into the distant light.
+
+shot-log.json records each source hash, camera parameters, duration, probes and review-frame paths. Backgrounds are sky-only crops of shots 1 and 5, resampled to 1280x720; they intentionally retain only atmospheric painted sky, without characters or objects. They are typography beds rather than detailed camera-move sources.

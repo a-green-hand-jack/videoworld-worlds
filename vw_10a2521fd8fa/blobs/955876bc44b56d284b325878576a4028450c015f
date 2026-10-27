@@ -1,0 +1,44 @@
+# Screening notes: `screen-cut-v6c` (director release, film.mp4, 121.96 s)
+
+**How I watched.** The watching model works again this round, so this is a full first-time watch with sound: gemini-4-argon saw and heard a 640x360 viewing copy of `film.mp4` (one pass, start to end). I then checked its picture claims myself against frames (`screening/screen-cut-v6c-frames.jpg`) and frame-to-frame measurements of all 2,926 frame pairs, because a model's view of judder is not reliable. Where the two disagree I say so. I cannot play sound myself: what I report about narration, voices, music and effects is the model's hearing, not mine.
+
+## The experience, in order (model's watch; my checks marked "checked")
+- **0:00–0:05** Snowy storybook street at dusk, narrator: "Bitter cold, almost dark: the last evening of the year." Holds me at once; gentle cello score.
+- **0:06–0:09** The girl in big slippers. Her walk feels a little floaty, like a cut-out sliding over the background.
+- **0:10–0:14** Two carriages rush at the camera, she jumps back and loses the slippers. The model read a boy stealing one; I could not confirm a boy in my frames (a slipper lies in the snow at 0:13). It made the viewer feel for her.
+- **0:15–0:21** "Matches… who will buy my matches?" Passers-by in top hats and coats walk through (checked 0:16, 0:17.5: three or four adults in dark coats, new take, clear). The model felt the passers-by "freeze" around 0:18 while snow kept falling. Checked: by 0:19 the passers-by have left the frame and the street is nearly empty with one distant figure. Frame change is small (0.5–1.0 per frame, never zero) from 0:18.5 to 0:21: the girl stands almost still with falling snow. It reads as quiet, not as a stopped picture. The stride of the man leaving at 0:15–0:17 jittered slightly for the model; the numbers there are lumpy (alternating big/small, no zero), so a slight stutter in that walk is possible.
+- **0:21–0:26** Close-up of her face, then the camera slides to a lit window with a family and a roast. The contrast is clear. Her close-up face has heavy freckles and rosy cheeks, more detailed than the wide shots: the model noticed, I agree (0:24 against 0:19), but it is still plainly her.
+- **0:27–0:37** Corner, "afraid to go home to her father": it adds a dark layer. She strikes a match: crisp strike sound.
+- **0:38–0:46** Stove vision: warm, relieved smile, then "poof", dark and cold. I'm following the rhythm now.
+- **0:46–0:57** Second match: the wall turns to a veil, roast goose, which hops off and waddles toward her with knife and fork in its back. The model said it caught it off guard, was bizarre and briefly broke the sad mood, "unintentionally comical". Same as in my v6b notes.
+- **0:58–1:11** Tree, lights rise into stars, one falls, "Someone is dying." Gorgeous. The model found the girl's voice for that line breathy with a heavy reverb, unlike her line at 0:16.
+- **1:12–1:19** The grandmother's ghost and "a falling star is a soul going to God". The model called this the emotional core; a tear rolls down.
+- **1:20–1:29** Fourth match, Grandmother shining, "Grandmother! Take me with you!" Moving. The model saw a ghosted extra set of translucent hands at 1:27–1:28, then both near-still at 1:29, with only tears and glow moving. Checked: frame change is steady (5–12 per frame, no stops) 1:26–1:29, so I cannot confirm a freeze; the hands overlapping in the glow at 1:28 (frame) is probably the "ghosting".
+- **1:30–1:35** The bundle burns, then the hug in a golden swirl, then they rise. The model felt this is still too fast: "close-up of grandmother → bundle → hug in vortex → wider shot rising" in about five seconds, and the climax has no time to breathe. Same remark I made on v6b. Checked: the cuts are at 1:29.8 and 1:32.2 (two, down from four in v6b at 1:29.8, 1:32.6, 1:32.9, 1:34.2), so the run is shorter, but it still feels brisk to the model. The model also felt the hug at 1:32–1:33 is "a static illustration" with only swirling particles moving. Checked: 1:32.3–1:36 frame change is 6.9 with no frame at zero, so something moves every frame; the body inside the hug may still move little. Possibly the swirl, not the pair.
+- **1:35–1:41** They float up over golden clouds and rooftops: "where there is no cold, no hunger, no fear." Understood at once as dying. The picture holds longer and slower at 1:40–1:42 (frame change 0.1–0.5).
+- **1:42–1:48** Hard cut to dawn: she is slumped at the wall, eyes closed, smiling, burnt matches. "Frozen to death." The model said the stark picture hits hard even after the ascent.
+- **1:49–1:53** Four townspeople (backs to us; a man in a top hat, breath vapour) stand by her: "She wanted to warm herself." The model read them as passers-by gathering in pity.
+- **1:54–1:58** Rooftops in morning light, "No one knew the beautiful things she had seen, or the joy she had gone to." Then the title card.
+
+## What you asked
+1. **Does the ending read?** Yes. The model's own reading: she died of cold in the alley, peacefully in a vision of her grandmother; the people are townsfolk who found her. It called it bittersweet and poignant, "genuinely moving" in the contrast between the townspeople's pity and what she felt, though "a bit too brisk to make me deeply weep". It did not ask who the people were beyond townsfolk.
+2. **Still or stutter?**
+   - **1:50–1:54 (the old alternating frame change):** better. In v6b the change alternated 2.97, 1.35, 3.27, 1.10 … Now it is 1.6, 1.6, 1.7, 1.7, 1.8, 1.8, 2.2, 2.1 … (checked, 72 frames, none under 0.6). No repeated frame, and no big/small alternation. The values come in equal pairs, so the motion seems to change speed every second frame (like a 12 fps source) but nothing repeats and I would not call it judder. The model, though, called 1:49–1:53 "almost entirely a still picture": the girl and the woman at left are frozen, and only breath vapour and small head tilts move. Checked: the measured motion is slow (about 1.5 per frame, close to the camera drift) and I cannot tell if it is camera or people. So the picture does not stutter, but the **people hardly move**.
+   - **1:26–1:30:** steady, no zero frames (see above).
+   - **1:41–1:42 and 1:40:** the ascent's tail is slow (0.1–0.5) for about 1.5 s; I read it as a deliberate float. I did not see alternation there as in v6b.
+   - **0:15–0:21:** see above: lumpy numbers in the walk at 0:15–0:17, quiet and nearly empty from 0:18.5.
+3. **Consistency.** The model flagged two:
+   - **The girl's face** changes between wide shots (simple, cartoon-like) and close-ups (0:21, 1:26–1:29: heavy freckles, bigger eyes, younger, doll-like); at 1:04 and 1:10 she looks older. Checked in frames: close-ups are rounder and more detailed, the hair, apron and dress are constant. It is a change of rendering more than a different child, but a viewer sees it.
+   - **Grandmother:** at 1:12 and 1:23 she wears a white cap, a grey dress and a brown/grey shawl with a round soft face; in the close-up at 1:28–1:29 she wears a **dark burgundy cape with a clasp**, a thinner, more wrinkled face and a differently sitting bonnet, then at 1:32 she is back in the grey shawl. Checked in frames (1:29 close-up: white bonnet, burgundy cape; 1:33: grey dress, burgundy shawl over it): I confirm the burgundy cape at 1:29. It is the clearest inconsistency in the film; I would not call it fatal, and the viewer still knows it's the same grandmother.
+4. **What pulls me out.**
+   - **Narration tone** (heard by the model): clean and articulate but "upbeat, audiobook-polished, like a commercial", not matched to a girl freezing. The sound is identical to cut-v5d, so this is not new in this cut, but it is the first time anyone has said it. I did not hear it myself.
+   - **The girl's "Someone is dying."** at 1:10: breathy with heavy reverb, unlike her line at 0:16.
+   - **The goose** at 0:53, as before.
+   - **Pacing:** the whole film is brisk, and the climax at 1:29–1:35 is the place it matters. The change from v6b (two cuts instead of four) helps but the model still says it is rushed.
+   - **The walk at 0:06–0:09** looks floaty.
+
+## Measured
+1280x720, 24 fps, H.264 and AAC, 121.96 s, 30 subtitle cues (`film.srt`, same as v6b). I did not re-measure loudness (the sound is stated identical to v6b: -16.0 LUFS, true peak -1.8 dBFS).
+
+## What I did not do
+One model pass only; the model's timecodes are close, not exact. I did not compare cut-v6c with cut-v6b side by side in the same way for every shot; the model did not see v6b. I did not hear the sound myself.

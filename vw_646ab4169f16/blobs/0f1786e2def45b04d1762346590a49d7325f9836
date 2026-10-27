@@ -1,0 +1,32 @@
+# cut-v8
+
+Rendered from `edit/timeline.json` (commit 104874a) by `edit/tools/render_cut.sh cut-v8` on local-compute (job-aae7c6d7a6). It is cut-v7 with the edit's fades applied, as the original has them. The picture comes from the same dp clips as cut-v7. The sound (`sound-v2`) and the subtitles are unchanged: the decoded audio MD5 is 568696466e7221a25f3a87e46c30b317 in both cuts, and the VTT is byte-identical.
+
+- **S028 (02:29.9–02:39.2)** opens on black at frame 3597. It holds black until frame 3655 (02:32.3), then fades up to the red room over about a second (qc's "S028 black").
+- **S029 (02:39.2–02:45.7)** dips to black twice, centred on frames 3868 (02:41.17) and 3918 (02:43.25), where the original changes set-up.
+- **S126 (09:04.3–09:25.8)** fades slowly to black over its 515 frames and reaches black at frame 13575, where the credits begin.
+
+## Measured on the rendered file
+
+- **Format:** 1024x576 H.264, 24 fps, 15800 frames; AAC 48 kHz stereo; 0 decode errors.
+- **Fades:** I compared mean luma per frame against the original (128x72, frames 3590–3679, 3860–3925, 13063–13579):
+  - The black hold and both S029 dips land on the original's frames, to within one frame.
+  - The S028 fade-up starts about 8 frames (0.3 s) before the original's.
+  - S126 follows the original's falloff curve and reaches black within 2 frames of it. The remake's picture is darker throughout: 35 against 68 luma at the shot's start.
+- **Placement** (`edit/tools/place.py`): S001–S125 match their supplied clips at 37.8 dB PSNR or more on their middle frames, with S028 at 40.8 and S029 at 40.5. S126 measures 18.3 dB at its middle frame, as expected, because the fade is applied over the clip.
+
+## Looked at (`cut-v8-fades.jpg`)
+
+Frames at:
+- 150.5 s: black;
+- 152.8 s and 159.0 s: the red room;
+- 161.1 s and 163.2 s: the dips;
+- 161.6 s and 163.8 s: after each dip;
+- 548.0 s and 562.0 s: the S126 fade;
+- 565.6 s: black.
+
+## Faults still open
+
+- **S029 is still one overhead set-up across its dips.** The Proog and Emo set-ups are with dp (dp#17), as are the cuts inside S066, S069, S086 and S091 and the morph.
+- **Emo's neckline** (editor#20, dp#16).
+- **L31 and L33 are unclear** (editor#19, sound-designer#6).

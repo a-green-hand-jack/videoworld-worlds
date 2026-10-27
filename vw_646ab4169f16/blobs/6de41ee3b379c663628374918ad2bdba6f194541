@@ -1,0 +1,57 @@
+# Screening: cut-v9 (director release `screen-cut-v9`, editor a424f83), 10:58
+
+## How I watched (read this first)
+I am a model, not a person with ears and a screen. I could not play the film in real time or hear it, and I could not turn the subtitles on or off in a browser.
+- **Picture:** I looked at a frame every 3 s over the whole 10:58 (220 frames in 11 sheets), at 0.5 s steps for 0:22-0:32 and for 7:08-7:16, and at 1 s steps over the credits start. I also measured how much each shot changes from frame to frame (ffmpeg, 4 fps) as a rough stand-in for how much moves. I did not see motion as motion; jumps shorter than 3 s can hide between my frames.
+- **Sound:** I transcribed all the audio with Whisper (small) and also re-checked every one of the 75 subtitle cues against the audio in a window around it. I measured loudness, silence and black frames with ffmpeg. This tells me what words are in the audio and when; it does **not** tell me how voices, music or effects feel. I make no claim about mood, timbre, music quality or lip-sync.
+- For "without subtitles" I used the sound (as transcribed) plus the picture. The slates that carried the lines in cut-v2 are gone, so unlike last time nothing on screen spells the dialogue out.
+- I screened cut-v2 before this one. That memory colours what I notice (e.g. the slates are gone), but I report this cut on its own.
+
+## What I understood as a first-time viewer
+Two men, an old, hunched, long-nosed one in an olive coat (Proog) and a young one in a grey top (Emo), travel through an enormous machine of cables, pipes, lifts and glowing halls. Proog is the guide: he insists it is safe, then that it is not, and tells Emo to listen. Emo gets bored, curious and doubtful, and says there is nothing there. They argue, Emo shouts at the machine that it is full of wonders (Hanging Gardens, Colossus), and the machine grows red pipes and takes him. Proog is left kneeling beside Emo's limp body. I followed this and I cared about it. Picture and voices fit together. The two men are easy to tell apart on screen (bald old man in an olive coat and dark red vest, dark-haired young man in a grey top) and they look like the same two people from 0:26 to 9:00.
+
+## Timecoded notes (my time = file time)
+- **0:00-0:02** Dark rusted wall, audio rising from silence.
+- **0:02-0:14** Title "Elephants Dream" on the wall, held about 12 s with nothing moving and no voice. Handsome; slow.
+- **0:15-0:21** The tour-guide voice ("At the left we can see... perfectly safe.") starts, matching the cue. It plays over the wall with "a VideoWorld film production" (0:18-0:24), so a studio card is what I see while the first line is spoken. Intriguing voice, nothing to look at.
+- **0:24-0:26** Fade to black.
+- **0:26-0:27** Proog's face, scared; then the bridge at 0:27-0:29 with Emo flung and Proog lunging; "Emo? Emo!" and "Watch out!" are heard where they are cued. First time I'm hooked.
+- **0:28-0:30** Emo swept off his feet by a cable, then a macro of a glowing bolt on gears. Fast and clear.
+- **0:30-0:50** Emo lies on the bridge, Proog stands over him. About 13 s of an almost static wide with a faint drift; "Are you hurt?" / "I don't think so. You?" are spoken over it. Slow, but it says: they survived.
+- **0:50-1:09** Proog kneels and offers a hand, Emo is helped up; tall shaft shots. "Get up, it's not safe here", "What's next?", "You'll see." all heard in order.
+- **1:09-1:27** Emo stands in a white doorway; Proog beckons ("Emo, this way", 1:15). Long bridge shots; both tiny in the frame.
+- **1:27-2:10** Proog leaps across platforms; white mechanical birds fly past (about 1:44 and 1:52). First movement-rich stretch; "Follow me!" at 1:35. I liked this.
+- **2:10-2:23** "Hurry, Emo!" is now audible at 2:10 (it was not in cut-v2). Dark bridge walks; Proog in front.
+- **2:30-2:32** Black.
+- **2:32-3:44 (red hall)** A red room with a telephone on a pedestal. I understood the beat: Emo wants to answer the phone, Proog wants him to listen ("You're not paying attention! ... I just want to answer the phone"). The frames at 2:50-3:00 are a strong image: Proog holding the receiver, Emo looking up scared. 3:00 is a macro of the phone's insides (gears, red wiring) with the men reflected. Held me.
+- **3:10-3:30** Wide of the lamp over the telephone for about 15 s with little change; "Listen to the sounds of the machine... your breathing" sits on it. Calm, a bit long, but suits the lines.
+- **3:33-3:44** Emo with a hand to his chin, then both at a railing, Proog's shoes on carpet. Nice small beats.
+- **3:44-4:00 (green hall)** Green brass hall with a horn. Cut into the green machine hall. Beautiful, new colour.
+- **4:00-4:30** Proog bounds on pillars across the hall, Emo behind. Cuts here are quick (4:02-4:09 changes several times in 7 s). I did not notice a jump that confused me, but I can only see every 3 s.
+- **4:26-4:52** "Don't you ever get tired of this?" ... "clockwork ... ground to a pulp." An explosion at about 4:42 behind them; the two face each other; "Pulp!" at 4:51 is the shouted word: it is audible at the cue time but the recogniser heard "Paul"/"pole", so the word may not read as "pulp". Please judge it by ear.
+- **4:52-5:06** About 13 s of an orange lift with very little movement (the least motion of anything in the film). Fine as a breath.
+- **5:06-5:40** Proog presses a red button; a spiralling iris/tube; the cage spins; Proog on the lever, face hard. Exciting. Cuts are rapid and I follow them.
+- **5:41-5:45** "Emo, close your eyes. Now!" The words and "Now!" are audible; I heard "close ... eyes, now" clearly in the transcript. Picture: Proog's angry close-up with Emo behind.
+- **5:52-6:19** Black void, a small platform with both men; Emo looks down, sad. "What do you see at your left side?" / "Nothing." / "And at your right?" / "The same, nothing!" All heard in order; the void looks like nothing, which fits the lines. This is the best-staged scene to me: the picture agrees with what is said.
+- **6:19-6:40** Gold-white glowing hall, Emo and Proog small among tubes; 6:25 a flash.
+- **6:36-6:52** Emo walks to a white door; "Listen, Proog. Do you hear that? Can we go here?" is audible at 6:40 and 6:45-6:55 "No!/It isn't safe". A key with a red gem appears at 6:45-6:55 (Proog holds it, then it is in a socket); Emo falls (about 6:57). I did not understand what the key is for or what the fall means.
+- **7:00-7:20 (green fan room)** Proog crouches, Emo with arms crossed, then a wide where they stand apart. 7:08-7:20 is about 12 s of one wide shot, and I could see in 0.5 s steps that it barely moves: Emo is almost frozen, Proog's arms shift a little. It reads as posed, not acted. The line "Emo." (7:09-7:10) is the shouted word at the cue; I heard "Emo." and the reply "Yeah?" so the single words read. The next lines ("why can't you see the beauty of this place") are clear.
+- **7:20-7:50** Emo arguing back; the cutting between faces and Emo's gesturing hand ("I don't see because there's nothing there") held me. Proog's smile and flung arm at 7:21 are the best-acted frames I saw.
+- **7:52-8:20** "It's a trap!" ... "Hanging Gardens of Babylon!" with Emo's arms out and red tendrils on the wall; "The Colossus of Rhodes!" with a golden statue behind them at 8:11. The comedy and menace land. At about 8:27 Proog is tiny, alone in the frame while Emo has gone out of shot, which is a good beat.
+- **8:25-8:50** Emo and Proog fall among red pipes; Proog grabs Emo, Emo shrieks (8:42); Emo is thrown onto the floor; Proog stands over him, face stricken.
+- **8:50-8:54** "It is there... I'm telling you, Emo... it is..." Proog's face, then dark green ground with Emo lying and Proog kneeling.
+- **9:00-9:22** Close-up of Emo's limp hand on the cables for about 20 s, fading to black as the loudness drops (-26/-27 dB, the quietest part). Clear mood: something terrible has happened; I am not sure whether Emo is dead, hurt or taken. Nothing is said after 8:54 and nothing moves on screen for 20 s.
+- **9:22-9:27** Black.
+- **9:27-10:49** Credits scroll for about 82 s. The role names are still the internal position names under each heading ("director", "production-designer", "dp", "sound-designer", "editor", "qc", "test-audience"), with "Quality Control" and "Test Screening" as lines, no people's names, and the "Original voices: Cas Jansen (Emo), Tygo Gernandt (Proog)" block beside "All picture, voices, music and effects in this film are newly made". To a viewer this reads as a template and is confusing. Text is legible; it is long for a 9-minute film.
+- **10:49-10:58** Black; audio fades to near silence.
+- Playback: no stalls; audio runs the whole 10:58; no silence longer than 1.5 s at -45 dB; loudness -19.8 LUFS, range 8.4 LU. I saw no black frames other than those listed (2:30-2:32, 9:22-9:27, 10:49-10:58, and the fade at 0:24-0:26).
+
+## Answers to the director's questions
+1. **Story and characters without subtitles?** Yes for the shape of the story and for who is who. I got Proog the controlling guide, Emo the doubting follower, and the quarrel with Emo shouting at the machine, from picture plus voice alone. Where I was lost: (a) the key with a red gem at 6:45-6:57 and the fall; (b) what the machine does to Emo at 8:25-8:50 and whether he is alive at 9:00-9:22; (c) the first 15 s, which are a title with no voice.
+2. **Voices and shouted words?** Every one of the 75 lines is now in the audio and in order, including "Hurry, Emo!" (2:10), "This is not some game." (3:03), "Emo, close your eyes. Now!" (5:41-5:45), which I could not find in cut-v2. 4:51 "Pulp!": at the cue time but the recogniser got "Paul"/"pole"; 5:44 "Now!": clear; 7:09 "Emo.": clear. The recogniser garbles the name "Proog" ("Prude", "Prug"), which suggests it may not be crisp, but it is a machine, not an ear. I can't say if the two voices sound like consistent characters; a person should listen.
+3. **Picture holds or distracts?** It holds me, much more than cut-v2 did. Best: 2:50-3:00, 5:52-6:19, 7:21, 8:11-8:27. Weaknesses: figures move little in the long shots (0:30-0:50, 3:10-3:30, 4:52-5:06, 7:08-7:20 each run 12-20 s with almost nothing moving), so the dialogue scenes look posed; the first 24 s are a title and a studio card. I noticed no look change in the two characters beyond lighting (Emo's top reads teal-grey on the bridge, lighter grey in the golden halls, darker in the green room); I could not see the neckline detail at the size I looked at. I did not notice a jump cut that confused me, within the 3 s sampling.
+4. **The ending 09:50-10:51?** The last image (Emo's hand, 9:03-9:22) is clear as a mood but not as an event. The credits begin at 9:27, not 9:50. Nothing is said after "it is... it is..." (8:54), so a viewer has to infer from the last frames that Emo is gone or lifeless.
+5. **Playback, sync and subtitles?** No playback problems. Subtitle timing: only 6 of 75 cues could be matched at both ends within 0.5 s (the rest sit within 3 s of a neighbour, so I can only say the words are spoken around the cue). 28 of 75 cues run above 17 characters per second and 10 above 21, so fast exchanges (4:26, 6:40, 7:24, 8:00-8:20) are hard to read. I did not see the browser page render them.
+
+## What I'd watch next time
+Whether the long still shots get movement (0:30-0:50, 3:10-3:30, 7:08-7:20), whether the credits show people's names, and whether the last 30 s explains what happened to Emo.

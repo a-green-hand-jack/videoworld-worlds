@@ -1,0 +1,44 @@
+# Delivery specification — what each cut is judged against
+
+Every cut of `film/paper-lantern.mp4` is checked against this list; the lock requires all **hard** items and no open serious finding on the **story/picture/sound** items. Source: `director`#1 (the objective) and `direction/script.md`, `direction/shot-list.md`.
+
+## Hard (technical) — measured with ffprobe/ffmpeg
+
+| # | Requirement | How checked |
+|---|---|---|
+| H1 | File at `film/paper-lantern.mp4` in the assembled delivery, nonempty, MP4 container | `ht-role delivery`, `ffprobe -show_format` |
+| H2 | Video H.264, 1280x720, square pixels (SAR 1:1), 24 fps constant (r_frame_rate 24/1) | `ffprobe -show_streams` |
+| H3 | Pixel format yuv420p (browser-playable), moov atom at the front (`+faststart`) | `ffprobe`, atom order |
+| H4 | Audio AAC, 2 channels (stereo), 44.1 or 48 kHz | `ffprobe -show_streams` |
+| H5 | Duration 18.0–22.0 s (target 20.0 s); audio and video streams each cover the whole duration (within 0.1 s) | `ffprobe` per-stream durations |
+| H6 | Decodes start to end without errors | `ffmpeg -v error -i … -f null -` |
+| H7 | No clipping: audio true peak ≤ −1.0 dBFS; integrated loudness about −16 to −23 LUFS; no silent gap > 0.5 s except the very head/tail fades | `ffmpeg ebur128 / astats / silencedetect` |
+
+## Story and picture — watched (frames sampled every 0.5 s, each shot watched)
+
+| # | Requirement |
+|---|---|
+| P1 | Opening title "The Paper Lantern" legible for ≥ 2.0 s at the head |
+| P2 | Four to six picture shots, each made from a still image with a slow camera move (pan/push/pull/tilt), between title and end card |
+| P3 | The beats read without words, in order: dusk; child lets the lantern go on the river; it drifts past the village; it ends a small light among the stars |
+| P4 | Consistent style across all shots, title and end card |
+| P5 | The child looks the same wherever it appears; the lantern looks the same (shape, colour, glow) in every shot |
+| P6 | Camera moves smooth, no jitter, no image edges/borders revealed, no obvious upscale blur or generation artefacts that break the image (extra fingers, melted houses, text garbage) |
+| P7 | End card legible for ≥ 1.5 s at the tail |
+
+## Sound — listened (whole track, via audio-understanding and spectrogram/levels)
+
+| # | Requirement |
+|---|---|
+| S1 | Water ambience and evening ambience audible under the film from start to end (fading in/out at head/tail is fine) |
+| S2 | A soft musical cue present, entering around the release and supporting the star moment |
+| S3 | No dialogue, no voice, no lyrics |
+| S4 | Clean mix: no clicks, pops, abrupt cuts in the sound at shot changes, distortion or hiss |
+
+## Screening
+
+| # | Requirement |
+|---|---|
+| A1 | `test-audience` has watched the cut proposed for lock (handed over as a release of `director`) and reported; any confusion about the story or the characters is weighed before the lock |
+
+Each check report lives in `qc/<cut>.md` in this repository, with each fault's cut and timecode and a lock-or-fix recommendation.

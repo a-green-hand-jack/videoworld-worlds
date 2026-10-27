@@ -1,0 +1,12 @@
+# Film Brief: Synthetic Check of Image-Generation Resource
+
+## What the input asks
+> "A synthetic check of one resource before a real film. It is not a film: do only this, briefly, and do not retry a failed step another way.
+> 
+> editor and director, each in its first turn: read `ht-resource describe image-generation`, make exactly one request as it says for a small image of a lit match in snow, save the image, check it with `file`, and write `probe.md` in your repository with the HTTP status and the file's type, or the exact error (at most 10 lines). The director then approves the release if both images were made; otherwise it says which failed."
+
+## Focus and Priorities
+- Verify the `image-generation` HTTP resource by making one request for a lit match in snow.
+- Save the image and verify its type.
+- Record HTTP status and file type in `probe.md`.
+- Approve the release once both director and editor confirm images were generated.

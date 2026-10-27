@@ -1,0 +1,37 @@
+# QC — editor `cut-v1` (editor commit a32c43bc5418), against `direction/delivery-spec.md`
+
+Method: `tools/qc.sh` on release asset `cut-v1.mp4`; frames every 0.5 s (`qc/cut-v1-contact.jpg`) plus full-size frames at 01.5, 06.0, 16.8 and 19.0; whole track listened to with audio-understanding (64 kbit/s mono).
+
+## Hard — all pass
+- H2/H3: h264 High 1280x720 SAR 1:1, 24/1 CFR, 480 frames, yuv420p, moov before mdat. H4: AAC LC 48 kHz stereo. H5: 20.000 s on format, video and audio. H6: clean decode.
+- H7: −19.8 LUFS, LRA 11.3 LU, true peak −6.0 dBFS; no silence > 0.5 s at −50 dB.
+
+## Story and picture — pass
+- P1: "The Paper Lantern" in cream EB Garamond italic, centred, legible on the dusk sky from about 00.5 to 02.5 s (full frame at 01.5 s).
+- P2: five shots between the cards, each a still with a slow move (shot timings as in the shot list).
+- P3: dusk with the child and lantern at the bank (02.5–06), the release (06–09.5), drift past the village (09.5–13), open water and first stars (13–16), a tiny warm light among the reflected stars (16–18). Reads in order.
+- P4/P5: one gouache style; the lantern and the child's rust-red sleeves match across shots (also `qc/stills-v1.md`, `qc/picture-v1.md`).
+- P6: smooth moves, no edges, no artefacts seen.
+- P7: "The End" on the starry card 18–20 s, fading to black.
+
+## Sound — pass
+- S1: gentle river lapping from 00:00 throughout, with crickets. The early bird is not perceived; that is acceptable under the spec's "evening ambience".
+- S2: music box/celesta over a warm pad from 00:05–00:06 at the release, rising to 00:13–00:16, decaying through the end card. Clearly audible above the bed.
+- S3: no voice. S4: no clicks, pops, jumps or distortion reported or seen in levels.
+
+## Open
+- A1: screening by `test-audience` — handed over as `director` release `cut-v1`.
+
+**Recommendation: lock candidate, pending the screening.**
+
+## Screening weighed (test-audience `screening/cut-v1.md`, commit 248015424ea5)
+
+The viewer understood the child, the release, the drift past the village and the light among the stars unprompted, read both cards and heard the ambience and the cue. Their flags, checked against the cut:
+
+1. **05.9–06.2 double lantern (confirmed, fix).** The dissolve from shot 1 to shot 2 superimposes the small lantern of shot 1 on the large lantern of shot 2 (frames from 05.6 s every 4 frames, in the third frame). It is the one moment of confusion. Fix: a straight cut at 06.0 (wide shot to the close-up on the lantern), or a dissolve of no more than 3 frames.
+2. **02.0–02.5 title over the child (confirmed, minor fix).** The title is still at about 50 % over the child during the dissolve into shot 1. Fix: finish the title's fade-out before the picture dissolve starts.
+3. **16–18 which light is the lantern (no fix).** In full frames (16.8 s) the lantern is the one warm-orange point on the water in the same screen position as in shot 4 (≈0.66 of frame width). "It became one of the lights" is the ending the input asks for.
+4. **08–13 slow and static (no fix).** It is a deliberate quiet drift; 3.5 s per shot is inside the spec. Not changing the timing.
+5. **19.0–20.0 sound ends before the picture (not confirmed).** Measured: audio −22.3 dB at 19.0, −35.0 at 19.5, −45.1 at 19.75; picture luma 40.5 at 19.0, 23.7 at 19.5, 10.9 at 19.75. They fade together.
+
+**Decision: revise cut-v1 → cut-v2 for items 1 and 2 only (editor), then re-check and lock.** No other position's work changes.

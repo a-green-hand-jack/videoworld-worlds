@@ -1,0 +1,7 @@
+{
+  "commitment_schema": 1,
+  "delivers": [
+    {"what": "A consistent static title card reading Tone, Rain, Clip, with design specification, reference image and picture log", "standard": "1280x720 title card held unchanged for the whole 10-second, 24 fps clip; publish the design and image in a repository release."},
+    {"what": "listening.md documenting my independent audio-understanding submission of the delivered clip sound", "standard": "Before lock, retain exact request and raw answer, identify the submitted audio, and assess the reported MM:SS events against 00:00–00:03 clean 440 Hz tone, 00:03–00:05 silence, 00:05–00:08 rain-like noise and 00:08–00:10 hard-clipped 880 Hz tone."}
+  ]
+}

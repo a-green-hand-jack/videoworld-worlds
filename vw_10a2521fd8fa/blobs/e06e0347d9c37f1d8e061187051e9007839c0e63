@@ -1,0 +1,11 @@
+# cut-v6a — round 2, first cut (from the locked cut-v5d, 121.959 s)
+
+EDL `edl.json` from `make_edl.py`: cut-v5d's timeline, shots, mix (sound-designer `mix-cut-v5c`) and subtitle timing. Changes:
+- Every still push-in and drift (s10 goose frames, s12 stars, s13a memory, s14, s15, s16, s17, s18, the s19 sky) is rendered
+  by `tools/conform.py push()` with sub-pixel bicubic sampling instead of ffmpeg zoompan, which moved the crop in whole
+  pixels: cut-v5d s18 at 1:49.7 stepped 0.9 px every 5th frame with about 0 px between (sub-pixel phase correlation).
+  Where a drift reaches the picture's edge it now eases to a stop over ~0.35 s instead of stopping dead.
+- Subtitles: cue 12 re-wrapped "A warm iron stove seemed / to stand before her." and cue 18 "The lights rose and became stars. / One fell."
+  (cut-v5d left one word on the second line). Timing is unchanged.
+Still to come this round: dp's moving shots for the still slots (dp#8), and the ending told so the models will make it (director#23).
+Measured: `verify.txt` and the per-shot motion series in `motion.txt`.

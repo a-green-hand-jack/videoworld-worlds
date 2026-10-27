@@ -1,0 +1,560 @@
+[
+  {
+    "shot": "shot1",
+    "source": "picture/stills/shot1.png",
+    "clip": "picture/shots/shot1.mp4",
+    "frames": 108,
+    "fps": 24,
+    "duration": 4.5,
+    "source_size": [
+      1672,
+      940
+    ],
+    "zoom": [
+      1.0,
+      1.065
+    ],
+    "anchor": [
+      0.4,
+      0.59
+    ],
+    "horizontal_pan_fraction": null,
+    "source_sha256": "0964b2727c7a11f4de39044338deb765d827885a4c387ed97fa00a09764b8649",
+    "preview_frames": [
+      "picture/checks/shot1-000.jpg",
+      "picture/checks/shot1-054.jpg",
+      "picture/checks/shot1-107.jpg"
+    ],
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1280,
+          "height": 720,
+          "coded_width": 1280,
+          "coded_height": 720,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "16:9",
+          "pix_fmt": "yuv420p",
+          "level": 31,
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "24/1",
+          "avg_frame_rate": "24/1",
+          "time_base": "1/12288",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 55296,
+          "duration": "4.500000",
+          "bit_rate": "5736906",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "108",
+          "extradata_size": 47,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc59.37.100 libx264"
+          }
+        }
+      ],
+      "format": {
+        "filename": "/hutian/repo/picture/shots/shot1.mp4",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "4.500000",
+        "size": "3229086",
+        "bit_rate": "5740597",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf59.27.100"
+        }
+      }
+    }
+  },
+  {
+    "shot": "shot2",
+    "source": "picture/stills/shot2.png",
+    "clip": "picture/shots/shot2.mp4",
+    "frames": 108,
+    "fps": 24,
+    "duration": 4.5,
+    "source_size": [
+      1672,
+      941
+    ],
+    "zoom": [
+      1.0,
+      1.055
+    ],
+    "anchor": [
+      0.56,
+      0.58
+    ],
+    "horizontal_pan_fraction": null,
+    "source_sha256": "74e232a6ff99e0cd8b91b59b884893553e6990459ce77a69a258b3ad3f60b7f4",
+    "preview_frames": [
+      "picture/checks/shot2-000.jpg",
+      "picture/checks/shot2-054.jpg",
+      "picture/checks/shot2-107.jpg"
+    ],
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1280,
+          "height": 720,
+          "coded_width": 1280,
+          "coded_height": 720,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "16:9",
+          "pix_fmt": "yuv420p",
+          "level": 31,
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "24/1",
+          "avg_frame_rate": "24/1",
+          "time_base": "1/12288",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 55296,
+          "duration": "4.500000",
+          "bit_rate": "3857857",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "108",
+          "extradata_size": 47,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc59.37.100 libx264"
+          }
+        }
+      ],
+      "format": {
+        "filename": "/hutian/repo/picture/shots/shot2.mp4",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "4.500000",
+        "size": "2172009",
+        "bit_rate": "3861349",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf59.27.100"
+        }
+      }
+    }
+  },
+  {
+    "shot": "shot3",
+    "source": "picture/stills/shot3.png",
+    "clip": "picture/shots/shot3.mp4",
+    "frames": 108,
+    "fps": 24,
+    "duration": 4.5,
+    "source_size": [
+      1672,
+      941
+    ],
+    "zoom": [
+      1.06,
+      1.06
+    ],
+    "anchor": [
+      0.5,
+      0.56
+    ],
+    "horizontal_pan_fraction": [
+      0.85,
+      0.15
+    ],
+    "source_sha256": "8409356e0804c02442da8d8a075e47ac8e2a59cb2d95ffd8ef632074d462388a",
+    "preview_frames": [
+      "picture/checks/shot3-000.jpg",
+      "picture/checks/shot3-054.jpg",
+      "picture/checks/shot3-107.jpg"
+    ],
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1280,
+          "height": 720,
+          "coded_width": 1280,
+          "coded_height": 720,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "16:9",
+          "pix_fmt": "yuv420p",
+          "level": 31,
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "24/1",
+          "avg_frame_rate": "24/1",
+          "time_base": "1/12288",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 55296,
+          "duration": "4.500000",
+          "bit_rate": "2610391",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "108",
+          "extradata_size": 47,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc59.37.100 libx264"
+          }
+        }
+      ],
+      "format": {
+        "filename": "/hutian/repo/picture/shots/shot3.mp4",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "4.500000",
+        "size": "1470421",
+        "bit_rate": "2614081",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf59.27.100"
+        }
+      }
+    }
+  },
+  {
+    "shot": "shot4",
+    "source": "picture/stills/shot4.png",
+    "clip": "picture/shots/shot4.mp4",
+    "frames": 96,
+    "fps": 24,
+    "duration": 4.0,
+    "source_size": [
+      1672,
+      941
+    ],
+    "zoom": [
+      1.065,
+      1.0
+    ],
+    "anchor": [
+      0.85,
+      0.49
+    ],
+    "horizontal_pan_fraction": null,
+    "source_sha256": "458b3584795b6a4f4bb2b9629382e1dc8e6c912e1f5f924c87388e488e03e79d",
+    "preview_frames": [
+      "picture/checks/shot4-000.jpg",
+      "picture/checks/shot4-048.jpg",
+      "picture/checks/shot4-095.jpg"
+    ],
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1280,
+          "height": 720,
+          "coded_width": 1280,
+          "coded_height": 720,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "16:9",
+          "pix_fmt": "yuv420p",
+          "level": 31,
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "24/1",
+          "avg_frame_rate": "24/1",
+          "time_base": "1/12288",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 49152,
+          "duration": "4.000000",
+          "bit_rate": "3788366",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "96",
+          "extradata_size": 47,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc59.37.100 libx264"
+          }
+        }
+      ],
+      "format": {
+        "filename": "/hutian/repo/picture/shots/shot4.mp4",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "4.000000",
+        "size": "1896163",
+        "bit_rate": "3792326",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf59.27.100"
+        }
+      }
+    }
+  },
+  {
+    "shot": "shot5",
+    "source": "picture/stills/shot5.png",
+    "clip": "picture/shots/shot5.mp4",
+    "frames": 72,
+    "fps": 24,
+    "duration": 3.0,
+    "source_size": [
+      1672,
+      941
+    ],
+    "zoom": [
+      1.0,
+      1.025
+    ],
+    "anchor": [
+      0.64,
+      0.51
+    ],
+    "horizontal_pan_fraction": null,
+    "source_sha256": "a17a671973749b857673926b7256bc40116e53c58c610d38a93b64aa1ccbf7d4",
+    "preview_frames": [
+      "picture/checks/shot5-000.jpg",
+      "picture/checks/shot5-036.jpg",
+      "picture/checks/shot5-071.jpg"
+    ],
+    "probe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1280,
+          "height": 720,
+          "coded_width": 1280,
+          "coded_height": 720,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "16:9",
+          "pix_fmt": "yuv420p",
+          "level": 31,
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "24/1",
+          "avg_frame_rate": "24/1",
+          "time_base": "1/12288",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 36864,
+          "duration": "3.000000",
+          "bit_rate": "4323128",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "72",
+          "extradata_size": 47,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc59.37.100 libx264"
+          }
+        }
+      ],
+      "format": {
+        "filename": "/hutian/repo/picture/shots/shot5.mp4",
+        "nb_streams": 1,
+        "nb_programs": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "3.000000",
+        "size": "1622741",
+        "bit_rate": "4327309",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf59.27.100"
+        }
+      }
+    }
+  }
+]

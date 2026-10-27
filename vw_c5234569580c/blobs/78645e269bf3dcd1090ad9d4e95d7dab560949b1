@@ -1,0 +1,9 @@
+# Generation notes
+
+Resource: image-generation, gpt-image-2, medium, requested 2048x1152. Final prompts: picture/prompts/.
+
+The bundled imagegen CLI used OpenAI Python SDK 3.35.1. All five requests reached the service but its SSE return was exposed as a string, producing `'str' object has no attribute 'data'` at the save step. No image from that CLI batch was recoverable. A direct HTTP call to the configured resource returned `text/event-stream`; decoding its `image_generation.completed` event recovered shot 1. Remaining requests use the same documented resource and parse that event, with no model or prompt change. No credentials or private endpoint values are recorded here.
+
+Visual check, source shot1.png: warm-skinned child with black bob and rust coat at near left bank; two hands supporting the dark tray above water; cream cuboid lantern with dark uprights; quiet tiled village on far bank. All match fixed designs. Added stone bridge in the distance is acceptable geography, retained as an establishing-only background detail. The sunset disk is contextual dusk light; lantern becomes the dominant warm point in the later scenes.
+
+Visual check, all five source stills: shot 2 has separated relaxed hands in matching sleeves and the same tray/paper geometry. Shot 3 has the same lantern alone beside warm-windowed houses, a wake to left. Shots 4–5 widen into blue water and star reflections; the amber point remains on the river. Each remains a coherent painterly illustration. The service returned 1672x940 (shot 1) / 1672x941 (shots 2–5), despite a requested 2048x1152; actual sizes still exceed the minimum move resolution. Scale changes stay below 7%, preserving native detail at 1280x720. These observations concern source stills only; rendered-clip checks follow.

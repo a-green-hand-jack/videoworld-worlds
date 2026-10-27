@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""Print the shot and line tables of an EDL as markdown. usage: edl_readme.py EDL.json"""
+import json, sys
+
+def f(x):
+    return f"{int(x // 60):02d}:{x % 60:06.3f}"
+
+e = json.load(open(sys.argv[1]))
+print("## Shots (record in/out)\n\n| shot | in | out | dur s | lines | source |\n|---|---|---|---|---|---|")
+for s in e["shots"]:
+    src = s.get("src") or ("title card" if s.get("title") else "slate")
+    print(f"| {s['id']} | {f(s['in'])} | {f(s['out'])} | {s['dur']:.3f} | {', '.join(s['lines'])} | {src} |")
+print("\n## Lines\n\n| # | shot | speaker | start | end | dur s | timing | text |\n|---|---|---|---|---|---|---|---|")
+for l in e["lines"]:
+    print(f"| {l['line']} | {l['shot']} | {l['speaker']} | {f(l['start'])} | {f(l['end'])} | {l['dur']:.2f} | "
+          f"{'measured' if l['measured'] else 'estimate'} | {l['text']} |")

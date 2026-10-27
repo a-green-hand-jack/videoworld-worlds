@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+R=/hutian/repo; L=${1:-animatic-v1}; O=/hutian/work/$L
+rm -rf $O /hutian/work/build/$L; mkdir -p $O/film
+python3 $R/edit/tools/vtt.py $R/edit/timeline.json $O/film/elephants-dream.en.vtt
+python3 -u $R/edit/tools/assemble.py --timeline $R/edit/timeline.json --out $O/film --credits $R/edit/credits.txt --label $L
+mv $O/film/film.mp4 $O/film/elephants-dream.mp4
+ffmpeg -v error -i $O/film/elephants-dream.mp4 -f null - 2> $O/decode-errors.txt || true
+ffprobe -v error -show_entries format=duration:stream=codec_name,profile,width,height,r_frame_rate,nb_frames,sample_rate,channels -of json $O/film/elephants-dream.mp4 > $O/probe.json
+echo "HUTIAN_WAKE: $L rendered: $(wc -c < $O/film/elephants-dream.mp4) bytes, decode errors $(wc -c < $O/decode-errors.txt) bytes"

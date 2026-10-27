@@ -1,0 +1,17 @@
+# The Paper Lantern — design v1
+
+Original brief: a child releases a paper lantern on a river at dusk; it passes the village and becomes a small light among stars. Five illustrated still-image shots, one continuous emotional journey.
+
+## Fixed design
+
+- **Child:** about seven; warm medium skin, straight black chin-length bob with blunt fringe; simple rust-red long-sleeved coat, dark navy trousers, small brown shoes. No hat, scarf, print, jewellery or backpack. Shot 1 gives the silhouette; shot 2 uses only the same coat sleeves and hands.
+- **Lantern:** one small rectangular cream-paper cuboid, taller than wide, thin dark brown bamboo corner ribs; open flat square top with no peaked roof, no handle, no tassel, no writing. A warm amber light inside. It sits on a flat square dark wooden floating tray, slightly wider than the lantern. About the length of the child's forearm in height. It floats on the water throughout, never flies.
+- **Village:** modest old riverside houses, muted warm plaster walls, dark blue-grey pitched tiled roofs, a few amber windows; river runs along them and widens beyond. No monuments, boats or crowds. Child is on the near left bank; village on opposite bank.
+- **Style:** cinematic hand-painted storybook gouache; soft dry-brush edges and subtle paper grain, atmospheric depth, restrained detail, no hard vector outlines. Amber lantern against lavender/indigo river and sky. No photorealism or glossy 3D.
+- **Palette progression:** peach and dusty lavender dusk in shots 1–2; indigo twilight in 3; blue night in 4–5. Lantern remains amber and becomes the only moving warm point. The reflected stars explain the final visual metaphor without changing the lantern into another object.
+
+## Framing and typography handoff
+
+Master stills are 1672x940 or 1672x941, effectively 16:9; per-frame sampling conforms them to 1280x720. Child and lantern stay inside a 10% action-safe region. No generated lettering. Editor sets “The Paper Lantern” and “The End” on the supplied sky backgrounds. Cinematic serif in warm cream, generous spacing and 10% safe margins; minimum cap height 29 px in final 720p picture.
+
+The stills are the identity references. A contact sheet will be published after visual inspection. Each shot has an exact source and camera recipe in picture/shot-log.json; silent clips preserve those decisions. Editor may shorten within director's allowed timing.

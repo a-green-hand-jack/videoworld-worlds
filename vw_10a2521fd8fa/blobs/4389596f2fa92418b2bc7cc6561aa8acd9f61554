@@ -1,0 +1,17 @@
+# cut-v6b — dp's moving shots in the still slots (from cut-v6a, 121.959 s)
+
+EDL `edl.json` from `make_edl.py`; shots from dp 06aa127 and 66079b3 (releases `shots-b3`, `shots-b4`, Wan 2.7; picks per director in editor#13); mix `mix-cut-v5c` and subtitles unchanged.
+| slot | cut | take, in-point | event placed |
+|---|---|---|---|
+| s10 goose | 0:53.3–0:58.2 | s10_wan1 src 0.7–4.25 (before its dissolve to the street), dims 56.43–56.93 into s10.mp4's dark wall (src 5.2) | dark on "then darkness" / goose flame-out 56.83 |
+| s12 stars | 1:04.0–1:12.0 | s12_wan1 src 0.0, speed 1 | lights rise to stars; falling star enters 68.4 and falls through "One fell" (~69.4); her face for "Someone is dying" |
+| s13a memory | 1:12.0–1:20.0 | s13a_wan2 src 0.0 (dp retake, shots-b5) | barefoot, the burnt match dark; the memory-glow fades out |
+| s14 plea | 1:25.6–1:29.9 | s14b_wan1 src 0.3 (grandmother in costume) | calls "Grandmother!" at 85.93; the grandmother steps into the glow 88.1–88.6 on "Take me with you!" |
+| s15 bundle | 1:29.9–1:34.3 | s15_wan2 src 0.1 | bundle catches 90.7–90.8 on the strike (90.78), big flare ~91.1, full ~91.6 |
+| s16 ascent | 1:34.3–1:42.3 | s16_wan1 src 0.3 | one continuous rise over the roofs |
+| s17 dawn | 1:42.3–1:49.5 | s17_wan1 src 0.4 (5.2 s), dissolve to s17b_wan1 src 1.5 | her face asleep, then the burnt matches by her bare feet on the pause before "frozen to death" (107.4–108.2) |
+| s18–s19 | 1:49.5–1:59.0 | s18b_wan1 src 1.2, s19 src 4.4, s19_wan1 src 0 | townspeople from behind, the bonnet woman lifts her hand to her mouth and speaks (breath) on line 22; tilt to the morning sky |
+
+No repeated frames (qc 652f3e5, spec 17): s03, s05 and s07 play at speed 1 (events move by at most 0.1 s). s04 is now dp's 8 s retake s04_wan2 (shots-b6) at speed 1; passers-by pass her offered
+match through "who will buy my matches?", then she stands alone for "No one had bought a single match." No take is retimed.
+Checked with qc's `tools/judder.py` (`judder.md`).

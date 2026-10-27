@@ -1,0 +1,3 @@
+Per-frame edge motion M (qc judder.py) of s09 relative to its 1 s trend; 6 Hz = a dip every 4th frame
+s09: 6 Hz peak 3.49 vs median of 1-11 Hz 0.47; M src frames 60-75: [1.89, 1.97, 1.98, 1.85, 2.05, 2.11, 2.16, 2.01, 2.34, 2.4, 2.4, 2.09, 2.51, 2.53, 2.56, 2.24]
+s09_even: 6 Hz peak 1.00 vs median of 1-11 Hz 0.66; M src frames 60-75: [1.91, 1.95, 1.98, 2.05, 2.06, 2.12, 2.15, 2.24, 2.06, 2.13, 2.29, 2.38, 2.16, 2.46, 2.4, 2.41]

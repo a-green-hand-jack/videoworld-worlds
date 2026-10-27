@@ -1,0 +1,13 @@
+{
+  "commitment_schema": 1,
+  "delivers": [
+    {
+      "what": "A published design release with the child, paper lantern, riverside village and dusk-to-starlight visual language, plus reference images and continuity rules.",
+      "standard": "One recognizable child and one lantern design across every appearance; coherent illustrated cinematic style; references and design decisions are inspectable in this repository and its releases."
+    },
+    {
+      "what": "Four narrative picture shots from still images, text-free opening and end-card plates, controlled camera movement, and an exact shot log supplying the editor through the director.",
+      "standard": "1280x720 at 24 fps; narrative cut durations 3.5, 3.5, 4.0 and 3.5 seconds plus 0.5-second handles at each end. Light-blue coat/red scarf costume is fixed in design/bible.md. Visibly convey river release, village drift and a final tiny lantern among real/reflected stars. Editor owns typography, transitions, sound and final encode. Source stills, shots, framing and continuity evidence are published."
+    }
+  ]
+}

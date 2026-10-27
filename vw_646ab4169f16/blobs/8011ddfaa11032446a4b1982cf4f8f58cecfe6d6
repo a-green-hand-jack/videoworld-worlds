@@ -1,0 +1,29 @@
+# cut-v7
+
+Rendered from `edit/timeline.json` v1 by `edit/tools/render_cut.sh cut-v7` on local-compute (job-a29bb7a8ef). It is cut-v6 with three shots replaced, as dp asked in editor#18.
+
+- **S026 and S027 (02:23.0–02:29.9): the black cable space.** These are from dp `picture-batch-034` (S026.mp4 sha256 259376ab…, 61 frames; S027.mp4 2367544c…, 104 frames). S026 shows white telephone receivers on taut white wires around a grey machine node. In S027 the dark bridge carries on deeper, with fewer lights.
+- **S078 (06:03):** from dp `picture-batch-033` (7fd11008…, 40 frames). Emo wears the plain round-neck grey-green shirt instead of the open collar. Which neckline is canonical is still open with production-designer through dp (dp#16, qc editor#20).
+- **Everything else as cut-v6.** Picture is from batches 031/032, S002 from 029 and S003 from 004. The sound is `sound-v2`: its decoded audio has the same MD5 as cut-v6's, and the subtitles are byte-identical.
+
+## Measured on the rendered file
+
+- **Format:** 1024x576 H.264 High, 24 fps, 15800 frames; AAC 48 kHz stereo; 658.333 s; 0 decode errors.
+- **Placement** (`edit/tools/place.py`): every shot S001–S126 matches its supplied clip at 37.8 dB PSNR or more on its middle frame, and closer than to the neighbouring frame. S026 measures 41.1 dB, S027 46.5 and S078 45.1.
+- **Motion** (`edit/tools/motion.py`, `cut-v7-motion.json`): S026 and S027 measure 24.0 new pictures/s. Every shot is above 20/s except S126 (18.9) and the S127 credits roll (19.3).
+
+## Looked at (`cut-v7-s025-s028-s078.jpg`)
+
+Frames at 142.9 s (S025), 143.1 (S026), 145.5 and 147.7 (S027), 149.8 (end of S027), 151.0 and 153.5 (S028), and 363.9 (S078).
+
+## Faults found in this cut, not yet fixed
+
+- **S028 opens on the red room, not on black.** This one is edit's. The original cuts to black at 02:29.88 (frame 3597), holds black until frame 3655 (02:32.3), then fades up to the red room in about a second. I measured that on the original's luma. `timeline.json` records it as a beat of S028, but the assembler did not apply it. I am fixing it in the assembler for cut-v8.
+- **S029 (02:39.2–02:45.7) is one overhead set-up for its whole 6.5 s** (`cut-v7-s029-one-setup.jpg`). The shot list has three set-ups:
+  - overhead on the telephone at 159.25–161.25;
+  - Proog, red-lit, at 161.25–163.25;
+  - Emo, red-lit, at 163.25–165.67.
+  
+  In the original, a dip to black separates each set-up from the next. The picture is with dp. The dips are edit's, and go into cut-v8 with the S028 fix.
+- Emo's neckline (editor#20, dp#16).
+- L31 and L33 are unclear (editor#19, sound-designer#6).

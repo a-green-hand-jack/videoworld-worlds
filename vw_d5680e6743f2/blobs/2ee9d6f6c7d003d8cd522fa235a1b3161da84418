@@ -1,0 +1,20 @@
+  warnings.warn(
+Loading weights:   0%|          | 0/203 [00:00<?, ?it/s]Loading weights: 100%|██████████| 203/203 [00:00<00:00, 5481.09it/s]
+  y, sr = librosa.load(sys.argv[1], sr=16000, mono=True)
+	Deprecated as of librosa version 0.10.0.
+	It will be removed in librosa version 1.0.
+  y, sr_native = __audioread_load(path, offset, duration, dtype)
+  0.0- 21.5 s top: Vehicle 0.09, Waves, surf 0.08, White noise 0.07, Ocean 0.05, Music 0.04, Boat, Water vehicle 0.04
+            watch: Ocean 0.05
+  0.0-  4.0 s top: Waves, surf 0.11, Ocean 0.10, Buzzer 0.04, White noise 0.03, Wind 0.03, Sound effect 0.03
+            watch: Ocean 0.10
+  4.0-  8.0 s top: Vehicle 0.13, Buzzer 0.08, Music 0.07, White noise 0.06, Sound effect 0.04, Train 0.04
+            watch: Music 0.07
+  8.0- 12.0 s top: Vehicle 0.20, Music 0.11, Sound effect 0.05, Motorboat, speedboat 0.04, Car 0.04, Speech 0.04
+            watch: Music 0.11
+ 12.0- 16.0 s top: Vehicle 0.26, Music 0.09, Speech 0.09, Car 0.07, Buzzer 0.04, Car passing by 0.04
+            watch: Speech 0.09, Music 0.09
+ 16.0- 20.0 s top: Vehicle 0.18, Music 0.15, Doorbell 0.07, Car 0.05, Ding-dong 0.04, Ding 0.04
+            watch: Music 0.15
+ 20.0- 21.5 s top: Telephone bell ringing 0.07, Sound effect 0.07, Explosion 0.06, Ringtone 0.05, Ding 0.05, Burst, pop 0.04
+            watch: 

@@ -1,0 +1,35 @@
+"""Render still-camera moves in exact CFR frames, with 12-frame handles."""
+from pathlib import Path
+from PIL import Image
+import subprocess, json
+ROOT=Path(__file__).resolve().parents[1]
+SPECS=[
+ ('S1','shot-01.png',84, (1.00,.50,.50),(1.055,.44,.55),'Gentle push toward the child and lantern'),
+ ('S2','shot-02.png',84, (1.00,.50,.50),(1.045,.52,.56),'Gentle push toward the floating lantern and released hands'),
+ ('S3','shot-03.png',96, (1.045,.30,.50),(1.045,.70,.50),'Slow rightward pan along the river'),
+ ('S4','shot-04.png',84, (1.055,.50,.61),(1.00,.50,.50),'Pull back to reveal real and reflected stars'),
+]
+log={'fps':24,'width':1280,'height':720,'handle_frames_each_end':12,'shots':[],'cards':{'T':{'plate':'picture/stills/title-plate.png','cut_frames':60},'E':{'plate':'picture/stills/end-plate.png','cut_frames':72}},'edit_note':'Narrative core durations total 348 frames; title 60 + end 72 => 480 frames (20 seconds). Each clip has 12-frame handles at both ends. Text, transitions, sound and final encode belong to editor. Files are silent.'}
+out=ROOT/'picture/shots';out.mkdir(parents=True,exist_ok=True)
+evidence=ROOT/'picture/evidence';evidence.mkdir(parents=True,exist_ok=True)
+for name,source,cut_frames,a,b,description in SPECS:
+ im=Image.open(ROOT/'picture/stills'/source).convert('RGB');w,h=im.size;n=cut_frames+24
+ path=out/(name+'.mp4')
+ cmd=['ffmpeg','-hide_banner','-loglevel','error','-y','-f','rawvideo','-pixel_format','rgb24','-video_size','1280x720','-framerate','24','-i','-','-an','-c:v','libx264','-preset','slow','-crf','17','-pix_fmt','yuv420p','-movflags','+faststart','-threads','2',str(path)]
+ p=subprocess.Popen(cmd,stdin=subprocess.PIPE)
+ for f in range(n):
+  t=f/(n-1);t=t*t*(3-2*t)
+  z,cx,cy=[a[i]+(b[i]-a[i])*t for i in range(3)]
+  cw=w/z;ch=h/z;x=(w-cw)*cx;y=(h-ch)*cy
+  frame=im.resize((1280,720),Image.Resampling.LANCZOS,box=(x,y,x+cw,y+ch))
+  if f in (12,n//2,n-13):frame.save(evidence/f'{name}-{f:03d}.jpg',quality=93)
+  p.stdin.write(frame.tobytes())
+ p.stdin.close()
+ if p.wait()!=0:raise RuntimeError(name+' encode failed')
+ info=json.loads(subprocess.check_output(['ffprobe','-v','error','-count_frames','-show_streams','-show_format','-of','json',str(path)]))
+ st=info['streams'][0]
+ assert st['width']==1280 and st['height']==720 and st['r_frame_rate']=='24/1' and int(st['nb_read_frames'])==n
+ log['shots'].append({'id':name,'release_asset':'shot'+name[1:]+'.mp4','file':str(path.relative_to(ROOT)),'still':'picture/stills/'+source,'total_frames':n,'duration_seconds':n/24,'core_in_frame':12,'core_out_frame_exclusive':12+cut_frames,'core_frames':cut_frames,'movement':description,'camera_start_zoom_xy':a,'camera_end_zoom_xy':b,'probe':{'codec':st['codec_name'],'pix_fmt':st['pix_fmt'],'nb_read_frames':st['nb_read_frames'],'r_frame_rate':st['r_frame_rate']}})
+ print(f'{name}: encoded and measured {n} frames, {n/24:.2f}s',flush=True)
+(ROOT/'picture/shot-log.json').write_text(json.dumps(log,indent=2)+'\n')
+print('All picture clips complete',flush=True)

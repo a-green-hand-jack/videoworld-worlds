@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+"""Render a newly made picture still as an exact-length, moving editorial shot."""
+
+import argparse
+from pathlib import Path
+import subprocess
+
+import imageio_ffmpeg
+
+
+WIDTH = 1024
+HEIGHT = 576
+FPS = 24
+OVERSCAN_WIDTH = 1120
+OVERSCAN_HEIGHT = 630
+SUBPIXEL_SCALE = 8
+RENDER_WIDTH = WIDTH * SUBPIXEL_SCALE
+RENDER_HEIGHT = HEIGHT * SUBPIXEL_SCALE
+RENDER_OVERSCAN_WIDTH = OVERSCAN_WIDTH * SUBPIXEL_SCALE
+RENDER_OVERSCAN_HEIGHT = OVERSCAN_HEIGHT * SUBPIXEL_SCALE
+
+
+def moving_crop(motion: str, frames: int) -> str:
+    fraction = f"n/{max(frames - 1, 1)}"
+    center_x = "(in_w-out_w)/2"
+    center_y = "(in_h-out_h)/2"
+    positions = {
+        "pan-right": (f"(in_w-out_w)*{fraction}", center_y),
+        "pan-left": (f"(in_w-out_w)*(1-{fraction})", center_y),
+        "tilt-down": (center_x, f"(in_h-out_h)*{fraction}"),
+        "tilt-up": (center_x, f"(in_h-out_h)*(1-{fraction})"),
+    }
+    if motion in positions:
+        horizontal, vertical = positions[motion]
+        return f"crop={RENDER_WIDTH}:{RENDER_HEIGHT}:x='{horizontal}':y='{vertical}'"
+    zoom = f"1+0.085*on/{max(frames - 1, 1)}"
+    horizontal = "iw/2-iw/zoom/2"
+    if motion in ("pull-back", "pull-back-drift"):
+        zoom = f"1.085-0.085*on/{max(frames - 1, 1)}"
+    if motion == "pull-back-drift":
+        horizontal += f"+iw*0.60*on/{max(frames - 1, 1)}"
+    return (
+        f"zoompan=z='{zoom}':x='{horizontal}':y='ih/2-ih/zoom/2'"
+        f":d=1:s={RENDER_WIDTH}x{RENDER_HEIGHT}:fps={FPS}"
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--image", type=Path, required=True, help="Newly made, approved artwork; never a source frame")
+    parser.add_argument("--frames", type=int, required=True, help="Exact frames in the edit timeline")
+    parser.add_argument("--motion", choices=("pan-right", "pan-left", "tilt-up", "tilt-down", "push-in", "pull-back", "pull-back-drift"), required=True)
+    parser.add_argument("--fade-in-frames", type=int, default=0)
+    parser.add_argument("--fade-out-frames", type=int, default=0)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--crf", type=int, default=10, help="H.264 constant rate factor; use 0 to preserve very subtle motion")
+    args = parser.parse_args()
+    if args.frames < 2 or not args.image.is_file() or args.image.suffix.lower() not in (".png", ".jpg", ".jpeg"):
+        parser.error("provide an existing PNG/JPEG and at least two output frames")
+    if args.fade_in_frames < 0 or args.fade_out_frames < 0 or args.fade_in_frames + args.fade_out_frames > args.frames:
+        parser.error("fade frame counts must be nonnegative and fit inside the shot")
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    filters = [
+        f"scale={RENDER_OVERSCAN_WIDTH}:{RENDER_OVERSCAN_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos",
+        f"crop={RENDER_OVERSCAN_WIDTH}:{RENDER_OVERSCAN_HEIGHT}",
+        moving_crop(args.motion, args.frames),
+        f"scale={WIDTH}:{HEIGHT}:flags=lanczos",
+        "format=yuv420p",
+    ]
+    if args.fade_in_frames:
+        filters.append(f"fade=t=in:s=0:n={args.fade_in_frames}")
+    if args.fade_out_frames:
+        filters.append(f"fade=t=out:s={max(0, args.frames - args.fade_out_frames - 1)}:n={args.fade_out_frames}")
+    command = [
+        imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
+        "-loop", "1", "-framerate", str(FPS), "-i", str(args.image),
+        "-vf", ",".join(filters), "-frames:v", str(args.frames),
+        "-c:v", "libx264", "-preset", "fast", "-crf", str(args.crf), "-pix_fmt", "yuv420p",
+        "-r", str(FPS), "-movflags", "+faststart", str(args.output),
+    ]
+    subprocess.run(command, check=True)
+    print(f"{args.output}: {args.frames} frames, {args.frames / FPS:.3f} s at {FPS} fps")
+
+
+if __name__ == "__main__":
+    main()
